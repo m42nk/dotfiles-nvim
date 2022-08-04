@@ -3,7 +3,6 @@
 - change telescope display
 - tpope 's plugins
 - popup lsp rename
-- dont insert comment on new line
 -- except on block comment (treesitter probably)
 - highlight yank
 - search \s
@@ -14,8 +13,10 @@
 - stop jumping to previous matching parenthesis on )
 - autoclose initial [No Name] when changing buffer
 - text object delete function, args, swap etc
-- alias :Wq etc
+- gitsigns as line like vscode
 
 # DONE
 - add animation when loading lsp
 - open last file in project instead of [No Name]
+- alias :Wq etc
+- dont insert comment on new line
