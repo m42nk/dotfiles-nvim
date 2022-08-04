@@ -1,16 +1,27 @@
+local ok, project = pcall(require, "project_nvim")
+if not ok then
+  return
+end
+
 local active = true
 
 if active then
 	-- Defer the call
 	vim.schedule(function()
-        -- TODO: Probably change this, since it's an interal function of project_nvim
-		local project_root = require("project_nvim.project").get_project_root()
+    -- TODO: Probably change this, since it's an interal function of project_nvim
+    local project_ok, project_root = pcall(require("project_nvim.project").get_project_root, "")
+
+    -- Check if project_nvim is configured
+    if not project_ok then
+      return
+    end
 
 		-- Cancel if vim called with any arguments
 		if next(vim.fn.argv()) ~= nil then
 			return
 		end
 
+    -- Cancel if project_root is not found
 		if not project_root then
 			return
 		end
