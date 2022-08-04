@@ -12,3 +12,4 @@ require "user.lastplace"
 require "user.keymaps"
 
 require "user.reload"
+require "user.restore-on-project"
