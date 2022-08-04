@@ -7,13 +7,17 @@ M.custom_configurations = function(opts)
     -- List lsp server settings
 
 	-- local configs = vim.split(vim.fn.glob("./*lua"), "\n")
-    local configs = require("mason-lspconfig").get_installed_servers()
+    -- local configs = require("mason-lspconfig").get_installed_servers()
+    local init_path = debug.getinfo(1, "S").source:sub(2)
+    local base_dir = init_path:match("(.*[/\\])"):sub(1, -2)
+    local configs = vim.split(vim.fn.glob(base_dir .. "/*.lua"), "\n")
+
 	local tbl = {}
 
 	for _, config in ipairs(configs) do
         -- Get the actual server name
-		-- local name = string.gsub(config, "./(.*).lua", "%1", 1)
-        local name = config
+        -- local name = config
+		local name = string.gsub(config, ".*/(.*).lua", "%1", 1)
 
 		if name ~= "" and name ~= "init" then
             -- Check if settings found

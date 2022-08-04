@@ -11,4 +11,8 @@ function _G.ReloadConfig()
   vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
 end
 
+_G.P = function(o)
+    print(vim.inspect(o))
+end
+
 -- Source: https://stackoverflow.com/a/72504767/7200504
