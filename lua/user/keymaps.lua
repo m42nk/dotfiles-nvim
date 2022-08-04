@@ -48,6 +48,9 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- Save
+keymap("n", "<leader><leader>", "<CMD>w<CR>", opts)
+
 -----------------------------------------------------
 -- Plugins
 -----------------------------------------------------

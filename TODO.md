@@ -4,6 +4,7 @@
 - tpope 's plugins
 - popup lsp rename
 - dont insert comment on new line
+-- except on block comment (treesitter probably)
 - add animation when loading lsp
 - highlight yank
 - search \s
@@ -12,3 +13,4 @@
 - autopairs
 - tablist
 - stop jumping to previous matching parenthesis on )
+

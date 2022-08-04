@@ -1,5 +1,5 @@
 require "user.settings"
-require "user.plugins"
+require "user.packer"
 require "user.colorscheme"
 require "user.lsp"
 
