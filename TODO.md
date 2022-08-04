@@ -14,6 +14,7 @@
 - stop jumping to previous matching parenthesis on )
 - autoclose initial [No Name] when changing buffer
 - text object delete function, args, swap etc
+- alias :Wq etc
 
 # DONE
 - add animation when loading lsp

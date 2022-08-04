@@ -23,20 +23,13 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>",    ":resize -2<CR>",          opts)
-keymap("n", "<C-Down>",  ":resize +2<CR>",          opts)
-keymap("n", "<C-Left>",  ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>",     opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
-
--- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -52,11 +45,22 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader><leader>", "<cmd>w<cr>", opts)
 
 -- Reload config
-keymap("n", "<leader><cr>", "<cmd>lua ReloadConfig()<cr>", opts)
+keymap("n", "<leader>r", "<cmd>lua ReloadConfig()<cr>", opts)
 
 -----------------------------------------------------
 -- Plugins
 -----------------------------------------------------
+
+-- Buffers and Bufferline
+keymap("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", opts)
+keymap("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", opts)
+keymap("n", "<leader>c", "<cmd>bdelete<cr>", opts)
+keymap("n", "<leader><S-h>", "<cmd>BufferLineMovePrev<cr>", opts)
+keymap("n", "<leader><S-l>", "<cmd>BufferLineMoveNext<cr>", opts)
+
+for i = 1, 5 do
+  keymap("n", "<M-" .. i .. ">", "<cmd>BufferLineGoToBuffer " .. i .. "<cr>", opts)
+end
 
 -- Easy Align
 keymap("x", "ga", "<Plug>(EasyAlign)<CR>")
@@ -65,11 +69,11 @@ keymap("x", "ga", "<Plug>(EasyAlign)<CR>")
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
-keymap("n",      "<C-p>", ":Telescope find_files<CR>", opts)
+keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>",  opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>",   opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>",    opts)
+keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
 -- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -79,16 +83,16 @@ keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewis
 keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 -- Readline mappingslocal readline = require 'readline'
-local readline = require("readline")
-keymap('!', '<M-f>', readline.forward_word)
-keymap('!', '<M-b>', readline.backward_word)
-keymap('!', '<C-a>', readline.beginning_of_line)
-keymap('!', '<C-e>', readline.end_of_line)
-keymap('!', '<M-d>', readline.kill_word)
-keymap('!', '<M-BS>', readline.backward_kill_word)
-keymap('!', '<C-w>', readline.unix_word_rubout)
-keymap('!', '<C-k>', readline.kill_line)
-keymap('!', '<C-u>', readline.backward_kill_line)
+local readline = require "readline"
+keymap("!", "<M-f>", readline.forward_word)
+keymap("!", "<M-b>", readline.backward_word)
+keymap("!", "<C-a>", readline.beginning_of_line)
+keymap("!", "<C-e>", readline.end_of_line)
+keymap("!", "<M-d>", readline.kill_word)
+keymap("!", "<M-BS>", readline.backward_kill_word)
+keymap("!", "<C-w>", readline.unix_word_rubout)
+keymap("!", "<C-k>", readline.kill_line)
+keymap("!", "<C-u>", readline.backward_kill_line)
 
 -- -- DAP
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
