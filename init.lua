@@ -10,3 +10,5 @@ require "user.project"
 require "user.lastplace"
 
 require "user.keymaps"
+
+require "user.reload"

@@ -49,7 +49,10 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Save
-keymap("n", "<leader><leader>", "<CMD>w<CR>", opts)
+keymap("n", "<leader><leader>", "<cmd>w<cr>", opts)
+
+-- Reload config
+keymap("n", "<leader><cr>", "<cmd>lua ReloadConfig()<cr>", opts)
 
 -----------------------------------------------------
 -- Plugins
