@@ -6,6 +6,6 @@ end
 fidget.setup {
     window = {
         relative = "editor",
-        blend = 10,
+        blend = 100,
     },
 }

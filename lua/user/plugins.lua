@@ -89,6 +89,11 @@ return require("packer").startup(function(use)
 	use({ "linty-org/readline.nvim" })
 	use({ "ethanholz/nvim-lastplace" })
 	use({ "folke/lua-dev.nvim" })
+	use("kyazdani42/nvim-web-devicons")
+	use({
+		"nvim-telescope/telescope-frecency.nvim",
+		requires = { "kkharji/sqlite.lua" },
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

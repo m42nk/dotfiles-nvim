@@ -40,57 +40,6 @@ M.setup = function()
 			end,
 		})
 	)
-
-	-- mason_lspconfig.setup_handlers({
-	--     function(server_name)
-	--         require("lspconfig")[server_name].setup(opts)
-	--     end,
-	--     -- ["sumneko_lua"] = function()
-	--     --     require("lspconfig").sumneko_lua.setup({
-	--     --         on_attach = opts.on_attach,
-	--     --         capabilities = opts.capabilities,
-	--     --         settings = {
-	--     --             Lua = {
-	--     --                 diagnostics = {
-	--     --                     globals = { "vim" },
-	--     --                 },
-	--     --                 workspace = {
-	--     --                     library = {
-	--     --                         [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-	--     --                         [vim.fn.stdpath("config") .. "/lua"] = true,
-	--     --                     },
-	--     --                 },
-	--     --                 telemetry = {
-	--     --                     enable = false,
-	--     --                 },
-	--     --             },
-	--     --         },
-	--     --     })
-	--     -- end,
-	--     -- ["sumneko_lua"] = function()
-	--     -- 	require("lspconfig").sumneko_lua.setup(require("lua-dev").setup({
-	--     -- 		settings = {
-	--     -- 			Lua = {
-	--     -- 				format = {
-	--     -- 					enable = false,
-	--     -- 				},
-	--     -- 				hint = {
-	--     -- 					enable = true,
-	--     -- 					arrayIndex = "Disable", -- "Enable", "Auto", "Disable"
-	--     -- 					await = true,
-	--     -- 					paramName = "Disable", -- "All", "Literal", "Disable"
-	--     -- 					paramType = false,
-	--     -- 					semicolon = "Disable", -- "All", "SameLine", "Disable"
-	--     -- 					setType = true,
-	--     -- 				},
-	--     -- 				diagnostics = {
-	--     -- 					globals = { "P" },
-	--     -- 				},
-	--     -- 			},
-	--     -- 		},
-	--     -- 	}))
-	--     -- end,
-	-- })
 end
 
 return M

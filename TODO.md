@@ -1,4 +1,5 @@
-- telescope set match to nearest first
+- telescope set match to nearest first (frecency)
+- change telescope display
 - open last file in project instead of [No Name]
 - tpope 's plugins
 - popup lsp rename
@@ -7,3 +8,7 @@
 - highlight yank
 - search \s
 - treesitter text object (c-w deletes whole line)
+- open help in new tab
+- autopairs
+- tablist
+- stop jumping to previous matching parenthesis on )
