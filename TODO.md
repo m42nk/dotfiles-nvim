@@ -1,18 +1,25 @@
 # TODO
-- telescope set match to nearest first (frecency)
-- change telescope display
+---Functionality
 - tpope 's plugins
-- popup lsp rename
--- except on block comment (treesitter probably)
-- highlight yank
 - search \s
 - treesitter text object (c-w deletes whole line)
-- open help in new tab
 - autopairs
+- text object delete function, args, swap etc
+- fold
+- codeaction as popup or telescope
+
+---Bling
+- https://github.com/drybalka/tree-climber.nvim
+- https://github.com/ThePrimeagen/refactoring.nvim
+- nested comment needs to be escaped (to fix jsx commenting comment)
+- telescope set match to nearest first (frecency)
+- change telescope display
+- popup lsp rename
+- highlight yank
+- open help in new tab
 - tablist
 - stop jumping to previous matching parenthesis on )
 - autoclose initial [No Name] when changing buffer
-- text object delete function, args, swap etc
 - gitsigns as line like vscode
 
 # DONE

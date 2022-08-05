@@ -26,7 +26,6 @@ opt.undofile = true           -- Persistent undo
 opt.number = true         -- Show line number
 opt.relativenumber = true -- Show relative line number
 opt.showmatch = true      -- Highlight matching parenthesis
-opt.foldmethod = 'marker' -- Enable folding (default 'foldmarker')
 opt.colorcolumn = '80'    -- Line lenght marker at 80 columns
 opt.splitright = true     -- Vertical split to the right
 opt.splitbelow = true     -- Horizontal split to the bottom
@@ -40,6 +39,9 @@ opt.conceallevel = 0      -- Make `` visible in markdown
 opt.cursorline = true     -- Highlight current line
 opt.signcolumn = "yes"    -- Always show the sign columns (diagnostics, etc)
 opt.showmode = false      -- Hide mode in cmdline "-- INSERT --"
+
+opt.foldmethod = 'marker' -- Enable folding (default 'foldmarker')
+-- opt.foldlevel = 0
 
 
 -----------------------------------------------------------

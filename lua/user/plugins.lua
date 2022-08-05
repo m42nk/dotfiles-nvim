@@ -72,7 +72,15 @@ return {
   -- Treesitter
   ----------------------------------
   {
+    -- Treesitter engine
     "nvim-treesitter/nvim-treesitter",
+  },
+  {
+    "nvim-treesitter/playground",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "windwp/nvim-ts-autotag",
+    'andymass/vim-matchup'
   },
 
   ----------------------------------
@@ -84,6 +92,10 @@ return {
 
     -- Remember last place on file reopen
     "ethanholz/nvim-lastplace",
+
+    -- Add more useful textobjects
+    -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
+    "wellle/targets.vim",
   },
 
   ----------------------------------
