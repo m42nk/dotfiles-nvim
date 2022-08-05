@@ -2,10 +2,6 @@
 -- General Neovim settings and configuration
 -----------------------------------------------------------
 
--- Default options are not included
--- See: https://neovim.io/doc/user/vim_diff.html
--- [2] Defaults - *nvim-defaults*
-
 local g = vim.g -- Global variables
 local opt = vim.opt -- Set options (global/buffer/windows-scoped)
 
@@ -26,7 +22,7 @@ opt.undofile = true           -- Persistent undo
 opt.number = true         -- Show line number
 opt.relativenumber = true -- Show relative line number
 opt.showmatch = true      -- Highlight matching parenthesis
-opt.colorcolumn = '80'    -- Line lenght marker at 80 columns
+opt.colorcolumn = '80'    -- Line length marker at 80 columns
 opt.splitright = true     -- Vertical split to the right
 opt.splitbelow = true     -- Horizontal split to the bottom
 opt.ignorecase = true     -- Ignore case letters when search
