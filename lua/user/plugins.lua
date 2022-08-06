@@ -67,10 +67,10 @@ return {
     -- Snippet engine
     "L3MON4D3/LuaSnip",
   },
-  --   {
-  --     "rafamadriz/friendly-snippets",
-  --     enable = false,
-  --   },
+  {
+    "rafamadriz/friendly-snippets",
+    enable = false,
+  },
 
   ----------------------------------
   -- Treesitter
@@ -100,9 +100,9 @@ return {
     -- Remember last place on file reopen
     "ethanholz/nvim-lastplace",
 
-    -- -- Add more useful textobjects
-    -- -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
-    -- "wellle/targets.vim",
+    -- Add more useful textobjects
+    -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
+    "wellle/targets.vim",
   },
 
   ----------------------------------
@@ -125,10 +125,10 @@ return {
     -- Project management, automate root-change
     "ahmedkhalf/project.nvim",
   },
-  --  {
-  --    -- Alignment tools, good for configs
-  --    "junegunn/vim-easy-align",
-  --  },
+  {
+    -- Alignment tools, good for configs
+    "junegunn/vim-easy-align",
+  },
   --  {
   --    -- Show buffers at top (like tabs in vscode)
   --    "akinsho/bufferline.nvim",
@@ -137,9 +137,4 @@ return {
   --    -- Status line
   --    "nvim-lualine/lualine.nvim",
   --  },
-  --
-  --  -- {
-  --  -- 	"nvim-telescope/telescope-frecency.nvim",
-  --  -- 	requires = { "kkharji/sqlite.lua" },
-  --  -- },
 }

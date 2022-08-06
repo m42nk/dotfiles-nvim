@@ -75,6 +75,7 @@ end
 
 -- Easy Align
 keymap("x", "ga", "<Plug>(EasyAlign)<CR>")
+keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 
 -- NvimTree
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
@@ -91,18 +92,6 @@ keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
-
--- Readline mappingslocal readline = require 'readline'
--- local readline = require "readline"
--- keymap("!", "<M-f>", readline.forward_word)
--- keymap("!", "<M-b>", readline.backward_word)
--- keymap("!", "<C-a>", readline.beginning_of_line)
--- keymap("!", "<C-e>", readline.end_of_line)
--- keymap("!", "<M-d>", readline.kill_word)
--- keymap("!", "<M-BS>", readline.backward_kill_word)
--- keymap("!", "<C-w>", readline.unix_word_rubout)
--- keymap("!", "<C-k>", readline.kill_line)
--- keymap("!", "<C-u>", readline.backward_kill_line)
 
 -- -- DAP
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
