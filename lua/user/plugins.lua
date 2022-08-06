@@ -129,12 +129,16 @@ return {
     -- Alignment tools, good for configs
     "junegunn/vim-easy-align",
   },
-  --  {
-  --    -- Show buffers at top (like tabs in vscode)
-  --    "akinsho/bufferline.nvim",
-  --  },
-  --  {
-  --    -- Status line
-  --    "nvim-lualine/lualine.nvim",
-  --  },
+  {
+    -- Show buffers at top (like tabs in vscode)
+    "akinsho/bufferline.nvim",
+  },
+  {
+    -- Status line
+    "nvim-lualine/lualine.nvim",
+  },
+  {
+    -- Tree Explorer
+    "kyazdani42/nvim-tree.lua",
+  },
 }
