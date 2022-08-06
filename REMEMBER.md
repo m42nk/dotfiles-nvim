@@ -49,3 +49,6 @@ gJ to return
 `ca` - Amend the last commit and edit the message
 `ce` - Amend the last commit without editing the message
 `cw` - Reword the last commit
+
+- Fugitive merge conflict
+- `Gvdiffsplit!`

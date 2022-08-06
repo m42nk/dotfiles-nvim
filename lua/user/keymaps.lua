@@ -62,6 +62,10 @@ keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
 -- Fugitive
 keymap("n", "<leader>G", "<cmd>0Git<cr>", opts)
 
+-- Surround
+-- simulate `ys` with <leader>s
+keymap("n", "<leader>s", "<plug>Ysurround", {})
+
 -- Buffers and Bufferline
 -- stylua: ignore start
 keymap("n", "<S-l>",         "<cmd>BufferLineCycleNext<cr>", opts)
@@ -83,12 +87,16 @@ keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Telescope
-keymap("n",  "<leader>f", "<cmd>Telescope find_files<CR>", opts)
+-- stylua: ignore start
+keymap("n", "<leader>f",  "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>",  opts)
 keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>",   opts)
 keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>",    opts)
+-- stylua: ignore end
 
 -- Comment
+-- TODO: fix this, make it more readable
+-- probably with lua function
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 

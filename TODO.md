@@ -1,4 +1,6 @@
 # TODO
+- partial commit using diff fugitive
+- telescope list jumplist in file
 ---Functionality
 - tpope 's plugins
 - search \s
@@ -31,4 +33,3 @@
 # Check Later
 Better ui for input, select, etc - https://github.com/stevearc/dressing.nvim
 Better git - https://github.com/rhysd/committia.vim
-
