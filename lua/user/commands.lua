@@ -1,7 +1,9 @@
+package.loaded["user.commands"] = nil
+
 local command = vim.api.nvim_create_user_command
 
--- Add `E` command to create file next to current file
-command("E", function(opts)
+-- Create file next to current file (sibling)
+command("ES", function(opts)
   -- Get new filename from argument
   local target_name = opts.args
 
@@ -10,10 +12,22 @@ command("E", function(opts)
 
   vim.cmd("e " .. target_dir .. "/" .. target_name)
 end, { nargs = 1 })
+--
+-- Edit init.lua
+command("EI", function()
+  vim.cmd [[e $MYVIMRC]]
+end, {})
 
+-- Run PackerSync
 command("PS", function(opts)
-  vim.cmd("PackerSync")
-end, {nargs = 0 })
+  vim.cmd [[PackerSync]]
+end, { nargs = 0 })
+
+-- Source current file
+command("R", function()
+  vim.cmd [[source %]]
+  vim.notify("Sourced " .. vim.fn.expand "%")
+end, {})
 
 vim.cmd [[
 cnoreabbrev W! w!

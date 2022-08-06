@@ -37,4 +37,3 @@ vim.tbl_deep_extend("force", require("user.lsp.settings").custom_configurations(
   end,
 })
 )
-

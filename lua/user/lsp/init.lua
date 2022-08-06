@@ -4,5 +4,6 @@ if not ok then
 end
 
 require "user.lsp.mason"
+require "user.lsp.null-ls"
 require "user.lsp.ui"
 require "user.lsp.fidget"

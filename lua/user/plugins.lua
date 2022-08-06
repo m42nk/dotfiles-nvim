@@ -68,13 +68,13 @@ return {
 --     enable = false,
 --   },
 
-  --  ----------------------------------
-  --  -- Treesitter
-  --  ----------------------------------
-  --  {
-  --    -- Treesitter engine
-  --    "nvim-treesitter/nvim-treesitter",
-  --  },
+ ----------------------------------
+ -- Treesitter
+ ----------------------------------
+ {
+   -- Treesitter engine
+   "nvim-treesitter/nvim-treesitter",
+ },
   --  {
   --    "nvim-treesitter/playground",
   --    "nvim-treesitter/nvim-treesitter-textobjects",
@@ -106,6 +106,10 @@ return {
     "navarasu/onedark.nvim",
     "folke/tokyonight.nvim",
   },
+   {
+     -- Comment engine
+     "numToStr/Comment.nvim",
+   },
   --
   --  {
   --    -- Telescope by Telescopic Johnson
@@ -118,10 +122,6 @@ return {
   --  {
   --    -- Alignment tools, good for configs
   --    "junegunn/vim-easy-align",
-  --  },
-  --  {
-  --    -- Comment engine
-  --    "numToStr/Comment.nvim",
   --  },
   --  {
   --    -- Add web dev icon
