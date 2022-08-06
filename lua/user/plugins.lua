@@ -111,6 +111,9 @@ return {
     -- Add more useful textobjects
     -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
     "wellle/targets.vim",
+
+    -- Convert single <-> multiline code
+    "AndrewRadev/splitjoin.vim",
   },
 
   ----------------------------------
