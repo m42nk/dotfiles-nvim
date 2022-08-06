@@ -1,8 +1,12 @@
 # TODO
+- add binding to stage all file (probably `A`)
+- helper on f/t (probably leap/sneak)
+- find way to cancel auto add pairs on autopairs (alphanumeric?)
 - partial commit using diff fugitive
 - telescope list jumplist in file
 ---Functionality
 - search \s
+- insert selected block to cmd as :s/<>/
 - text object delete swap
 - codeaction as popup or telescope
 

@@ -44,8 +44,6 @@ opt.laststatus = 2        -- Every pane has statusline
 -- opt.linebreak = false -- [?] Wrap on word boundary
 
 opt.shortmess:append "I"
-opt.formatoptions = opt.formatoptions 
-  - "o" -- Don't continue commenting on `o` or `O`
 
 -----------------------------------------------------------
 -- Tabs, indent

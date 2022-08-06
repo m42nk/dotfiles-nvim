@@ -42,7 +42,7 @@ gJ to return
 
 - Fugitive
 `:0G` - open git status in fullscreen
-`-`/`a` - [un]stage file
+`-`/`a` - [un]stage file (press it in "[Un]staged to toggle all file")
 `=` - open details (diff)
 `dv` - open vertical diff split
 `cc` - Create a commit
