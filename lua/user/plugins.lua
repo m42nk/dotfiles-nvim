@@ -114,6 +114,9 @@ return {
 
     -- Convert single <-> multiline code
     "AndrewRadev/splitjoin.vim",
+
+    -- Git signcolumn colored lines (like vscode)
+    "lewis6991/gitsigns.nvim",
   },
 
   ----------------------------------
