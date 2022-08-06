@@ -10,8 +10,9 @@ end
 
 mason.setup()
 
-mason_lspconfig.setup({
+mason_lspconfig.setup {
   ensure_installed = {
+    "emmet-ls",
     "codespell",
     -- "misspell",
     "sumneko_lua",
@@ -22,9 +23,8 @@ mason_lspconfig.setup({
     "bashls",
     "jsonls",
     "yamlls",
-    "emmet-ls"
   },
-})
+}
 
 -- Custom `ensure_installed` for Mason (installing other than lsp)
 -- NOTE: not implemented
@@ -32,14 +32,12 @@ mason_lspconfig.setup({
 -- probably move it to config install script, using headless install
 
 local opts = {
-  on_attach = require("user.lsp.on_attach"),
-  capabilities = require("user.lsp.capabilities"),
+  on_attach = require "user.lsp.on_attach",
+  capabilities = require "user.lsp.capabilities",
 }
 
-mason_lspconfig.setup_handlers(
-vim.tbl_deep_extend("force", require("user.lsp.settings").custom_configurations(opts), {
+mason_lspconfig.setup_handlers(vim.tbl_deep_extend("force", require("user.lsp.settings").custom_configurations(opts), {
   function(server_name)
     require("lspconfig")[server_name].setup(opts)
   end,
-})
-)
+}))

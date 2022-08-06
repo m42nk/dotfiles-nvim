@@ -49,6 +49,7 @@ cmp.setup {
     end,
   },
   sources = cmp.config.sources({
+    -- { name = "nvim_lsp", max_item_count = 1 },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },
@@ -77,6 +78,10 @@ cmp.setup {
   formatting = {
     fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
+      -- local f = assert(io.open("quicksave.txt", "a"))
+      -- f:write(vim.inspect(entry.source:get_debug_name()), "\n")
+      -- f:close()
+
       vim_item.kind = kind_icons[vim_item.kind] .. " " .. vim_item.kind
       vim_item.menu = config.source_names[entry.source.name]
       vim_item.dup = config.duplicates[entry.source.name]
