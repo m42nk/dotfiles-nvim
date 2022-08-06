@@ -2,12 +2,8 @@
 - partial commit using diff fugitive
 - telescope list jumplist in file
 ---Functionality
-- tpope 's plugins
 - search \s
-- treesitter text object (c-w deletes whole line)
-- autopairs
-- text object delete function, args, swap etc
-- fold
+- text object delete swap
 - codeaction as popup or telescope
 
 ---Bling
@@ -17,14 +13,17 @@
 - telescope set match to nearest first (frecency)
 - change telescope display
 - popup lsp rename
-- highlight yank
-- open help in new tab
-- tablist
-- stop jumping to previous matching parenthesis on )
 - autoclose initial [No Name] when changing buffer
-- gitsigns as line like vscode
 
 # DONE
+- tpope 's plugins
+- text object delete function, args, swap etc -> treesitter & targets.vim
+- autopairs
+- fold
+- highlight yank
+- open help in new tab -> alternative by using <c-w>o
+- gitsigns as line like vscode
+- stop jumping to previous matching parenthesis on )
 - add animation when loading lsp
 - open last file in project instead of [No Name]
 - alias :Wq etc

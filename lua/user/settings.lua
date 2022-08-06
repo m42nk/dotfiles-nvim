@@ -1,3 +1,4 @@
+-- stylua: ignore start
 ---------------------------------------
 -- Neovim settings and configuration
 ---------------------------------------
@@ -9,15 +10,15 @@ local opt = vim.opt
 -- General
 ---------------------------------------
 
-opt.mouse = 'a'               -- Enable mouse support
-opt.clipboard = 'unnamedplus' -- Use system clipboard
+opt.mouse = "a"               -- Enable mouse support
+opt.clipboard = "unnamedplus" -- Use system clipboard
 opt.wrap = false              -- Disable line wrap
 opt.scrolloff = 8             -- Scroll offset
 opt.undofile = true           -- Persistent undo even when the file is closed
 opt.ignorecase = true         -- Ignore case letters when search
 opt.smartcase = true          -- Ignore lowercase for the whole pattern
 opt.swapfile = false          -- Don't use swapfile
-opt.completeopt = 'menuone,noinsert,noselect' -- Autocomplete options
+opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
 
 ---------------------------------------
 -- Neovim UI
@@ -26,7 +27,7 @@ opt.completeopt = 'menuone,noinsert,noselect' -- Autocomplete options
 opt.number = true         -- Show line number
 opt.relativenumber = true -- Show relative line number
 opt.showmatch = false     -- Stop jumping to first matching parent/bracket
-opt.colorcolumn = '80'    -- Line length marker at 80 columns
+opt.colorcolumn = "80"    -- Line length marker at 80 columns
 opt.splitright = true     -- Vertical split to the right
 opt.splitbelow = true     -- Horizontal split to the bottom
 opt.termguicolors = true  -- Enable 24-bit RGB colors
@@ -39,10 +40,12 @@ opt.showmode = false      -- Hide mode like "-- INSERT --" in cmdline
 -- opt.laststatus = 3 -- Set global statusline
 opt.laststatus = 2        -- Every pane has statusline
 
--- opt.foldmethod = 'marker' -- Enable folding (default 'foldmarker')
+-- opt.foldmethod = "marker" -- Enable folding (default "foldmarker")
 -- opt.linebreak = false -- [?] Wrap on word boundary
 
 opt.shortmess:append "I"
+opt.formatoptions = opt.formatoptions 
+  - "o" -- Don't continue commenting on `o` or `O`
 
 -----------------------------------------------------------
 -- Tabs, indent
