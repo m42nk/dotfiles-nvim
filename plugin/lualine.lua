@@ -3,6 +3,16 @@ if not ok then
   return
 end
 
+local diff_section = {
+  "diff",
+  symbols = {
+    added = "[+] ",
+    modified = "[~] ",
+    removed = "[-] ",
+  },
+  source = nil,
+}
+
 lualine.setup {
   options = {
     icons_enabled = false,
@@ -10,7 +20,7 @@ lualine.setup {
     section_separators = { left = "", right = "" },
     disabled_filetypes = {
       statusline = {
-        "NvimTree"
+        "NvimTree",
       },
       winbar = {},
     },
@@ -24,8 +34,12 @@ lualine.setup {
         padding = 0,
       },
     },
-    lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = { "filename" },
+    lualine_b = { "branch" },
+    lualine_c = {
+      "filename",
+      diff_section,
+      "diagnostics",
+    },
     lualine_x = { "fileformat", "filetype" },
     lualine_y = { "location" },
     lualine_z = {},
