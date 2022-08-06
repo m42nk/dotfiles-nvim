@@ -127,11 +127,11 @@ do
   local nvo = { "n", "v", "o" }
   local vo = { "v", "o" }
 
-  keymap(nvo, "gtk", treeclimber.goto_parent, opts)
-  keymap(nvo, "gtj", treeclimber.goto_child, opts)
-  keymap(nvo, "<leader>gN", treeclimber.goto_next, opts)
-  keymap(nvo, "<leader>gP", treeclimber.goto_prev, opts)
-  keymap(vo, "n", treeclimber.select_node, opts)
-  keymap("n", "<leader>gp", treeclimber.swap_prev, opts)
-  keymap("n", "<leader>gn", treeclimber.swap_next, opts)
+  keymap(nvo, "gtk", treeclimber.goto_parent, {})
+  keymap(nvo, "gtj", treeclimber.goto_child, {})
+  keymap(nvo, "<leader>gN", treeclimber.goto_next, {})
+  keymap(nvo, "<leader>gP", treeclimber.goto_prev, {})
+  keymap(vo, "n", treeclimber.select_node, {})
+  keymap("n", "<leader>gsp", treeclimber.swap_prev, {})
+  keymap("n", "<leader>gsn", treeclimber.swap_next, {})
 end

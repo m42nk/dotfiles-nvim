@@ -1,4 +1,6 @@
 # TODO
+- add more details in cmp completion menu
+- disable emmet suggestion if in regular js (not in jsx)
 - snippets
 -- lua check pcall
 - make packer use daily cache so that calling PackerSync probably faster
@@ -38,3 +40,5 @@
 # Check Later
 Better ui for input, select, etc - https://github.com/stevearc/dressing.nvim
 Better git - https://github.com/rhysd/committia.vim
+cmp source - https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources#lsp
+* check for tmux source
