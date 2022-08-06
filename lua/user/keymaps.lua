@@ -23,10 +23,12 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
-keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
-keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
+-- stylua: ignore start
+keymap("n",    "<C-Up>", "<cmd>resize -2<CR>",          opts)
+keymap("n",  "<C-Down>", "<cmd>resize +2<CR>",          opts)
+keymap("n",  "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
+-- stylua: ignore end
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -78,10 +80,10 @@ keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Telescope
-keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
-keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
+keymap("n",  "<leader>f", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>",  opts)
+keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>",   opts)
+keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>",    opts)
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
