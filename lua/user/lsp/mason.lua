@@ -22,6 +22,7 @@ mason_lspconfig.setup({
     "bashls",
     "jsonls",
     "yamlls",
+    "emmet-ls"
   },
 })
 
