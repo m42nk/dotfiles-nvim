@@ -1,4 +1,5 @@
 return {
+  "query",
   "bash",
   "c",
   "cmake",

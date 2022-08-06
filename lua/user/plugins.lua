@@ -91,8 +91,7 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "JoosepAlviste/nvim-ts-context-commentstring",
     "windwp/nvim-ts-autotag",
-    --    "nvim-treesitter/playground",
-    --    'andymass/vim-matchup'
+    "nvim-treesitter/playground",
   },
 
   ----------------------------------
@@ -121,8 +120,8 @@ return {
     -- Better jump movements with hints
     "ggandor/leap.nvim",
 
-    -- Climb the syntax tree
-    "drybalka/tree-climber.nvim",
+    -- -- Climb the syntax tree
+    -- "drybalka/tree-climber.nvim",
   },
 
   ----------------------------------

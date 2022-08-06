@@ -5,6 +5,9 @@ end
 
 configs.setup {
   ensure_installed = require "user.treesitter.ensure_installed",
+  playground = {
+    enable = "true",
+  },
   highlight = {
     enable = true,
   },
