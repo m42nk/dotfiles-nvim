@@ -5,6 +5,7 @@ require "user.packer"
 require "user.globals"
 
 require "user.commands"
+require "user.autocommands"
 require "user.colorscheme"
 
 require "user.lsp"

@@ -1,8 +1,4 @@
--- Unmap before mapping so its re-source-able
--- local keymap = function(...)
---   local args = { ... }
---   vim.keymap.set(...)
--- end
+-- Alias
 local keymap = vim.keymap.set
 
 -- Silent keymap option
@@ -49,8 +45,7 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader><leader>", "<cmd>w<cr>", opts)
 
 -- Reload config
--- keymap("n", "<leader>r", "<cmd>lua ReloadConfig()<cr>", opts)
-keymap("n", "<leader>r", "<cmd>R<cr>", opts)
+keymap("n", "<leader>r", "<cmd>lua ReloadConfig()<cr>", opts)
 
 -- Edit last buffer (alternate)
 keymap("n", "<leader><bslash>", "<cmd>e #<cr>", opts)
@@ -63,11 +58,13 @@ keymap("n", "<leader><bslash>", "<cmd>e #<cr>", opts)
 keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
 
 -- Buffers and Bufferline
-keymap("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", opts)
-keymap("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", opts)
-keymap("n", "<leader>c", "<cmd>bdelete<cr>", opts)
-keymap("n", "<leader><S-h>", "<cmd>BufferLineMovePrev<cr>", opts)
-keymap("n", "<leader><S-l>", "<cmd>BufferLineMoveNext<cr>", opts)
+-- stylua: ignore start
+keymap("n", "<S-l>",         "<cmd>BufferLineCycleNext<cr>", opts)
+keymap("n", "<S-h>",         "<cmd>BufferLineCyclePrev<cr>", opts)
+keymap("n", "<leader>c",     "<cmd>bdelete<cr>",             opts)
+keymap("n", "<leader><S-h>", "<cmd>BufferLineMovePrev<cr>",  opts)
+keymap("n", "<leader><S-l>", "<cmd>BufferLineMoveNext<cr>",  opts)
+-- stylua: ignore end
 
 for i = 1, 5 do
   keymap("n", "<M-" .. i .. ">", "<cmd>BufferLineGoToBuffer " .. i .. "<cr>", opts)
@@ -86,23 +83,9 @@ keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
 keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 
--- Git
--- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
-
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
 
 -- Colorizer
 keymap("n", "<leader>C", "<cmd>ColorizerToggle<cr>")
-
--- -- DAP
--- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
--- keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
--- keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
--- keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
--- keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
--- keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
--- keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
--- keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
--- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)

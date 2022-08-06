@@ -1,6 +1,12 @@
 local command = vim.api.nvim_create_user_command
 
--- Create file next to current file (sibling)
+----------------------------------
+-- Create and edit sibling
+-- eg:
+-- :ES b.lua
+-- [current]: `nvim/lua/user/a.lua`
+-- [sibling]: `nvim/lua/user/b.lua`
+----------------------------------
 command("ES", function(opts)
   -- Get new filename from argument
   local target_name = opts.args
@@ -10,8 +16,10 @@ command("ES", function(opts)
 
   vim.cmd("e " .. target_dir .. "/" .. target_name)
 end, { nargs = 1 })
---
+
+-----------------------------------
 -- Edit init.lua
+-----------------------------------
 command("E", function(opts)
   vim.cmd [[e $MYVIMRC]]
 end, { nargs = 0 })
@@ -21,7 +29,9 @@ command("PS", function(opts)
   vim.cmd [[PackerSync]]
 end, { nargs = 0 })
 
+-----------------------------------
 -- Source current file
+-----------------------------------
 command("R", function()
   -- Resolved to $HOME/.config/nvim
   local config_dir = NvimConfigDir
@@ -39,6 +49,17 @@ command("R", function()
   vim.notify("Reloaded " .. module_name)
 end, {})
 
+----------------------------------
+-- Align keymaps
+----------------------------------
+command("AlignKeymap", function()
+  -- vim.cmd [[<line1>,<line2>EasyAlign **,<cr>]]
+  vim.cmd [['<,'>EasyAlign *,]]
+end, { range = true })
+
+----------------------------------
+-- Command line abbreviations
+----------------------------------
 vim.cmd [[
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
