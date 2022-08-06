@@ -21,6 +21,8 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 local kind_icons = require "user.cmp.kind_icons"
 local utils = require "user.cmp.utils"
+local compare = require "cmp.config.compare"
+local types = require "cmp.types"
 
 local config = {
   source_names = {
@@ -72,9 +74,37 @@ cmp.setup {
       c = cmp.mapping.close(),
     },
     ["<CR>"] = cmp.mapping.confirm { select = true },
+    -- ["<C-x>"] = cmp.mapping(function(fallback)
+    --   local selected = cmp.get_selected_entry()
+    --   -- local f = assert(io.open("quicksave.txt", "a"))
+    --   -- f:write(vim.inspect(entry.source:get_debug_name()), "\n")
+    --   -- f:close()
+    -- end),
     ["<Tab>"] = cmp.mapping(utils.handle_tab, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(utils.handle_s_tab, { "i", "s" }),
   },
+  -- sorting = {
+  --   comparators = {
+  --     compare.offset,
+  --     compare.exact,
+  --     -- compare.scopes,
+  --     compare.score,
+  --     compare.recently_used,
+  --     compare.locality,
+  --     compare.kind,
+  --     compare.sort_text,
+  --     compare.length,
+  --     compare.order,
+  --     -- function(entry1, entry2)
+  --     --   -- if entry1.kind
+  --     --   if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
+  --     --     return true
+  --     --   end
+
+  --     --   return false
+  --     -- end,
+  --   },
+  -- },
   formatting = {
     fields = { "abbr", "kind", "menu" },
     format = function(entry, vim_item)
