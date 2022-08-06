@@ -5,6 +5,7 @@ end
 
 autopairs.setup {
   disable_filetype = { "TelescopePrompt" },
+  disable_in_macro = true,
   fast_wrap = {
     map = "<M-e>",
     chars = { "{", "[", "(", '"', "'" },
