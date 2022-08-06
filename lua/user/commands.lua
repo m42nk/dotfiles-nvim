@@ -39,14 +39,20 @@ command("R", function()
 
   local module_name = current_file:gsub(vim.fn.resolve(config_dir), "")
 
-  module_name = module_name
-    :gsub("/", ".") -- replace / with .
-    :gsub(".lua", "") -- remove .lua extension
-    :sub(2, -1) -- remove preceding .
+  if module_name:match "^/lua/user" then
+    module_name = module_name
+      :gsub("/", ".")   -- replace / with .
+      :gsub(".lua", "") -- remove .lua extension
+      :sub(2, -1)       -- remove preceding .
 
-  package.loaded[module_name] = nil
+    package.loaded[module_name] = nil
+  end
+
   vim.cmd [[source %]]
-  vim.notify("Reloaded " .. module_name)
+
+  vim.schedule(function()
+    vim.notify("Reloaded " .. module_name)
+  end)
 end, {})
 
 ----------------------------------
