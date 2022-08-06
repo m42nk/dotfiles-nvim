@@ -59,6 +59,9 @@ keymap("n", "<leader><bslash>", "<cmd>e #<cr>", opts)
 -- Packer
 keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
 
+-- Fugitive
+keymap("n", "<leader>G", "<cmd>0Git<cr>", opts)
+
 -- Buffers and Bufferline
 -- stylua: ignore start
 keymap("n", "<S-l>",         "<cmd>BufferLineCycleNext<cr>", opts)

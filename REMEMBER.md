@@ -39,3 +39,13 @@ The idea of this plugin is to introduce a single key binding (default: gS) for t
 </div>
 ```
 gJ to return
+
+- Fugitive
+`:0G` - open git status in fullscreen
+`-`/`a` - [un]stage file
+`=` - open details (diff)
+`dv` - open vertical diff split
+`cc` - Create a commit
+`ca` - Amend the last commit and edit the message
+`ce` - Amend the last commit without editing the message
+`cw` - Reword the last commit

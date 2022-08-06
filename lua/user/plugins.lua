@@ -127,6 +127,7 @@ return {
     "tpope/vim-surround",
     "tpope/vim-abolish",
     "tpope/vim-repeat",
+    "tpope/vim-fugitive",
   },
   {
     -- Colorschemes

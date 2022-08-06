@@ -20,3 +20,9 @@ api.nvim_create_autocmd("FileType", {
   command = [[nnoremap <buffer><silent> q :quit<CR>]],
   group = custom,
 })
+
+api.nvim_create_autocmd("FileType", {
+  pattern = {"fugitive", "git"},
+  command = [[ nnoremap <buffer><silent> q :bwipeout<CR> ]],
+  group = custom,
+})
