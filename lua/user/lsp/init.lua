@@ -5,3 +5,4 @@ end
 
 require "user.lsp.mason"
 require "user.lsp.ui"
+require "user.lsp.fidget"

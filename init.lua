@@ -5,7 +5,7 @@ require "user.commands"
 require "user.colorscheme"
 
 require "user.lsp"
--- require "user.cmp"
+require "user.cmp"
 -- require "user.treesitter"
 
 -- require "user.commands"

@@ -40,34 +40,34 @@ return {
     "RRethy/vim-illuminate",
   },
 
-  --  ----------------------------------
-  --  -- Completions
-  --  ----------------------------------
-  --  {
-  --    -- Completion engine
-  --    "hrsh7th/nvim-cmp",
-  --  },
-  --  {
-  --    -- Completion sources
-  --    "hrsh7th/cmp-buffer",
-  --    "hrsh7th/cmp-path",
-  --    "hrsh7th/cmp-nvim-lsp",
-  --    "hrsh7th/cmp-nvim-lua",
-  --    "saadparwaiz1/cmp_luasnip",
-  --  },
-  --
-  --  ----------------------------------
-  --  -- Snippets
-  --  ----------------------------------
-  --  {
-  --    -- Snippet engine
-  --    "L3MON4D3/LuaSnip",
-  --  },
-  --  {
-  --    "rafamadriz/friendly-snippets",
-  --    enable = false,
-  --  },
-  --
+ ----------------------------------
+ -- Completions
+ ----------------------------------
+ {
+   -- Completion engine
+   "hrsh7th/nvim-cmp",
+ },
+ {
+   -- Completion sources
+   "hrsh7th/cmp-nvim-lsp",
+   "hrsh7th/cmp-nvim-lua",
+   "hrsh7th/cmp-buffer",
+   "hrsh7th/cmp-path",
+   "saadparwaiz1/cmp_luasnip",
+ },
+
+   ----------------------------------
+   -- Snippets
+   ----------------------------------
+   {
+     -- Snippet engine
+     "L3MON4D3/LuaSnip",
+   },
+--   {
+--     "rafamadriz/friendly-snippets",
+--     enable = false,
+--   },
+
   --  ----------------------------------
   --  -- Treesitter
   --  ----------------------------------

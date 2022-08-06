@@ -35,6 +35,8 @@ packer.init({
 })
 
 return packer.startup(function(use)
+  package.loaded['user.plugins'] = nil
+
   local _, plugins = pcall(require, "user.plugins")
   for _, plugin in pairs(plugins) do
     use(plugin)

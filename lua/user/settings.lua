@@ -17,6 +17,7 @@ opt.completeopt = 'menuone,noinsert,noselect' -- Autocomplete options
 opt.undofile = true -- Persistent undo even when the file is closed
 opt.ignorecase = true -- Ignore case letters when search
 opt.smartcase = true -- Ignore lowercase for the whole pattern
+opt.swapfile = false -- Don't use swapfile
 
 ---------------------------------------
 -- Neovim UI
