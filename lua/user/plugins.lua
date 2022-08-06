@@ -141,4 +141,8 @@ return {
     -- Tree Explorer
     "kyazdani42/nvim-tree.lua",
   },
+  {
+    -- Time tracker
+    "wakatime/vim-wakatime",
+  },
 }

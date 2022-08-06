@@ -27,3 +27,7 @@
 - open last file in project instead of [No Name]
 - alias :Wq etc
 - dont insert comment on new line
+
+# Check Later
+Better ui for input, select, etc - https://github.com/stevearc/dressing.nvim
+
