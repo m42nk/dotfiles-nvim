@@ -30,4 +30,5 @@
 
 # Check Later
 Better ui for input, select, etc - https://github.com/stevearc/dressing.nvim
+Better git - https://github.com/rhysd/committia.vim
 

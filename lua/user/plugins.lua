@@ -117,6 +117,12 @@ return {
   -- General
   ----------------------------------
   {
+    -- tpope
+    "tpope/vim-surround",
+    "tpope/vim-abolish",
+    "tpope/vim-repeat",
+  },
+  {
     -- Colorschemes
     "navarasu/onedark.nvim",
     "folke/tokyonight.nvim",
