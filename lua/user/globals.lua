@@ -23,4 +23,6 @@ _G.P = function(o)
   print(vim.inspect(o))
 end
 
+_G.NvimConfigDir = vim.fn.resolve(vim.env.MYVIMRC:match("(.*[/\\])"))
+
 -- Source: https://stackoverflow.com/a/72504767/7200504

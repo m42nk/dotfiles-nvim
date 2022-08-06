@@ -7,7 +7,7 @@ require "user.colorscheme"
 
 require "user.lsp"
 require "user.cmp"
--- require "user.treesitter"
+require "user.treesitter"
 
 require "user.keymaps"
 -- require "user.reload"

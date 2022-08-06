@@ -1,5 +1,3 @@
-UnloadCurrentFile()
-
 -- Shorten function name
 local keymap = vim.keymap.set
 
@@ -51,7 +49,7 @@ keymap("n", "<leader><leader>", "<cmd>w<cr>", opts)
 keymap("n", "<leader>r", "<cmd>R<cr>", opts)
 
 -- Edit last buffer (alternate)
-keymap("n", "<leader><bslash>", "<cmd>e #", opts)
+keymap("n", "<leader><bslash>", "<cmd>e #<cr>", opts)
 
 
 -----------------------------------------------------

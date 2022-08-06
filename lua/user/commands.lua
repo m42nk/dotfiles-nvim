@@ -1,5 +1,3 @@
-package.loaded["user.commands"] = nil
-
 local command = vim.api.nvim_create_user_command
 
 -- Create file next to current file (sibling)
@@ -14,9 +12,9 @@ command("ES", function(opts)
 end, { nargs = 1 })
 --
 -- Edit init.lua
-command("EI", function()
+command("E", function(opts)
   vim.cmd [[e $MYVIMRC]]
-end, {})
+end, { nargs = 0 })
 
 -- Run PackerSync
 command("PS", function(opts)
@@ -25,8 +23,20 @@ end, { nargs = 0 })
 
 -- Source current file
 command("R", function()
+  -- Resolved to $HOME/.config/nvim
+  local config_dir = NvimConfigDir
+  local current_file = vim.fn.expand "%:p"
+
+  local module_name = current_file:gsub(vim.fn.resolve(config_dir), "")
+
+  module_name = module_name
+    :gsub("/", ".") -- replace / with .
+    :gsub(".lua", "") -- remove .lua extension
+    :sub(2, -1) -- remove preceding .
+
+  package.loaded[module_name] = nil
   vim.cmd [[source %]]
-  vim.notify("Sourced " .. vim.fn.expand "%")
+  vim.notify("Reloaded " .. module_name)
 end, {})
 
 vim.cmd [[
