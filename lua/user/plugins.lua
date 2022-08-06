@@ -18,6 +18,14 @@ return {
     -- Add web dev icon
     "kyazdani42/nvim-web-devicons",
   },
+  {
+    -- Improve startup time
+    "lewis6991/impatient.nvim",
+  },
+  {
+    -- Time tracker
+    "wakatime/vim-wakatime",
+  },
 
   ----------------------------------
   -- LSP
@@ -142,7 +150,7 @@ return {
     "kyazdani42/nvim-tree.lua",
   },
   {
-    -- Time tracker
-    "wakatime/vim-wakatime",
+    -- Colorize color values
+    "norcalli/nvim-colorizer.lua",
   },
 }

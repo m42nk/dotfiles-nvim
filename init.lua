@@ -1,3 +1,5 @@
+require "impatient"
+
 require "user.settings"
 require "user.packer"
 require "user.globals"
