@@ -88,10 +88,16 @@ keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Telescope
 -- stylua: ignore start
+-- General
 keymap("n", "<leader>f",  "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>",  opts)
 keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>",   opts)
 keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>",    opts)
+keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>",    opts)
+keymap("n", "<leader>tr", "<cmd>Telescope resume<CR>",    opts)
+keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>",    opts)
+keymap("n", "<leader>tc", "<cmd>Telescope command_history<CR>",    opts)
+
 -- stylua: ignore end
 
 -- Comment
