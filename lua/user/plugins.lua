@@ -121,10 +121,10 @@ return {
     -- Telescope by Telescopic Johnson
     "nvim-telescope/telescope.nvim",
   },
-  --  {
-  --    -- Project management, automate root-change
-  --    "ahmedkhalf/project.nvim",
-  --  },
+  {
+    -- Project management, automate root-change
+    "ahmedkhalf/project.nvim",
+  },
   --  {
   --    -- Alignment tools, good for configs
   --    "junegunn/vim-easy-align",
