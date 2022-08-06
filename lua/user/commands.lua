@@ -1,10 +1,6 @@
--- [[
--- Add `E` command to create file next to current file
--- Author: github.com/syakhisk
--- ]]
-
 local command = vim.api.nvim_create_user_command
 
+-- Add `E` command to create file next to current file
 command("E", function(opts)
   -- Get new filename from argument
   local target_name = opts.args
@@ -14,6 +10,10 @@ command("E", function(opts)
 
   vim.cmd("e " .. target_dir .. "/" .. target_name)
 end, { nargs = 1 })
+
+command("PS", function(opts)
+  vim.cmd("PackerSync")
+end, {nargs = 0 })
 
 vim.cmd [[
 cnoreabbrev W! w!
