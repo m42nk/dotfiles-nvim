@@ -63,3 +63,6 @@ keymap("n", "<c-j>", treeclimber.swap_next, opts)
 
 - Fugitive merge conflict
 - `Gvdiffsplit!`
+
+- Telescope
+use .fdignore to negate files in .gitignore but still searchable via telescope
