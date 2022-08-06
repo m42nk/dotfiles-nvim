@@ -50,7 +50,15 @@ keymap("n", "<leader><leader>", "<cmd>w<cr>", opts)
 keymap("n", "<leader>r", "<cmd>R<cr>", opts)
 
 -- Edit last buffer (alternate)
-keymap("n", "<leader><bslash>", "<cmd>e #<cr>", opts)
+keymap("n", "<leader><bslash>", "<C-^>", opts)
+keymap("n", "<C-Space>", "<C-^>", opts)
+
+-- map Q to use blackhole register (not overriding clipboard)
+-- Qp will not put replaced text in clipboard, etc
+keymap({ "x", "n" }, "Q", '"_', opts)
+
+-- Same as above but for paste in visual block mode
+keymap("x", "p", "P", opts)
 
 -----------------------------------------------------
 -- Plugins
@@ -65,6 +73,7 @@ keymap("n", "<leader>G", "<cmd>0Git<cr>", opts)
 -- Surround
 -- simulate `ys` with <leader>s
 keymap("n", "<leader>s", "<plug>Ysurround", {})
+keymap("n", "<leader>ss", "<plug>Yssurround", {})
 
 -- Buffers and Bufferline
 -- stylua: ignore start
