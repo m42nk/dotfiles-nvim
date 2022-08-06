@@ -10,8 +10,12 @@ autocmd("TextYankPost", {
 })
 
 -- Don't continue commenting when pressing `o/O`
-autocmd({ "BufNewFile", "BufRead" }, {
-  command = [[setlocal formatoptions-=o]],
+autocmd("FileType", {
+  pattern = "*",
+  command = [[
+  set formatoptions-=o
+  setlocal formatoptions-=o
+  ]],
   group = custom,
 })
 

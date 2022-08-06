@@ -25,6 +25,11 @@ mason_lspconfig.setup({
   },
 })
 
+-- Custom `ensure_installed` for Mason (installing other than lsp)
+-- NOTE: not implemented
+-- although checking it on every startup might be slower and inefficient
+-- probably move it to config install script, using headless install
+
 local opts = {
   on_attach = require("user.lsp.on_attach"),
   capabilities = require("user.lsp.capabilities"),
