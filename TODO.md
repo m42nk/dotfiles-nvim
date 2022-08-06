@@ -1,5 +1,7 @@
 # TODO
-- add binding to stage all file (probably `A`)
+- snippets
+-- lua check pcall
+- make packer use daily cache so that calling PackerSync probably faster
 - helper on f/t (probably leap/sneak)
 - find way to cancel auto add pairs on autopairs (alphanumeric?)
 - partial commit using diff fugitive
@@ -7,7 +9,7 @@
 ---Functionality
 - search \s
 - insert selected block to cmd as :s/<>/
-- text object delete swap
+- text object swap
 - codeaction as popup or telescope
 
 ---Bling

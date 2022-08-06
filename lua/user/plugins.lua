@@ -117,6 +117,9 @@ return {
 
     -- Git signcolumn colored lines (like vscode)
     "lewis6991/gitsigns.nvim",
+
+    -- Better jump movements with hints
+    "ggandor/leap.nvim",
   },
 
   ----------------------------------
