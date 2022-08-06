@@ -1,4 +1,8 @@
--- Shorten function name
+-- Unmap before mapping so its re-source-able
+-- local keymap = function(...)
+--   local args = { ... }
+--   vim.keymap.set(...)
+-- end
 local keymap = vim.keymap.set
 
 -- Silent keymap option
@@ -23,10 +27,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
+keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
+keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -51,10 +55,12 @@ keymap("n", "<leader>r", "<cmd>R<cr>", opts)
 -- Edit last buffer (alternate)
 keymap("n", "<leader><bslash>", "<cmd>e #<cr>", opts)
 
-
 -----------------------------------------------------
 -- Plugins
 -----------------------------------------------------
+
+-- Packer
+keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
 
 -- Buffers and Bufferline
 keymap("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", opts)
@@ -71,14 +77,13 @@ end
 keymap("x", "ga", "<Plug>(EasyAlign)<CR>")
 
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Telescope
-keymap("n", "<C-p>", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
+keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 
 -- Git
 -- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)

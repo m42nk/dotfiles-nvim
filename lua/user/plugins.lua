@@ -14,6 +14,10 @@ return {
     -- Neovim lua "lsp"
     "folke/lua-dev.nvim",
   },
+  {
+    -- Add web dev icon
+    "kyazdani42/nvim-web-devicons",
+  },
 
   ----------------------------------
   -- LSP
@@ -40,64 +44,67 @@ return {
     "RRethy/vim-illuminate",
   },
 
- ----------------------------------
- -- Completions
- ----------------------------------
- {
-   -- Completion engine
-   "hrsh7th/nvim-cmp",
- },
- {
-   -- Completion sources
-   "hrsh7th/cmp-nvim-lsp",
-   "hrsh7th/cmp-nvim-lua",
-   "hrsh7th/cmp-buffer",
-   "hrsh7th/cmp-path",
-   "saadparwaiz1/cmp_luasnip",
- },
+  ----------------------------------
+  -- Completions
+  ----------------------------------
+  {
+    -- Completion engine
+    "hrsh7th/nvim-cmp",
+  },
+  {
+    -- Completion sources
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "saadparwaiz1/cmp_luasnip",
+  },
 
-   ----------------------------------
-   -- Snippets
-   ----------------------------------
-   {
-     -- Snippet engine
-     "L3MON4D3/LuaSnip",
-   },
---   {
---     "rafamadriz/friendly-snippets",
---     enable = false,
---   },
+  ----------------------------------
+  -- Snippets
+  ----------------------------------
+  {
+    -- Snippet engine
+    "L3MON4D3/LuaSnip",
+  },
+  --   {
+  --     "rafamadriz/friendly-snippets",
+  --     enable = false,
+  --   },
 
- ----------------------------------
- -- Treesitter
- ----------------------------------
- {
-   -- Treesitter engine
-   "nvim-treesitter/nvim-treesitter",
- },
-  --  {
-  --    "nvim-treesitter/playground",
-  --    "nvim-treesitter/nvim-treesitter-textobjects",
-  --    "JoosepAlviste/nvim-ts-context-commentstring",
-  --    "windwp/nvim-ts-autotag",
-  --    'andymass/vim-matchup'
-  --  },
-  --
-  --  ----------------------------------
-  --  -- Minor feature improvement
-  --  ----------------------------------
-  --  {
-  --    -- Readline operation like shell
-  --    "linty-org/readline.nvim",
-  --
-  --    -- Remember last place on file reopen
-  --    "ethanholz/nvim-lastplace",
-  --
-  --    -- Add more useful textobjects
-  --    -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
-  --    "wellle/targets.vim",
-  --  },
-  --
+  ----------------------------------
+  -- Treesitter
+  ----------------------------------
+  {
+    -- Treesitter engine
+    "nvim-treesitter/nvim-treesitter",
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "windwp/nvim-ts-autotag",
+    --    "nvim-treesitter/playground",
+    --    'andymass/vim-matchup'
+  },
+
+  ----------------------------------
+  -- Minor feature improvement
+  ----------------------------------
+  {
+    -- Powerful autopair
+    "windwp/nvim-autopairs",
+
+    -- Readline operation like shell
+    "linty-org/readline.nvim",
+
+    -- Remember last place on file reopen
+    "ethanholz/nvim-lastplace",
+
+    -- -- Add more useful textobjects
+    -- -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
+    -- "wellle/targets.vim",
+  },
+
   ----------------------------------
   -- General
   ----------------------------------
@@ -106,15 +113,14 @@ return {
     "navarasu/onedark.nvim",
     "folke/tokyonight.nvim",
   },
-   {
-     -- Comment engine
-     "numToStr/Comment.nvim",
-   },
-  --
-  --  {
-  --    -- Telescope by Telescopic Johnson
-  --    "nvim-telescope/telescope.nvim",
-  --  },
+  {
+    -- Comment engine
+    "numToStr/Comment.nvim",
+  },
+  {
+    -- Telescope by Telescopic Johnson
+    "nvim-telescope/telescope.nvim",
+  },
   --  {
   --    -- Project management, automate root-change
   --    "ahmedkhalf/project.nvim",
@@ -122,10 +128,6 @@ return {
   --  {
   --    -- Alignment tools, good for configs
   --    "junegunn/vim-easy-align",
-  --  },
-  --  {
-  --    -- Add web dev icon
-  --    "kyazdani42/nvim-web-devicons",
   --  },
   --  {
   --    -- Show buffers at top (like tabs in vscode)
@@ -141,4 +143,3 @@ return {
   --  -- 	requires = { "kkharji/sqlite.lua" },
   --  -- },
 }
-
