@@ -40,6 +40,17 @@ The idea of this plugin is to introduce a single key binding (default: gS) for t
 ```
 gJ to return
 
+- Tree climber
+```lua
+keymap(nvo, "gtk", treeclimber.goto_parent, opts)
+keymap(nvo, "gtj", treeclimber.goto_child, opts)
+keymap(nvo, "<c-n>", treeclimber.goto_next, opts)
+keymap(nvo, "<c-p>", treeclimber.goto_prev, opts)
+keymap(vo, "n", treeclimber.select_node, opts)
+keymap("n", "<c-k>", treeclimber.swap_prev, opts)
+keymap("n", "<c-j>", treeclimber.swap_next, opts)
+```
+
 - Fugitive
 `:0G` - open git status in fullscreen
 `-`/`a` - [un]stage file (press it in "[Un]staged to toggle all file")

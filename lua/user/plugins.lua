@@ -120,6 +120,9 @@ return {
 
     -- Better jump movements with hints
     "ggandor/leap.nvim",
+
+    -- Climb the syntax tree
+    "drybalka/tree-climber.nvim",
   },
 
   ----------------------------------
