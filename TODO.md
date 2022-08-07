@@ -37,9 +37,10 @@
 - open last file in project instead of [No Name]
 - alias :Wq etc
 - dont insert comment on new line
+- Better ui for input, select, etc - https://github.com/stevearc/dressing.nvim
 
 # Check Later
-Better ui for input, select, etc - https://github.com/stevearc/dressing.nvim
+Region select with TS node hints - https://github.com/mfussenegger/nvim-treehopper
 Better git - https://github.com/rhysd/committia.vim
 cmp source - https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources#lsp
 * check for tmux source

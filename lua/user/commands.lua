@@ -41,9 +41,13 @@ command("R", function()
 
   if module_name:match "^/lua/user" then
     module_name = module_name
-      :gsub("/", ".")   -- replace / with .
+      :gsub("/", ".") -- replace / with .
       :gsub(".lua", "") -- remove .lua extension
-      :sub(2, -1)       -- remove preceding .
+      :sub(2, -1) -- remove preceding .
+
+    if module_name:match ".init$" then
+      module_name = module_name:gsub(".init", "")
+    end
 
     package.loaded[module_name] = nil
   end

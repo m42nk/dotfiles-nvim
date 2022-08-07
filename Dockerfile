@@ -23,4 +23,6 @@ WORKDIR /root/.config/nvim
 
 COPY . .
 
+# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
 CMD [ "nvim" ]
