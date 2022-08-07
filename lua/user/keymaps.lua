@@ -125,6 +125,10 @@ keymap("n", "<leader>C", "<cmd>ColorizerToggle<cr>")
 keymap("n", "<leader>mc", "<cmd>ISwap<CR>",    opts)
 keymap("n", "<leader>mw", "<cmd>ISwapWith<CR>",    opts)
 
+-- Gitsigns
+keymap("n", "<leader>gn", "<cmd>Gitsigns next_hunk<CR>", opts)
+keymap("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<CR>", opts)
+
 -- Tree climber
 -- do
 --   local ok, treeclimber = pcall(require, "tree-climber")
