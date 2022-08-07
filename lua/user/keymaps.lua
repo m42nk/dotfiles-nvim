@@ -1,3 +1,15 @@
+----------------------------------
+-- Keymapping
+
+-- Modes:
+-- normal_mode = "n",
+-- insert_mode = "i",
+-- visual_mode = "v",
+-- visual_block_mode = "x",
+-- term_mode = "t",
+-- command_mode = "c",
+----------------------------------
+
 -- Alias
 local keymap = vim.keymap.set
 
@@ -8,14 +20,6 @@ local opts = { silent = false }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -23,12 +27,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
--- stylua: ignore start
-keymap("n",    "<C-Up>", "<cmd>resize -2<CR>",          opts)
-keymap("n",  "<C-Down>", "<cmd>resize +2<CR>",          opts)
-keymap("n",  "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
+keymap("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
+keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
+keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
--- stylua: ignore end
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -75,6 +77,8 @@ keymap("n", "<leader>G", "<cmd>0Git<cr>", opts)
 -- simulate `ys` with <leader>s
 keymap("n", "<leader>s", "<plug>Ysurround", {})
 keymap("n", "<leader>ss", "<plug>Yssurround", {})
+-- keymap("v", "<leader>s", "<plug>Vsurround", {})
+-- keymap("x", "<leader>ss", "<plug>Vssurround", {})
 
 -- Buffers and Bufferline
 -- stylua: ignore start
@@ -98,18 +102,16 @@ keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 -- Telescope
--- stylua: ignore start
--- General
-keymap("n", "<leader>f",  "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>",  opts)
-keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>",   opts)
-keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>",    opts)
-keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>",    opts)
-keymap("n", "<leader>tr", "<cmd>Telescope resume<CR>",    opts)
-keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>",    opts)
-keymap("n", "<leader>tc", "<cmd>Telescope command_history<CR>",    opts)
-
--- stylua: ignore end
+keymap("n", "<leader>t<leader>", "<cmd>Telescope<CR>", opts)
+keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
+keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>", opts)
+keymap("n", "<leader>tr", "<cmd>Telescope resume<CR>", opts)
+keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>", opts)
+keymap("n", "<leader>tc", "<cmd>Telescope command_history<CR>", opts)
+keymap("n", "<leader>tD", require("user.utils").telescope_find_nvim_config, opts)
 
 -- Comment
 -- TODO: fix this, make it more readable
@@ -122,8 +124,8 @@ keymap("n", "<leader>C", "<cmd>ColorizerToggle<cr>")
 
 -- Iswap
 -- Swap nodes (function params, values, etc)
-keymap("n", "<leader>mc", "<cmd>ISwap<CR>",    opts)
-keymap("n", "<leader>mw", "<cmd>ISwapWith<CR>",    opts)
+keymap("n", "<leader>mc", "<cmd>ISwap<CR>", opts)
+keymap("n", "<leader>mw", "<cmd>ISwapWith<CR>", opts)
 
 -- Gitsigns
 keymap("n", "<leader>gn", "<cmd>Gitsigns next_hunk<CR>", opts)
