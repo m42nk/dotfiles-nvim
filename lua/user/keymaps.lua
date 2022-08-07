@@ -65,7 +65,8 @@ keymap("x", "p", "P", opts)
 -----------------------------------------------------
 
 -- Packer
-keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
+-- keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
+keymap("n", "<leader>ps", require("user.utils").i_hate_packersync, opts)
 
 -- Fugitive
 keymap("n", "<leader>G", "<cmd>0Git<cr>", opts)
