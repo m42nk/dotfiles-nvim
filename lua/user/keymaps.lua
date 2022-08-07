@@ -2,7 +2,7 @@
 local keymap = vim.keymap.set
 
 -- Silent keymap option
-local opts = { silent = true }
+local opts = { silent = false }
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -90,6 +90,7 @@ end
 
 -- Easy Align
 keymap("x", "ga", "<Plug>(EasyAlign)<CR>")
+-- TODO: Make binding for specific filetype, this is for lua
 keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 
 -- NvimTree
@@ -118,20 +119,25 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_o
 -- Colorizer
 keymap("n", "<leader>C", "<cmd>ColorizerToggle<cr>")
 
--- Tree climber
-do
-  local ok, treeclimber = pcall(require, "tree-climber")
-  if not ok then
-    return
-  end
-  local nvo = { "n", "v", "o" }
-  local vo = { "v", "o" }
+-- Iswap
+-- Swap nodes (function params, values, etc)
+keymap("n", "<leader>mc", "<cmd>ISwap<CR>",    opts)
+keymap("n", "<leader>mw", "<cmd>ISwapWith<CR>",    opts)
 
-  keymap(nvo, "gtk", treeclimber.goto_parent, {})
-  keymap(nvo, "gtj", treeclimber.goto_child, {})
-  keymap(nvo, "<leader>gN", treeclimber.goto_next, {})
-  keymap(nvo, "<leader>gP", treeclimber.goto_prev, {})
-  keymap(vo, "n", treeclimber.select_node, {})
-  keymap("n", "<leader>gsp", treeclimber.swap_prev, {})
-  keymap("n", "<leader>gsn", treeclimber.swap_next, {})
-end
+-- Tree climber
+-- do
+--   local ok, treeclimber = pcall(require, "tree-climber")
+--   if not ok then
+--     return
+--   end
+--   local nvo = { "n", "v", "o" }
+--   local vo = { "v", "o" }
+
+--   keymap(nvo, "gtk", treeclimber.goto_parent, {})
+--   keymap(nvo, "gtj", treeclimber.goto_child, {})
+--   keymap(nvo, "<leader>gN", treeclimber.goto_next, {})
+--   keymap(nvo, "<leader>gP", treeclimber.goto_prev, {})
+--   keymap(vo, "n", treeclimber.select_node, {})
+--   keymap("n", "<leader>gsp", treeclimber.swap_prev, {})
+--   keymap("n", "<leader>gsn", treeclimber.swap_next, {})
+-- end

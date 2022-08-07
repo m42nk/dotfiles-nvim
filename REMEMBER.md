@@ -26,6 +26,10 @@ cila - change inner previous argument
 use <c-j> instead of <Return>
 to surround with newline
 ```
+```javascript
+const a = [1,2,3]
+const b = {"x": 1, "y": 2}
+```
 
 - Splitjoin.vim
 The idea of this plugin is to introduce a single key binding (default: gS) for transforming a line like this:

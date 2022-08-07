@@ -120,6 +120,12 @@ return {
     -- Better jump movements with hints
     "ggandor/leap.nvim",
 
+    -- Swap nodes using treesitter
+    "mizlan/iswap.nvim",
+
+    -- Improve neovim input ui
+    "stevearc/dressing.nvim",
+
     -- -- Climb the syntax tree
     -- "drybalka/tree-climber.nvim",
   },
