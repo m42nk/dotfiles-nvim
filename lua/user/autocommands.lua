@@ -9,6 +9,19 @@ autocmd("TextYankPost", {
   group = custom,
 })
 
+-- Hide [No Name] buffer on leave
+autocmd("BufLeave", {
+  pattern = "",
+  callback = function()
+    local fname = vim.api.nvim_buf_get_name(0)
+    local ftype = vim.bo.filetype
+    if fname == "" and ftype == "" then
+      vim.cmd [[bwipeout]]
+    end
+  end,
+  group = custom,
+})
+
 -- Don't continue commenting when pressing `o/O`
 autocmd("FileType", {
   pattern = "*",
