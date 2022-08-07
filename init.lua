@@ -1,4 +1,4 @@
-require "impatient"
+pcall(require, "impatient")
 
 require "user.settings"
 require "user.packer"
