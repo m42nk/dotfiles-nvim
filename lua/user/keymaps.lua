@@ -70,6 +70,9 @@ keymap("x", "p", "P", opts)
 -- keymap("n", "<leader>ps", "<cmd>PackerSync<cr>", opts)
 keymap("n", "<leader>ps", require("user.utils").i_hate_packersync, opts)
 
+-- Mini
+keymap("n", "<leader>c", "<cmd>lua require('mini.bufremove').delete(0)<cr>", opts)
+
 -- Fugitive
 keymap("n", "<leader>G", "<cmd>0Git<cr>", opts)
 
@@ -84,7 +87,6 @@ keymap("n", "<leader>ss", "<plug>Yssurround", {})
 -- stylua: ignore start
 keymap("n", "<S-l>",         "<cmd>BufferLineCycleNext<cr>", opts)
 keymap("n", "<S-h>",         "<cmd>BufferLineCyclePrev<cr>", opts)
-keymap("n", "<leader>c",     "<cmd>bdelete<cr>",             opts)
 keymap("n", "<leader><S-h>", "<cmd>BufferLineMovePrev<cr>",  opts)
 keymap("n", "<leader><S-l>", "<cmd>BufferLineMoveNext<cr>",  opts)
 -- stylua: ignore end
@@ -119,7 +121,7 @@ keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>", opts)
 keymap("n", "<leader>tr", "<cmd>Telescope resume<CR>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>", opts)
-keymap("n", "<leader>tc", "<cmd>Telescope command_history<CR>", opts)
+keymap("n", "<leader>t!", "<cmd>Telescope command_history<CR>", opts)
 keymap("n", "<leader>tn", require("user.utils").telescope_find_nvim_config, opts)
 
 -- Comment

@@ -133,6 +133,12 @@ return {
 
     -- -- Climb the syntax tree
     -- "drybalka/tree-climber.nvim",
+
+    -- Swiss-army knife of neovim plugins
+    {
+      "echasnovski/mini.nvim",
+      branch = "stable",
+    },
   },
 
   ----------------------------------
