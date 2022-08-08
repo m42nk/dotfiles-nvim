@@ -98,11 +98,17 @@ keymap("x", "ga", "<Plug>(EasyAlign)<CR>")
 -- TODO: Make binding for specific filetype, this is for lua
 keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 
--- -- NvimTree
+-- NvimTree
 -- keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
--- Carbon - Tree Explorer
-keymap("n", "<leader>e", "<cmd>Fcarbon<CR>", opts)
 
+-- Carbon - Tree Explorer
+-- keymap("n", "<leader>e", "<cmd>Fcarbon<CR>", opts)
+
+-- Neo Tree
+-- keymap("n", "<leader>ee", "<cmd>Neotree position=float reveal toggle<CR>", opts)
+-- keymap("n", "<leader>ef", "<cmd>Neotree position=float reveal toggle dir=%:p:h<CR>", opts)
+-- keymap("n", "<leader>e", "<cmd>Neotree position=float reveal toggle dir=%:p:h<CR>", opts)
+keymap("n", "<leader>e", "<cmd>Neotree position=float reveal toggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>t<leader>", "<cmd>Telescope<CR>", opts)

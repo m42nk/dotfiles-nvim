@@ -1,4 +1,5 @@
 # TODO
+- Change bufferline to something else like show buffer list when switching buffer
 - colorize comment banner (probably using context commentstring)
 - change treeclimber mapping to TSTextObject...
 - add more details in cmp completion menu

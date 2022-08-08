@@ -178,8 +178,16 @@ return {
   --   -- Tree Explorer
   --   "kyazdani42/nvim-tree.lua",
   -- },
+  -- {
+  --   -- Carbon explorer
+  --   "SidOfc/carbon.nvim",
+  -- },
   {
-    "SidOfc/carbon.nvim",
+    -- Neo tree explorer
+    "nvim-neo-tree/neo-tree.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+    },
   },
   {
     -- Colorize color values

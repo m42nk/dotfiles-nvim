@@ -70,3 +70,10 @@ keymap("n", "<c-j>", treeclimber.swap_next, opts)
 
 - Telescope
 use .fdignore to negate files in .gitignore but still searchable via telescope
+
+- Misc
+-- Paste word to cmdline
+yank text (default to '+' register)
+do cmd operation:
+  `:'<,'>s/`
+press `<C-R>+` to paste contents of register to cmdline
