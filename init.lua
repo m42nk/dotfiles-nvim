@@ -13,5 +13,3 @@ require "user.cmp"
 require "user.treesitter"
 
 require "user.keymaps"
--- require "user.reload"
--- require "user.restore-on-project"

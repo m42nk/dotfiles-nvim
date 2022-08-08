@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
 	if setting_ok and setting._disable_formatting then
 		client.server_capabilities.document_formatting = false -- 0.7 and earlier
 		client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
-		client.resolved_capabilities.document_formatting = false
+		-- client.resolved_capabilities.document_formatting = false
 	end
 
   -- Attach keymaps
