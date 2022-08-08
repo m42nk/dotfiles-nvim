@@ -155,6 +155,7 @@ return {
     -- Colorschemes
     "navarasu/onedark.nvim",
     "folke/tokyonight.nvim",
+    "tiagovla/tokyodark.nvim",
   },
   {
     -- Comment engine
