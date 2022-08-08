@@ -88,6 +88,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   {
+    after = "nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-textsubjects",
     "JoosepAlviste/nvim-ts-context-commentstring",
@@ -124,8 +125,8 @@ return {
     -- Swap nodes using treesitter
     "mizlan/iswap.nvim",
 
-    -- Improve neovim input ui
-    "stevearc/dressing.nvim",
+    -- -- Improve neovim input ui
+    -- { "stevearc/dressing.nvim", enable = false },
 
     -- -- Climb the syntax tree
     -- "drybalka/tree-climber.nvim",
@@ -170,9 +171,12 @@ return {
     -- Status line
     "nvim-lualine/lualine.nvim",
   },
+  -- {
+  --   -- Tree Explorer
+  --   "kyazdani42/nvim-tree.lua",
+  -- },
   {
-    -- Tree Explorer
-    "kyazdani42/nvim-tree.lua",
+    "SidOfc/carbon.nvim",
   },
   {
     -- Colorize color values

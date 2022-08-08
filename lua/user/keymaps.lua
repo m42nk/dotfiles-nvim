@@ -98,8 +98,11 @@ keymap("x", "ga", "<Plug>(EasyAlign)<CR>")
 -- TODO: Make binding for specific filetype, this is for lua
 keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 
--- NvimTree
-keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+-- -- NvimTree
+-- keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+-- Carbon - Tree Explorer
+keymap("n", "<leader>e", "<cmd>Fcarbon<CR>", opts)
+
 
 -- Telescope
 keymap("n", "<leader>t<leader>", "<cmd>Telescope<CR>", opts)
@@ -111,7 +114,7 @@ keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>", opts)
 keymap("n", "<leader>tr", "<cmd>Telescope resume<CR>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>", opts)
 keymap("n", "<leader>tc", "<cmd>Telescope command_history<CR>", opts)
-keymap("n", "<leader>tD", require("user.utils").telescope_find_nvim_config, opts)
+keymap("n", "<leader>tn", require("user.utils").telescope_find_nvim_config, opts)
 
 -- Comment
 -- TODO: fix this, make it more readable

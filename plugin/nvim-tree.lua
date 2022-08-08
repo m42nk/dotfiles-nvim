@@ -3,6 +3,10 @@ if not ok then
   return
 end
 
+if not pcall(require, "nvim-tree.config") then
+  return
+end
+
 local cb = require("nvim-tree.config").nvim_tree_callback
 
 -- let g:Illuminate_ftblacklist = ['nerdtree']
