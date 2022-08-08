@@ -5,24 +5,19 @@ return {
   {
     -- Package manager
     "wbthomason/packer.nvim",
-  },
-  {
+
     -- Lua helper function
     "nvim-lua/plenary.nvim",
-  },
-  {
+
     -- Neovim lua "lsp"
     "folke/lua-dev.nvim",
-  },
-  {
+
     -- Add web dev icon
     "kyazdani42/nvim-web-devicons",
-  },
-  {
+
     -- Improve startup time
     "lewis6991/impatient.nvim",
-  },
-  {
+
     -- Time tracker
     "wakatime/vim-wakatime",
   },
@@ -40,8 +35,7 @@ return {
     -- Configuration for LSPs
     "neovim/nvim-lspconfig",
 
-    -- Attach non-lsp (linter, formatter)
-    -- as lsp
+    -- Attach non-lsp (linter, formatter) as lsp
     "jose-elias-alvarez/null-ls.nvim",
 
     -- Loading spinner for lsp
@@ -58,14 +52,15 @@ return {
   {
     -- Completion engine
     "hrsh7th/nvim-cmp",
-  },
-  {
+
     -- Completion sources
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "saadparwaiz1/cmp_luasnip",
+    {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+    },
   },
 
   ----------------------------------
@@ -74,10 +69,10 @@ return {
   {
     -- Snippet engine
     "L3MON4D3/LuaSnip",
-  },
-  {
-    "rafamadriz/friendly-snippets",
-    enable = false,
+    {
+      "rafamadriz/friendly-snippets",
+      enable = false,
+    },
   },
 
   ----------------------------------
@@ -88,12 +83,12 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   {
-    after = "nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-textsubjects",
     "JoosepAlviste/nvim-ts-context-commentstring",
     "windwp/nvim-ts-autotag",
     "nvim-treesitter/playground",
+    after = "nvim-treesitter",
   },
 
   ----------------------------------
@@ -128,17 +123,17 @@ return {
     -- Smooth scrolling
     "karb94/neoscroll.nvim",
 
-    -- -- Improve neovim input ui
-    -- { "stevearc/dressing.nvim", enable = false },
-
-    -- -- Climb the syntax tree
-    -- "drybalka/tree-climber.nvim",
-
     -- Swiss-army knife of neovim plugins
     {
       "echasnovski/mini.nvim",
       branch = "stable",
     },
+
+    -- -- Improve neovim input ui
+    -- { "stevearc/dressing.nvim", enable = false },
+
+    -- -- Climb the syntax tree
+    -- "drybalka/tree-climber.nvim",
   },
 
   ----------------------------------
@@ -152,52 +147,49 @@ return {
     "tpope/vim-fugitive",
   },
   {
-    -- Colorschemes
+    -- Comment engine
+    "numToStr/Comment.nvim",
+
+    -- Telescope by Telescopic Johnson
+    "nvim-telescope/telescope.nvim",
+
+    -- Project management, automate root-change
+    "ahmedkhalf/project.nvim",
+
+    -- Alignment tools, good for configs
+    "junegunn/vim-easy-align",
+
+    -- Show buffers at top (like tabs in vscode)
+    "akinsho/bufferline.nvim",
+
+    -- Status line
+    "nvim-lualine/lualine.nvim",
+
+    -- Colorize color values
+    "norcalli/nvim-colorizer.lua",
+
+    -- Neo tree explorer
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      requires = { "MunifTanjim/nui.nvim" },
+    },
+  },
+
+  ----------------------------------
+  -- Colorschemes
+  ----------------------------------
+  {
     "navarasu/onedark.nvim",
     "folke/tokyonight.nvim",
     "tiagovla/tokyodark.nvim",
   },
-  {
-    -- Comment engine
-    "numToStr/Comment.nvim",
-  },
-  {
-    -- Telescope by Telescopic Johnson
-    "nvim-telescope/telescope.nvim",
-  },
-  {
-    -- Project management, automate root-change
-    "ahmedkhalf/project.nvim",
-  },
-  {
-    -- Alignment tools, good for configs
-    "junegunn/vim-easy-align",
-  },
-  {
-    -- Show buffers at top (like tabs in vscode)
-    "akinsho/bufferline.nvim",
-  },
-  {
-    -- Status line
-    "nvim-lualine/lualine.nvim",
-  },
-  -- {
-  --   -- Tree Explorer
-  --   "kyazdani42/nvim-tree.lua",
-  -- },
-  -- {
-  --   -- Carbon explorer
-  --   "SidOfc/carbon.nvim",
-  -- },
-  {
-    -- Neo tree explorer
-    "nvim-neo-tree/neo-tree.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-    },
-  },
-  {
-    -- Colorize color values
-    "norcalli/nvim-colorizer.lua",
-  },
 }
+
+-- {
+--   -- Tree Explorer
+--   "kyazdani42/nvim-tree.lua",
+-- },
+-- {
+--   -- Carbon explorer
+--   "SidOfc/carbon.nvim",
+-- },
