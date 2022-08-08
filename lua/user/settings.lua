@@ -13,12 +13,14 @@ local opt = vim.opt
 opt.mouse = "a"               -- Enable mouse support
 opt.clipboard = "unnamedplus" -- Use system clipboard
 opt.wrap = false              -- Disable line wrap
-opt.scrolloff = 8             -- Scroll offset
 opt.undofile = true           -- Persistent undo even when the file is closed
 opt.ignorecase = true         -- Ignore case letters when search
 opt.smartcase = true          -- Ignore lowercase for the whole pattern
 opt.swapfile = false          -- Don't use swapfile
 opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
+
+opt.scrolloff = 8             -- Scroll offset (cursor distance to window border)
+opt.scroll = 12               -- Scroll distance (<C-U> / <C-D>)
 
 ---------------------------------------
 -- Neovim UI

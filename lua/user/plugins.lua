@@ -125,6 +125,9 @@ return {
     -- Swap nodes using treesitter
     "mizlan/iswap.nvim",
 
+    -- Smooth scrolling
+    "karb94/neoscroll.nvim",
+
     -- -- Improve neovim input ui
     -- { "stevearc/dressing.nvim", enable = false },
 

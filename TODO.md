@@ -1,4 +1,5 @@
 # TODO
+- colorize comment banner (probably using context commentstring)
 - change treeclimber mapping to TSTextObject...
 - add more details in cmp completion menu
 - disable emmet suggestion if in regular js (not in jsx)
