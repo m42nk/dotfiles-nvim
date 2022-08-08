@@ -23,14 +23,14 @@ autocmd("TextYankPost", {
 -- })
 
 -- Don't continue commenting when pressing `o/O`
-autocmd("FileType", {
-  pattern = "*",
-  command = [[
-  set formatoptions-=o
-  setlocal formatoptions-=o
-  ]],
-  group = custom,
-})
+-- autocmd("FileType", {
+--   pattern = "*",
+--   command = [[
+--   set formatoptions-=o
+--   setlocal formatoptions-=o
+--   ]],
+--   group = custom,
+-- })
 
 -- Start insert mode on opening gitcommit file
 autocmd("FileType", {

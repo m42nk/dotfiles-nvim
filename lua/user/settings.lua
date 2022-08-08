@@ -6,6 +6,15 @@
 -- local g = vim.g -- Global Variables
 local opt = vim.opt
 
+-- Autocommands for local settings
+local group = vim.api.nvim_create_augroup("Settings", { clear = true })
+local autocmd = function (command)
+  vim.api.nvim_create_autocmd("FileType", {
+    command = command,
+    group = group
+  })
+end
+
 ---------------------------------------
 -- General
 ---------------------------------------
@@ -18,9 +27,12 @@ opt.ignorecase = true         -- Ignore case letters when search
 opt.smartcase = true          -- Ignore lowercase for the whole pattern
 opt.swapfile = false          -- Don't use swapfile
 opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
-
 opt.scrolloff = 8             -- Scroll offset (cursor distance to window border)
-opt.scroll = 12               -- Scroll distance (<C-U> / <C-D>)
+-- opt.iskeyword:append("-")  -- Add - as keyword so 'cw' will delete the whole thing
+
+-- Don't continue commenting when pressing `o/O`
+autocmd("set formatoptions-=o")
+autocmd("setlocal formatoptions-=o")
 
 ---------------------------------------
 -- Neovim UI
