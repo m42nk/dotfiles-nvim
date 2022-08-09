@@ -39,7 +39,7 @@ autocmd({ "BufWinEnter", "BufWinLeave" }, {
       return
     end
 
-    if opts.event == "BufWinEnter" then
+    if opts.event == "BufWinLeave" then
       vim.cmd [[mkview]]
     else
       vim.cmd [[silent! loadview]]
