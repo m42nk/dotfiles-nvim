@@ -69,10 +69,7 @@ return {
   {
     -- Snippet engine
     "L3MON4D3/LuaSnip",
-    {
-      "rafamadriz/friendly-snippets",
-      enable = false,
-    },
+    { "rafamadriz/friendly-snippets", enable = false },
   },
 
   ----------------------------------
@@ -124,10 +121,7 @@ return {
     "karb94/neoscroll.nvim",
 
     -- Swiss-army knife of neovim plugins
-    {
-      "echasnovski/mini.nvim",
-      branch = "stable",
-    },
+    { "echasnovski/mini.nvim", branch = "stable" },
 
     -- -- Improve neovim input ui
     -- { "stevearc/dressing.nvim", enable = false },
@@ -169,10 +163,7 @@ return {
     "norcalli/nvim-colorizer.lua",
 
     -- Neo tree explorer
-    {
-      "nvim-neo-tree/neo-tree.nvim",
-      requires = { "MunifTanjim/nui.nvim" },
-    },
+    { "nvim-neo-tree/neo-tree.nvim", requires = { "MunifTanjim/nui.nvim" } },
   },
 
   ----------------------------------
