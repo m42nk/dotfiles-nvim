@@ -173,6 +173,7 @@ return {
     "navarasu/onedark.nvim",
     "folke/tokyonight.nvim",
     "tiagovla/tokyodark.nvim",
+    { "catppuccin/nvim", as = "catppuccin" },
   },
 }
 
