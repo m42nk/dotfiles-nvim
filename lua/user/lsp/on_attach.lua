@@ -38,11 +38,15 @@ local on_attach = function(client, bufnr)
 
   -- Highlight symbols under cursor
   local illuminate_ok, illuminate = pcall(require, "illuminate")
-  if not illuminate_ok then
-    return
+  if illuminate_ok then
+    illuminate.on_attach(client)
   end
 
-  illuminate.on_attach(client)
+  -- Lsp status
+  local lsp_status_ok, lsp_status = pcall(require, "lsp-status")
+  if lsp_status_ok then
+    lsp_status.on_attach(client)
+  end
 end
 
 return on_attach

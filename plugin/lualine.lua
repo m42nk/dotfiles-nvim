@@ -3,6 +3,11 @@ if not ok then
   return
 end
 
+local lsp_status_ok, lsp_status = pcall(require, "lsp-status")
+if lsp_status_ok then
+  lsp_status.register_progress()
+end
+
 local diff_section = {
   "diff",
   symbols = {
@@ -18,10 +23,11 @@ lualine.setup {
     icons_enabled = false,
     component_separators = { left = "|", right = "|" },
     section_separators = { left = "", right = "" },
+    refresh = {
+      statusline = 500
+    },
     disabled_filetypes = {
-      statusline = {
-        "NvimTree",
-      },
+      statusline = {},
       winbar = {},
     },
   },
@@ -40,7 +46,24 @@ lualine.setup {
       diff_section,
       "diagnostics",
     },
-    lualine_x = { "fileformat", "filetype" },
+    lualine_x = {
+      {
+        function()
+          local msgs = lsp_status.messages()
+          for _, msg in ipairs(msgs) do
+            if not tonumber(msg.name) then
+              return string.format("%s %s", msg.name, msg.percentage) .. "%%"
+            end
+
+            return string.format("%s %s", msg.title, msg.percentage) .. "%%"
+          end
+
+          return ""
+        end,
+      },
+      "fileformat",
+      "filetype",
+    },
     lualine_y = { "location" },
     lualine_z = {},
   },

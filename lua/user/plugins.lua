@@ -39,7 +39,10 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
 
     -- Loading spinner for lsp
-    "j-hui/fidget.nvim",
+    -- "j-hui/fidget.nvim",
+
+    -- Lsp statusline
+    "nvim-lua/lsp-status.nvim",
 
     -- Highlight symbols under cursor
     -- like vscode
@@ -123,10 +126,13 @@ return {
     -- Swiss-army knife of neovim plugins
     { "echasnovski/mini.nvim", branch = "stable" },
 
-    -- -- Improve neovim input ui
+    -- Pretty notification
+    -- "rcarriga/nvim-notify",
+
+    -- Improve neovim input ui
     -- { "stevearc/dressing.nvim", enable = false },
 
-    -- -- Climb the syntax tree
+    -- Climb the syntax tree
     -- "drybalka/tree-climber.nvim",
   },
 
