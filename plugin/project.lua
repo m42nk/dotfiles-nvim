@@ -1,19 +1,23 @@
 local ok, project = pcall(require, "project_nvim")
 if not ok then
-    return
+  return
 end
-project.setup({
-    -- detection_methods = { "lsp", "pattern" },
-    -- NOTE: lsp detection will get annoying with multiple langs in one project
-    detection_methods = { "pattern" },
+project.setup {
+  -- Don't change root if a buffer
+  -- is from different project
+  manual_mode = true,
 
-    -- patterns used to detect root dir, when **"pattern"** is in detection_methods
-    patterns = { ".git", "Makefile", "package.json", ".project-root" },
-})
+  -- detection_methods = { "lsp", "pattern" },
+  -- NOTE: lsp detection will get annoying with multiple langs in one project
+  detection_methods = { "pattern" },
+
+  -- patterns used to detect root dir, when **"pattern"** is in detection_methods
+  patterns = { ".git", "Makefile", "package.json", ".project-root" },
+}
 
 local tele_ok, telescope = pcall(require, "telescope")
 if not tele_ok then
-    return
+  return
 end
 
-telescope.load_extension('projects')
+telescope.load_extension "projects"

@@ -57,14 +57,12 @@ return {
     "hrsh7th/nvim-cmp",
 
     -- Completion sources
-    {
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-    },
+    "saadparwaiz1/cmp_luasnip",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
   },
 
   ----------------------------------
@@ -73,7 +71,7 @@ return {
   {
     -- Snippet engine
     "L3MON4D3/LuaSnip",
-    { "rafamadriz/friendly-snippets", enable = false },
+    { "rafamadriz/friendly-snippets", disable = false },
   },
 
   ----------------------------------
@@ -82,14 +80,12 @@ return {
   {
     -- Treesitter engine
     "nvim-treesitter/nvim-treesitter",
-  },
-  {
+
+    "nvim-treesitter/playground",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-textsubjects",
     "JoosepAlviste/nvim-ts-context-commentstring",
     "windwp/nvim-ts-autotag",
-    "nvim-treesitter/playground",
-    after = "nvim-treesitter",
   },
 
   ----------------------------------
@@ -103,6 +99,7 @@ return {
     "linty-org/readline.nvim",
 
     -- Remember last place on file reopen
+    -- (Use autocommand mkview/loadview instead)
     "ethanholz/nvim-lastplace",
 
     -- Add more useful textobjects
@@ -176,12 +173,12 @@ return {
   ----------------------------------
   -- Colorschemes
   ----------------------------------
-  {
-    "navarasu/onedark.nvim",
-    "folke/tokyonight.nvim",
-    "tiagovla/tokyodark.nvim",
-    { "catppuccin/nvim", as = "catppuccin" },
-  },
+  { "catppuccin/nvim", as = "catppuccin" },
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   "folke/tokyonight.nvim",
+  --   "tiagovla/tokyodark.nvim",
+  -- },
 }
 
 -- {

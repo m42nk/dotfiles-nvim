@@ -30,6 +30,8 @@ opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
 opt.scrolloff = 8             -- Scroll offset (cursor distance to window border)
 -- opt.iskeyword:append("-")  -- Add - as keyword so 'cw' will delete the whole thing
 
+opt.viewoptions = "folds"     -- Set what saved in :mkview
+
 -- Don't continue commenting when pressing `o/O`
 autocmd("set formatoptions-=o")
 autocmd("setlocal formatoptions-=o")

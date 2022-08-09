@@ -123,10 +123,10 @@ keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 keymap("n", "<leader>e", "<cmd>Neotree position=float reveal toggle<CR>", opts)
 
 -- Telescope
-keymap("n", "<leader>t<leader>", "<cmd>Telescope resume<CR>", opts)
-keymap("n", "<leader>tt", "<cmd>Telescope<CR>", opts)
+keymap("n", "<leader>tt", "<cmd>Telescope resume<CR>", opts)
+keymap("n", "<leader>t<leader>", "<cmd>Telescope<CR>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<leader>ts", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>tl", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
 keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>", opts)
@@ -159,18 +159,21 @@ keymap({ "s", "n", "i", "v", "x" }, "<c-l>", function()
   if luasnip.jumpable(1) then
     return luasnip.jump(1)
   else
-    return "<c-l>"
+    -- return "<c-l>"
+    return "<c-w>l"
   end
-end, { expr = true })
+end, { expr = true, noremap = false })
 
 keymap({ "s", "n", "i", "v", "x" }, "<c-h>", function()
   local luasnip = require "luasnip"
   if luasnip.jumpable(-1) then
-    return luasnip.jump(-11)
+    print(luasnip.jumpable(-1))
+    return luasnip.jump(-1)
   else
-    return "<c-h>"
+    -- return "<c-h>"
+    return "<c-w>h"
   end
-end, { expr = true })
+end, { expr = true, noremap = false })
 
 -- Tree climber
 -- do

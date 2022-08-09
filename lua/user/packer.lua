@@ -13,10 +13,15 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd [[
+
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile>:p:h/packer.lua | PackerCompile
+    autocmd BufWritePost plugins.lua 
+    \ source <afile>:p:h/packer.lua | 
+    \ exe 'PackerClean' | 
+    \ exe 'PackerCompile'
   augroup end
+  " autocmd BufWritePost plugins.lua source <afile>:p:h/packer.lua | PackerCompile
 ]]
 
 -- Use a protected call so we don't error out on first use

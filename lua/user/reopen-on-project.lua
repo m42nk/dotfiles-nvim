@@ -22,7 +22,7 @@ if active then
     end
 
     -- Cancel if vim called with any arguments
-    if next(vim.fn.argv()) ~= nil then
+    if vim.fn.argc() > 0 then
       return
     end
 

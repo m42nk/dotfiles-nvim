@@ -33,13 +33,13 @@ autocmd("TextYankPost", {
 -- })
 
 -- Preserve folding
-autocmd({ "BufWinEnter", "BufWinLeave" }, {
+autocmd({ "BufWinEnter", "BufWritePre" }, {
   callback = function(opts)
-    if opts.file == "" or opts.file == nil then
+    if opts.file == "" then
       return
     end
 
-    if opts.event == "BufWinLeave" then
+    if opts.event == "BufWritePre" then
       vim.cmd [[mkview]]
     else
       vim.cmd [[silent! loadview]]
