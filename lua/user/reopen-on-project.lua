@@ -1,7 +1,9 @@
 local ok, _ = pcall(require, "project_nvim")
 if not ok then
   vim.schedule(function()
-    vim.notify("Reopen: project.nvim is not installed", vim.log.levels.WARN)
+    vim.notify("Reopen project.nvim is not installed", vim.log.levels.WARN, {
+      title = "reopen-on-project",
+    })
   end)
   return
 end
@@ -43,6 +45,8 @@ if active then
       vim.cmd("e " .. target)
     end
 
-    vim.notify("Reopen: " .. vim.fn.fnamemodify(target, ":p:."), vim.log.levels.INFO)
+    vim.notify("Reopen " .. vim.fn.fnamemodify(target, ":p:."), vim.log.levels.INFO, {
+      title = "reopen-on-project",
+    })
   end)
 end

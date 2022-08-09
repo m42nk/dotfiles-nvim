@@ -32,8 +32,15 @@ keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
 keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
+-- Reselect pasted text
+keymap("v", "gp", "<esc>`[v`]")
+
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", opts)
+
+keymap("n", "*", "<cmd>keepjumps normal! mi*`i<cr>")
+keymap("n", "#", "<cmd>keepjumps normal! mi#`i<cr>")
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -107,19 +114,21 @@ keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 -- keymap("n", "<leader>e", "<cmd>Fcarbon<CR>", opts)
 
 -- Neo Tree
+-- [[[
 -- keymap("n", "<leader>ee", "<cmd>Neotree position=float reveal toggle<CR>", opts)
 -- keymap("n", "<leader>ef", "<cmd>Neotree position=float reveal toggle dir=%:p:h<CR>", opts)
 -- keymap("n", "<leader>e", "<cmd>Neotree position=float reveal toggle dir=%:p:h<CR>", opts)
+-- ]]]
 keymap("n", "<leader>e", "<cmd>Neotree position=float reveal toggle<CR>", opts)
 
 -- Telescope
-keymap("n", "<leader>t<leader>", "<cmd>Telescope<CR>", opts)
+keymap("n", "<leader>t<leader>", "<cmd>Telescope resume<CR>", opts)
+keymap("n", "<leader>tt", "<cmd>Telescope<CR>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>ts", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
 keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>", opts)
-keymap("n", "<leader>tr", "<cmd>Telescope resume<CR>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>", opts)
 keymap("n", "<leader>t!", "<cmd>Telescope command_history<CR>", opts)
 keymap("n", "<leader>tn", require("user.utils").telescope_find_nvim_config, opts)
@@ -141,6 +150,26 @@ keymap("n", "<leader>mw", "<cmd>ISwapWith<CR>", opts)
 -- Gitsigns
 keymap("n", "<leader>gn", "<cmd>Gitsigns next_hunk<CR>", opts)
 keymap("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<CR>", opts)
+
+-- Luasnip
+-- TODO: move this probably
+keymap({ "s", "n", "i", "v", "x" }, "<c-l>", function()
+  local luasnip = require "luasnip"
+  if luasnip.jumpable(1) then
+    return luasnip.jump(1)
+  else
+    return "<c-l>"
+  end
+end, { expr = true })
+
+keymap({ "s", "n", "i", "v", "x" }, "<c-h>", function()
+  local luasnip = require "luasnip"
+  if luasnip.jumpable(-1) then
+    return luasnip.jump(-11)
+  else
+    return "<c-h>"
+  end
+end, { expr = true })
 
 -- Tree climber
 -- do
