@@ -82,6 +82,7 @@ keymap("n", "<leader>c", "<cmd>lua require('mini.bufremove').delete(0)<cr>", opt
 
 -- Fugitive
 keymap("n", "<leader>G", "<cmd>0Git<cr>", opts)
+keymap("n", "<bslash>g", "<cmd>0Git<cr>", opts)
 
 -- Surround
 -- simulate `ys` with <leader>s
