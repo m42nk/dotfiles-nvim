@@ -77,3 +77,17 @@ yank text (default to '+' register)
 do cmd operation:
   `:'<,'>s/`
 press `<C-R>+` to paste contents of register to cmdline
+
+- leap
+Operator-pending mode
+In Operator-pending mode, there are two different (pairs of) default motions available, providing the necessary additional comfort and precision, since in that case we are targeting exact positions, and can only aim once, without the means of easy correction.
+
+z/Z are the equivalents of Normal/Visual s/S, and they follow the semantics of / and ? in terms of cursor placement and inclusive/exclusive operational behaviour, including forced motion types (:h forced-motion).
+
+x/X provide missing variants for the two directions; the mnemonics could be extend/eXclude:
+
+ab···|                    |···ab
+█████·  ←  Zab    zab  →  ████ab
+ab███·  ←  Xab    xab  →  ██████
+As you can see from the figure, x goes to the end of the match, including it in the operation, while X stops just before - in an absolute sense, after - the end of the match (the equivalent of T for Leap motions). In simpler terms: x/X both shift the relevant edge of the operated area by +2.
+

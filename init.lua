@@ -13,3 +13,5 @@ require "user.cmp"
 require "user.treesitter"
 
 require "user.keymaps"
+
+require "user.reopen-on-project"

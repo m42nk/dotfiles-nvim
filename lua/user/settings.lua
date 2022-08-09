@@ -57,6 +57,7 @@ opt.laststatus = 2        -- Every pane has statusline
 -- opt.foldmethod = "marker" -- Enable folding (default "foldmarker")
 -- opt.linebreak = false -- [?] Wrap on word boundary
 
+-- Disable intro
 opt.shortmess:append "I"
 
 -----------------------------------------------------------
