@@ -32,6 +32,22 @@ autocmd("TextYankPost", {
 --   group = custom,
 -- })
 
+-- Preserve folding
+autocmd({ "BufWinEnter", "BufWinLeave" }, {
+  callback = function(opts)
+    if opts.file == "" or opts.file == nil then
+      return
+    end
+
+    if opts.event == "BufWinEnter" then
+      vim.cmd [[mkview]]
+    else
+      vim.cmd [[silent! loadview]]
+    end
+  end,
+  group = custom,
+})
+
 -- Start insert mode on opening gitcommit file
 autocmd("FileType", {
   pattern = "gitcommit",
