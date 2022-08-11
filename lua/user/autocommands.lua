@@ -75,3 +75,23 @@ autocmd("FileType", {
   command = [[ nnoremap <buffer><silent> q :bwipeout<CR> ]],
   group = custom,
 })
+
+-- Toggle line number mode based on events_setup
+-- Show relativenumber if buffer is focused
+autocmd({ "BufEnter", "FocusGained" }, {
+  callback = function(opts)
+    -- Don't toggle relativenumber if number is hidden
+    if vim.wo.number then
+      vim.wo.relativenumber = true
+    end
+  end,
+  group = custom,
+})
+
+autocmd({ "BufLeave", "FocusLost" }, {
+  callback = function(opts)
+    vim.wo.relativenumber = false
+  end,
+  group = custom,
+})
+
