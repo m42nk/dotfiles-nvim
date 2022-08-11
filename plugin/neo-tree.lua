@@ -3,6 +3,9 @@ if not ok then
   return
 end
 
+-- TODO: force cwd on neo-tree but not on telescope
+-- TODO: probably not force, but provide easier way
+-- TODO: probably add binding to insert full path like in :Neotree dir=...
 vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
 
 local config = {

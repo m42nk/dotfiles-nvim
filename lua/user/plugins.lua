@@ -128,7 +128,7 @@ return {
     -- "rcarriga/nvim-notify",
 
     -- Improve neovim input ui
-    -- { "stevearc/dressing.nvim", enable = false },
+    -- "stevearc/dressing.nvim",
 
     -- Climb the syntax tree
     -- "drybalka/tree-climber.nvim",

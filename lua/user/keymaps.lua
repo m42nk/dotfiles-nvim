@@ -10,6 +10,9 @@
 -- command_mode = "c",
 ----------------------------------
 
+-- TODO:
+-- create util function nmap, imap, etc
+
 -- Alias
 local keymap = vim.keymap.set
 
@@ -20,6 +23,7 @@ local opts = { silent = false }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
+-- REMEMBER: use c-w v and c-w s to split
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -33,7 +37,10 @@ keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Reselect pasted text
-keymap("v", "gp", "<esc>`[v`]")
+-- TODO: make operator pending correctly
+-- currently if we use `dgp` or `cgp` this will 
+-- change all other mode to visual mode
+keymap("o", "gp", "<esc>`[v`]")
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -120,7 +127,8 @@ keymap("x", "<leader>lc", [[:'<,'>EasyAlign /--/<CR>]])
 -- keymap("n", "<leader>ef", "<cmd>Neotree position=float reveal toggle dir=%:p:h<CR>", opts)
 -- keymap("n", "<leader>e", "<cmd>Neotree position=float reveal toggle dir=%:p:h<CR>", opts)
 -- ]]]
-keymap("n", "<leader>e", "<cmd>Neotree position=float reveal toggle<CR>", opts)
+keymap("n", "<leader>e", "<cmd>Neotree float reveal toggle<CR>", opts)
+keymap("n", "<leader>E", "<cmd>Neotree float reveal_force_cwd<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>tt", "<cmd>Telescope resume<CR>", opts)
@@ -131,6 +139,7 @@ keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
 keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>", opts)
+keymap("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<leader>t!", "<cmd>Telescope command_history<CR>", opts)
 keymap("n", "<leader>tn", require("user.utils").telescope_find_nvim_config, opts)
 

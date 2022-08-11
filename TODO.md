@@ -1,5 +1,4 @@
 # TODO
-- Add extra luasnip mapping to go to next jump
 - Change bufferline to something else like show buffer list when switching buffer
 - colorize comment banner (probably using context commentstring)
 - change treeclimber mapping to TSTextObject...
@@ -28,6 +27,7 @@
 - autoclose initial [No Name] when changing buffer
 
 # DONE
+- Add extra luasnip mapping to go to next jump
 - tpope 's plugins
 - text object delete function, args, swap etc -> treesitter & targets.vim
 - autopairs

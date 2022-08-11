@@ -44,6 +44,7 @@ local config = {
   },
 }
 
+-- TODO: change 'enter' to something else when accepting completion
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -55,10 +56,10 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },
-    { name = "path" },
   }, {
     -- Don't show these sources if all source above
     -- still have items to complete
+    { name = "path" },
     { name = "buffer" },
   }),
   mapping = cmp.mapping.preset.insert {

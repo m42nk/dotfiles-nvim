@@ -28,7 +28,7 @@ opt.smartcase = true          -- Ignore lowercase for the whole pattern
 opt.swapfile = false          -- Don't use swapfile
 opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
 opt.scrolloff = 8             -- Scroll offset (cursor distance to window border)
--- opt.iskeyword:append("-")  -- Add - as keyword so 'cw' will delete the whole thing
+opt.iskeyword:remove("_")     -- remove _ as keyword so a_b will be treated as 2 word
 
 opt.viewoptions = "folds"     -- Set what saved in :mkview
 

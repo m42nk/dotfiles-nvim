@@ -33,4 +33,5 @@ end
 
 null_ls.setup {
   sources = sources,
+  on_attach = require("user.lsp.on_attach")
 }

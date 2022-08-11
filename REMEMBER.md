@@ -1,3 +1,5 @@
+Create a way to record tmux keys (to track what is most-used keys)
+
 Remember "hidden" useful keymaps
 
 - Treesitter
@@ -69,7 +71,9 @@ keymap("n", "<c-j>", treeclimber.swap_next, opts)
 - `Gvdiffsplit!`
 
 - Telescope
+
 use .fdignore to negate files in .gitignore but still searchable via telescope
+use <c-v> to open selection in vertical split
 
 - Misc
 -- Paste word to cmdline
@@ -90,4 +94,27 @@ ab···|                    |···ab
 █████·  ←  Zab    zab  →  ████ab
 ab███·  ←  Xab    xab  →  ██████
 As you can see from the figure, x goes to the end of the match, including it in the operation, while X stops just before - in an absolute sense, after - the end of the match (the equivalent of T for Leap motions). In simpler terms: x/X both shift the relevant edge of the operated area by +2.
+
+- Test startup speed
+hyperfine "nvim --headless +qa <filename>"
+
+nvim --startuptime log.txt 
+and then select -> :'<,'>!sort -k2nr
+
+-- Jump without searching
+use :/ instead of /
+
+-- Helper print
+:lua {chunk}
+                        Executes Lua chunk {chunk}.
+                        If {chunk} starts with "=" the rest of the chunk is
+                        evaluated as an expression and printed. `:lua =expr`
+                        is equivalent to `:lua print(vim.inspect(expr))`
+                        Examples:
+                            :lua vim.api.nvim_command('echo "Hello, Nvim!"')
+                         To see the Lua version:
+                            :lua print(_VERSION)
+                         To see the LuaJIT version:
+                            :lua =jit.version
+ 
 
