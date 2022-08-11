@@ -95,3 +95,36 @@ autocmd({ "BufLeave", "FocusLost" }, {
   group = custom,
 })
 
+-- Autoreload config files
+-- Kitty
+autocmd("BufWritePost", {
+  -- pattern = vim.fn.expand("~") .. '/.config/kitty/*.conf',
+  -- Handles when vim resolve the symlinks to other than home dir
+  pattern = "*/.config/kitty/*.conf",
+  callback = function()
+    vim.fn.system "kill -SIGUSR1 $(pgrep kitty)"
+  end,
+  group = custom,
+})
+
+-- Tmux
+-- see https://github.com/m42nk/dotfiles-tmux
+autocmd("BufWritePost", {
+  -- pattern = vim.fn.expand("~") .. '*/.config/tmux/*.conf',
+  -- Handles wjen vim resolve the symlinks to other than home dir
+  pattern = "*/.config/tmux/*.conf",
+  callback = function()
+    local output = vim.fn.system [[
+    tmux source $_cfg_default $_cfg_main 2>&1 && \
+    tmux display-message 'Config reloaded!'
+    ]]
+
+    if output ~= "" then
+      -- NOTE: unsure how to pipe shell output to tmux new-window
+      -- vim.fn.system("tmux new-window", output)
+      -- Use vim output instead
+      vim.pretty_print(output)
+    end
+  end,
+  group = custom,
+})
