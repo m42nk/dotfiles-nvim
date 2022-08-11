@@ -1,6 +1,23 @@
 local command = vim.api.nvim_create_user_command
 
 ----------------------------------
+-- Lua put (custom global function)
+----------------------------------
+--TODO: add `redir` to add to split buffer
+command("Inspect", function(opts)
+  local fargs = opts.fargs
+
+  if #fargs == 1 then
+    vim.cmd("lua =" .. opts.args)
+    return
+  end
+
+  for _, arg in pairs(fargs) do
+    vim.cmd("lua =" .. arg)
+  end
+end, { nargs = "+" })
+
+----------------------------------
 -- Create and edit sibling
 -- eg:
 -- :ES b.lua
