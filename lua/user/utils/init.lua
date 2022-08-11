@@ -25,4 +25,6 @@ M.i_hate_packersync = function()
   require("packer").install()
 end
 
+M.tmux_aware_nav = require("user.utils.tmux-aware-nav")
+
 return M

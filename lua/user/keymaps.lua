@@ -19,6 +19,12 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = false }
 
+-- FIXME: determine how to handle require('module').thisfunction
+local cb = function(fnname, ...)
+  local args = { ... }
+  pcall(require, fnname, unpack(args))
+end
+
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -29,6 +35,22 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- Tmux integration
+local tmux_nav = function(dir)
+  return function()
+    require("user.utils.tmux-aware-nav").navigate(dir)
+  end
+end
+
+keymap("n", "<C-w>h", tmux_nav("h"), opts)
+keymap("n", "<C-w>j", tmux_nav("j"), opts)
+keymap("n", "<C-w>k", tmux_nav("k"), opts)
+keymap("n", "<C-w>l", tmux_nav("l"), opts)
+
+-- keymap("n", "<C-w>j", ,opts)
+-- keymap("n", "<C-w>k", ,opts)
+-- keymap("n", "<C-w>l", ,opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
