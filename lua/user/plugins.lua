@@ -151,6 +151,9 @@ return {
     -- Telescope by Telescopic Johnson
     "nvim-telescope/telescope.nvim",
 
+    -- Telescope fzy sorter
+    "nvim-telescope/telescope-fzy-native.nvim",
+
     -- Project management, automate root-change
     "ahmedkhalf/project.nvim",
 

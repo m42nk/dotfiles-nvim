@@ -15,8 +15,38 @@ M.telescope_find_nvim_config = function()
     find_command = {
       "fd",
       "--search-path",
-      vim.fn.resolve(vim.env.MYVIMRC:match "(.*[/\\])"),
+      config_path,
     },
+  }
+end
+
+M.telescope_find_configs = function()
+  local home = vim.fn.expand "$HOME"
+  local config = home .. "/.config"
+
+  local dirs = {
+    config .. "/tmux",
+    config .. "/nvim",
+    config .. "/kitty",
+  }
+
+  require("telescope.builtin").find_files {
+    path_display = function(opts, path)
+      local tail = require("telescope.utils").path_tail
+      local target = nil
+      local short = path
+
+      for _, dir in pairs(dirs) do
+        if vim.startswith(short, dir) then
+          short = short:gsub(dir, "")
+          target = tail(dir)
+          break
+        end
+      end
+
+      return string.format("%s [%s]", short, target)
+    end,
+    search_dirs = { unpack(dirs) },
   }
 end
 
@@ -25,6 +55,6 @@ M.i_hate_packersync = function()
   require("packer").install()
 end
 
-M.tmux_aware_nav = require("user.utils.tmux-aware-nav")
+M.tmux_aware_nav = require "user.utils.tmux-aware-nav"
 
 return M

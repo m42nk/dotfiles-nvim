@@ -156,8 +156,9 @@ keymap("n", "<leader>e", "<cmd>Neotree float reveal toggle<CR>", opts)
 keymap("n", "<leader>E", "<cmd>Neotree float reveal_force_cwd<CR>", opts)
 
 -- Telescope
-keymap("n", "<leader>tt", "<cmd>Telescope resume<CR>", opts)
-keymap("n", "<leader>t<leader>", "<cmd>Telescope<CR>", opts)
+-- TODO: add telescope to browsed combined dotfiles
+keymap("n", "<leader>tt", "<cmd>Telescope<CR>", opts)
+keymap("n", "<leader>tr", "<cmd>Telescope resume<CR>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>tl", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
@@ -167,6 +168,7 @@ keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>", opts)
 keymap("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<leader>t!", "<cmd>Telescope command_history<CR>", opts)
 keymap("n", "<leader>tn", require("user.utils").telescope_find_nvim_config, opts)
+keymap("n", "<leader>tc", require("user.utils").telescope_find_configs, opts)
 
 -- Comment
 -- TODO: fix this, make it more readable
