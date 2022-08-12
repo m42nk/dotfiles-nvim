@@ -114,8 +114,15 @@ autocmd("BufWritePost", {
   -- Handles wjen vim resolve the symlinks to other than home dir
   pattern = "*/.config/tmux/*.conf",
   callback = function()
+    if not vim.env["TMUX"] then
+      vim.schedule(function()
+        vim.notify "Not inside tmux"
+      end)
+      return
+    end
+
     local output = vim.fn.system [[
-    tmux source $_cfg_default $_cfg_main 2>&1 && \
+    tmux source-file $_cfg_default $_cfg_main 2>&1 && \
     tmux display-message 'Config reloaded!'
     ]]
 

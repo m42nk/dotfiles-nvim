@@ -98,6 +98,9 @@ keymap({ "x", "n" }, "Q", '"_', opts)
 -- Same as above but for paste in visual block mode
 keymap("x", "p", "P", opts)
 
+-- Map % to gO, because bruh
+keymap("n", "gO", "%", opts)
+
 -----------------------------------------------------
 -- Plugins
 -----------------------------------------------------
