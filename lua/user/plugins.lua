@@ -47,6 +47,12 @@ return {
     -- Highlight symbols under cursor
     -- like vscode
     "RRethy/vim-illuminate",
+
+    -- Lsp settings with json
+    "tamago324/nlsp-settings.nvim",
+
+    -- Provide json schema autocomplete (like vscode)
+    "b0o/schemastore.nvim",
   },
 
   ----------------------------------

@@ -1,3 +1,5 @@
+local fn = vim.fn
+
 local ok, _ = pcall(require, "project_nvim")
 if not ok then
   vim.schedule(function()
@@ -8,32 +10,35 @@ if not ok then
   return
 end
 
-local active = true
+local active = false
 
 if active then
   -- Defer the call
-  vim.schedule(function()
-    -- TODO: Probably change this, since it's an interal function of project_nvim
+  vim.schedule_wrap(function()
+    -- Arguments count
+    local argc = fn.argc()
+
+    -- Vim flag count (-f, -c, etc)
+    local flagc = #fn.split(fn.system("ps -o command= -p " .. fn.getpid())) - 1
+
+    -- TODO: Probably change this, since it's an internal function of project_nvim
     local project_ok, project_root = pcall(require("project_nvim.project").get_project_root, "")
 
-    -- Check if project_nvim is configured
+    if argc > 0 or flagc > 0 then
+      return
+    end
+
+    -- Open explorer not in project_root
     if not project_ok then
+      vim.cmd [[Neotree]]
       return
     end
 
-    -- Cancel if vim called with any arguments
-    if vim.fn.argc() > 0 then
-      return
-    end
-
-    -- Cancel if project_root is not found
-    if not project_root then
-      return
-    end
-
+    -- Get recent files
     local oldfiles = vim.v.oldfiles
     local target = nil
 
+    -- Loop over oldfile
     for _, filepath in pairs(oldfiles) do
       if vim.startswith(filepath, project_root) then
         target = filepath
@@ -41,12 +46,19 @@ if active then
       end
     end
 
-    if target then
-      vim.cmd("e " .. target)
+    -- Cancel if target file doesn't exists
+    -- if not target or not vim.loop.fs_stat(target) then
+    if not target or not vim.fn.findfile(target) then
+      vim.cmd [[Neotree]]
+      return
     end
 
-    vim.notify("Reopen " .. vim.fn.fnamemodify(target, ":p:."), vim.log.levels.INFO, {
-      title = "reopen-on-project",
-    })
+    if target then
+      vim.cmd("e! " .. target)
+
+      vim.notify("Reopen " .. fn.fnamemodify(target, ":p:."), vim.log.levels.INFO, {
+        title = "reopen-on-project",
+      })
+    end
   end)
 end

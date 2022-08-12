@@ -43,10 +43,10 @@ local tmux_nav = function(dir)
   end
 end
 
-keymap("n", "<C-w>h", tmux_nav("h"), opts)
-keymap("n", "<C-w>j", tmux_nav("j"), opts)
-keymap("n", "<C-w>k", tmux_nav("k"), opts)
-keymap("n", "<C-w>l", tmux_nav("l"), opts)
+keymap("n", "<C-w>h", tmux_nav "h", opts)
+keymap("n", "<C-w>j", tmux_nav "j", opts)
+keymap("n", "<C-w>k", tmux_nav "k", opts)
+keymap("n", "<C-w>l", tmux_nav "l", opts)
 
 -- keymap("n", "<C-w>j", ,opts)
 -- keymap("n", "<C-w>k", ,opts)
@@ -60,7 +60,7 @@ keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Reselect pasted text
 -- TODO: make operator pending correctly
--- currently if we use `dgp` or `cgp` this will 
+-- currently if we use `dgp` or `cgp` this will
 -- change all other mode to visual mode
 keymap("o", "gp", "<esc>`[v`]")
 
@@ -85,7 +85,15 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader><leader>", "<cmd>w<cr>", opts)
 
 -- Reload config
-keymap("n", "<leader>r", "<cmd>R<cr>", opts)
+-- keymap("n", "<leader>r", "<cmd>R<cr>", opts)
+keymap("n", "<leader>r", function()
+  local ft = vim.api.nvim_buf_get_option(0, "filetype")
+  if ft == "lua" then
+    vim.cmd [[R]]
+  else
+    vim.notify("Not a lua file", vim.log.levels.WARN)
+  end
+end, opts)
 
 -- Edit last buffer (alternate)
 keymap("n", "<leader><bslash>", "<C-^>", opts)
@@ -167,8 +175,8 @@ keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>", opts)
 keymap("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<leader>t!", "<cmd>Telescope command_history<CR>", opts)
-keymap("n", "<leader>tn", require("user.utils").telescope_find_nvim_config, opts)
-keymap("n", "<leader>tc", require("user.utils").telescope_find_configs, opts)
+keymap("n", "<leader>t\\", require("user.utils").telescope_find_configs, opts)
+keymap("n", "<leader>tn", require("user.utils").telescope_find_notes, opts)
 
 -- Comment
 -- TODO: fix this, make it more readable

@@ -20,6 +20,17 @@ M.telescope_find_nvim_config = function()
   }
 end
 
+M.telescope_find_notes = function()
+  -- :Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍
+  require("telescope.builtin").find_files {
+    find_command = {
+      "fd",
+      "--search-path",
+      vim.fn.expand "~" .. "/Notes",
+    },
+  }
+end
+
 M.telescope_find_configs = function()
   local home = vim.fn.expand "$HOME"
   local config = home .. "/.config"
