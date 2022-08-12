@@ -160,6 +160,9 @@ return {
     -- Telescope fzy sorter
     "nvim-telescope/telescope-fzy-native.nvim",
 
+    -- Telescope helper for changing directories
+    "zane-/cder.nvim",
+
     -- Project management, automate root-change
     "ahmedkhalf/project.nvim",
 

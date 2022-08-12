@@ -1,11 +1,6 @@
 local plenary_ok, plenary_reload = pcall(require, "plenary.reload")
 local reloader = plenary_ok and plenary_reload.reload_module or require
 
-P = function(v)
-  print(vim.inspect(v))
-  return v
-end
-
 RELOAD = function(...)
   return reloader(...)
 end

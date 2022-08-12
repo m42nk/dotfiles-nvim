@@ -169,14 +169,17 @@ keymap("n", "<leader>tt", "<cmd>Telescope<CR>", opts)
 keymap("n", "<leader>tr", "<cmd>Telescope resume<CR>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>tl", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<leader>tp", "<cmd>Telescope projects<CR>", opts)
+keymap("n", "<leader>tP", "<cmd>Telescope projects<CR>", opts)
 keymap("n", "<leader>tb", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader>tj", "<cmd>Telescope jumplist<CR>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope man_pages<CR>", opts)
 keymap("n", "<leader>th", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<leader>t!", "<cmd>Telescope command_history<CR>", opts)
-keymap("n", "<leader>t\\", require("user.utils").telescope_find_configs, opts)
+keymap("n", "<leader>tp", require("user.utils").telescope_find_configs, opts)
 keymap("n", "<leader>tn", require("user.utils").telescope_find_notes, opts)
+
+-- Move to telscope normal mode mapping
+--[[ keymap("n", "<leader>tcd","<cmd>Telescope cder theme=ivy<CR>", opts) ]]
 
 -- Comment
 -- TODO: fix this, make it more readable
