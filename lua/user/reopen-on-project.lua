@@ -10,11 +10,11 @@ if not ok then
   return
 end
 
-local active = false
+local active = true
 
 if active then
   -- Defer the call
-  vim.schedule_wrap(function()
+  vim.schedule(function()
     -- Arguments count
     local argc = fn.argc()
 
