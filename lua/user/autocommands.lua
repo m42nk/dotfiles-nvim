@@ -100,7 +100,7 @@ autocmd({ "BufLeave", "FocusLost" }, {
 autocmd("BufWritePost", {
   -- pattern = vim.fn.expand("~") .. '/.config/kitty/*.conf',
   -- Handles when vim resolve the symlinks to other than home dir
-  pattern = "*/.config/kitty/*.conf",
+  pattern = {"*/.config/kitty/*.conf", "*/kitty/*.conf"},
   callback = function()
     vim.fn.system "kill -SIGUSR1 $(pgrep kitty)"
   end,
