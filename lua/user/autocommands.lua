@@ -111,8 +111,8 @@ autocmd("BufWritePost", {
 -- see https://github.com/m42nk/dotfiles-tmux
 autocmd("BufWritePost", {
   -- pattern = vim.fn.expand("~") .. '*/.config/tmux/*.conf',
-  -- Handles wjen vim resolve the symlinks to other than home dir
-  pattern = "*/.config/tmux/*.conf",
+  -- Handles when vim resolve the symlinks to other than home dir
+  pattern = {"*/.config/tmux/*.conf", "*/tmux/*.conf"},
   callback = function()
     if not vim.env["TMUX"] then
       vim.schedule(function()
@@ -122,8 +122,8 @@ autocmd("BufWritePost", {
     end
 
     local output = vim.fn.system [[
-    tmux source-file $_cfg_default $_cfg_main 2>&1 && \
-    tmux display-message 'Config reloaded!'
+    tmux source "$_cfg_default" "$_cfg_main" 2>&1 && \
+    tmux display 'Config reloaded!'
     ]]
 
     if output ~= "" then
@@ -135,3 +135,5 @@ autocmd("BufWritePost", {
   end,
   group = custom,
 })
+
+-- TODOHERE: make telescope sorter frecency (at least make recently opened file at the top)
