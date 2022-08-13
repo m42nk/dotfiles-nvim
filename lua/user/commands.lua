@@ -17,6 +17,8 @@ command("Inspect", function(opts)
   end
 end, { nargs = "+" })
 
+local a = { "a", "b", "c" }
+
 ----------------------------------
 -- Create and edit sibling
 -- eg:

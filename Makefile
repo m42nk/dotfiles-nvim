@@ -1,3 +1,5 @@
+LINK_TARGET := "$$HOME/.config/nvim"
+
 build-run: build run
 
 build:
@@ -8,4 +10,8 @@ run:
 
 run-bash:
 	docker run --rm -it dockerized-nvim:latest bash
+
+link:
+	ln -s $$(pwd) $(LINK_TARGET)
+
 

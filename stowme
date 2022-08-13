@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if ! command -v stow; then
+	echo "Stow is not installed, exiting"
+	exit 1
+fi
+
+_target="$HOME/.config/nvim"
+
+if [[ -d "$_target" ]]; then
+	echo "Directory $_target exists, exiting"
+	exit 1
+fi
+
+echo "(re)Creating dir $_target"
+mkdir -p $_target
+
+echo "Stowing"
+stow -t $_target .
+
+echo "Done"
