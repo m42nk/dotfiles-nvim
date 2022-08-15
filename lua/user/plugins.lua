@@ -95,7 +95,7 @@ return {
   },
 
   ----------------------------------
-  -- Minor feature improvement
+  -- Feature improvement
   ----------------------------------
   {
     -- Powerful autopair
@@ -129,6 +129,9 @@ return {
 
     -- Swiss-army knife of neovim plugins
     { "echasnovski/mini.nvim", branch = "stable" },
+
+    -- Keymapping popup helper
+    "folke/which-key.nvim",
 
     -- Pretty notification
     -- "rcarriga/nvim-notify",
@@ -192,12 +195,3 @@ return {
   --   "tiagovla/tokyodark.nvim",
   -- },
 }
-
--- {
---   -- Tree Explorer
---   "kyazdani42/nvim-tree.lua",
--- },
--- {
---   -- Carbon explorer
---   "SidOfc/carbon.nvim",
--- },

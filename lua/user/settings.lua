@@ -28,7 +28,8 @@ opt.smartcase = true          -- Ignore lowercase for the whole pattern
 opt.swapfile = false          -- Don't use swapfile
 opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
 opt.scrolloff = 8             -- Scroll offset (cursor distance to window border)
-opt.iskeyword:remove("_")     -- remove _ as keyword so a_b will be treated as 2 word
+opt.iskeyword:remove("_")     -- Remove _ as keyword so a_b will be treated as 2 word
+opt.timeoutlen = 500          -- Time in milliseconds to wait for a mapped sequence to complete
 
 opt.viewoptions = "folds"     -- Set what saved in :mkview
 
@@ -53,11 +54,10 @@ opt.cursorline = true     -- Highlight current line
 opt.signcolumn = "yes:1"  -- Always show the sign columns (diagnostics, etc)
 opt.showmode = false      -- Hide mode like "-- INSERT --" in cmdline
 
--- opt.laststatus = 3 -- Set global statusline
+-- opt.laststatus = 3     -- Set global statusline
 opt.laststatus = 2        -- Every pane has statusline
 
 -- opt.foldmethod = "marker" -- Enable folding (default "foldmarker")
--- opt.linebreak = false -- [?] Wrap on word boundary
 
 -- Disable intro
 opt.shortmess:append "I"
