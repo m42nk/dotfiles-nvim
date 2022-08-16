@@ -129,24 +129,24 @@ nmap("<leader>tn", require("user.utils").telescope_find_notes, "Find notes")
 -- Comment
 -- TODO: fix this, make it more readable
 -- probably with lua function
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", {})
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
+nmap("<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Comment")
+xmap("<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment")
 
 -- Colorizer
-keymap("n", "<leader>C", "<cmd>ColorizerToggle<cr>")
+nmap("<leader>C", "<cmd>ColorizerToggle<cr>", "Toggle colorizer")
 
 -- Iswap
 -- Swap nodes (function params, values, etc)
-keymap("n", "<leader>mc", "<cmd>ISwap<CR>", {})
-keymap("n", "<leader>mw", "<cmd>ISwapWith<CR>", {})
+nmap("<leader>mc", "<cmd>ISwap<CR>", "Swap")
+nmap("<leader>mw", "<cmd>ISwapWith<CR>", "Swap current node")
 
 -- Gitsigns
-keymap("n", "<leader>gn", "<cmd>Gitsigns next_hunk<CR>", {})
-keymap("n", "<leader>gp", "<cmd>Gitsigns prev_hunk<CR>", {})
+nmap("<leader>gn", "<cmd>Gitsigns next_hunk<CR>", "Next hunk")
+nmap("<leader>gp", "<cmd>Gitsigns prev_hunk<CR>", "Previous hunk")
 
 -- Luasnip
 -- TODO: move this probably
-keymap({ "s", "n", "i", "v", "x" }, "<c-l>", function()
+keymap("", "<c-l>", function()
   local luasnip = require "luasnip"
   if luasnip.jumpable(1) then
     return luasnip.jump(1)
@@ -155,7 +155,7 @@ keymap({ "s", "n", "i", "v", "x" }, "<c-l>", function()
   end
 end, { expr = true, noremap = false })
 
-keymap({ "s", "n", "i", "v", "x" }, "<c-h>", function()
+keymap("", "<c-h>", function()
   local luasnip = require "luasnip"
   if luasnip.jumpable(-1) then
     print(luasnip.jumpable(-1))
