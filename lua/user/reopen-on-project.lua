@@ -29,7 +29,7 @@ if active then
     end
 
     -- Open explorer not in project_root
-    if not project_ok then
+    if not project_ok or not project_root then
       vim.cmd [[Neotree]]
       return
     end

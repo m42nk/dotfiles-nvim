@@ -14,6 +14,7 @@ local my_sources = {
   formatting.markdownlint,
   formatting.prettierd,
   formatting.stylua,
+  formatting.shfmt,
   code_actions.gitsigns,
   code_actions.eslint_d,
 }

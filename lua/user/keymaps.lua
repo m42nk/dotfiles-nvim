@@ -113,16 +113,17 @@ nmap("<leader>E", "<cmd>Neotree float reveal_force_cwd<CR>", "Neotree force cwd"
 -- TODO: add telescope to browsed combined dotfiles
 --[[ m.label("n", "<leader>t", "Telescope") ]]
 nmap("<leader>t", "<nop>", { desc = "telescope" })
-nmap("<leader>tt", "<cmd>Telescope<CR>", "List actions")
-nmap("<leader>tr", "<cmd>Telescope resume<CR>", "Resume")
 nmap("<leader>f", "<cmd>Telescope find_files<CR>", "Files")
-nmap("<leader>tl", "<cmd>Telescope live_grep<CR>", "Search text")
+nmap("<leader>t!", "<cmd>Telescope command_history<CR>", "Command history")
 nmap("<leader>tP", "<cmd>Telescope projects<CR>", "Projects")
 nmap("<leader>tb", "<cmd>Telescope buffers<CR>", "Buffers")
-nmap("<leader>tj", "<cmd>Telescope jumplist<CR>", "Jumplist")
-nmap("<leader>tm", "<cmd>Telescope man_pages<CR>", "Man pages")
 nmap("<leader>th", "<cmd>Telescope help_tags<CR>", "Help pages")
-nmap("<leader>t!", "<cmd>Telescope command_history<CR>", "Command history")
+nmap("<leader>tj", "<cmd>Telescope jumplist<CR>", "Jumplist")
+nmap("<leader>tl", "<cmd>Telescope live_grep<CR>", "Search text")
+nmap("<leader>tm", "<cmd>Telescope man_pages<CR>", "Man pages")
+nmap("<leader>to", "<cmd>Telescope oldfiles<CR>", "Command history")
+nmap("<leader>tr", "<cmd>Telescope resume<CR>", "Resume")
+nmap("<leader>tt", "<cmd>Telescope<CR>", "List actions")
 nmap("<leader>tp", require("user.utils").telescope_find_configs, "Find configs")
 nmap("<leader>tn", require("user.utils").telescope_find_notes, "Find notes")
 

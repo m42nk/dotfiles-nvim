@@ -25,6 +25,7 @@ M.telescope_find_notes = function()
   require("telescope.builtin").find_files {
     find_command = {
       "fd",
+      "--hidden",
       "--search-path",
       vim.fn.expand "~" .. "/Notes",
     },
@@ -36,12 +37,19 @@ M.telescope_find_configs = function()
   local config = home .. "/.config"
 
   local dirs = {
-    config .. "/tmux",
-    config .. "/nvim",
-    config .. "/kitty",
+    --[[ config .. "/tmux", ]]
+    --[[ config .. "/nvim", ]]
+    --[[ config .. "/kitty", ]]
+    home .. "/Dotfiles"
   }
 
-  local find_command = { "fd" }
+  local find_command = {
+    "fd",
+    "--hidden",
+    "--type",
+    "f"
+  }
+
   for _, dir in pairs(dirs) do
     table.insert(find_command, "--search-path")
     table.insert(find_command, dir)
