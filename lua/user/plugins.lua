@@ -133,6 +133,9 @@ return {
     -- Keymapping popup helper
     "folke/which-key.nvim",
 
+    -- Neorg
+    "nvim-neorg/neorg",
+
     -- Pretty notification
     -- "rcarriga/nvim-notify",
 

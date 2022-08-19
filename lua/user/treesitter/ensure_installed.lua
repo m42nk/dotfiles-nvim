@@ -1,4 +1,5 @@
 return {
+  "norg",
   "query",
   "bash",
   "c",
