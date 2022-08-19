@@ -17,3 +17,5 @@ autopairs.setup {
     highlight_grey = "Comment",
   },
 }
+
+autopairs.add_rules(require "nvim-autopairs.rules.endwise-elixir")

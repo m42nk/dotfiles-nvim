@@ -11,10 +11,12 @@ local my_sources = {
   diagnostics.codespell,
   diagnostics.misspell,
   diagnostics.shellcheck,
+
   formatting.markdownlint,
   formatting.prettierd,
   formatting.stylua,
   formatting.shfmt,
+
   code_actions.gitsigns,
   code_actions.eslint_d,
 }

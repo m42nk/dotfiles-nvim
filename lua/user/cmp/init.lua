@@ -136,7 +136,7 @@ cmp.setup {
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   completion = {
-    keyword_length = 3
+    keyword_length = 3,
   },
   sources = cmp.config.sources({
     { name = "path" },
@@ -148,7 +148,7 @@ cmp.setup.cmdline(":", {
 cmp.setup.cmdline("/", {
   mapping = cmp.mapping.preset.cmdline(),
   completion = {
-    keyword_length = 3
+    keyword_length = 3,
   },
   sources = {
     { name = "buffer" },

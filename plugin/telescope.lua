@@ -21,7 +21,16 @@ telescope.setup {
       -- path_display = "tail",
       -- find_command = { "fd", "--hidden", "--type", "f", "--exclude", ".git"},
       theme = "ivy",
-      find_command = { "fd", "--hidden", "--type", "f", "--exclude", ".git" },
+      find_command = {
+        "fd",
+        "--hidden",
+        "--type",
+        "f",
+        "--exclude",
+        ".git",
+        "--exclude",
+        "_build",
+      },
     },
   },
   extensions = {
