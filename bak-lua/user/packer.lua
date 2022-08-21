@@ -1,6 +1,5 @@
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system {
     "git",
@@ -13,8 +12,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- TODO: change to lua
 vim.cmd [[
+
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua 
@@ -22,6 +21,7 @@ vim.cmd [[
     \ exe 'PackerClean' | 
     \ exe 'PackerCompile'
   augroup end
+  " autocmd BufWritePost plugins.lua source <afile>:p:h/packer.lua | PackerCompile
 ]]
 
 -- Use a protected call so we don't error out on first use
@@ -37,7 +37,7 @@ packer.init {
   -- },
   display = {
     open_fn = function()
-      return require('packer.util').float({ border = 'single' })
+      return require("packer.util").float { border = "rounded" }
     end,
   },
 }
@@ -45,14 +45,9 @@ packer.init {
 return packer.startup(function(use)
   package.loaded["user.plugins"] = nil
 
-  -- Load packer first
-  use "wbthomason/packer.nvim"
-
-  local plugins_ok, plugins = pcall(require, "user.plugins")
-  if plugins_ok then
-    for _, plugin in pairs(plugins) do
-      use(plugin)
-    end
+  local _, plugins = pcall(require, "user.plugins")
+  for _, plugin in pairs(plugins) do
+    use(plugin)
   end
 
   -- Automatically set up your configuration after cloning packer.nvim

@@ -9,3 +9,6 @@ run:
 run-bash:
 	docker run --rm -it dockerized-nvim:latest bash
 
+speed:
+	hyperfine "nvim --headless +qa"	
+
