@@ -1,8 +1,3 @@
-----------------------------------
--- ui related configuration
--- for lsp
-----------------------------------
-
 -- change diagnostics signs in signcolumn and etc
 local signs = {
   { name = "diagnosticsignerror", text = "" },
@@ -12,7 +7,11 @@ local signs = {
 }
 
 for _, sign in ipairs(signs) do
-  vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+  vim.fn.sign_define(sign.name, {
+    texthl = sign.name,
+    text = sign.text,
+    numhl = ""
+  })
 end
 
 -- configuration for vim.diagnostics
@@ -35,16 +34,3 @@ local config = {
 }
 
 vim.diagnostic.config(config)
-
-local with = vim.lsp.with
-local handlers = vim.lsp.handlers
-
-handlers["textdocument/hover"] = with(
-handlers.hover, {
-  border = "rounded"
-})
-
-handlers["textdocument/signaturehelp"] = with(
-handlers.signature_help, {
-  border = "rounded",
-})

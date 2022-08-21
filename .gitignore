@@ -46,3 +46,4 @@ vscode-java-test/
 
 # Files used for testing
 __test.*
+*.log

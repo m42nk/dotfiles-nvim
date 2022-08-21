@@ -16,9 +16,14 @@ local autocmd = function (command)
 end
 
 ---------------------------------------
+-- Leader key
+---------------------------------------
+vim.keymap.set("", "<Space>", "<Nop>", {})
+vim.g.mapleader = " "
+
+---------------------------------------
 -- General
 ---------------------------------------
-
 opt.mouse = "a"               -- Enable mouse support
 opt.clipboard = "unnamedplus" -- Use system clipboard
 opt.wrap = false              -- Disable line wrap
