@@ -9,8 +9,7 @@ end
 
 local cb = require("nvim-tree.config").nvim_tree_callback
 
--- let g:Illuminate_ftblacklist = ['nerdtree']
-vim.g.Illuminate_ftblacklist = { "NvimTree" }
+vim.g.Illuminate_ftblacklist = require("user.disable-filetypes").base
 
 nvim_tree.setup {
   hijack_cursor = true,

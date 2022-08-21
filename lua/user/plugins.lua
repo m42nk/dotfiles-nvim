@@ -134,7 +134,12 @@ return {
     "folke/which-key.nvim",
 
     -- Neorg
-    "nvim-neorg/neorg",
+    {
+      "nvim-neorg/neorg",
+      requires = {
+        "nvim-neorg/neorg-telescope",
+      },
+    },
 
     -- Pretty notification
     -- "rcarriga/nvim-notify",

@@ -27,11 +27,11 @@ local types = require "cmp.types"
 local config = {
   source_names = {
     nvim_lsp = "[LSP]",
+    neorg = "[Neorg]",
     emoji = "[Emoji]",
     path = "[Path]",
     calc = "[Calc]",
     cmp_tabnine = "[Tabnine]",
-    vsnip = "[Snippet]",
     luasnip = "[Snippet]",
     buffer = "[Buffer]",
     tmux = "[TMUX]",
@@ -53,6 +53,7 @@ cmp.setup {
   },
   sources = cmp.config.sources({
     -- { name = "nvim_lsp", max_item_count = 1 },
+    { name = "neorg" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },
@@ -133,17 +134,17 @@ cmp.setup {
   },
 }
 
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  completion = {
-    keyword_length = 3,
-  },
-  sources = cmp.config.sources({
-    { name = "path" },
-  }, {
-    { name = "cmdline" },
-  }),
-})
+--[[ cmp.setup.cmdline(":", { ]]
+--[[   mapping = cmp.mapping.preset.cmdline(), ]]
+--[[   completion = { ]]
+--[[     keyword_length = 3, ]]
+--[[   }, ]]
+--[[   sources = cmp.config.sources({ ]]
+--[[     { name = "path" }, ]]
+--[[   }, { ]]
+--[[     { name = "cmdline" }, ]]
+--[[   }), ]]
+--[[ }) ]]
 
 cmp.setup.cmdline("/", {
   mapping = cmp.mapping.preset.cmdline(),

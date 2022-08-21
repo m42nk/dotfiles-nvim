@@ -48,7 +48,7 @@ if active then
 
     -- Cancel if target file doesn't exists
     -- if not target or not vim.loop.fs_stat(target) then
-    if not target or not vim.fn.findfile(target) then
+    if not target or vim.fn.findfile(target) == "" then
       vim.cmd [[Neotree]]
       return
     end

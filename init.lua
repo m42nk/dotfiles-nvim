@@ -12,6 +12,7 @@ require "user.lsp"
 require "user.cmp"
 require "user.treesitter"
 require "user.lualine"
+require "user.neorg"
 
 require "user.keymaps"
 

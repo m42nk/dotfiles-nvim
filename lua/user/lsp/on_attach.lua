@@ -36,12 +36,6 @@ local on_attach = function(client, bufnr)
   -- Attach keymaps
   on_attach_keymaps(bufnr)
 
-  -- Highlight symbols under cursor
-  local illuminate_ok, illuminate = pcall(require, "illuminate")
-  if illuminate_ok then
-    illuminate.on_attach(client)
-  end
-
   -- Lsp status
   local lsp_status_ok, lsp_status = pcall(require, "lsp-status")
   if lsp_status_ok then

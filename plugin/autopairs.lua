@@ -4,7 +4,7 @@ if not ok then
 end
 
 autopairs.setup {
-  disable_filetype = { "TelescopePrompt" },
+  disable_filetype = require("user.disable-filetypes").base,
   disable_in_macro = true,
   fast_wrap = {
     map = "<M-e>",
