@@ -34,7 +34,8 @@ opt.swapfile = false          -- Don't use swapfile
 opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
 opt.scrolloff = 8             -- Scroll offset (cursor distance to window border)
 opt.iskeyword:remove("_")     -- Remove _ as keyword so a_b will be treated as 2 word
-opt.timeoutlen = 500          -- Time in milliseconds to wait for a mapped sequence to complete
+-- opt.timeoutlen = 500       -- Time in milliseconds to wait for a mapped sequence to complete
+opt.timeoutlen = 300          -- If using which-key, this will be the time until which-key opens
 
 opt.viewoptions = "folds"     -- Set what saved in :mkview
 

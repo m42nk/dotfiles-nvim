@@ -18,7 +18,7 @@ end
 
 local conditions = {
   hide_in_width = function()
-    return vim.fn.winwidth(0) > 70
+    return vim.fn.winwidth(0) > 90
   end,
 }
 
@@ -71,7 +71,7 @@ return {
       modified = { fg = colors.yellow },
       removed = { fg = colors.red },
     },
-    cond = nil,
+    cond = conditions.hide_in_width,
   },
   python_env = {
     function()
@@ -90,7 +90,7 @@ return {
       return ""
     end,
     color = { fg = colors.green },
-    cond = conditions.hide_in_width,
+    -- cond = conditions.hide_in_width,
   },
   diagnostics = {
     "diagnostics",
@@ -107,7 +107,7 @@ return {
       local ts = vim.treesitter.highlighter.active[buf]
       return { fg = ts and not vim.tbl_isempty(ts) and colors.green or colors.red }
     end,
-    cond = conditions.hide_in_width,
+    -- cond = conditions.hide_in_width,
   },
   lsp_progress = {
     function()
@@ -167,10 +167,18 @@ return {
       return "[" .. table.concat(unique_client_names, ", ") .. "]"
     end,
     color = { gui = "bold" },
-    cond = conditions.hide_in_width,
+    -- cond = conditions.hide_in_width,
   },
-  location = { "location", cond = conditions.hide_in_width, color = {} },
-  progress = { "progress", cond = conditions.hide_in_width, color = {} },
+  location = {
+    "location",
+    -- cond = conditions.hide_in_width,
+    color = {},
+  },
+  progress = {
+    "progress",
+    -- cond = conditions.hide_in_width,
+    color = {},
+  },
   spaces = {
     function()
       if not vim.api.nvim_buf_get_option(0, "expandtab") then
