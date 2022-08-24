@@ -66,6 +66,10 @@ return {
   -- Telescope fzy sorter
   "nvim-telescope/telescope-fzy-native.nvim",
 
+  -- Telescope helper for changing directories
+  "zane-/cder.nvim",
+
+
   ----------------------------------
   -- UI Features
   ----------------------------------
@@ -183,9 +187,6 @@ return {
       "nvim-neorg/neorg-telescope",
     },
   },
-
-  -- -- Telescope helper for changing directories
-  -- "zane-/cder.nvim",
 
   -- Add more useful textobjects
   -- use mini instead

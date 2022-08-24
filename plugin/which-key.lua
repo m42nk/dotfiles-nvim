@@ -23,6 +23,7 @@ wk.setup {
   },
   operators = { gc = "Comments" },
   key_labels = {
+    ["<space>"] = "<Space>",
     -- ["/"] = "<Slash>",
     -- ["<space>"] = "[SPC]",
     -- ["<leader>"] = "[LEAD]",

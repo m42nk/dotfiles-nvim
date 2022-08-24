@@ -63,7 +63,7 @@ telescope.setup {
 }
 
 telescope.load_extension "fzy_native"
--- telescope.load_extension "cder"
+telescope.load_extension "cder"
 
 require("user.utils.keymaps").map {
   ["<leader>f"] = { "<cmd>Telescope find_files<CR>", "Find files" },

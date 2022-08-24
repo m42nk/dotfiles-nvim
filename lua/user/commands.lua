@@ -1,5 +1,17 @@
 local command = vim.api.nvim_create_user_command
 
+command("QuickFixToggle", function()
+  local win_infos = vim.fn.getwininfo()
+
+  for _, t in pairs(win_infos) do
+    if t.quickfix == 1 then
+      vim.cmd "cclose"
+    else
+      vim.cmd "copen"
+    end
+  end
+end, {})
+
 ----------------------------------
 -- Lua put (custom global function)
 ----------------------------------

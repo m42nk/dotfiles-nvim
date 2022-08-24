@@ -9,4 +9,34 @@ end
 
 M.map = wk.register
 
+local _map = function(mode, ...)
+  local args = { ... }
+
+  if type(args[1]) == "string" then
+    if type(args[3]) ~= "string" then
+      vim.notify("KEYMAP: keymap description is required", vim.log.levels.ERROR)
+    end
+
+    wk.register({
+      [args[1]] = { args[2], args[3] },
+    }, { mode = mode })
+
+    return
+  end
+
+  wk.register(..., { mode = mode })
+end
+
+M.nmap = function(...)
+  _map("n", ...)
+end
+
+M.imap = function(...)
+  _map("i", ...)
+end
+
+M.vmap = function(...)
+  _map("v", ...)
+end
+
 return M
