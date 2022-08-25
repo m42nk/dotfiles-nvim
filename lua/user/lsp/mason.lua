@@ -1,6 +1,6 @@
 require("mason").setup {}
 
-require('mason-tool-installer').setup {
+require("mason-tool-installer").setup {
   auto_update = false,
 
   -- Lazy load autostart by 3 seconds
@@ -8,7 +8,7 @@ require('mason-tool-installer').setup {
   run_on_start = true,
   start_delay = 3000,
 
-  ensure_installed = { 
+  ensure_installed = {
     "gopls",
     "bash-language-server",
     "html-lsp",
@@ -31,7 +31,7 @@ require('mason-tool-installer').setup {
     "emmet-ls",
     "stylua",
     "shellcheck",
-    "prettierd"
+    "prettierd",
   },
 }
 
@@ -43,19 +43,19 @@ local opts = {
 local configs = {
   function(server_name)
     require("lspconfig")[server_name].setup(opts)
-  end
+  end,
 }
 
 -- Load user custom config from settings
-configs = vim.tbl_extend("force",
+configs = vim.tbl_extend(
+  "force",
   configs,
   require("user.lsp.settings").custom_configurations(opts)
 )
 
 -- Configure schemastore
 configs["jsonls"] = function()
-  local _opts = vim.tbl_extend("force",
-  opts, {
+  local _opts = vim.tbl_extend("force", opts, {
     settings = {
       json = {
         schemas = require("schemastore").json.schemas(),
@@ -65,6 +65,19 @@ configs["jsonls"] = function()
   })
 
   require("lspconfig").jsonls.setup(_opts)
+end
+
+configs["elixirls"] = function()
+  local install_path =
+    require("mason-registry").get_package("elixir-ls"):get_install_path()
+
+  local bin = install_path .. "/language_server.sh"
+
+  require("lspconfig").elixirls.setup {
+    on_attach = opts.on_attach,
+    capabilities = opts.capabilities,
+    cmd = { bin },
+  }
 end
 
 -- vim.pretty_print(configs)
