@@ -6,7 +6,13 @@ end
 -- TODO: force cwd on neo-tree but not on telescope
 -- TODO: probably not force, but provide easier way
 -- TODO: probably add binding to insert full path like in :Neotree dir=...
-vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
+
+-- nmap("<leader>e", "<cmd>Neotree float reveal toggle<CR>", "Neotree")
+-- nmap("<leader>E", "<cmd>Neotree float reveal_force_cwd<CR>", "Neotree force cwd")
+
+require("user.utils.keymaps").nmap {
+  ["<leader>e"] = { "<cmd>Neotree float reveal toggle<cr>", "Neotree" },
+}
 
 local config = {
   source_selector = {
@@ -502,3 +508,7 @@ local default_config = {
     },
   },
 }
+
+vim.cmd [[
+let g:neo_tree_remove_legacy_commands = 1
+]]

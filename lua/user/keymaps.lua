@@ -58,5 +58,3 @@ k.nmap("#", "<cmd>keepjumps normal! mi#`i<cr>", "Highlight/jump prev match")
 
 k.vmap("<", "<gv", "Remove indent")
 k.vmap(">", ">gv", "Add indent")
-
-

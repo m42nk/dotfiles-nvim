@@ -16,6 +16,8 @@ local modules = {
   "lualine",
 
   "keymaps",
+
+  "neorg",
 }
 
 for _, m in pairs(modules) do

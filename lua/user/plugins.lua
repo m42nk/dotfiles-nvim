@@ -69,7 +69,6 @@ return {
   -- Telescope helper for changing directories
   "zane-/cder.nvim",
 
-
   ----------------------------------
   -- UI Features
   ----------------------------------
@@ -177,7 +176,7 @@ return {
   "folke/lua-dev.nvim",
 
   -- Powerful autopair
-  -- "windwp/nvim-autopairs",
+  "windwp/nvim-autopairs",
 
   -- Neorg
   -- TODO: config
@@ -185,6 +184,7 @@ return {
     "nvim-neorg/neorg",
     requires = {
       "nvim-neorg/neorg-telescope",
+      "max397574/neorg-contexts",
     },
   },
 
