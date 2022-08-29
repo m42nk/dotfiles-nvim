@@ -1,7 +1,10 @@
-require("user.utils.keymaps").nmap {
+local k = require "user.utils.keymaps"
+
+k.nmap {
   ["<leader>o"] = {
     name = "Orgmode",
 
+    ["H"] = { "<cmd>h neorg<cr>", "Open neorg help" },
     ["o"] = { "<cmd>Neorg start<cr>", "Start neorg" },
     ["d"] = { "<cmd>Neorg inject_metadata<cr>", "Inject metadata" },
     ["c"] = { "<cmd>Neorg context toggle<cr>", "Toggle context" },

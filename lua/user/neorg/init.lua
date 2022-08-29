@@ -3,6 +3,12 @@ if not ok then
   return
 end
 
+-- TODO:
+-- pick available element/symbol, like notion "/"
+-- shortcut for bold, italic, etc
+-- insert snippet for inserting symbol
+-- -- `page` will generate new template: {name}[name] to create file easily
+
 neorg.setup {
   load = {
     ["core.defaults"] = {},
