@@ -39,7 +39,7 @@ return {
   "hrsh7th/cmp-cmdline",
 
   "L3MON4D3/LuaSnip",
-  -- "rafamadriz/friendly-snippets",
+  "rafamadriz/friendly-snippets",
 
   ----------------------------------
   -- Treesitter
@@ -146,7 +146,7 @@ return {
 
   -- Swiss-army knife of neovim plugins
   -- TODO: config
-  { "echasnovski/mini.nvim", branch = "stable" },
+  { "echasnovski/mini.nvim" },
 
   -- Better jump movements with hints
   -- TODO: config
@@ -187,9 +187,11 @@ return {
       "max397574/neorg-contexts",
     },
   },
+  {
+    "CRAG666/code_runner.nvim",
+  },
 
   -- Add more useful textobjects
-  -- use mini instead
   -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
-  -- "wellle/targets.vim",
+  "wellle/targets.vim",
 }

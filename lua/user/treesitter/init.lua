@@ -17,6 +17,15 @@ configs.setup {
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
+    config = {
+      javascript = {
+        __default = "// %s",
+        jsx_element = "{/* %s */}",
+        jsx_fragment = "{/* %s */}",
+        jsx_attribute = "// %s",
+        comment = "// %s",
+      },
+    },
   },
   indent = {
     enable = true,
@@ -57,4 +66,5 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.o.foldtext = [[substitute(getline(v:foldstart),'\\\\t',repeat('\\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines) ']]
+vim.o.foldtext =
+  [[substitute(getline(v:foldstart),'\\\\t',repeat('\\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines) ']]

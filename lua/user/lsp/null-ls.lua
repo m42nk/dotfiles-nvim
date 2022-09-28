@@ -9,8 +9,10 @@ local sources = {
   diagnostics.shellcheck,
   diagnostics.zsh,
   diagnostics.credo,
+  diagnostics.eslint_d,
 
-  formatting.prettierd,
+  -- formatting.prettierd,
+  formatting.prettier,
   formatting.stylua,
   formatting.shfmt,
 

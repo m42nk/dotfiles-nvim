@@ -13,6 +13,12 @@ local keymaps = {
     name = "Buffer",
     ["h"] = { "<cmd>BufferLineMovePrev<cr>", "Move left" },
     ["l"] = { "<cmd>BufferLineMoveNext<cr>", "Move right" },
+
+    ["c"] = {
+      name = "Close",
+      ["l"] = { "<cmd>BufferLineCloseLeft<cr>", "Close all left" },
+      ["r"] = { "<cmd>BufferLineCloseRight<cr>", "Close all right" },
+    },
   },
 };
 

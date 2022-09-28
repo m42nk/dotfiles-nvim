@@ -9,12 +9,12 @@ local config = {
     luasnip = "[Snippet]",
     buffer = "[Buffer]",
   },
-  duplicates = {
-    buffer = 1,
-    path = 1,
-    nvim_lsp = 0,
-    luasnip = 1,
-  },
+  -- duplicates = {
+  --   buffer = 1,
+  --   path = 1,
+  --   nvim_lsp = 1,
+  --   luasnip = 1,
+  -- },
 }
 
 return {
@@ -27,7 +27,7 @@ return {
 
     vim_item.kind = kind_icons[vim_item.kind] .. " " .. vim_item.kind
     vim_item.menu = config.source_names[entry.source.name]
-    vim_item.dup = config.duplicates[entry.source.name]
+    -- vim_item.dup = config.duplicates[entry.source.name]
 
     return vim_item
   end,

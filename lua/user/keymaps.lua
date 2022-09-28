@@ -25,6 +25,9 @@ k.imap("jk", "<esc>", "Normal mode")
 k.nmap("<c-q>", "<cmd>QuickFixToggle<cr>", "Toggle quickfix list")
 k.nmap("<leader>ps", packer_install, "Clean and install new packer plugin")
 
+k.nmap("[q", "<cmd>cprev<cr>", "Previous entry in qflist")
+k.nmap("]q", "<cmd>cnext<cr>", "Next entry in qflist")
+
 k.nmap("<leader><space>", "<cmd>:w<cr>", "Save file")
 
 k.nmap {

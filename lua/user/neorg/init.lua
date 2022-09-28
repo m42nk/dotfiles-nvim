@@ -13,32 +13,24 @@ neorg.setup {
   load = {
     ["core.defaults"] = {},
     ["external.context"] = {},
-    ["core.keybinds"] = {
-      config = {
-        hook = function(keybinds)
-          keybinds.map_event_to_mode("norg", {
-            n = {
-              { "<C-s>", "core.integrations.telescope.find_linkable" },
-            },
-
-            i = {
-              { "<C-i>", "core.integrations.telescope.insert_link" },
-            },
-          })
-        end,
-      },
-    },
+    ["core.keybinds"] = {},
     ["core.norg.concealer"] = {},
     ["core.norg.qol.toc"] = {},
+    ["core.integrations.telescope"] = {},
     ["core.norg.completion"] = {
       config = {
         engine = "nvim-cmp",
       },
     },
-    ["core.integrations.telescope"] = {},
+    ["core.gtd.base"] = {
+      config = {
+        workspace = "todo",
+      },
+    },
     ["core.norg.dirman"] = {
       config = {
         workspaces = {
+          todo = "~/Notes/Todo",
           brain = "~/Notes/brain",
           elixir = "~/Notes/elixir",
         },
