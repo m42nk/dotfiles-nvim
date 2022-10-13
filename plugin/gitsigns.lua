@@ -14,3 +14,12 @@ gitsigns.setup {
   },
   current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
 }
+
+require("user.utils.keymaps").nmap {
+  ["<leader>g"] = {
+    name = "Git",
+    ["b"] = { "<cmd>Gitsigns blame_line<cr>", "Show blame on current line" },
+    ["l"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
+    ["d"] = { "<cmd>Gitsigns diffthis<cr>", "Toggle current line blame" },
+  },
+}

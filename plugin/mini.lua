@@ -34,13 +34,13 @@ require("mini.bufremove").setup {
 -- USE: :lua MiniSession.*
 require("mini.sessions").setup {
   -- Whether to read latest session if Neovim opened without file arguments
-  autoread = false,
+  autoread = true,
 
   -- Whether to write current session before quitting Neovim
   autowrite = true,
 
   -- Directory where global sessions are stored (use `''` to disable)
-  directory = vim.fn.stdpath("data") .. "/session",
+  directory = vim.fn.stdpath "data" .. "/session",
 
   -- File for local session (use `''` to disable)
   file = "",
@@ -57,10 +57,24 @@ require("mini.sessions").setup {
   },
 
   -- Whether to print session path after action
-  verbose = { read = false, write = true, delete = true },
+  verbose = { read = true, write = true, delete = true },
 }
 
 require("user.utils.keymaps").nmap {
   ["<leader>c"] = { "<cmd>bdelete<cr>", "Buffer close" },
   ["<leader>C"] = { "<cmd>bwipeout<cr>", "Buffer wipeout" },
+}
+
+local save_session = function()
+  local project_path = vim.fn.getcwd()
+  local sanitized = project_path:gsub("/", "%%")
+
+  require("mini.sessions").write(sanitized, {})
+end
+
+require("user.utils.keymaps").nmap {
+  ["<leader>S"] = {
+    name = "Sessions",
+    ["s"] = { save_session, "Buffer close" },
+  },
 }

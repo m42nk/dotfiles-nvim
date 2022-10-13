@@ -7,4 +7,4 @@ vim.cmd [[
   iabbrev inor    if not ok then return end
 ]]
 
-k.nmap("<leader>r", "<cmd>R<cr>", "Reload current file")
+k.nmap("<leader>R", "<cmd>R<cr>", "Reload current file")
