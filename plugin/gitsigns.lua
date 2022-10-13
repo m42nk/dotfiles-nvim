@@ -20,6 +20,6 @@ require("user.utils.keymaps").nmap {
     name = "Git",
     ["b"] = { "<cmd>Gitsigns blame_line<cr>", "Show blame on current line" },
     ["l"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
-    ["d"] = { "<cmd>Gitsigns diffthis<cr>", "Toggle current line blame" },
+    ["d"] = { "<cmd>Gitsigns diffthis<cr>", "Diff this" },
   },
 }
