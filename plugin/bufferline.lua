@@ -6,8 +6,8 @@ end
 bufferline.setup {}
 
 local keymaps = {
-  ["<S-h>"] = { "<cmd>BufferLineCyclePrev<cr>", "Focus previous buffer" },
-  ["<S-l>"] = { "<cmd>BufferLineCycleNext<cr>", "Focus next buffer" },
+  -- ["<S-h>"] = { "<cmd>BufferLineCyclePrev<cr>", "Focus previous buffer" },
+  -- ["<S-l>"] = { "<cmd>BufferLineCycleNext<cr>", "Focus next buffer" },
 
   ["<leader>b"] = {
     name = "Buffer",

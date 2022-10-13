@@ -199,4 +199,5 @@ return {
   "wellle/targets.vim",
 
   "glepnir/dashboard-nvim",
+  "ghillb/cybu.nvim",
 }
