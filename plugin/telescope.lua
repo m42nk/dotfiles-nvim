@@ -79,6 +79,8 @@ require("user.utils.keymaps").map {
     ["o"] = { "<cmd>Telescope oldfiles<CR>", "Command history" },
     ["r"] = { "<cmd>Telescope resume<CR>", "Resume" },
     ["t"] = { "<cmd>Telescope<CR>", "List actions" },
+    ["w"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "List workspace symbol" },
+    ["d"] = { "<cmd>Telescope lsp_document_symbols<CR>", "List document symbol" },
     -- nmap("<leader>tp", require("user.utils").telescope_find_configs, "Find configs")
     -- nmap("<leader>tn", require("user.utils").telescope_find_notes, "Find notes")
   },

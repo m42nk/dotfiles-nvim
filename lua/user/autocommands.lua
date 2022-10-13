@@ -33,20 +33,20 @@ autocmd("TextYankPost", {
 -- })
 
 -- Preserve folding
-autocmd({ "BufWinEnter", "BufWritePre" }, {
-  callback = function(opts)
-    if opts.file == "" then
-      return
-    end
+-- autocmd({ "BufWinEnter", "BufWritePre" }, {
+--   callback = function(opts)
+--     if opts.file == "" then
+--       return
+--     end
 
-    if opts.event == "BufWritePre" then
-      vim.cmd [[mkview]]
-    else
-      vim.cmd [[silent! loadview]]
-    end
-  end,
-  group = custom,
-})
+--     if opts.event == "BufWritePre" then
+--       vim.cmd [[mkview]]
+--     else
+--       vim.cmd [[silent! loadview]]
+--     end
+--   end,
+--   group = custom,
+-- })
 
 -- Start insert mode on opening gitcommit file
 autocmd("FileType", {

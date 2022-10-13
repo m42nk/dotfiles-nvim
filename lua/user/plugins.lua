@@ -24,6 +24,9 @@ return {
   -- Provide json schema autocomplete (like vscode)
   "b0o/schemastore.nvim",
 
+  -- Lsp typescript utils
+  "jose-elias-alvarez/typescript.nvim",
+
   ----------------------------------
   -- Completion and snippets
   ----------------------------------
@@ -194,4 +197,6 @@ return {
   -- Add more useful textobjects
   -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
   "wellle/targets.vim",
+
+  "glepnir/dashboard-nvim",
 }
