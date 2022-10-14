@@ -9,38 +9,48 @@ require("mini.bufremove").setup {
   set_vim_settings = true,
 }
 
--- require("mini.ai").setup {
---   -- TODO: can add function text object here
---   custom_textobjects = nil,
+local session_dir = vim.fn.stdpath "data" .. "/session"
 
---   mappings = {
---     around = "a",
---     inside = "i",
+local get_session_name = function()
+  -- local project_path = vim.fn.getcwd()
+  local project_path = require("user.utils.project-root").project_root()
 
---     around_next = "an",
---     inside_next = "in",
---     around_last = "al",
---     inside_last = "il",
+  if project_path then
+    return project_path:gsub("/", "%%")
+  end
+end
 
---     goto_left = "g[",
---     goto_right = "g]",
---   },
+local save_session = function()
+  local session_name = get_session_name()
+  require("mini.sessions").write(session_name, {})
+end
 
---   n_lines = 50,
+require("mini.sessions").on_vimenter = function()
+  if vim.fn.argc() ~= 0 then
+    return
+  end
 
---   search_method = "cover_or_next",
--- }
+  local session_name = get_session_name()
+  if not project_path then
+    return
+  end
 
--- USE: :lua MiniSession.*
+  local exists = vim.fn.filereadable(session_dir .. "/" .. session_name) ~= 0
+
+  if exists then
+    require("mini.sessions").read(session_name, {})
+  end
+end
+
 require("mini.sessions").setup {
   -- Whether to read latest session if Neovim opened without file arguments
-  autoread = true,
+  autoread = false,
 
   -- Whether to write current session before quitting Neovim
   autowrite = true,
 
   -- Directory where global sessions are stored (use `''` to disable)
-  directory = vim.fn.stdpath "data" .. "/session",
+  directory = session_dir,
 
   -- File for local session (use `''` to disable)
   file = "",
@@ -65,16 +75,10 @@ require("user.utils.keymaps").nmap {
   ["<leader>C"] = { "<cmd>bwipeout<cr>", "Buffer wipeout" },
 }
 
-local save_session = function()
-  local project_path = vim.fn.getcwd()
-  local sanitized = project_path:gsub("/", "%%")
-
-  require("mini.sessions").write(sanitized, {})
-end
-
 require("user.utils.keymaps").nmap {
   ["<leader>S"] = {
     name = "Sessions",
-    ["s"] = { save_session, "Buffer close" },
+    ["s"] = { save_session, "Save session" },
+    ["l"] = { require("mini.sessions").select, "Select sessions" },
   },
 }

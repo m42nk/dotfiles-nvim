@@ -3,7 +3,14 @@ if not ok then
   return
 end
 
-bufferline.setup {}
+bufferline.setup {
+  options = {
+    show_close_icon = false,
+    show_buffer_icons = false,
+    color_icons = false,
+    -- separator_style = { "°", "|" },
+  },
+}
 
 local keymaps = {
   -- ["<S-h>"] = { "<cmd>BufferLineCyclePrev<cr>", "Focus previous buffer" },
@@ -14,6 +21,11 @@ local keymaps = {
     ["h"] = { "<cmd>BufferLineMovePrev<cr>", "Move left" },
     ["l"] = { "<cmd>BufferLineMoveNext<cr>", "Move right" },
 
+    ["s"] = {
+      name = "Sort",
+      ["e"] = { "<cmd>BufferLineSortByExtension<cr>", "By extension" },
+      ["d"] = { "<cmd>BufferLineSortByDirectory<cr>", "By directory" },
+    },
     ["c"] = {
       name = "Close",
       ["l"] = { "<cmd>BufferLineCloseLeft<cr>", "Close all left" },

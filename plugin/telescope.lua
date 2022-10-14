@@ -15,17 +15,30 @@ telescope.setup {
       bottom_pane = {
         preview_cutoff = 0,
       },
+
+      vertical = {
+        prompt_position = "top",
+        -- mirror = "true",
+      },
     },
 
     borderchars = {
-      preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
       prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
       results = { " " },
+
+      -- preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      -- prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      -- results = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     },
+
     -- border = false,
     mappings = {
       i = {
-        ["<c-o>"] = action_layout.toggle_preview,
+        ["<c-j>"] = action_layout.toggle_preview,
+        ["<c-k>"] = function()
+          vim.cmd "Telescope cder theme=dropdown"
+        end,
+        -- ["<c-k>"] = action_layout.toggle_prompt_position,
       },
       n = {
         ["<leader><leader>"] = function()
@@ -38,13 +51,16 @@ telescope.setup {
     find_files = {
       -- path_display = "tail",
       -- find_command = { "fd", "--hidden", "--type", "f", "--exclude", ".git"},
-      -- theme = "dropdown",
       -- layout_strategy = "bottom_pane",
+      -- theme = "dropdown",
+      layout_config = {},
       find_command = {
         "fd",
         "--hidden",
         "--type",
         "f",
+        "--exclude",
+        "node_modules",
         "--exclude",
         ".git",
         "--exclude",
@@ -65,8 +81,12 @@ telescope.setup {
         "d",
         "--exclude",
         "go",
+        "--exclude",
+        ".git",
+        "--exclude",
+        "_build",
         ".",
-        os.getenv "HOME",
+        os.getenv "HOME" .. "/Work",
       },
       previewer_command = "exa "
         .. "-a "
@@ -90,25 +110,34 @@ telescope.load_extension "cder"
 
 local find_files = function()
   local opts = {}
-  local dropdown = themes.get_dropdown {
-    -- previewer = themes.get_ivy().previewer
+
+  local dropdown = {
+    layout_strategy = "vertical",
+    border = true,
+    borderchars = {
+      preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      -- prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+      -- results = { " " },
+      results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+      prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+    },
+    results_title = "",
+    prompt_title = "Find",
+    preview_title = "Preview",
+    sorting_strategy = "ascending",
   }
 
-  local flex = layout_strategies.flex()
-
   opts = vim.tbl_deep_extend("force", opts, dropdown)
-  opts = vim.tbl_deep_extend("force", opts, flex)
-  -- opts.prompt_prefix = "Nvim>"
-  -- opts.cwd = vim.fn.stdpath "config"
 
+  -- opts.cwd = vim.fn.stdpath "config"
   -- put(opts)
 
   require("telescope.builtin").find_files(opts)
 end
 
 require("user.utils.keymaps").map {
-  ["<leader>f"] = { "<cmd>Telescope find_files<CR>", "Find files" },
-  -- ["<leader>f"] = { find_files, "Find files" },
+  -- ["<leader>f"] = { "<cmd>Telescope find_files<CR>", "Find files" },
+  ["<leader>f"] = { find_files, "Find files" },
   ["<leader>bb"] = { "<cmd>Telescope buffers<CR>", "Show buffer list" },
   ["<leader>t"] = {
     name = "Telescope",

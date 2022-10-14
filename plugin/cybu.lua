@@ -6,11 +6,11 @@ end
 cybu.setup {
   position = {
     relative_to = "win", -- win, editor, cursor
-    anchor = "topright", -- topleft, topcenter, topright,
+    anchor = "bottomright", -- topleft, topcenter, topright,
     -- centerleft, center, centerright,
     -- bottomleft, bottomcenter, bottomright
     vertical_offset = 0, -- vertical offset from anchor in lines
-    horizontal_offset = 0, -- vertical offset from anchor in columns
+    horizontal_offset = 1, -- vertical offset from anchor in columns
     max_win_height = 10, -- height of cybu window in lines
     max_win_width = 0.5, -- integer for absolute in columns
     -- float for relative to win/editor width
@@ -18,13 +18,13 @@ cybu.setup {
   style = {
     path = "relative", -- absolute, relative, tail (filename only)
     path_abbreviation = "none", -- none, shortened
-    border = "single", -- single, double, rounded, none
+    border = "rounded", -- single, double, rounded, none
     separator = " ", -- string used as separator
     prefix = "…", -- string used as prefix for truncated paths
-    padding = 1, -- left & right padding in number of spaces
-    hide_buffer_id = true, -- hide buffer IDs in window
+    padding = 3, -- left & right padding in number of spaces
+    hide_buffer_id = false, -- hide buffer IDs in window
     devicons = {
-      enabled = true, -- enable or disable web dev icons
+      enabled = false, -- enable or disable web dev icons
       colored = true, -- enable color for web dev icons
       truncate = true, -- truncate wide icons to one char width
     },
