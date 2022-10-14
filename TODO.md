@@ -1,9 +1,5 @@
 ## TODO
 
-- neotree search functions
-  - how to jump to parent
-  - how to select on "/" mode
-
 ## Done
 
 - buffer cycler (preview buffers)
@@ -15,4 +11,8 @@
 - (not possible) modify/arrange bufferline in a buffer (like harpoon)
 
 - telescope cd on find files
+
+- neotree search functions
+  - how to jump to parent
+  - how to select on "/" mode
 
