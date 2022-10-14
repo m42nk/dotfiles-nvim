@@ -176,7 +176,8 @@ return {
   "dstein64/vim-startuptime",
 
   -- Neovim lua "lsp"
-  "folke/lua-dev.nvim",
+  -- "folke/lua-dev.nvim",
+  "folke/neodev.nvim",
 
   -- Powerful autopair
   "windwp/nvim-autopairs",
@@ -200,4 +201,5 @@ return {
 
   "glepnir/dashboard-nvim",
   "ghillb/cybu.nvim",
+  -- "nvim-pack/nvim-spectre",
 }

@@ -1,8 +1,7 @@
 local on_attach = function(client, bufnr)
   -- Load custom config if exists in lua/lsp/settings/*
-  local settings_ok, settings = pcall(require,
-    "user.lsp.settings." .. client.name
-  )
+  local settings_ok, settings =
+    pcall(require, "user.lsp.settings." .. client.name)
 
   -- Disable formatting via lsp (provided by other, ideally in null-ls)
   if settings_ok and settings._disable_formatting then

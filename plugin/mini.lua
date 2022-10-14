@@ -18,6 +18,8 @@ local get_session_name = function()
   if project_path then
     return project_path:gsub("/", "%%")
   end
+
+  vim.notify "project_path is nil"
 end
 
 local save_session = function()
@@ -31,11 +33,13 @@ require("mini.sessions").on_vimenter = function()
   end
 
   local session_name = get_session_name()
-  if not project_path then
+  if not session_name then
     return
   end
 
   local exists = vim.fn.filereadable(session_dir .. "/" .. session_name) ~= 0
+
+  put(exists)
 
   if exists then
     require("mini.sessions").read(session_name, {})
