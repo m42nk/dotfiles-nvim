@@ -43,10 +43,10 @@ neo_tree.setup {
         ["F"] = { "fuzzy_finder" },
         ["/"] = { --[[ use vim default / ]]
         },
-        -- ["s"] = { --[[ use leap ]]
-        -- },
-        -- ["S"] = { --[[ use leap ]]
-        -- },
+        ["s"] = { --[[ use leap ]]
+        },
+        ["S"] = { --[[ use leap ]]
+        },
         ["w"] = function() --[[noop]]
         end,
         ["b"] = function() --[[noop]]

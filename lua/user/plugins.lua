@@ -201,5 +201,6 @@ return {
 
   "glepnir/dashboard-nvim",
   "ghillb/cybu.nvim",
+  "rmagatti/auto-session",
   -- "nvim-pack/nvim-spectre",
 }

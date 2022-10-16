@@ -1,5 +1,8 @@
 ## TODO
 
+- better code action, look at awesome-neovim#lsp
+- typescript lsp keybinds
+
 ## Done
 
 - buffer cycler (preview buffers)
