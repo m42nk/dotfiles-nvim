@@ -1,7 +1,3 @@
-if true then
-  return
-end
-
 local ok, db = pcall(require, "dashboard")
 
 if not ok then

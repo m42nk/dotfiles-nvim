@@ -48,7 +48,7 @@ return packer.startup(function(use)
   -- Load packer first
   use "wbthomason/packer.nvim"
 
-  local plugins_ok, plugins = pcall(require, "user.plugins")
+  local plugins_ok, plugins = pcall(require, "user.plugin.plugins")
   if not plugins_ok then
     vim.notify(
     "INIT: Failed to parse plugins.lua, r u missing a comma?",

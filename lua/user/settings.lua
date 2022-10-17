@@ -47,8 +47,8 @@ autocmd("setlocal formatoptions-=o")
 -- Neovim UI
 ---------------------------------------
 
--- opt.number = true         -- Show line number
--- opt.relativenumber = true -- Show relative line number
+opt.number = true         -- Show line number
+opt.relativenumber = true -- Show relative line number
 opt.showmatch = false     -- Stop jumping to first matching parent/bracket
 opt.colorcolumn = "80"    -- Line length marker at 80 columns
 opt.splitright = true     -- Vertical split to the right

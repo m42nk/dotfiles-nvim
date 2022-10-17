@@ -1,30 +1,15 @@
 -- Improve startup time with impatient
 pcall(require, "impatient")
 
-local modules = {
-  "settings",
-  "packer",
-  "colorscheme",
-  "globals",
-  "commands",
-  "autocommands",
-
-  "lsp",
-  "cmp",
-
-  "treesitter",
-  "lualine",
-
-  "keymaps",
-
-  "neorg",
-}
-
-for _, m in pairs(modules) do
-  local ok, module = pcall(require, "user." .. m)
-
-  if not ok then
-    vim.notify("INIT: Failed to load module " .. m, vim.log.levels.WARN)
-    vim.notify("ERROR: " .. module, vim.log.levels.WARN)
-  end
-end
+require "user.settings"
+require "user.plugin"
+require "user.colorscheme"
+require "user.globals"
+require "user.commands"
+require "user.autocommands"
+require "user.lsp"
+require "user.cmp"
+require "user.treesitter"
+require "user.lualine"
+require "user.keymaps"
+require "user.neorg"

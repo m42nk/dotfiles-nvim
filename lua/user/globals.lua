@@ -23,3 +23,7 @@ _G.put = function(...)
   print(table.concat(objects, "\n"))
   return ...
 end
+
+_G.disabled = function(plugin_name)
+  return vim.g.disable[plugin_name]
+end

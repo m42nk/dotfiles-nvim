@@ -1,7 +1,5 @@
 local ok, lastplace = pcall(require, "nvim-lastplace")
 
-ok = false
-
 if not ok then
   return
 end
