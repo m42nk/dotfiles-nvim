@@ -3,16 +3,12 @@ if not ok then
   return
 end
 
--- TODO: force cwd on neo-tree but not on telescope
--- TODO: probably not force, but provide easier way
--- TODO: probably add binding to insert full path like in :Neotree dir=...
-
--- nmap("<leader>e", "<cmd>Neotree float reveal toggle<CR>", "Neotree")
--- nmap("<leader>E", "<cmd>Neotree float reveal_force_cwd<CR>", "Neotree force cwd")
-
 require("user.utils.keymaps").nmap {
   ["<leader>e"] = { "<cmd>Neotree float reveal toggle<cr>", "Neotree" },
-  ["<leader>B"] = { "<cmd>Neotree float toggle buffers<cr>", "Neotree Buffers" },
+  ["<leader>B"] = {
+    "<cmd>Neotree float toggle buffers<cr>",
+    "Neotree Buffers",
+  },
 }
 
 neo_tree.setup {
@@ -29,6 +25,14 @@ neo_tree.setup {
   window = {
     popup = {
       size = { width = "80%" },
+    },
+  },
+  buffers = {
+    window = {
+      mappings = {
+        ["h"] = { "close_node" },
+        ["l"] = { "toggle_node" },
+      },
     },
   },
   filesystem = {
@@ -51,6 +55,9 @@ neo_tree.setup {
         ["w"] = function() --[[noop]]
         end,
         ["b"] = function() --[[noop]]
+        end,
+        ["<Esc>"] = function()
+          vim.cmd "Neotree toggle"
         end,
       },
     },

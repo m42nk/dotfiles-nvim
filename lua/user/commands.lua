@@ -98,6 +98,54 @@ command("AlignKeymap", function()
 end, { range = true })
 
 ----------------------------------
+-- LSP Servers
+----------------------------------
+command("LSP", function()
+  local msg = "LS Inactive"
+  local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
+
+  if next(buf_clients) == nil then
+    -- TODO: clean up this if statement
+    if type(msg) == "boolean" or #msg == 0 then
+      return "LS Inactive"
+    end
+    return msg
+  end
+
+  local buf_ft = vim.bo.filetype
+  local buf_client_names = {}
+
+  -- add client
+  for _, client in pairs(buf_clients) do
+    if client.name ~= "null-ls" then
+      table.insert(buf_client_names, client.name)
+    end
+  end
+
+  local nls_sources = require "null-ls.sources"
+  local avail = nls_sources.get_available(buf_ft)
+  for _, client in pairs(avail) do
+    local skip = false
+
+    local skips = { "codespell", "misspell", "gitsigns" }
+    for _, sk in pairs(skips) do
+      if client.name == sk then
+        skip = true
+      end
+    end
+
+    if not skip then
+      table.insert(buf_client_names, client.name)
+    end
+  end
+
+  local unique_client_names = vim.fn.uniq(buf_client_names)
+  local clients = "[" .. table.concat(unique_client_names, ", ") .. "]"
+
+  print(clients)
+end, {})
+
+----------------------------------
 -- Command line abbreviations
 ----------------------------------
 vim.cmd [[

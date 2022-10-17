@@ -63,7 +63,6 @@ return {
   -- Telescope
   ----------------------------------
   -- Telescope by Telescopic Johnson
-  -- TODO: config
   "nvim-telescope/telescope.nvim",
 
   -- Telescope fzy sorter
@@ -82,7 +81,6 @@ return {
   "kyazdani42/nvim-web-devicons",
 
   -- Pretty notification
-  -- TODO: config
   "rcarriga/nvim-notify",
 
   -- Status line
@@ -90,11 +88,9 @@ return {
   "nvim-lualine/lualine.nvim",
 
   -- Show buffers at top (like tabs in vscode)
-  -- TODO: config
-  "akinsho/bufferline.nvim",
+  -- "akinsho/bufferline.nvim",
 
   -- Git signcolumn colored lines (like vscode)
-  -- TODO: config
   "lewis6991/gitsigns.nvim",
 
   -- Improve neovim input ui
@@ -114,23 +110,18 @@ return {
   "wakatime/vim-wakatime",
 
   -- Smooth scrolling
-  -- TODO: config
   "karb94/neoscroll.nvim",
 
   -- Neo-tree explorer
-  -- TODO: config
   {
     "nvim-neo-tree/neo-tree.nvim",
     requires = "MunifTanjim/nui.nvim",
   },
 
   -- Remember last place on file reopen
-  -- (Use autocommand mkview/loadview instead)
-  -- TODO: config
   "ethanholz/nvim-lastplace",
 
   -- Readline operation like shell
-  -- TODO: config
   "linty-org/readline.nvim",
 
   -- Convert single <-> multiline code
@@ -141,18 +132,16 @@ return {
   "ahmedkhalf/project.nvim",
 
   -- Alignment tools, good for configs
+  -- TODO: config
   "junegunn/vim-easy-align",
 
   -- Colorize color values
-  -- TODO: config
   "norcalli/nvim-colorizer.lua",
 
   -- Swiss-army knife of neovim plugins
-  -- TODO: config
   { "echasnovski/mini.nvim" },
 
   -- Better jump movements with hints
-  -- TODO: config
   "ggandor/leap.nvim",
 
   ----------------------------------
@@ -176,7 +165,6 @@ return {
   "dstein64/vim-startuptime",
 
   -- Neovim lua "lsp"
-  -- "folke/lua-dev.nvim",
   "folke/neodev.nvim",
 
   -- Powerful autopair

@@ -5,3 +5,5 @@ if not ok then
 end
 
 iswap.setup {}
+
+-- TODO: add keymaps

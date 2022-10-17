@@ -34,9 +34,7 @@ opt.swapfile = false          -- Don't use swapfile
 opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
 opt.scrolloff = 8             -- Scroll offset (cursor distance to window border)
 opt.iskeyword:remove("_")     -- Remove _ as keyword so a_b will be treated as 2 word
--- opt.timeoutlen = 500       -- Time in milliseconds to wait for a mapped sequence to complete
 opt.timeoutlen = 300          -- If using which-key, this will be the time until which-key opens
-
 opt.viewoptions = "folds"     -- Set what saved in :mkview
 
 -- Don't continue commenting when pressing `o/O`
@@ -60,9 +58,9 @@ opt.cursorline = true     -- Highlight current line
 opt.signcolumn = "yes:1"  -- Always show the sign columns (diagnostics, etc)
 opt.showmode = false      -- Hide mode like "-- INSERT --" in cmdline
 
--- opt.laststatus = 3     -- Set global statusline
-opt.laststatus = 2        -- Every pane has statusline
-opt.winbar="%f %m"           -- Show filename at the top of window
+opt.laststatus = 3        -- Set global statusline
+-- Moved to lua/user/status
+-- opt.winbar="%f %m"        -- Show filename at the top of window
 
 -- opt.foldmethod = "marker" -- Enable folding (default "foldmarker")
 

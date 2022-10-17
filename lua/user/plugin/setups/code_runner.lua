@@ -1,5 +1,4 @@
 local ok, cr = pcall(require, "code_runner")
-
 if not ok then
   return
 end
@@ -13,13 +12,14 @@ cr.setup {
     ["~/Codes/scrap-kanopi"] = {
       name = "Scrap kanopi",
       file_name = "index.js",
-      command = "node ."
-    }
-  }
+      command = "node .",
+    },
+  },
 }
 
 require("user.utils.keymaps").nmap {
   ["<leader>r"] = {
+    name = "Code Runner",
     ["r"] = { "<cmd>RunCode<cr>", "Run code" },
     ["f"] = { "<cmd>RunFile<CR>", "Run file" },
     ["b"] = { "<cmd>RunFile buf<CR>", "Run file buffer" },

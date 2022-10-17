@@ -34,7 +34,7 @@ return {
   branch = {
     "b:gitsigns_head",
     icon = "",
-    color = { gui = "bold" },
+    -- color = { gui = "bold" },
   },
   filename = {
     function()
@@ -105,7 +105,9 @@ return {
     color = function()
       local buf = vim.api.nvim_get_current_buf()
       local ts = vim.treesitter.highlighter.active[buf]
-      return { fg = ts and not vim.tbl_isempty(ts) and colors.green or colors.red }
+      return {
+        fg = ts and not vim.tbl_isempty(ts) and colors.green or colors.red,
+      }
     end,
     -- cond = conditions.hide_in_width,
   },
@@ -200,4 +202,47 @@ return {
     cond = conditions.hide_in_width,
   },
   filetype = { "filetype", cond = conditions.hide_in_width },
+  fileformat = {
+    "fileformat",
+    icons_enabled = false,
+  },
+
+  buf_count = {
+    function()
+      local len = 0
+      local buffers = vim.api.nvim_list_bufs()
+      for b in pairs(buffers) do
+        if vim.fn.buflisted(b) ~= 1 then
+          len = len + 1
+        end
+      end
+
+      return "[Buf]: " .. len - 1
+    end,
+  },
+
+  -- WINBAR
+  relative_pathname = {
+    "filename",
+    path = 1,
+    fmt = function(msg)
+      if vim.bo.filetype == "help" then
+        return vim.fn.fnamemodify(vim.fn.expand "%", ":t")
+      end
+      return msg
+    end,
+  },
+  ft_icon = {
+    "filetype",
+    icon_only = true,
+    padding = { left = 1, right = 0 },
+    icon = { align = "right" },
+  },
+  ft_icon_nocolor = {
+    "filetype",
+    icon_only = true,
+    padding = { left = 1, right = 0 },
+    colored = false,
+    icon = { align = "right" },
+  },
 }

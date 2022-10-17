@@ -30,6 +30,7 @@ configs.setup {
   indent = {
     enable = true,
   },
+  -- TODO: this vs incremental_selection
   textsubjects = {
     enable = true,
     prev_selection = ",",
@@ -48,6 +49,9 @@ configs.setup {
       node_decremental = "<S-TAB>",
     },
   },
+  -- TODO: add more query or remove,
+  -- since it's gonna be pretty useless if 
+  -- only select function scope
   textobjects = {
     select = {
       enable = true,

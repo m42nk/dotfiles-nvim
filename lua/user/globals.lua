@@ -11,7 +11,6 @@ R = function(name)
   return require(name)
 end
 -- Source: https://github.com/tjdevries/config_manager
---
 
 _G.put = function(...)
   local objects = {}
@@ -22,8 +21,4 @@ _G.put = function(...)
 
   print(table.concat(objects, "\n"))
   return ...
-end
-
-_G.disabled = function(plugin_name)
-  return vim.g.disable[plugin_name]
 end

@@ -6,7 +6,6 @@
 -- Tmux Keymaps
 -----------------------
 
-local keymap = vim.keymap.set
 local tmux_nav = require("user.utils.tmux-integration").tmux_nav
 local k = require "user.utils.keymaps"
 local packer_install = function()
@@ -29,6 +28,7 @@ k.nmap("[q", "<cmd>cprev<cr>", "Previous entry in qflist")
 k.nmap("]q", "<cmd>cnext<cr>", "Next entry in qflist")
 
 k.nmap("<leader><space>", "<cmd>:w<cr>", "Save file")
+k.nmap("<c-s>", "<cmd>:w<cr>", "Save file")
 
 k.nmap {
   ["<leader><bslash>"] = {
@@ -42,12 +42,12 @@ k.nmap {
       "edit user",
     },
     p = {
-      "<cmd>e ~/.config/nvim/lua/user/plugins.lua<cr>",
+      "<cmd>e ~/.config/nvim/lua/user/plugin/plugins.lua<cr>",
       "edit plugins.lua",
     },
     c = {
-      "<cmd>e ~/.config/nvim/plugins/<cr>",
-      "edit plugins",
+      "<cmd>e ~/.config/nvim/plugin/setups/<cr>",
+      "edit plugins setup",
     },
   },
 }
@@ -61,3 +61,9 @@ k.nmap("#", "<cmd>keepjumps normal! mi#`i<cr>", "Highlight/jump prev match")
 
 k.vmap("<", "<gv", "Remove indent")
 k.vmap(">", ">gv", "Add indent")
+
+k.nmap {
+  ["<leader>c"] = { "<cmd>bdelete<cr>", "Buffer close" },
+  ["<leader>C"] = { "<cmd>bwipeout<cr>", "Buffer wipeout" },
+  ["<c-a>"] = { "<cmd>b#<cr>", "Alternate (last) buffer" },
+}

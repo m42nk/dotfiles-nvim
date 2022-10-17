@@ -9,45 +9,6 @@ autocmd("TextYankPost", {
   group = custom,
 })
 
--- Hide [No Name] buffer on leave
--- autocmd("BufLeave", {
---   pattern = "",
---   callback = function()
---     local fname = vim.api.nvim_buf_get_name(0)
---     local ftype = vim.bo.filetype
---     if fname == "" and ftype == "" then
---       vim.cmd [[bwipeout]]
---     end
---   end,
---   group = custom,
--- })
-
--- Don't continue commenting when pressing `o/O`
--- autocmd("FileType", {
---   pattern = "*",
---   command = [[
---   set formatoptions-=o
---   setlocal formatoptions-=o
---   ]],
---   group = custom,
--- })
-
--- Preserve folding
--- autocmd({ "BufWinEnter", "BufWritePre" }, {
---   callback = function(opts)
---     if opts.file == "" then
---       return
---     end
-
---     if opts.event == "BufWritePre" then
---       vim.cmd [[mkview]]
---     else
---       vim.cmd [[silent! loadview]]
---     end
---   end,
---   group = custom,
--- })
-
 -- Start insert mode on opening gitcommit file
 autocmd("FileType", {
   pattern = "gitcommit",
@@ -135,5 +96,3 @@ autocmd("BufWritePost", {
   end,
   group = custom,
 })
-
--- TODOHERE: make telescope sorter frecency (at least make recently opened file at the top)

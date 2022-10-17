@@ -1,7 +1,10 @@
 -- Improve startup time with impatient
 pcall(require, "impatient")
 
-require "user.settings"
+--
+-- Core plugins
+--
+require "user.options"
 require "user.plugin"
 require "user.colorscheme"
 require "user.globals"
@@ -12,4 +15,37 @@ require "user.cmp"
 require "user.treesitter"
 require "user.lualine"
 require "user.keymaps"
-require "user.neorg"
+-- require "user.neorg"
+require "user.highlight"
+require "user.status"
+
+--
+-- Other plugins
+--
+local load = require("user.utils.load").generate_loader "user.plugin.setups"
+
+load "auto-session"
+load "autopairs"
+load "comment"
+load "cybu"
+load "gitsigns"
+load "iswap"
+load "lastplace"
+load "leap"
+load "luasnip"
+load "neo-tree"
+load "neoscroll"
+load "project"
+load "readline"
+load "telescope"
+load "tpope"
+load "typescript"
+load "which-key"
+
+load "code_runner"
+load "colorizer"
+load "mini.starter"
+
+-- load "mini.bufremove"
+-- load "bufferline"
+-- load "dashboard"

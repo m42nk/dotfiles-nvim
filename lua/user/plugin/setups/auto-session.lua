@@ -9,8 +9,13 @@ autosession.setup {
 }
 
 require("user.utils.keymaps").nmap {
-  ["<leader>S"] = {
-    "<cmd>Telescope session-lens search_session<cr>",
-    "Search session",
+  ["<c-s-s>"] = {
+    name = "Session",
+    ["l"] = { "<cmd>RestoreSession<cr>", "Load (restore) session" },
+    ["s"] = { "<cmd>SaveSession<cr>", "Save session" },
+    ["<CR>"] = {
+      "<cmd>Telescope session-lens search_session<cr>",
+      "Search session",
+    },
   },
 }

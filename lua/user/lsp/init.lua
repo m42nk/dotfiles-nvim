@@ -20,8 +20,3 @@ require "user.lsp.mason"
 require "user.lsp.null-ls"
 require "user.lsp.diagnostics"
 require "user.lsp.ui"
-
--- require "user.lsp.mason"
--- require "user.lsp.null-ls"
--- require "user.lsp.ui"
--- require "user.lsp.fidget"

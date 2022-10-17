@@ -1,5 +1,3 @@
--- require("mini.tabline").setup {}
-
 require("mini.bufremove").setup {
   set_vim_settings = true,
 }

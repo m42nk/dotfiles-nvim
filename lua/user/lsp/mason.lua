@@ -80,8 +80,5 @@ configs["elixirls"] = function()
   }
 end
 
--- vim.pretty_print(configs)
--- unpack(require("user.lsp.settings").custom_configurations(opts)),
-
 -- Autosetup installed lsp
 require("mason-lspconfig").setup_handlers(configs)

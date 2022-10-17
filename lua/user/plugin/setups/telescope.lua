@@ -1,8 +1,5 @@
 local ok, telescope = pcall(require, "telescope")
-local layout_strategies = require "telescope.pickers.layout_strategies"
 local action_layout = require "telescope.actions.layout"
-local themes = require "telescope.themes"
-local previewers = require "telescope.previewers"
 
 if not ok then
   return
@@ -10,6 +7,7 @@ end
 
 telescope.setup {
   defaults = {
+    sorting_strategy = "ascending",
     layout_strategy = "bottom_pane",
     layout_config = {
       bottom_pane = {
@@ -18,7 +16,6 @@ telescope.setup {
 
       vertical = {
         prompt_position = "top",
-        -- mirror = "true",
       },
     },
 
@@ -30,16 +27,16 @@ telescope.setup {
       -- results = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     },
 
-    -- border = false,
     mappings = {
       i = {
+        ["<c-l>"] = require("telescope.actions").delete_buffer,
         ["<c-j>"] = action_layout.toggle_preview,
         ["<c-k>"] = function()
           vim.cmd "Telescope cder theme=dropdown"
         end,
-        -- ["<c-k>"] = action_layout.toggle_prompt_position,
       },
       n = {
+        ["<c-l>"] = require("telescope.actions").delete_buffer,
         ["<leader><leader>"] = function()
           vim.cmd "Telescope cder theme=ivy"
         end,
@@ -48,10 +45,10 @@ telescope.setup {
   },
   pickers = {
     buffers = {
-      layout_strategy = "vertical",
-      layout_config = {
-        mirror = true,
-      },
+      -- layout_strategy = "vertical",
+      -- layout_config = {
+      --   mirror = true,
+      -- },
       borderchars = {
         preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
@@ -61,13 +58,12 @@ telescope.setup {
       results_title = "",
       prompt_title = "Buffers",
       preview_title = "Preview",
+      previewer = false,
     },
     find_files = {
-      -- path_display = "tail",
-      -- find_command = { "fd", "--hidden", "--type", "f", "--exclude", ".git"},
-      -- layout_strategy = "bottom_pane",
-      -- theme = "dropdown",
-      layout_config = {},
+      layout_config = {
+        mirror = true,
+      },
       find_command = {
         "fd",
         "--hidden",
@@ -80,6 +76,7 @@ telescope.setup {
         "--exclude",
         "_build",
       },
+      previewer = false,
     },
   },
   extensions = {
@@ -159,9 +156,8 @@ end
 require("user.utils.keymaps").map {
   -- ["<leader>f"] = { "<cmd>Telescope find_files<CR>", "Find files" },
   -- ["<leader>b"] = { "<cmd>Telescope buffers<CR>", "Show buffer list" },
-  ["<leader>f"] = { find_files, "Find files" },
-  ["<leader>b"] = { find_buffers, "Show buffer list" },
-  ["<c-p>"] = { find_buffers, "Show buffer list" },
+  ["<c-p>"] = { find_files, "Find files" },
+  ["<c-n>"] = { find_buffers, "Show buffer list" },
   ["<leader>t"] = {
     name = "Telescope",
     ["!"] = { "<cmd>Telescope command_history<CR>", "Command history" },
