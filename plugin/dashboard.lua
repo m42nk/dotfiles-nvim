@@ -1,3 +1,7 @@
+if true then
+  return
+end
+
 local ok, db = pcall(require, "dashboard")
 
 if not ok then
@@ -42,6 +46,8 @@ db.custom_header = {
   "88    88 88.  ... 88.  .88 88 .88'  88 88  88  88 ",
   "dP    dP `88888P' `88888P' 8888P'   dP dP  dP  dP ",
 }
+
+db.session_directory = vim.fn.stdpath "data" .. "/session"
 
 db.custom_center = {
   {

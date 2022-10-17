@@ -5,6 +5,9 @@
   - it's unintuitive when spliting window there only 1 bufferline
   - will remove clutter
   - try find better way to navigate buffers
+
+- Buffer
+  - remove buffer in telescope buffers normal mode, with first args as buf id
   - arrange buffers like harpoon
 
 - Session
@@ -14,7 +17,6 @@
 
 - Declutter
   - change statusline, only show useful stuff
-
 
 
 - better code action, look at awesome-neovim#lsp

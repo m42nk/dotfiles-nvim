@@ -199,8 +199,9 @@ return {
   -- https://github.com/wellle/targets.vim/blob/master/cheatsheet.md
   "wellle/targets.vim",
 
-  "glepnir/dashboard-nvim",
+  -- "glepnir/dashboard-nvim",
   "ghillb/cybu.nvim",
   "rmagatti/auto-session",
+  "rmagatti/session-lens",
   -- "nvim-pack/nvim-spectre",
 }
