@@ -12,6 +12,7 @@ end
 
 require("user.utils.keymaps").nmap {
   ["<leader>e"] = { "<cmd>Neotree float reveal toggle<cr>", "Neotree" },
+  ["<leader>B"] = { "<cmd>Neotree float toggle buffers<cr>", "Neotree Buffers" },
 }
 
 neo_tree.setup {
