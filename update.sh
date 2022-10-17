@@ -11,6 +11,6 @@ echo -e "\ncommitting.."
 git commit -m "update"
 
 read -r -p "Push changes? [Y/n] " CONFIRM
-if [[ "$CONFIRM" == "y" ]] || [[ "$CONFIRM" == "Y"  ]] || [[ -n "$CONFIRM" ]]; then
+if [[ "$CONFIRM" == "y" ]] || [[ "$CONFIRM" == "Y"  ]] || [[ -z "$CONFIRM" ]]; then
   git push
 fi
