@@ -19,9 +19,9 @@ neo_tree.setup {
   popup_border_style = "rounded",
   add_blank_line_at_top = false,
 
-  sources = { "filesystem" },
+  sources = { "filesystem", "buffers" },
   source_selector = {
-    winbar = false,
+    winbar = true,
     statusline = true,
     content_layout = "center",
   },

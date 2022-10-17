@@ -25,8 +25,7 @@ telescope.setup {
     borderchars = {
       prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
       results = { " " },
-
-      -- preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       -- prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       -- results = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     },
@@ -48,6 +47,21 @@ telescope.setup {
     },
   },
   pickers = {
+    buffers = {
+      layout_strategy = "vertical",
+      layout_config = {
+        mirror = true,
+      },
+      borderchars = {
+        preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+        prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+      },
+      sorting_strategy = "ascending",
+      results_title = "",
+      prompt_title = "Buffers",
+      preview_title = "Preview",
+    },
     find_files = {
       -- path_display = "tail",
       -- find_command = { "fd", "--hidden", "--type", "f", "--exclude", ".git"},
@@ -135,10 +149,19 @@ local find_files = function()
   require("telescope.builtin").find_files(opts)
 end
 
+local find_buffers = function()
+  require("telescope.builtin").buffers {
+    sort_mru = true,
+    sort_lastused = true,
+  }
+end
+
 require("user.utils.keymaps").map {
   -- ["<leader>f"] = { "<cmd>Telescope find_files<CR>", "Find files" },
+  -- ["<leader>b"] = { "<cmd>Telescope buffers<CR>", "Show buffer list" },
   ["<leader>f"] = { find_files, "Find files" },
-  ["<leader>bb"] = { "<cmd>Telescope buffers<CR>", "Show buffer list" },
+  ["<leader>b"] = { find_buffers, "Show buffer list" },
+  ["<c-p>"] = { find_buffers, "Show buffer list" },
   ["<leader>t"] = {
     name = "Telescope",
     ["!"] = { "<cmd>Telescope command_history<CR>", "Command history" },
