@@ -1,20 +1,8 @@
 local ok, telescope = pcall(require, "telescope")
+local action_layout = require "telescope.actions.layout"
 
 if not ok then
   return
-end
-
-local action_layout = require "telescope.actions.layout"
-local actions = require "telescope.actions"
-
-local toggle_select_next = function(num)
-  actions.toggle_selection(num)
-  actions.move_selection_next(num)
-end
-
-local toggle_select_prev = function(num)
-  actions.toggle_selection(num)
-  actions.move_selection_previous(num)
 end
 
 telescope.setup {
@@ -41,35 +29,41 @@ telescope.setup {
 
     mappings = {
       i = {
-        ["<tab>"] = actions.move_selection_next,
-        ["<s-tab>"] = actions.move_selection_previous,
-
-        ["<c-n>"] = toggle_select_next,
-        ["<c-p>"] = toggle_select_prev,
-
-        ["<c-h>"] = actions.toggle_selection,
+        ["<c-l>"] = require("telescope.actions").delete_buffer,
         ["<c-j>"] = action_layout.toggle_preview,
-        ["<c-k>"] = { "<cmd>Telescope cder theme=ivy<cr>", type = "command" },
-
-        ["kj"] = "close",
+        ["<c-k>"] = function()
+          vim.cmd "Telescope cder theme=dropdown"
+        end,
+      },
+      n = {
+        ["<c-l>"] = require("telescope.actions").delete_buffer,
+        ["<leader><leader>"] = function()
+          vim.cmd "Telescope cder theme=ivy"
+        end,
       },
     },
   },
   pickers = {
     buffers = {
-      prompt_title = "Buffers",
-      results_title = "",
-      preview_title = "",
-      previewer = false,
-      sort_mru = true,
-      sort_lastused = true,
-      mappings = {
-        n = {
-          ["<c-l>"] = actions.delete_buffer,
-        },
+      -- layout_strategy = "vertical",
+      -- layout_config = {
+      --   mirror = true,
+      -- },
+      borderchars = {
+        preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+        prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
       },
+      sorting_strategy = "ascending",
+      results_title = "",
+      prompt_title = "Buffers",
+      preview_title = "Preview",
+      previewer = false,
     },
     find_files = {
+      layout_config = {
+        mirror = true,
+      },
       find_command = {
         "fd",
         "--hidden",
@@ -119,25 +113,51 @@ telescope.setup {
         .. "--git "
         .. "--ignore-glob=.git",
     },
-    -- mappings = {
-    --   i = {
-    --     ["<CR>"] = function(num)
-    --       -- actions.select_default(num)
-    --       builtin.resume {
-    --         cache_index = 2,
-    --       }
-    --     end,
-    --   },
-    -- },
   },
 }
 
 telescope.load_extension "fzy_native"
 telescope.load_extension "cder"
 
+local find_files = function()
+  local opts = {}
+
+  local dropdown = {
+    layout_strategy = "vertical",
+    border = true,
+    borderchars = {
+      preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      -- prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+      -- results = { " " },
+      results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+      prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+    },
+    results_title = "",
+    prompt_title = "Find",
+    preview_title = "Preview",
+    sorting_strategy = "ascending",
+  }
+
+  opts = vim.tbl_deep_extend("force", opts, dropdown)
+
+  -- opts.cwd = vim.fn.stdpath "config"
+  -- put(opts)
+
+  require("telescope.builtin").find_files(opts)
+end
+
+local find_buffers = function()
+  require("telescope.builtin").buffers {
+    sort_mru = true,
+    sort_lastused = true,
+  }
+end
+
 require("user.utils.keymaps").map {
-  ["<c-p>"] = { "<cmd>Telescope find_files<CR>", "Find files" },
-  ["<c-n>"] = { "<cmd>Telescope buffers<CR>", "Show buffer list" },
+  -- ["<leader>f"] = { "<cmd>Telescope find_files<CR>", "Find files" },
+  -- ["<leader>b"] = { "<cmd>Telescope buffers<CR>", "Show buffer list" },
+  ["<c-p>"] = { find_files, "Find files" },
+  ["<c-n>"] = { find_buffers, "Show buffer list" },
   ["<leader>t"] = {
     name = "Telescope",
     ["!"] = { "<cmd>Telescope command_history<CR>", "Command history" },
@@ -158,46 +178,7 @@ require("user.utils.keymaps").map {
       "<cmd>Telescope lsp_document_symbols<CR>",
       "List document symbol",
     },
+    -- nmap("<leader>tp", require("user.utils").telescope_find_configs, "Find configs")
+    -- nmap("<leader>tn", require("user.utils").telescope_find_notes, "Find notes")
   },
 }
-
--- local cdPicker = function(name, cmd)
---   pickers
---     .new({}, {
---       prompt_title = name,
---       finder = finders.new_table { results = utils.get_os_command_output(cmd) },
---       previewer = previewers.vim_buffer_cat.new {},
---       sorter = sorters.get_fuzzy_file(),
---       attach_mappings = function(prompt_bufnr)
---         actions_set.select:replace(function(_, type)
---           local entry = actions.get_selected_entry()
---           actions.close(prompt_bufnr)
---           local dir = from_entry.path(entry)
---           vim.cmd("cd " .. dir)
---         end)
---         return true
---       end,
---     })
---     :find()
--- end
-
--- function Cd(path)
---   path = path or "."
---   cdPicker(
---     "Cd",
---     { vim.o.shell, "-c", "fd . " .. path .. " --type=d 2>/dev/null" }
---   )
--- end
-
--- local previewers = require "telescope.previewers"
--- local sorters = require "telescope.sorters"
--- local pickers = require "telescope.pickers"
--- local finders = require "telescope.finders"
--- local utils = require "telescope.utils"
--- local actions_set = require "telescope.actions.set"
--- local from_entry = require "telescope.from_entry"
--- local builtin = require "telescope.builtin"
-
--- READ THIS FOR CDER
--- *telescope.defaults.history*
-

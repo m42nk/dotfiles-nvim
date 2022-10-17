@@ -1,10 +1,10 @@
 ## TODO
 
+- Neotree
+  - move float to bottom?
+
 - Telescope
-  - fix ascending sort on: grep, help, etc
   - change directory on find_files
-  - sort mru find_files
-  - change layout to bottom_pane again
 
 - Buffer
   - try find better way to navigate buffers
@@ -62,3 +62,7 @@
   - probably change to auto-session
   - show recent file/session in dashboard
 
+- Telescope
+  - fix ascending sort on: grep, help, etc
+  - sort mru find_files [not possible]
+  - change layout to bottom_pane again [done]

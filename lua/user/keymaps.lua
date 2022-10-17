@@ -53,7 +53,7 @@ k.nmap {
 }
 
 k.nmap("<leader>h", "<cmd>nohlsearch<cr>", "Remove highlight")
-k.nmap("<esc>", "<cmd>nohlsearch<cr>", "Remove highlight")
+-- k.nmap("<esc>", "<cmd>nohlsearch<cr>", "Remove highlight")
 
 -- Don't jump to next match on * or #
 k.nmap("*", "<cmd>keepjumps normal! mi*`i<cr>", "Highlight/jump next match")

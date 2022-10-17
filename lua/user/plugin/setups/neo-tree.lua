@@ -13,18 +13,32 @@ require("user.utils.keymaps").nmap {
 
 neo_tree.setup {
   use_popups_for_input = false,
-  popup_border_style = "rounded",
+  popup_border_style = "single",
   add_blank_line_at_top = false,
+  -- close_floats_on_escape_key = true,
 
   sources = { "filesystem", "buffers" },
   source_selector = {
-    winbar = true,
+    winbar = false,
     statusline = true,
     content_layout = "center",
   },
   window = {
     popup = {
-      size = { width = "80%" },
+      size = {
+        width = "100%",
+        height = "60%",
+      },
+      position = {
+        col = "100%",
+        row = "100%",
+      },
+    },
+
+    mappings = {
+      ["<Esc>"] = function()
+        vim.cmd "Neotree close"
+      end,
     },
   },
   buffers = {
@@ -55,9 +69,6 @@ neo_tree.setup {
         ["w"] = function() --[[noop]]
         end,
         ["b"] = function() --[[noop]]
-        end,
-        ["<Esc>"] = function()
-          vim.cmd "Neotree toggle"
         end,
       },
     },
