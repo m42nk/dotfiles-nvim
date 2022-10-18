@@ -8,7 +8,6 @@ local get_sessions = function()
     -- items[#items] =
     for s in pairs(sess) do
       local sess_path = autosession.get_root_dir() .. sess[s].path
-      put(sess_path)
       items[#items] = {
         name = sess[s].display_name,
         action = "RestoreSession " .. sess_path,

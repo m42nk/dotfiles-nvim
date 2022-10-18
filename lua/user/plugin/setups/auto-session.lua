@@ -8,6 +8,9 @@ autosession.setup {
   auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
 }
 
+vim.o.sessionoptions =
+  "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+
 require("user.utils.keymaps").nmap {
   ["<c-s-s>"] = {
     name = "Session",
