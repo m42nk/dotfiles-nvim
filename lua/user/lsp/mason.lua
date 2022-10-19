@@ -80,5 +80,30 @@ configs["elixirls"] = function()
   }
 end
 
+configs["emmet_ls"] = function()
+  require("lspconfig").emmet_ls.setup {
+    on_attach = opts.on_attach,
+    capabilities = opts.capabilities,
+    filetypes = {
+      "html",
+      "vue",
+      "typescriptreact",
+      "javascriptreact",
+      "css",
+      "sass",
+      "scss",
+      "less",
+    },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+          ["bem.enabled"] = true,
+        },
+      },
+    },
+  }
+end
+
 -- Autosetup installed lsp
 require("mason-lspconfig").setup_handlers(configs)

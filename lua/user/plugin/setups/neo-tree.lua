@@ -52,6 +52,7 @@ neo_tree.setup {
   filesystem = {
     hijack_netrw_behavior = "open_default",
     window = {
+      position = "float",
       mappings = {
         ["<C-l>"] = { "clear_filter" },
         ["<C-h>"] = { "toggle_hidden" },

@@ -64,7 +64,7 @@ telescope.setup {
       sort_mru = true,
       sort_lastused = true,
       mappings = {
-        n = {
+        i = {
           ["<c-l>"] = actions.delete_buffer,
         },
       },
@@ -200,4 +200,3 @@ require("user.utils.keymaps").map {
 
 -- READ THIS FOR CDER
 -- *telescope.defaults.history*
-
