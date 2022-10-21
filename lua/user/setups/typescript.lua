@@ -10,3 +10,18 @@ ts.setup {
     fallback = true, -- fall back to standard LSP definition on failure
   },
 }
+
+require("user.utils.keymaps").nmap {
+  ["<leader>T"] = {
+    name = "Typescript",
+    ["im"] = { "<cmd>TypescriptAddMissingImports<cr>", "Add missing imports" },
+    ["io"] = { "<cmd>TypescriptOrganizeImports<cr>", "Organize imports" },
+    ["f"] = { "<cmd>TypescriptFixAll<cr>", "Fix all" },
+    ["ru"] = { "<cmd>TypescriptRemoveUnused<cr>", "Remove Unused Imports" },
+    ["rn"] = { "<cmd>TypescriptRenameFile<cr>", "Rename file" },
+    ["gd"] = {
+      "<cmd>TypescriptGoToSourceDefinition<cr>",
+      "Go to source definition",
+    },
+  },
+}

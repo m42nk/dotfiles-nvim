@@ -11,7 +11,7 @@ M.custom_configurations = function(opts)
 
   local tbl = {}
 
-  for _, config in ipairs(configs) do
+  for _, config in pairs(configs) do
     -- Get the actual server name
     local name = string.gsub(config, ".*/(.*).lua", "%1", 1)
 
@@ -23,6 +23,7 @@ M.custom_configurations = function(opts)
         -- Add the configuration to the table
         tbl[name] = function()
           opts = vim.tbl_extend("force", _opts, opts)
+          -- put(name, opts)
           require("lspconfig")[name].setup(opts)
         end
       end

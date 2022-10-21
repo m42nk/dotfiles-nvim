@@ -1,12 +1,17 @@
 local on_attach = function(client, bufnr)
-  -- Load custom config if exists in lua/lsp/settings/*
-  local settings_ok, settings =
-    pcall(require, "user.lsp.settings." .. client.name)
+  -- -- Load custom config if exists in lua/lsp/settings/*
+  -- local settings_ok, settings =
+  --   pcall(require, "user.lsp.settings." .. client.name)
 
-  -- Disable formatting via lsp (provided by other, ideally in null-ls)
-  if settings_ok and settings._disable_formatting then
-    client.server_capabilities.document_formatting = false -- 0.7 and earlier
-    client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+  -- -- Disable formatting via lsp (provided by other, ideally in null-ls)
+  -- if settings_ok and settings._disable_formatting then
+  --   client.server_capabilities.documentFormattingProvider = false
+  --   client.server_capabilities.documentRangeFormattingProvider = false
+  -- end
+
+  if client.name == "tsserver" then
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
   end
 
   -- Attach keymaps

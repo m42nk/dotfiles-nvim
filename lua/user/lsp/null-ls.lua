@@ -10,9 +10,8 @@ local sources = {
   diagnostics.zsh,
   diagnostics.credo,
   diagnostics.eslint_d,
-
-  -- formatting.prettierd,
-  formatting.prettier,
+  formatting.prettierd,
+  -- formatting.prettier,
   formatting.stylua,
   formatting.shfmt,
 
@@ -22,5 +21,5 @@ local sources = {
 
 null_ls.setup {
   sources = sources,
-  on_attach = require("user.lsp.on-attach")
+  -- on_attach = require("user.lsp.on-attach")
 }

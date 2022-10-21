@@ -40,7 +40,7 @@ lualine.setup {
     lualine_x = {
       c.diagnostics,
       c.treesitter,
-      -- c.lsp,
+      c.lsp,
       c.fileformat,
       c.filetype,
       c.location,
