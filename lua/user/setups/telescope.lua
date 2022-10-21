@@ -21,6 +21,7 @@ telescope.setup {
   defaults = {
     sorting_strategy = "ascending",
     layout_strategy = "bottom_pane",
+    winblend = 0,
     layout_config = {
       bottom_pane = {
         preview_cutoff = 0,
@@ -41,6 +42,8 @@ telescope.setup {
 
     mappings = {
       i = {
+
+        ["<c-l>"] = actions.delete_buffer,
         ["<tab>"] = actions.move_selection_next,
         ["<s-tab>"] = actions.move_selection_previous,
 
@@ -63,13 +66,15 @@ telescope.setup {
       previewer = false,
       sort_mru = true,
       sort_lastused = true,
-      mappings = {
-        i = {
-          ["<c-l>"] = actions.delete_buffer,
-        },
-      },
+      path_display = { shorten = 2 },
+      dynamic_preview_title = true,
     },
     find_files = {
+      mappings = {
+        -- i = {
+        --   ["<c-l>"] = "noop",
+        -- },
+      },
       find_command = {
         "fd",
         "--hidden",

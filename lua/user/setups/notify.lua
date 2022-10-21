@@ -4,6 +4,10 @@ if not ok then
   return
 end
 
+notify.setup {
+  background_colour = "#00000000",
+}
+
 vim.notify = notify
 
 require("user.utils.keymaps").nmap {

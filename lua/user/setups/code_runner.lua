@@ -14,6 +14,12 @@ cr.setup {
       file_name = "index.js",
       command = "node .",
     },
+
+    ["~/Work/gaia-elixir/scripts/"] = {
+      name = "Run script with elixir",
+      file_name = "upload_coverage.exs",
+      command = "ex",
+    },
   },
 }
 
