@@ -1,8 +1,5 @@
 ## TODO
 
-- Neotree
-  - move float to bottom?
-
 - Telescope
   - change directory on find_files
 
@@ -47,6 +44,7 @@
   - make help page open on left if screen is large 
 
 - Neotree
+  - move float to bottom?
   - bind escape to exit open float
   - ~highlight current file on open like yank post~
     - changed to better cursorline
@@ -66,3 +64,4 @@
   - fix ascending sort on: grep, help, etc
   - sort mru find_files [not possible]
   - change layout to bottom_pane again [done]
+

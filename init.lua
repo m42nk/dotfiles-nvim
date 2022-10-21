@@ -22,7 +22,7 @@ require "user.status"
 --
 -- Other plugins
 --
-local load = require("user.utils.load").generate_loader "user.plugin.setups"
+local load = require("user.utils.load").generate_loader "user.setups"
 
 load "auto-session"
 load "autopairs"
@@ -39,8 +39,10 @@ load "project"
 load "readline"
 load "telescope"
 load "tpope"
+load "notify"
 load "typescript"
 load "which-key"
+load "dressing"
 
 load "code_runner"
 load "colorizer"
