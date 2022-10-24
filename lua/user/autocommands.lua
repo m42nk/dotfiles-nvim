@@ -56,6 +56,13 @@ autocmd({ "BufLeave", "FocusLost" }, {
   group = custom,
 })
 
+autocmd({ "BufReadPost" }, {
+  callback = function()
+    vim.bo.modifiable = true
+  end,
+  group = custom,
+})
+
 -- Autoreload config files
 -- Kitty
 autocmd("BufWritePost", {

@@ -66,8 +66,14 @@ telescope.setup {
       previewer = false,
       sort_mru = true,
       sort_lastused = true,
-      path_display = { shorten = 2 },
+      -- path_display = { shorten = 2 },
+      path_display = { "smart" },
       dynamic_preview_title = true,
+      mappings = {
+        i = {
+          -- ["<c-l>"] = "noop",
+        },
+      },
     },
     find_files = {
       mappings = {

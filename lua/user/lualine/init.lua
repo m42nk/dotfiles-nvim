@@ -35,17 +35,21 @@ lualine.setup {
       -- c.filename,
       c.diff,
       -- "%=",
-      -- c.buf_count,
     },
     lualine_x = {
       c.diagnostics,
       c.treesitter,
-      c.lsp,
+      -- c.lsp,
       c.fileformat,
       c.filetype,
       c.location,
     },
-    lualine_y = {},
+    lualine_y = {
+      {
+        require("user.bufcount").statusline,
+        padding = 0
+      },
+    },
     lualine_z = {},
   },
 }

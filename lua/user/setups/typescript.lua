@@ -16,8 +16,8 @@ require("user.utils.keymaps").nmap {
     name = "Typescript",
     ["im"] = { "<cmd>TypescriptAddMissingImports<cr>", "Add missing imports" },
     ["io"] = { "<cmd>TypescriptOrganizeImports<cr>", "Organize imports" },
+    ["ir"] = { "<cmd>TypescriptRemoveUnused<cr>", "Remove Unused Imports" },
     ["f"] = { "<cmd>TypescriptFixAll<cr>", "Fix all" },
-    ["ru"] = { "<cmd>TypescriptRemoveUnused<cr>", "Remove Unused Imports" },
     ["rn"] = { "<cmd>TypescriptRenameFile<cr>", "Rename file" },
     ["gd"] = {
       "<cmd>TypescriptGoToSourceDefinition<cr>",

@@ -1,17 +1,21 @@
+local k = require "user.utils.keymaps"
+local packer_install = function()
+  require("packer").clean()
+  require("packer").install()
+end
+
 -----------------------
 -- Base keymaps
 -----------------------
+-- k.nmap {
+--   [""]
+-- }
 
 -----------------------
 -- Tmux Keymaps
 -----------------------
 
 local tmux_nav = require("user.utils.tmux-integration").tmux_nav
-local k = require "user.utils.keymaps"
-local packer_install = function()
-  require("packer").clean()
-  require("packer").install()
-end
 
 k.map {
   ["<C-w>h"] = { tmux_nav "h", "Focus left" },
