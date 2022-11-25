@@ -192,4 +192,5 @@ return {
   "rmagatti/auto-session",
   "rmagatti/session-lens",
   -- "nvim-pack/nvim-spectre",
+  "ekickx/clipboard-image.nvim",
 }
