@@ -29,6 +29,15 @@ ci.setup {
   markdown = {
     img_dir = { "public", "static", "images", "blog" }, -- Use table for nested dir (New feature form PR #20)
     img_dir_txt = "/static/images/blog",
+    -- img_handler = function()
+    --   return function(path)
+    --     -- string.format("cp %s temp.png; imagemin temp.png > %s &", path, path)
+    --     -- return os.execute(
+    --     --   string.format("cp %s %s-temp.png", path, path)
+    --     -- )
+    --     return os.execute("touch /tmp/a.txt")
+    --   end
+    -- end,
 
     img_name = function()
       vim.fn.inputsave()
@@ -69,10 +78,6 @@ ci.setup {
       end
       return name
     end,
-    -- img_handler = function(img) -- New feature from PR #22
-    --   local script = string.format('./image_compressor.sh "%s"', img.path)
-    --   os.execute(script)
-    -- end,
   },
 }
 

@@ -15,3 +15,8 @@ hl(
   "NeoTreeCursorLine",
   { fg = "#ffffff", bg = "#333333", cterm = { bold = true } }
 )
+
+hl("Folded", {
+  bg = "#333333",
+  fg = "#aaaaaa",
+})
