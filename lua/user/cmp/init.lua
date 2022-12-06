@@ -22,14 +22,14 @@ cmp.setup {
     end,
   },
   sources = cmp.config.sources({
-    { name = "neorg" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },
-    { name = "buffer" },
   }, {
     -- Don't show these sources if all source above
     -- still have items to complete
+    { name = "neorg" },
+    { name = "buffer" },
     { name = "path" },
   }),
   mapping = keymaps,
