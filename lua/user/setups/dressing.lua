@@ -4,7 +4,9 @@ require("dressing").setup {
     relative = "editor",
     border = "single",
     min_width = { 0, 0.5 },
-    winblend = 0,
+    win_options = {
+      winblend = 0,
+    },
   },
   select = {
     nui = {
@@ -13,7 +15,9 @@ require("dressing").setup {
       },
     },
     builtin = {
-      winblend = 0,
+      win_options = {
+        winblend = 0,
+      }
     },
   },
 }

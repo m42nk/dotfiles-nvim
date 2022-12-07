@@ -1,21 +1,20 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
-
+-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- return capabilities
 
--- local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
--- if status_cmp_ok then
---   capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
--- end
+local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if status_ok then
+  return cmp_nvim_lsp.default_capabilities()
+end
 
--- TODO: lsp-status
--- Lsp status
--- local lsp_status_ok, lsp_status = pcall(require, "lsp-status")
--- if lsp_status_ok then
---   capabilities = vim.tbl_extend("keep", capabilities, lsp_status.capabilities) or capabilities
--- end
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits",
+  },
+}
 
 return capabilities

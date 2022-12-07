@@ -10,6 +10,7 @@ local sources = {
   diagnostics.zsh,
   diagnostics.credo,
   diagnostics.eslint_d,
+
   formatting.prettierd,
   -- formatting.prettier,
   formatting.stylua,
@@ -17,6 +18,7 @@ local sources = {
 
   code_actions.gitsigns,
   code_actions.eslint_d,
+  require("typescript.extensions.null-ls.code-actions"),
 }
 
 null_ls.setup {

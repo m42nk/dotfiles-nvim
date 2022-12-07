@@ -105,12 +105,12 @@ configs["emmet_ls"] = function()
   }
 end
 
--- configs["tsserver"] = function()
---   require("lspconfig").tsserver.setup {
---     on_attach = opts.on_attach,
---     capabilities = opts.capabilities,
---   }
--- end
+configs["tsserver"] = function()
+  -- require("lspconfig").tsserver.setup {
+  --   on_attach = opts.on_attach,
+  --   capabilities = opts.capabilities,
+  -- }
+end
 
 -- Autosetup installed lsp
 require("mason-lspconfig").setup_handlers(configs)

@@ -46,7 +46,7 @@ load "dressing"
 
 load "code_runner"
 load "colorizer"
-load "mini.starter"
+-- load "mini.starter"
 load "clipboard-image"
 
 -- load "mini.bufremove"
