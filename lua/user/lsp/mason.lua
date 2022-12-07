@@ -106,10 +106,8 @@ configs["emmet_ls"] = function()
 end
 
 configs["tsserver"] = function()
-  -- require("lspconfig").tsserver.setup {
-  --   on_attach = opts.on_attach,
-  --   capabilities = opts.capabilities,
-  -- }
+  -- FAKLAH DUNIA INI
+  -- this settings is handled by typescript.nvim
 end
 
 -- Autosetup installed lsp

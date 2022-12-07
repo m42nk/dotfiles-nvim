@@ -9,6 +9,10 @@ ts.setup {
   go_to_source_definition = {
     fallback = true, -- fall back to standard LSP definition on failure
   },
+  server = {
+    on_attach = require "user.lsp.on-attach",
+    capabilities = require "user.lsp.capabilities",
+  }
 }
 
 require("user.utils.keymaps").nmap {
