@@ -194,4 +194,9 @@ return {
   "rmagatti/session-lens",
   -- "nvim-pack/nvim-spectre",
   "ekickx/clipboard-image.nvim",
+
+  {
+    "kkoomen/vim-doge",
+    run = ":call doge#install()",
+  },
 }

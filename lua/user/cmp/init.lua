@@ -40,12 +40,12 @@ cmp.setup {
     src_nvim_lsp,
     { name = 'nvim_lsp_signature_help' },
     { name = "nvim_lua" },
-    { name = "buffer" },
     { name = "luasnip" },
     { name = "path" },
   }, {
     -- Don't show these sources if all source above
     -- still have items to complete
+    { name = "buffer" },
     { name = "neorg" },
   }),
   mapping = keymaps,
