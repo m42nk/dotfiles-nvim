@@ -110,5 +110,26 @@ configs["tsserver"] = function()
   -- this settings is handled by typescript.nvim
 end
 
+configs["volar"] = function()
+  require("lspconfig").volar.setup {
+    init_options = {
+      typescript = {
+        tsdk = vim.fn.getenv "HOME"
+          .. "/.asdf/installs/nodejs/16.16.0/.npm/lib/node_modules/typescript/lib",
+      },
+    },
+    on_attach = opts.on_attach,
+    capabilities = opts.capabilities,
+    filetypes = {
+      "typescript",
+      "javascript",
+      "javascriptreact",
+      "typescriptreact",
+      "vue",
+      "json",
+    },
+  }
+end
+
 -- Autosetup installed lsp
 require("mason-lspconfig").setup_handlers(configs)
