@@ -25,10 +25,18 @@ k.nmap(
 )
 k.nmap(
   "<leader>S",
-  ":S/\\<<C-r><C-w>\\>/<C-r><C-w>/g<Left><Left><Left>",
+  ":S/<C-r><C-w>/<C-r><C-w>/g<Left><Left>",
   "Sed word under cursor (case-aware)",
   { silent = false }
 )
+
+vim.cmd [[
+autocmd cursorhold * set nohlsearch
+noremap n :set hlsearch<cr>n
+noremap N :set hlsearch<cr>N
+noremap / :set hlsearch<cr>/
+noremap ? :set hlsearch<cr>?
+]]
 
 k.map {
   ["<C-w>h"] = { tmux_nav "h", "Focus left" },
