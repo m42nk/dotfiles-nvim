@@ -17,9 +17,12 @@ local _map = function(mode, ...)
       vim.notify("KEYMAP: keymap description is required", vim.log.levels.ERROR)
     end
 
+    local opts = vim.tbl_extend("force", { mode = mode }, args[4] or {})
+    HALO = opts
+
     wk.register({
       [args[1]] = { args[2], args[3] },
-    }, { mode = mode })
+    }, opts)
 
     return
   end

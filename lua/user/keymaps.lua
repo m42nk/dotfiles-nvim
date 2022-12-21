@@ -17,9 +17,18 @@ end
 
 local tmux_nav = require("user.utils.tmux-integration").tmux_nav
 
--- vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-k.nmap("<leader>s", ":s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", "Sed word under cursor")
-k.nmap("<leader>S", ":S/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", "Sed word under cursor (case-aware)")
+k.nmap(
+  "<leader>s",
+  ":s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
+  "Sed word under cursor",
+  { silent = false }
+)
+k.nmap(
+  "<leader>S",
+  ":S/\\<<C-r><C-w>\\>/<C-r><C-w>/g<Left><Left><Left>",
+  "Sed word under cursor (case-aware)",
+  { silent = false }
+)
 
 k.map {
   ["<C-w>h"] = { tmux_nav "h", "Focus left" },
