@@ -42,10 +42,10 @@ cmp.setup {
     { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "path" },
+    { name = "buffer" },
   }, {
     -- Don't show these sources if all source above
     -- still have items to complete
-    { name = "buffer" },
     { name = "neorg" },
   }),
   mapping = keymaps,
