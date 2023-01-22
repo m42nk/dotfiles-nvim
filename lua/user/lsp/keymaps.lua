@@ -20,6 +20,8 @@ M.attach = function(bufnr)
   keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
   -- keymap(bufnr, "x", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
+  keymap(bufnr, "n", "<leader>lds", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
+
   -- 	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
   -- 	keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
   -- 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)

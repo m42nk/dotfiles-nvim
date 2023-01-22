@@ -15,6 +15,8 @@ local sources = {
   -- formatting.prettier,
   formatting.stylua,
   formatting.shfmt,
+  -- formatting.phpcbf,
+  formatting.phpcsfixer,
 
   code_actions.gitsigns,
   code_actions.eslint_d,

@@ -199,4 +199,6 @@ return {
     "kkoomen/vim-doge",
     run = ":call doge#install()",
   },
+
+  -- "chr4/nginx.vim",
 }

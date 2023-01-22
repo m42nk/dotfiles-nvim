@@ -66,6 +66,7 @@ opt.laststatus = 3        -- Set global statusline
 
 -- Disable intro
 opt.shortmess:append "I"
+opt.cmdheight = 2
 
 -----------------------------------------------------------
 -- Tabs, indent

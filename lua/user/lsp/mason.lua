@@ -9,7 +9,7 @@ require("mason-tool-installer").setup {
   start_delay = 3000,
 
   ensure_installed = {
-    "gopls",
+    -- "gopls",
     "bash-language-server",
     "html-lsp",
     "codespell",
