@@ -4,6 +4,7 @@ if not ok then
 end
 
 require("user.utils.keymaps").nmap {
+  ["<c-k>"] = { "<cmd>Neotree buffers float reveal toggle<cr>", "Neotree Buffers" },
   ["<leader>e"] = { "<cmd>Neotree float reveal toggle<cr>", "Neotree" },
   ["<leader>B"] = {
     "<cmd>Neotree float toggle buffers<cr>",
