@@ -22,5 +22,9 @@ require("user.utils.keymaps").nmap {
     ["b"] = { "<cmd>Gitsigns blame_line<cr>", "Show blame on current line" },
     ["l"] = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
     ["d"] = { "<cmd>Gitsigns diffthis<cr>", "Diff this" },
+    ["p"] = { "<cmd>Gitsigns prev_hunk<cr>", "Previous hunk" },
+    ["n"] = { "<cmd>Gitsigns next_hunk<cr>", "Next hunk" },
+    ["P"] = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Preview hunk inline" },
+    ["O"] = { "<cmd>Gitsigns preview_hunk<cr>", "Preview hunk popup" },
   },
 }
