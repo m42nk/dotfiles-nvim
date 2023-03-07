@@ -8,15 +8,18 @@ autosession.setup {
   auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
 }
 
+-- vim.o.sessionoptions =
+--   "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+
 vim.o.sessionoptions =
-  "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+  "buffers,curdir,folds,help,tabpages,winsize,winpos"
 
 require("user.utils.keymaps").nmap {
-  ["<c-s-s>"] = {
+  ["<leader>o"] = {
     name = "Session",
     ["l"] = { "<cmd>RestoreSession<cr>", "Load (restore) session" },
     ["s"] = { "<cmd>SaveSession<cr>", "Save session" },
-    ["<CR>"] = {
+    ["o"] = {
       "<cmd>Telescope session-lens search_session<cr>",
       "Search session",
     },
