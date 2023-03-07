@@ -11,21 +11,21 @@ cybu.setup {
     -- centerleft, center, centerright,
     -- bottomleft, bottomcenter, bottomright
     vertical_offset = 0, -- vertical offset from anchor in lines
-    horizontal_offset = 1, -- vertical offset from anchor in columns
-    max_win_height = 10, -- height of cybu window in lines
-    max_win_width = 0.5, -- integer for absolute in columns
+    horizontal_offset = 0, -- vertical offset from anchor in columns
+    max_win_height = vim.api.nvim_win_get_height(0), -- height of cybu window in lines
+    max_win_width = 0.3, -- integer for absolute in columns
     -- float for relative to win/editor width
   },
   style = {
     path = "relative", -- absolute, relative, tail (filename only)
     path_abbreviation = "none", -- none, shortened
-    border = "rounded", -- single, double, rounded, none
+    border = "single", -- single, double, rounded, none
     separator = " ", -- string used as separator
     prefix = "…", -- string used as prefix for truncated paths
-    padding = 3, -- left & right padding in number of spaces
+    padding = 1, -- left & right padding in number of spaces
     hide_buffer_id = false, -- hide buffer IDs in window
     devicons = {
-      enabled = false, -- enable or disable web dev icons
+      enabled = true, -- enable or disable web dev icons
       colored = true, -- enable color for web dev icons
       truncate = true, -- truncate wide icons to one char width
     },
@@ -46,7 +46,11 @@ cybu.setup {
         switch = "on_close", -- immediate, on_close
         view = "paging", -- paging, rolling
       },
+      auto = {
+        view = "rolling",
+      },
     },
+    show_on_autocmd = false, -- event to trigger cybu (eg. "BufEnter")
   },
   display_time = 750, -- time the cybu window is displayed
   exclude = { -- filetypes, cybu will not be active
@@ -64,6 +68,9 @@ cybu.setup {
 -- vim.keymap.set({ "n", "v" }, "<c-tab>", "<plug>(CybuLastusedNext)")
 
 require("user.utils.keymaps").nmap {
-  ["<S-h>"] = { "<Plug>(CybuPrev)", "Focus previous buffer" },
-  ["<S-l>"] = { "<Plug>(CybuNext)", "Focus next buffer" },
+  -- ["<S-h>"] = { "<Plug>(CybuPrev)", "Focus previous buffer" },
+  -- ["<S-l>"] = { "<Plug>(CybuNext)", "Focus next buffer" },
+
+  ["<S-h>"] = { "<Plug>(CybuLastusedPrev)", "Focus previous buffer" },
+  ["<S-l>"] = { "<Plug>(CybuLastusedNext)", "Focus next buffer" },
 }
