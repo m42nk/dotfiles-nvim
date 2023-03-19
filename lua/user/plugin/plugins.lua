@@ -200,5 +200,13 @@ return {
     run = ":call doge#install()",
   },
 
+  {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
+  },
+
   -- "chr4/nginx.vim",
 }

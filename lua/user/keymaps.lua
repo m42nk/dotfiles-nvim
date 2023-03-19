@@ -88,7 +88,9 @@ k.vmap("<", "<gv", "Remove indent")
 k.vmap(">", ">gv", "Add indent")
 
 k.nmap {
-  ["<leader>c"] = { "<cmd>bdelete<cr>", "Buffer close" },
-  ["<leader>C"] = { "<cmd>bwipeout<cr>", "Buffer wipeout" },
+  -- ["<leader>c"] = { "<cmd>bdelete<cr>", "Buffer close" },
+  -- ["<leader>C"] = { "<cmd>bwipeout<cr>", "Buffer wipeout" },
+  ["<leader>c"] = { "<cmd>bp|bd #<cr>", "Buffer close, preserve split" },
+  ["<leader>C"] = { "<cmd>bdelete<cr>", "Buffer close" },
   ["<c-a>"] = { "<cmd>b#<cr>", "Alternate (last) buffer" },
 }
