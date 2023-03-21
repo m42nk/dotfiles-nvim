@@ -52,3 +52,8 @@ load "clipboard-image"
 -- load "mini.bufremove"
 -- load "bufferline"
 -- load "dashboard"
+
+vim.cmd [[
+imap <silent><script><expr> <C-0> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+]]
