@@ -62,15 +62,32 @@ lazy.setup {
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     }
   },
 
   ----------------------------------
+  -- Treesitter
+  ----------------------------------
+  "nvim-treesitter/nvim-treesitter",
+
+  "nvim-treesitter/nvim-treesitter-context",     -- Sticky header showing functions or class
+  "nvim-treesitter/playground",                  -- Abstract syntax tree by treesitter
+  "nvim-treesitter/nvim-treesitter-textobjects", -- Add textobjects via treesitter, currently used only for functions
+  -- "RRethy/nvim-treesitter-textsubjects", -- Add "smart" textobjects, if cursor on react props, "d." will delete the props
+  "JoosepAlviste/nvim-ts-context-commentstring", -- Context aware commentstring, useful for nested language like css or codeblock in markdown
+  "windwp/nvim-ts-autotag",                      -- Close html/jsx tags
+  "mizlan/iswap.nvim",                           -- Swap nodes using treesitter
+
+
+  ----------------------------------
   -- Generic
   ----------------------------------
-  "folke/which-key.nvim", -- Keymapping popup helper
+  "folke/which-key.nvim",      -- Keymapping popup helper
+  "nvim-lualine/lualine.nvim", -- Status line
+  "lewis6991/gitsigns.nvim",   -- Git tools for signcolumn and statusline components
+
 
   ----------------------------------
   -- tpope

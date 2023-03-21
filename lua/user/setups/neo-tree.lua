@@ -2,7 +2,6 @@ local ok, neotree = pcall(require, "neo-tree")
 if not ok then
   return
 end
-
 require("user.lib.keymap").nmap {
   ["<c-h>"] = { "<cmd>Neotree buffers float reveal toggle<cr>", "Neotree Buffers" },
   ["<leader>e"] = { "<cmd>Neotree float reveal toggle<cr>", "Neotree" },

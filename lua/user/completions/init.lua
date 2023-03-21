@@ -8,9 +8,12 @@ if not luasnip_ok then
   return
 end
 
+local formatting = require "user.completions.formatting"
+
 luasnip.config.setup {}
 
 cmp.setup {
+  formatting = formatting,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)

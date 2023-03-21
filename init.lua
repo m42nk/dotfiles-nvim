@@ -6,10 +6,13 @@ require "user.lsp"
 require "user.completions"
 
 -- Plugin configuration (setup)
-local setup = require("user.lib.setup_loader_generator")("user.setups")
+local setup = require("user.lib.setup-loader-generator")("user.setups")
 
 setup "which-key"
 setup "telescope"
 setup "neo-tree"
+setup "lualine"
+setup "gitsigns"
+setup "treesitter"
 
 vim.cmd [[ colorscheme habamax ]]
