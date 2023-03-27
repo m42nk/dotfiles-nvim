@@ -4,7 +4,8 @@ if not ok then
 end
 
 configs.setup {
-  ensure_installed = require "user.treesitter.ensure_installed",
+  ensure_installed = { "bash", "dockerfile", "html", "css", "javascript", "lua", "vue", "json"},
+  auto_install = true,
   playground = { enable = true },
   highlight = { enable = true },
   autotag = { enable = true },
