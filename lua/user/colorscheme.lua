@@ -17,10 +17,18 @@ local catpuccin = function()
     },
   }
 
-
   -- require("catppuccin").setup {}
 
   vim.cmd [[colorscheme catppuccin]]
 end
 
-catpuccin()
+local tokyonight = function()
+  require("tokyonight").setup {
+    transparent = true,
+  }
+
+  vim.cmd [[colorscheme tokyonight-night]]
+end
+
+-- catpuccin()
+tokyonight()

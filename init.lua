@@ -48,6 +48,8 @@ load "code_runner"
 load "colorizer"
 load "clipboard-image"
 
+load "chatgpt"
+
 -- load "mini.starter"
 -- load "mini.bufremove"
 -- load "bufferline"
