@@ -14,5 +14,6 @@ setup "neo-tree"
 setup "lualine"
 setup "gitsigns"
 setup "treesitter"
+setup "tokyonight"
 
-vim.cmd [[ colorscheme habamax ]]
+vim.cmd [[ colorscheme tokyonight-night ]]

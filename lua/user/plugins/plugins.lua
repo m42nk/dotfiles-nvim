@@ -87,6 +87,8 @@ lazy.setup {
   "folke/which-key.nvim",      -- Keymapping popup helper
   "nvim-lualine/lualine.nvim", -- Status line
   "lewis6991/gitsigns.nvim",   -- Git tools for signcolumn and statusline components
+  "folke/tokyonight.nvim",     -- Colorscheme
+  "github/copilot.vim",
 
 
   ----------------------------------
