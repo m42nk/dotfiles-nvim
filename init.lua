@@ -4,6 +4,7 @@ require "user.plugins"
 require "user.keymaps"
 require "user.lsp"
 require "user.completions"
+require "user.tmux-navigation"
 
 -- Plugin configuration (setup)
 local setup = require("user.lib.setup-loader-generator")("user.setups")
