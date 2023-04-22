@@ -169,6 +169,10 @@ require("user.utils.keymaps").map {
       "<cmd>Telescope lsp_document_symbols<CR>",
       "List document symbol",
     },
+    ["D"] = {
+      "<cmd>Telescope diagnostics<CR>",
+      "List diagnostics",
+    },
   },
 }
 

@@ -1,4 +1,4 @@
-local null_ls = require("null-ls")
+local null_ls = require "null-ls"
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -10,6 +10,9 @@ local sources = {
   diagnostics.zsh,
   diagnostics.credo,
   diagnostics.eslint_d,
+  diagnostics.actionlint.with {
+    filetypes = { "yaml", "yml" },
+  },
 
   formatting.prettierd,
   -- formatting.prettier,
@@ -20,7 +23,7 @@ local sources = {
 
   code_actions.gitsigns,
   code_actions.eslint_d,
-  require("typescript.extensions.null-ls.code-actions"),
+  require "typescript.extensions.null-ls.code-actions",
 }
 
 null_ls.setup {

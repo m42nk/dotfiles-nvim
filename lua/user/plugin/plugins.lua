@@ -156,6 +156,7 @@ return {
   "tpope/vim-abolish",
   "tpope/vim-repeat",
   "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
 
   ----------------------------------
   -- Core

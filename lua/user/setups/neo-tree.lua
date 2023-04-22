@@ -17,6 +17,7 @@ neo_tree.setup {
   popup_border_style = "single",
   add_blank_line_at_top = false,
   -- close_floats_on_escape_key = true,
+  enable_diagnostics = true,
 
   sources = { "filesystem", "buffers" },
   source_selector = {
@@ -79,6 +80,18 @@ neo_tree.setup {
     icon = {
       folder_closed = "",
       folder_open = "",
+    },
+    highlights = {
+      hint = "DiagnosticSignHint",
+      info = "DiagnosticSignInfo",
+      warn = "DiagnosticSignWarn",
+      error = "DiagnosticSignError",
+    },
+    indent = {
+      with_expanders = true,
+      expander_collapsed = "",
+      expander_expanded = "",
+      expander_highlight = "NeoTreeExpander",
     },
   },
   event_handlers = {
