@@ -77,10 +77,10 @@ neo_tree.setup {
     },
   },
   default_component_configs = {
-    icon = {
-      folder_closed = "",
-      folder_open = "",
-    },
+    -- icon = {
+    --   folder_closed = "",
+    --   folder_open = "",
+    -- },
     highlights = {
       hint = "DiagnosticSignHint",
       info = "DiagnosticSignInfo",
