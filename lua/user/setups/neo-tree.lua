@@ -3,23 +3,13 @@ if not ok then
   return
 end
 
-require("user.utils.keymaps").nmap {
-  ["<c-k>"] = { "<cmd>Neotree buffers float reveal toggle<cr>", "Neotree Buffers" },
-  ["<leader>e"] = { "<cmd>Neotree float reveal toggle<cr>", "Neotree" },
-  ["<leader>B"] = {
-    "<cmd>Neotree float toggle buffers<cr>",
-    "Neotree Buffers",
-  },
-}
-
 neo_tree.setup {
   use_popups_for_input = false,
   popup_border_style = "single",
   add_blank_line_at_top = false,
-  -- close_floats_on_escape_key = true,
   enable_diagnostics = true,
 
-  sources = { "filesystem", "buffers" },
+  sources = { "filesystem", "buffers", "git_status" },
   source_selector = {
     winbar = false,
     statusline = true,
@@ -36,7 +26,6 @@ neo_tree.setup {
         row = "100%",
       },
     },
-
     mappings = {
       ["<Esc>"] = function()
         vim.cmd "Neotree close"
@@ -48,11 +37,12 @@ neo_tree.setup {
       mappings = {
         ["h"] = { "close_node" },
         ["l"] = { "toggle_node" },
+        ["P"] = { "toggle_preview", config = { use_float = true } },
       },
     },
   },
   filesystem = {
-    hijack_netrw_behavior = "open_default",
+    hijack_netrw_behavior = "open_current",
     window = {
       position = "float",
       mappings = {
@@ -65,10 +55,11 @@ neo_tree.setup {
         ["F"] = { "fuzzy_finder" },
         ["/"] = { --[[ use vim default / ]]
         },
-        ["s"] = { --[[ use leap ]]
-        },
-        ["S"] = { --[[ use leap ]]
-        },
+        -- s/S is used for opening in (v)split
+        -- ["s"] = { --[[ use leap ]]
+        -- },
+        -- ["S"] = { --[[ use leap ]]
+        -- },
         ["w"] = function() --[[noop]]
         end,
         ["b"] = function() --[[noop]]
@@ -77,10 +68,6 @@ neo_tree.setup {
     },
   },
   default_component_configs = {
-    -- icon = {
-    --   folder_closed = "",
-    --   folder_open = "",
-    -- },
     highlights = {
       hint = "DiagnosticSignHint",
       info = "DiagnosticSignInfo",
@@ -106,6 +93,14 @@ neo_tree.setup {
   },
 }
 
-vim.cmd [[
-let g:neo_tree_remove_legacy_commands = 1
-]]
+vim.g.neo_tree_remove_legacy_commands = 1
+
+require("user.utils.keymaps").nmap {
+  ["<c-k>"] = {
+    "<cmd>Neotree buffers float reveal toggle<cr>",
+    "Neotree Buffers",
+  },
+
+  ["<leader>e"] = { "<cmd>Neotree float reveal toggle<cr>", "Neotree" },
+  -- ["<leader>E"] = { "<cmd>Neotree float reveal toggle<cr>", "Neotree" },
+}
