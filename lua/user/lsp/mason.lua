@@ -132,7 +132,6 @@ configs["ansiblels"] = function()
           },
         },
       },
-      ,
     },
   }
 end
