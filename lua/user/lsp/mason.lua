@@ -115,26 +115,24 @@ configs["ansiblels"] = function()
     on_attach = opts.on_attach,
     capabilities = opts.capabilities,
     settings = {
-      {
+      ansible = {
         ansible = {
-          ansible = {
-            path = "ansible",
-          },
-          executionEnvironment = {
+          path = "ansible",
+        },
+        executionEnvironment = {
+          enabled = false,
+        },
+        python = {
+          interpreterPath = "python",
+        },
+        validation = {
+          enabled = false,
+          lint = {
             enabled = false,
-          },
-          python = {
-            interpreterPath = "python",
-          },
-          validation = {
-            enabled = false,
-            lint = {
-              enabled = false,
-              path = "ansible-lint",
-            },
           },
         },
       },
+      ,
     },
   }
 end
