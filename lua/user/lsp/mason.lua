@@ -110,6 +110,35 @@ configs["tsserver"] = function()
   -- this settings is handled by typescript.nvim
 end
 
+configs["ansiblels"] = function()
+  require("lspconfig").ansiblels.setup {
+    on_attach = opts.on_attach,
+    capabilities = opts.capabilities,
+    settings = {
+      {
+        ansible = {
+          ansible = {
+            path = "ansible",
+          },
+          executionEnvironment = {
+            enabled = false,
+          },
+          python = {
+            interpreterPath = "python",
+          },
+          validation = {
+            enabled = false,
+            lint = {
+              enabled = false,
+              path = "ansible-lint",
+            },
+          },
+        },
+      },
+    },
+  }
+end
+
 -- configs["volar"] = function()
 --   require("lspconfig").volar.setup {
 --     init_options = {
@@ -133,7 +162,6 @@ end
 
 -- configs["volar"] = function()
 -- end
-
 
 -- Autosetup installed lsp
 require("mason-lspconfig").setup_handlers(configs)
