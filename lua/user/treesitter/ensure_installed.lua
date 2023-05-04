@@ -13,7 +13,7 @@ return {
   "gomod",
   "gowork",
   "graphql",
-  "help",
+  -- "help",
   "html",
   "http",
   "javascript",

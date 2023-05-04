@@ -17,7 +17,6 @@ require("mason-tool-installer").setup {
     "fixjson",
     "yamllint",
     "marksman",
-    -- "rome",
     "lua-language-server",
     "elixir-ls",
     "tailwindcss-language-server",
