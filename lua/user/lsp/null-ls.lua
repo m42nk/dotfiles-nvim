@@ -9,7 +9,8 @@ local sources = {
   diagnostics.shellcheck,
   diagnostics.zsh,
   diagnostics.credo,
-  diagnostics.eslint_d,
+  -- diagnostics.eslint_d,
+  -- diagnostics.eslint,
   diagnostics.actionlint.with {
     filetypes = { "yaml", "yml" },
   },
@@ -22,7 +23,8 @@ local sources = {
   formatting.phpcsfixer,
 
   code_actions.gitsigns,
-  code_actions.eslint_d,
+  -- code_actions.eslint_d,
+  -- code_actions.eslint,
   require "typescript.extensions.null-ls.code-actions",
 }
 

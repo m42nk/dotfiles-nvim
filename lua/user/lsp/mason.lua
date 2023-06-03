@@ -30,7 +30,7 @@ require("mason-tool-installer").setup {
     "emmet-ls",
     "stylua",
     "shellcheck",
-    "prettierd",
+    -- "prettierd",
   },
 }
 
