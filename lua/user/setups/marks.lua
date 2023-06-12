@@ -21,20 +21,31 @@ marks.setup {}
 require("user.utils.keymaps").nmap {
   ["<leader>m"] = {
     name = "Marks",
-    ["ts"] = { "<cmd>MarksToggleSigns<cr>", "MarksToggleSigns" },
+    ["t"] = { "<cmd>MarksToggleSigns<cr>", "MarksToggleSigns" },
 
-    ["lb"] = { "<cmd>MarksListBuf<cr>", "MarksListBuf" },
-    ["la"] = { "<cmd>MarksListAll<cr>", "MarksListAll" },
-    ["lg"] = { "<cmd>MarksListGlobal<cr>", "MarksListGlobal" },
+    ["l"] = {
+      name = "Mark List",
+      ["b"] = { "<cmd>MarksListBuf<cr>", "MarksListBuf" },
+      ["a"] = { "<cmd>MarksListAll<cr>", "MarksListAll" },
+      ["g"] = { "<cmd>MarksListGlobal<cr>", "MarksListGlobal" },
+    },
 
-    ["bl"] = { "<cmd>BookmarksList<cr>", "BookmarksList" },
-    ["ba"] = { "<cmd>BookmarksListAll<cr>", "BookmarksListAll" },
+    ["q"] = {
+      name = "Quickfix",
+      ["l"] = { "<cmd>MarksQFListBuf<cr>", "MarksQFListBuf" },
+      ["a"] = { "<cmd>MarksQFListAll<cr>", "MarksQFListAll" },
+      ["g"] = { "<cmd>MarksQFListGlobal<cr>", "MarksQFListGlobal" },
+    },
+    ["b"] = {
+      name = "Bookmark",
+      ["l"] = { "<cmd>BookmarksList<cr>", "BookmarksList" },
+      ["a"] = { "<cmd>BookmarksListAll<cr>", "BookmarksListAll" },
 
-    ["bql"] = { "<cmd>BookmarksQFList<cr>", "BookmarksQFList" },
-    ["bqa"] = { "<cmd>BookmarksQFListAll<cr>", "BookmarksQFListAll" },
-
-    ["ql"] = { "<cmd>MarksQFListBuf<cr>", "MarksQFListBuf" },
-    ["qa"] = { "<cmd>MarksQFListAll<cr>", "MarksQFListAll" },
-    ["qg"] = { "<cmd>MarksQFListGlobal<cr>", "MarksQFListGlobal" },
+      ["q"] = {
+        name = "Quickfix",
+        ["l"] = { "<cmd>BookmarksQFList<cr>", "BookmarksQFList" },
+        ["a"] = { "<cmd>BookmarksQFListAll<cr>", "BookmarksQFListAll" },
+      },
+    },
   },
 }
