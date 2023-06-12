@@ -80,7 +80,7 @@ return {
   ----------------------------------
   -- Colorscheme
   { "catppuccin/nvim", as = "catppuccin" },
-  'folke/tokyonight.nvim',
+  "folke/tokyonight.nvim",
 
   -- Add web dev icon
   "kyazdani42/nvim-web-devicons",
@@ -213,7 +213,8 @@ return {
     },
   },
 
-  "jackMort/ChatGPT.nvim",
+  "chentoast/marks.nvim",
 
+  -- "jackMort/ChatGPT.nvim",
   -- "chr4/nginx.vim",
 }
