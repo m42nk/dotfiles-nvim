@@ -9,6 +9,7 @@ local sources = {
   diagnostics.shellcheck,
   diagnostics.zsh,
   diagnostics.credo,
+  diagnostics.curlylint,
   -- diagnostics.eslint_d,
   -- diagnostics.eslint,
   diagnostics.actionlint.with {
