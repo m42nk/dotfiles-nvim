@@ -2,27 +2,39 @@ FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt update && apt install -y \
-  software-properties-common \
+ARG USERNAME=m42nk
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+# RUN sed -i 's/htt[p|ps]:\/\/archive.ubuntu.com\/ubuntu\//mirror:\/\/mirrors.ubuntu.com\/mirrors.txt/g' /etc/apt/sources.list
+
+RUN apt-get update -y
+
+# software-properties-common \
+RUN apt-get install -y \
   curl \
   git \
-  build-essential
+  build-essential \
+  sudo
 
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd -m -u $USER_UID -g $USERNAME $USERNAME \
+    && apt-get install -y sudo \
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+RUN apt-get install -y software-properties-common
 RUN apt-add-repository -y ppa:neovim-ppa/unstable \
-  && apt update \
-  && apt install -y neovim
+  && apt-get update \
+  && apt-get install -y neovim
 
-RUN apt update && apt install -y \
+RUN apt-get install -y \
   python3 \
   python3-pip
 
-# N is a node version manager
-RUN curl -L https://bit.ly/n-install | bash -s -- -y
+USER $USERNAME
 
-WORKDIR /root/.config/nvim
+RUN mkdir -p /home/$USERNAME/.local/share/nvim
+WORKDIR /home/$USERNAME
 
-COPY . .
-
-# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-CMD [ "nvim" ]
+CMD [ "bash" ]

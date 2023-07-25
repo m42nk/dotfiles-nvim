@@ -1,9 +1,15 @@
-build-run: build run
+build-run br: build run
 
 build:
 	docker build -t dockerized-nvim:latest .
 
 run:
+	docker run --rm \
+		-v dockerized-nvim:/home/m42nk/.local/share/nvim \
+		-v .:/home/m42nk/.config/nvim \
+		-it dockerized-nvim:latest $(arg)
+
+run-no-volume:
 	docker run --rm -it dockerized-nvim:latest $(arg)
 
 run-bash:
