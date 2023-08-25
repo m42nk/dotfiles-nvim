@@ -49,6 +49,7 @@ load "colorizer"
 load "clipboard-image"
 
 load "marks"
+load "harpoon"
 
 -- load "chatgpt"
 -- load "mini.starter"

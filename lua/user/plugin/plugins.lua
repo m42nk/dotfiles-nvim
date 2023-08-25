@@ -214,6 +214,7 @@ return {
   },
 
   "chentoast/marks.nvim",
+  "ThePrimeagen/harpoon",
 
   -- "jackMort/ChatGPT.nvim",
   -- "chr4/nginx.vim",
