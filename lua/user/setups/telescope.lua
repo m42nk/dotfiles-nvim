@@ -63,7 +63,8 @@ telescope.setup {
       prompt_title = "Buffers",
       results_title = "",
       preview_title = "",
-      previewer = false,
+      -- previewer = false,
+      previewer = true,
       sort_mru = true,
       sort_lastused = true,
       -- path_display = { shorten = 2 },
@@ -93,7 +94,8 @@ telescope.setup {
         "--exclude",
         "_build",
       },
-      previewer = false,
+      -- previewer = false,
+      previewer = true,
     },
   },
   extensions = {
@@ -161,6 +163,7 @@ require("user.utils.keymaps").map {
     ["o"] = { "<cmd>Telescope oldfiles<CR>", "Command history" },
     ["r"] = { "<cmd>Telescope resume<CR>", "Resume" },
     ["t"] = { "<cmd>Telescope<CR>", "List actions" },
+    ["q"] = { "<cmd>Telescope harpoon marks<CR>", "Harpoon Marks" },
     ["w"] = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
       "List workspace symbol",
