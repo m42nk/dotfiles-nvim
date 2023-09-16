@@ -109,6 +109,21 @@ configs["tsserver"] = function()
   -- this settings is handled by typescript.nvim
 end
 
+configs["tailwindcss"] = function()
+  require("lspconfig").tailwindcss.setup {
+    settings = {
+      tailwindCSS = {
+        experimental = {
+          classRegex = {
+            -- "clsx\\(([^)]*)\\)",
+            -- "(?:'|\"|`)([^']*)(?:'|\"|`)",
+          },
+        },
+      },
+    },
+  }
+end
+
 configs["ansiblels"] = function()
   require("lspconfig").ansiblels.setup {
     on_attach = opts.on_attach,
