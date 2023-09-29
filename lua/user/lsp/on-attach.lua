@@ -4,6 +4,11 @@ local on_attach = function(client, bufnr)
     client.server_capabilities.documentRangeFormattingProvider = false
   end
 
+  if client.name == "volar" then
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end
+
   -- Attach keymaps
   require("user.lsp.keymaps").attach(bufnr)
 end

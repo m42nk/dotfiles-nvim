@@ -18,6 +18,7 @@ require "user.keymaps"
 -- require "user.neorg"
 require "user.highlight"
 require "user.status"
+require "user.autocorrect"
 
 --
 -- Other plugins
