@@ -1,14 +1,6 @@
 -- Put common typos here
 -- vim.cmd [[
 -- iabbrev <silent> heigth height
--- iabbrev <silent> hiegth height
--- iabbrev <silent> funciton function
--- iabbrev <silent> cosnt const
--- iabbrev <silent> costn const
--- iabbrev <silent> retrun return
--- iabbrev <silent> copmuted computed
--- iabbrev <silent> comupted computed
--- iabbrev <silent> gruop group
 -- ]]
 
 local words = {
@@ -21,6 +13,8 @@ local words = {
   copmuted = "computed",
   comupted = "computed",
   gruop = "group",
+  addres = "address",
+  adress = "address",
 }
 
 -- vim.nvim_set_keymap('!a', 'heigth', 'height', {noremap = true, silent = true})
