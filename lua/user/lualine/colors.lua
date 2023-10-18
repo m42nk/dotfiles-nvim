@@ -10,6 +10,7 @@ local colors = {
   magenta = "#c678dd",
   purple = "#c678dd",
   blue = "#51afef",
+  gray = "#5c6370",
   red = "#ec5f67",
 }
 

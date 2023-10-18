@@ -245,4 +245,32 @@ return {
     colored = false,
     icon = { align = "right" },
   },
+
+  -- Copilot
+  copilot = {
+    function()
+      local is_enabled = not require("copilot.client").is_disabled()
+
+      return is_enabled and "" or ""
+    end,
+    color = function()
+      local is_enabled = not require("copilot.client").is_disabled()
+      local is_started = require("copilot.client").get()
+      local is_suggestion_enabled = vim.b.copilot_suggestion_auto_trigger
+
+      if not is_enabled then
+        return { fg = colors.red }
+      end
+
+      if not is_started then
+        return { fg = colors.gray }
+      end
+
+      if not is_suggestion_enabled then
+        return { fg = colors.yellow }
+      end
+
+      return { fg = colors.green }
+    end,
+  },
 }

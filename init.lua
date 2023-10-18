@@ -52,19 +52,21 @@ load "clipboard-image"
 load "marks"
 load "harpoon"
 
+load "copilot-opts"
+
 -- load "chatgpt"
 -- load "mini.starter"
 -- load "mini.bufremove"
 -- load "bufferline"
 -- load "dashboard"
 
-vim.cmd [[
-imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
-]]
+-- vim.cmd [[
+-- imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
+-- let g:copilot_no_tab_map = v:true
+-- ]]
 
-vim.g.copilot_filetypes = {
-  ['markdown'] = true,
-  ['yml'] = true,
-  ['yaml'] = true,
-}
+-- vim.g.copilot_filetypes = {
+--   ['markdown'] = true,
+--   ['yml'] = true,
+--   ['yaml'] = true,
+-- }

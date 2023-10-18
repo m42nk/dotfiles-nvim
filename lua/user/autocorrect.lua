@@ -15,6 +15,7 @@ local words = {
   gruop = "group",
   addres = "address",
   adress = "address",
+  exprot = "export",
 }
 
 -- vim.nvim_set_keymap('!a', 'heigth', 'height', {noremap = true, silent = true})

@@ -36,9 +36,9 @@ cmp.setup {
     end,
   },
   sources = cmp.config.sources({
-    -- { name = "nvim_lsp" },
-    src_nvim_lsp,
-    { name = 'nvim_lsp_signature_help' },
+    -- src_nvim_lsp,
+    { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "path" },
@@ -54,18 +54,21 @@ cmp.setup {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
-  confirm_opts = {
-    -- TODO: read more on this
-    -- current behavior is when there are other
-    -- text before cursor when completing
-    -- results in weird behaviour
-    -- eg.
-    -- local x = some_funxx('args')
-    -- become
-    -- local x = some_function()xx('args')
-    behavior = cmp.ConfirmBehavior.Replace,
-    select = false,
-  },
+  -- confirm_opts = {
+  --   -- TODO: read more on this
+  --   -- current behavior is when there are other
+  --   -- text before cursor when completing
+  --   -- results in weird behaviour
+  --   -- eg.
+  --   -- local x = some_funxx('args')
+  --   -- become
+  --   -- local x = some_function()xx('args')
+  --   behavior = cmp.ConfirmBehavior.Replace,
+  --   select = false,
+  -- },
+  -- confirmation = {
+  --   completeopt = "menu,menuone,noinsert",
+  -- },
   experimental = {
     ghost_text = true,
   },

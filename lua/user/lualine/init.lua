@@ -38,6 +38,7 @@ lualine.setup {
     },
     lualine_x = {
       c.diagnostics,
+      c.copilot,
       c.treesitter,
       -- c.lsp,
       c.fileformat,

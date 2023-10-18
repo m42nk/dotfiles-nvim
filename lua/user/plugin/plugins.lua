@@ -42,8 +42,25 @@ return {
   "hrsh7th/cmp-cmdline",
   "hrsh7th/cmp-nvim-lsp-signature-help",
 
-  "hrsh7th/cmp-copilot",
-  "github/copilot.vim",
+  -- "hrsh7th/cmp-copilot",
+  -- "github/copilot.vim",
+
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      local opts = require("user.setups.copilot-opts").opts
+      require("copilot").setup(opts)
+    end,
+  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end,
+  -- },
 
   "L3MON4D3/LuaSnip",
   "rafamadriz/friendly-snippets",
