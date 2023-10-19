@@ -15,11 +15,15 @@ require("user.utils.keymaps").nmap {
       require("copilot.suggestion").toggle_auto_trigger,
       "Copilot: Toggle Suggestion",
     },
+    ["s"] = {
+      require("copilot.suggestion").toggle_auto_trigger,
+      "Copilot: Toggle Suggestion",
+    },
     ["C"] = {
       toggle_copilot,
       "Copilot: Togggle Client",
     },
-    ["s"] = {
+    ["S"] = {
       require("copilot.command").status,
       "Copilot: Status",
     },

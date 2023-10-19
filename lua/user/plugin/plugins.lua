@@ -27,6 +27,11 @@ return {
   -- Lsp typescript utils
   "jose-elias-alvarez/typescript.nvim",
 
+  -- Lsp go utils
+  -- Add other features such as testing from code action (like vscode button)
+  "ray-x/go.nvim",
+  "ray-x/guihua.lua", -- recommended if need floating window support
+
   ----------------------------------
   -- Completion and snippets
   ----------------------------------

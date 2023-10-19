@@ -1,3 +1,4 @@
+-- UNUSED, called in cmp init
 local ok, _ = pcall(require, "luasnip")
 
 if not ok then
