@@ -13,11 +13,10 @@ local _check_version = function()
   end
 end
 
+-- NOTE: Checking executable should probably done
+-- in each plugins that require them.
 local _check_required_executables = function()
-  local executables = {
-    "git",
-    "rg",
-  }
+  local executables = { "rg", "fd" }
 
   for _, executable in pairs(executables) do
     if vim.fn.executable(executable) ~= 1 then
@@ -43,7 +42,7 @@ end
 M.bootstrap = function()
   _check_version()
   plugin.bootstrap_lazy()
-  _check_required_executables()
+  -- _check_required_executables()
 end
 
 return M

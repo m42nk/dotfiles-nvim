@@ -16,7 +16,7 @@ return {
 
           -- Background styles. Can be "dark", "transparent" or "normal"
           sidebars = "dark", -- style for sidebars, see below
-          floats = "dark", -- style for floating windows
+          floats = "dark",   -- style for floating windows
         },
         -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
         sidebars = { "qf", "help" },
