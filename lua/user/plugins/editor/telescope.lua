@@ -1,11 +1,14 @@
 local util = require "user.utils"
+local pluginUtils = require "user.utils.plugin"
 return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     version = false, -- telescope did only one release, so use HEAD for now
+    enabled = pluginUtils.has_executables({ "rg" }, "telescope.nvim"),
     dependencies = {
-      { "nvim-lua/plenary.nvim" },
+      { "nvim-tree/nvim-web-devicons", lazy = true },
+      "nvim-lua/plenary.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
@@ -18,7 +21,8 @@ return {
       },
     },
     keys = {
-      { "<leader>f", "<CMD>Telescope find_files<CR>", "Find files" },
+      -- TODO: incomplete
+      { "<c-p>", "<cmd>Telescope find_files<cr>", "Find files" },
     },
   },
 }

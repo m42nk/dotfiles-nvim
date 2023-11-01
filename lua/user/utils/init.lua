@@ -10,7 +10,7 @@ end
 
 -----------------------------------------------------------
 -- Function equivalent to basename in POSIX systems.
----@param str the path string.
+---@param str string the path string.
 -----------------------------------------------------------
 function M.basename(str)
   return string.gsub(str, "(.*/)(.*)", "%2")
@@ -72,7 +72,7 @@ function M.find_submodules(initial_module)
 
     -- Skip initial module
     local is_initial_module = relfilename == M.join_paths("", initial_module)
-        or relfilename == M.join_paths("", initial_module, "init")
+      or relfilename == M.join_paths("", initial_module, "init")
 
     -- skip `init` and files starting with underscore.
     if not is_initial_module and basename:sub(1, 1) ~= "_" then
@@ -109,7 +109,7 @@ end
 ---@return table of submodules.
 -----------------------------------------------------------
 function M.on_load(name, fn)
-  local Config = require("lazy.core.config")
+  local Config = require "lazy.core.config"
   if Config.plugins[name] and Config.plugins[name]._.loaded then
     fn(name)
   else

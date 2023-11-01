@@ -51,4 +51,37 @@ M.setup = function()
   }
 end
 
+----------------------------------------------------------
+-- Check whether the given executables are installed on,
+-- the system.
+---@param executables string[] The executables to check.
+---@param required_by string The plugin that requires the executables.
+-----------------------------------------------------------
+M.has_executables = function(executables, required_by)
+  local missing = {}
+  for _, executable in pairs(executables) do
+    if vim.fn.executable(executable) ~= 1 then
+      table.insert(missing, executable)
+    end
+  end
+
+  if #missing == 0 then
+    return true
+  end
+
+  vim.api.nvim_echo({
+    {
+      required_by
+        .. ": missing executables `"
+        .. table.concat(missing, ", ")
+        .. "`.\n",
+      "ErrorMsg",
+    },
+  }, true, {})
+
+  -- Wait for user input to continue.
+  vim.fn.getchar()
+  return false
+end
+
 return M

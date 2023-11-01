@@ -1,6 +1,7 @@
 -- stylua: ignore start
 -- TODO: make lua-ls (emmylua) match with stylua,
 -- bcs stylua doesn't support comment aligning
+
 ---------------------------------------
 -- Neovim settings and configuration
 ---------------------------------------
@@ -16,6 +17,7 @@ local autocmd = function(command)
   })
 end
 
+-- TODO: remove unused options
 ---------------------------------------
 -- Leader key
 ---------------------------------------
