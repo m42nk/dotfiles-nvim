@@ -40,7 +40,6 @@ luac.out
 *.hex
 
 
-**/*/packer_compiled.lua
 packer_compiled.lua
 java-debug/
 vscode-java-test/
@@ -48,3 +47,13 @@ vscode-java-test/
 # Files used for testing
 __test.*
 *.log
+
+
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
