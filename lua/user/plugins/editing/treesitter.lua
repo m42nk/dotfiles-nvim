@@ -1,14 +1,3 @@
-local toggle_ts_fold = function()
-  -- TODO: how to check foldexpr from metatable
-  if vim.opt.foldexpr == "nvim_treesitter#foldexpr()" then
-    vim.opt.foldmethod = "manual"
-    vim.opt.foldexpr = 0
-  else
-    vim.opt.foldmethod = "expr"
-    vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-  end
-end
-
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -42,16 +31,13 @@ return {
       require("nvim-treesitter.configs").setup(opts)
 
       -- Setup folding
-      vim.opt.foldmethod = "expr"
-      vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-      vim.opt.foldenable = false
-
-      vim.keymap.set(
-        "n",
-        "<leader>tf",
-        toggle_ts_fold,
-        { desc = "Toggle treesitter folding" }
-      )
+      if vim.fn.has "nvim-0.10" == 1 then
+        vim.opt.foldmethod = "expr"
+        vim.opt.foldexpr = "v:lua.require'user.utils.editing'.foldexpr()"
+        vim.opt.foldenable = false
+        vim.opt.foldlevel = 99
+        vim.opt.foldtext = "v:lua.require'user.utils.editing'.foldtext()"
+      end
     end,
     opts = {
       highlight = { enable = true },
