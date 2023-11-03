@@ -1,3 +1,6 @@
 {
-  "Lua.format.enable": false
+  "Lua.format.enable": false,
+  "Lua.format.defaultConfig": {
+    "call_arg_parentheses": "remove"
+  }
 }
