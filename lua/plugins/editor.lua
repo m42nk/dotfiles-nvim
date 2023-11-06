@@ -3,4 +3,5 @@ return {
   require "plugins.editor.telescope",
   require "plugins.editor.which-key",
   require "plugins.editor.mini-misc",
+  require "plugins.editor.mini-indentscope",
 }
