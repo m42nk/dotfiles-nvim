@@ -7,6 +7,7 @@ return {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader><space>", false },
+      { "<leader>sB", util.telescope "builtin", desc = "Telescope Builtins" },
       { "<leader>sf", util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>bs", util.telescope "buffers", desc = "Buffers" },
       { "<c-p>", util.telescope "files", desc = "Find Files (root dir)" },

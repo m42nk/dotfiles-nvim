@@ -15,18 +15,18 @@ RUN apt-get update -y && \
   software-properties-common \
   locales \
   python3 \
-  python3-pip
+  python3-pip \
+  unzip
 
 # Utility packages
-RUN sudo apt-get update -y && \
-  sudo apt-get install -y \
+RUN apt-get update -y && \
+  apt-get install -y \
   ripgrep \
   fd-find \
   bat
 
 # Set system locale
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
-  locale-gen
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
 ENV LC_ALL en_US.UTF-8
@@ -45,8 +45,7 @@ RUN apt-add-repository -y ppa:neovim-ppa/unstable \
   && apt-get install -y neovim
 
 USER $USERNAME
-RUN mkdir -p /home/$USERNAME/.local/share/nvim
-RUN mkdir -p /home/$USERNAME/.config/
+RUN mkdir -p /home/$USERNAME/.local/share/nvim /home/$USERNAME/.config/
 WORKDIR /home/$USERNAME
 
 # NOTE:

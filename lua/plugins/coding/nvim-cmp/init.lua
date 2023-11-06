@@ -9,6 +9,11 @@ return {
       completion = {
         completeopt = "menu,menuone,noinsert,noselect",
       },
+      -- TODO: popupmenu still uses cmp, try explore nui via noice
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
       mapping = cmp.mapping.preset.insert {
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -25,7 +30,7 @@ return {
         ["<CR>"] = utils.handle_cr,
         ["<Tab>"] = cmp.mapping(utils.handle_tab, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(utils.handle_s_tab, { "i", "s" }),
-      }
-    }
-  }
+      },
+    },
+  },
 }
