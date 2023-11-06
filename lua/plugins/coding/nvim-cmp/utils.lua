@@ -29,6 +29,4 @@ M.handle_s_tab = function(fallback)
   end
 end
 
-
-
 return M

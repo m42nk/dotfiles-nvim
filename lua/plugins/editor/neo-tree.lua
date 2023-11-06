@@ -1,9 +1,8 @@
+local Util = require "lazyvim.util"
+
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  event = "VimEnter",
-  init = function()
-    vim.g.neo_tree_remove_legacy_commands = 1
-  end,
+  -- event = "VimEnter",
   opts = {
     close_if_last_window = true,
     popup_border_style = "single", -- "double", "none", "rounded", "shadow", "single" or "solid"
@@ -14,14 +13,16 @@ return {
       mappings = {
         ["h"] = { "close_node" },
         ["l"] = { "toggle_node" },
+        ["H"] = { "navigate_up" },
+        ["<c-h>"] = { "toggle_hidden" },
         ["P"] = { "toggle_preview", config = { use_float = true } },
         -- Set to 'none' to fallback to the default mappings
-        ["<Space>"] = { "none" },
+        ["<space>"] = "none",
         ["<esc>"] = { "close_window" },
       },
       popup = {
         size = {
-          width = "99%",
+          width = "100%",
           height = "60%",
         },
         position = {
@@ -40,6 +41,6 @@ return {
     },
   },
   keys = {
-    { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle NeoTree" },
+    { "<leader>e", "<cmd>Neotree toggle reveal<cr>", desc = "Toggle NeoTree" },
   },
 }
