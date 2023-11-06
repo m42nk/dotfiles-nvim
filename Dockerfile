@@ -36,7 +36,8 @@ RUN groupadd --gid $USER_GID $USERNAME \
   && useradd -m -u $USER_UID -g $USERNAME $USERNAME \
   && apt-get install -y sudo \
   && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-  && chmod 0440 /etc/sudoers.d/$USERNAME
+  && chmod 0440 /etc/sudoers.d/$USERNAME \
+  && chown -R $USER_UID:$USER_GID /home/$USERNAME
 
 # Install neovim
 RUN apt-add-repository -y ppa:neovim-ppa/unstable \
@@ -45,6 +46,7 @@ RUN apt-add-repository -y ppa:neovim-ppa/unstable \
 
 USER $USERNAME
 RUN mkdir -p /home/$USERNAME/.local/share/nvim
+RUN mkdir -p /home/$USERNAME/.config/
 WORKDIR /home/$USERNAME
 
 # NOTE:
