@@ -1,16 +1,19 @@
 local actions = require "telescope.actions"
 local layout = require "telescope.actions.layout"
-local util = require "lazyvim.util"
+local Util = require "lazyvim.util"
+local util = require "plugins.editor.telescope.utils"
 
 return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader><space>", false },
-      { "<leader>sB", util.telescope "builtin", desc = "Telescope Builtins" },
-      { "<leader>sf", util.telescope "files", desc = "Find Files (root dir)" },
-      { "<leader>bs", util.telescope "buffers", desc = "Buffers" },
-      { "<c-p>", util.telescope "files", desc = "Find Files (root dir)" },
+      { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
+      { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
+      { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
+      { "<leader>bs", Util.telescope "buffers", desc = "Buffers" },
+      { "<leader>sl", util.lazyvim_files(), desc = "LazyVim files" },
+      { "<leader>sL", util.lazynvim_files(), desc = "lazy.nvim files" },
     },
     opts = {
       defaults = {
