@@ -12,8 +12,10 @@ return {
       { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>bs", Util.telescope "buffers", desc = "Buffers" },
-      { "<leader>sl", util.lazyvim_files(), desc = "LazyVim files" },
-      { "<leader>sL", util.lazynvim_files(), desc = "lazy.nvim files" },
+      { "<leader>fc", Util.telescope.config_files(), desc = "LazyVim files" },
+      { "<leader>fl", util.lazyvim_files(), desc = "LazyVim files" },
+      { "<leader>fL", util.lazynvim_files(), desc = "lazy.nvim files" },
+      { "<leader>fd", util.global_todo_files(), desc = "lazy.nvim files" },
     },
     opts = {
       defaults = {

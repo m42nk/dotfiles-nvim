@@ -6,8 +6,8 @@ return {
       use_default_keymaps = false,
     },
     keys = {
-      { "<leader>cs", "<cmd>TSJToggle<cr>", "Splitjoin: toggle" },
-      { "<leader>cj", "<cmd>TSJJoin<cr>", "Splitjoin: join" },
+      { "<leader>cs", "<cmd>TSJToggle<cr>", desc = "Splitjoin: toggle" },
+      { "<leader>cj", "<cmd>TSJJoin<cr>", desc = "Splitjoin: join" },
     },
   },
 }

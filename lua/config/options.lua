@@ -5,3 +5,4 @@
 local opt = vim.opt
 
 opt.colorcolumn = "80"
+opt.swapfile = false -- Don't use swapfile

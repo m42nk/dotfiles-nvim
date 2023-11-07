@@ -11,4 +11,10 @@ function M.lazynvim_files()
   return Util.telescope("find_files", { cwd = lazy_path })
 end
 
+function M.global_todo_files()
+  return Util.telescope("find_files", {
+    cwd = vim.fs.joinpath(tostring(os.getenv "HOME"), "Todos"),
+  })
+end
+
 return M

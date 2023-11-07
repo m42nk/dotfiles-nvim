@@ -34,7 +34,7 @@ return {
         },
       },
       popupmenu = {
-        backend = "nui",
+        backend = "cmp",
       },
     },
   },
