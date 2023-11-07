@@ -3,9 +3,6 @@ return {
     "folke/noice.nvim",
     ---@type NoiceConfig
     opts = {
-      presets = {
-        lsp_doc_border = true,
-      },
       views = {
         cmdline_popup = {
           position = {
@@ -28,13 +25,38 @@ return {
           },
         },
         popupmenu = {
-          border = {
-            style = "rounded",
-          },
+          border = { style = "rounded" },
+        },
+        hover = {
+          border = { style = "rounded" },
+        },
+        popup = {
+          border = { style = "rounded" },
         },
       },
       popupmenu = {
-        backend = "cmp",
+        backend = "nui",
+      },
+      presets = {
+        -- TODO:NOICEvCMP
+        lsp_doc_border = true,
+        command_pallete = false,
+      },
+      lsp = {
+        -- TODO:NOICEvCMP
+        -- hover = {
+        --   enabled = false,
+        --   -- silent = false, -- set to true to not show a message if hover is not available
+        --   -- view = nil, -- when nil, use defaults from documentation
+        --   -- ---@type NoiceViewOptions
+        --   -- opts = {}, -- merged with defaults from documentation
+        -- },
+        -- documentation = {
+        --   enabled = false,
+        -- },
+        -- override = {
+        --   ["cmp.entry.get_documentation"] = false,
+        -- },
       },
     },
   },
