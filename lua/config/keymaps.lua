@@ -20,16 +20,20 @@ vim.keymap.set({ "n", "v" }, "<leader>D", '"_D', { desc = "Delete instead of cut
 vim.keymap.set({ "n", "v" }, "<leader>/", require("util.comment").toggle, { desc = "Comment" })
 
 -- Format
-local _format = function()
-  Util.format { force = true }
+-- stylua: ignore
+local _format = function() Util.format { force = true }
 end
 vim.keymap.set({ "n", "v" }, "<leader>lf", _format, { desc = "Format" })
 
 -- Alternate last buffer
-local _alternate = function()
-  vim.cmd.b "#"
-end
+-- stylua: ignore
+local _alternate = function() vim.cmd.b "#" end
 vim.keymap.set("n", "<c-a>", _alternate, { desc = "Alternate (last) buffer" })
+
+-- Toggle bufferline
+-- stylua: ignore
+local _toggle_bufferline = function() vim.opt.showtabline = vim.opt.showtabline:get() ~= 0 and 0 or 2 end
+vim.keymap.set("n", "<leader>ub", _toggle_bufferline, { desc = "Toggle bufferline" })
 
 -- Save
 vim.keymap.set("n", "<leader><space>", vim.cmd.w, { desc = "Save file" })
