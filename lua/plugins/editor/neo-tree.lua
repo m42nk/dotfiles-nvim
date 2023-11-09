@@ -1,5 +1,3 @@
-local Util = require "lazyvim.util"
-
 return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = {
@@ -40,6 +38,7 @@ return {
     },
   },
   keys = {
-    { "<leader>e", "<cmd>Neotree toggle reveal<cr>", desc = "Toggle NeoTree" },
+    { "<leader>e", "<cmd>Neotree toggle reveal=true position=float<cr>", desc = "Toggle NeoTree" },
+    { "<leader>fp", "<cmd>Neotree toggle action=show position=left<cr>", desc = "Toggle NeoTree" },
   },
 }

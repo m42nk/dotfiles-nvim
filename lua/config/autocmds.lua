@@ -2,9 +2,7 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-local function augroup(name)
-  return vim.api.nvim_create_augroup(name, { clear = true })
-end
+local augroup = require("util.augroup").augroup
 
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup "man_positioning",
