@@ -40,12 +40,13 @@ return {
             C.plugin_updates,
             C.diff,
             C.treesitter_status,
+            C.copilot,
           },
           lualine_y = {
             C.python_env,
             C.location,
           },
-          lualine_z = {}
+          lualine_z = {},
         },
         extensions = { "neo-tree", "lazy" },
       }

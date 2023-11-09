@@ -2,7 +2,6 @@ local Util = require "lazyvim.util"
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  -- event = "VimEnter",
   opts = {
     close_if_last_window = true,
     popup_border_style = "single", -- "double", "none", "rounded", "shadow", "single" or "solid"

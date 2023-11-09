@@ -88,7 +88,7 @@ M.treesitter_status = {
 
     return not ts or vim.tbl_isempty(ts)
   end,
-  color = Util.ui.fg("Error")
+  color = Util.ui.fg "Error",
 }
 
 M.python_env = {
@@ -108,13 +108,39 @@ M.python_env = {
     end
     return ""
   end,
-  color = Util.ui.fg("Constant"),
-
+  color = Util.ui.fg "Constant",
 }
 
 M.location = {
   "location",
   padding = { left = 1, right = 1 },
+}
+
+M.copilot = {
+  function()
+    local is_enabled = not require("copilot.client").is_disabled()
+
+    return is_enabled and "" or ""
+  end,
+  color = function()
+    local is_enabled = not require("copilot.client").is_disabled()
+    local is_started = require("copilot.client").get()
+    local is_suggestion_enabled = vim.b.copilot_suggestion_auto_trigger
+
+    if not is_enabled then
+      return Util.ui.fg "Error"
+    end
+
+    if not is_started then
+      return Util.ui.fg "Comment"
+    end
+
+    if not is_suggestion_enabled then
+      return Util.ui.fg "WarningMsg"
+    end
+
+    return Util.ui.fg "Normal"
+  end,
 }
 
 return M

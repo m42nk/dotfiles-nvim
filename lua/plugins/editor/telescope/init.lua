@@ -7,6 +7,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
+      { "<leader>/", false },
       { "<leader><space>", false },
       { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
       { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
@@ -15,7 +16,10 @@ return {
       { "<leader>fc", Util.telescope.config_files(), desc = "LazyVim files" },
       { "<leader>fl", util.lazyvim_files(), desc = "LazyVim files" },
       { "<leader>fL", util.lazynvim_files(), desc = "lazy.nvim files" },
-      { "<leader>fd", util.global_todo_files(), desc = "lazy.nvim files" },
+      { "<leader>fd", util.global_todo_files(), desc = "Find global TODO files" },
+    },
+    dependencies = {
+      require "plugins.editor.telescope.telescope-undo",
     },
     opts = {
       defaults = {
