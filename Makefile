@@ -1,26 +1,24 @@
-build-run br: build run
+USERNAME ?= m42nk
+DOCKER_TAG ?=1.0.0
+
+build-run: build run
+build-run-nvim: build run-nvim
 
 build:
-	docker build -t dockerized-nvim:latest .
+	docker build -t dockerized-nvim:${DOCKER_TAG} .
 
 run:
 	docker run --rm \
-		-v dockerized-nvim:/home/m42nk/.local/share/nvim \
-		-v .:/home/m42nk/.config/nvim \
-		-it dockerized-nvim:latest $(arg)
+    -v dockerized-nvim:/home/${USERNAME}/.local/share/nvim \
+		-v .:/home/${USERNAME}/.config/nvim \
+		-it dockerized-nvim:${DOCKER_TAG}
 
 run-no-volume:
-	docker run --rm -it dockerized-nvim:latest $(arg)
+	docker run --rm -it dockerized-nvim:${DOCKER_TAG}
 
-run-bash:
-	docker run --rm -it dockerized-nvim:latest bash
-
-speed:
-	hyperfine "nvim --headless +qa init.lua"
-
-speed-raw:
-	hyperfine "nvim --headless +qa"
-
-speed-log:
-	nvim --startuptime startup.log +qa init.lua
-
+run-nvim:
+	docker run --rm \
+		-v .:/home/${USERNAME}/.config/nvim \
+    -v dockerized-nvim:/home/${USERNAME}/.local/share/nvim \
+		-it dockerized-nvim:${DOCKER_TAG} \
+    nvim

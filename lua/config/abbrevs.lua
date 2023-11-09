@@ -1,0 +1,5 @@
+vim.cmd.cabbrev("Wq", "wq")
+vim.cmd.cabbrev("Wqa", "wqa")
+vim.cmd.cabbrev("W", "w")
+vim.cmd.cabbrev("Q", "q")
+vim.cmd.cabbrev("Qa", "qa")
