@@ -4,6 +4,9 @@
 
 local Util = require "lazyvim.util"
 
+-- Terminal mode
+vim.keymap.del("t", "<c-l>")
+
 -- Yank
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>Y", '"+Y', { desc = "Copy to system clipboard" })
