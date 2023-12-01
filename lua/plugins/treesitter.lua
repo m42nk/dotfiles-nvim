@@ -5,4 +5,7 @@ return {
       enable = true,
     },
   },
+  {
+    "nvim-treesitter/playground",
+  },
 }

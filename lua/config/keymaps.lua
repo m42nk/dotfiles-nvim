@@ -24,8 +24,7 @@ vim.keymap.set({ "n", "v" }, "<leader>/", require("util.comment").toggle, { desc
 
 -- Format
 -- stylua: ignore
-local _format = function() Util.format { force = true }
-end
+local _format = function() Util.format { force = true } end
 vim.keymap.set({ "n", "v" }, "<leader>lf", _format, { desc = "Format" })
 
 -- Alternate last buffer
