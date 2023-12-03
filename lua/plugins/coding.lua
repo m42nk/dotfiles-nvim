@@ -6,4 +6,5 @@ return {
   require "plugins.coding.golang",
   require "plugins.coding.none-ls",
   require "plugins.coding.refactoring-nvim",
+  require "plugins.coding.abolish",
 }
