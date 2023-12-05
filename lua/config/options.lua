@@ -4,6 +4,9 @@
 
 local opt = vim.opt
 
+-- Disable autoformat
+vim.g.autoformat = false
+
 opt.colorcolumn = "80" -- add visual border for column 80
 opt.swapfile = false -- Don't use swapfile
 opt.clipboard:remove "unnamedplus" -- don't use system clipboard

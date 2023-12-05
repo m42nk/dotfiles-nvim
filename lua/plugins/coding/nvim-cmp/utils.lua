@@ -7,7 +7,7 @@ local cmp = require "cmp"
 -- otherwise just send regular enter
 M.handle_cr = function(fallback)
   if cmp.visible() and cmp.get_active_entry() then
-    cmp.confirm { select = false }
+    cmp.confirm { select = false, behavior = cmp.ConfirmBehavior.Replace }
   else
     fallback()
   end
