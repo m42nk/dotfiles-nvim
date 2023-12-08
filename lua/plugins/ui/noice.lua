@@ -41,6 +41,7 @@ return {
         -- TODO:NOICEvCMP
         lsp_doc_border = true,
         command_pallete = false,
+        bottom_search = false,
       },
       lsp = {
         -- TODO:NOICEvCMP
