@@ -7,6 +7,7 @@ return {
   require "plugins.coding.none-ls",
   require "plugins.coding.refactoring-nvim",
   require "plugins.coding.abolish",
+  require "plugins.coding.copilot",
   -- TODO: move to proper file
   {
     "neovim/nvim-lspconfig",

@@ -15,5 +15,6 @@ M.toggle = function()
 
   -- HACK: find better way to unselect
   -- vim.cmd.norm "\\<esc\\>"
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
 end
 return M

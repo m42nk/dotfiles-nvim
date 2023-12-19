@@ -22,6 +22,11 @@ return {
       opts.sources = vim.tbl_extend("force", opts.sources, {
         nls.builtins.code_actions.refactoring,
       })
+
+      -- TODO: reverse dependency, put this in gitsigns
+      opts.sources = vim.tbl_extend("force", opts.sources, {
+        nls.builtins.code_actions.gitsigns,
+      })
     end,
   },
 }
