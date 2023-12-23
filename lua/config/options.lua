@@ -7,6 +7,8 @@ local opt = vim.opt
 -- Disable autoformat
 vim.g.autoformat = false
 
+vim.g.root_spec = { ".git", "lsp", { "git", "lua" }, "cwd" }
+
 opt.colorcolumn = "80" -- add visual border for column 80
 opt.swapfile = false -- Don't use swapfile
 opt.clipboard:remove "unnamedplus" -- don't use system clipboard

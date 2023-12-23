@@ -35,6 +35,7 @@ return {
       use_libuv_file_watcher = true,
       filtered_items = { always_show = { ".gitignore", ".env*" } },
       follow_current_file = { enabled = true },
+      bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
     },
   },
   keys = {
