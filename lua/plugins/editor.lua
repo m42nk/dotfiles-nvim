@@ -6,6 +6,7 @@ return {
   require "plugins.editor.mini-indentscope",
   require "plugins.editor.activity-watch",
   require "plugins.editor.markdown",
+  require "plugins.editor.gitlinker",
   -- TODO: move to proper file
   {
     "akinsho/bufferline.nvim",
