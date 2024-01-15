@@ -20,6 +20,7 @@ return {
     },
     dependencies = {
       require "plugins.editor.telescope.telescope-undo",
+      require "plugins.editor.telescope.telescope-live-grep-args",
     },
     opts = {
       defaults = {

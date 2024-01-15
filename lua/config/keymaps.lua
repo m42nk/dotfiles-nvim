@@ -40,7 +40,7 @@ vim.api.nvim_create_user_command("Format", function(args)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
 end, { range = true })
 vim.keymap.set("", "<leader>lf", function()
-  require("conform").format { async = true, lsp_fallback = true, force = true}
+  require("conform").format { async = true, lsp_fallback = true, force = true }
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
 end)
 
@@ -70,3 +70,16 @@ vim.keymap.set("i", "<c-e>", "<End>", { desc = "Move cursor to end of line" })
 vim.keymap.set("i", "<c-f>", "<Right>", { desc = "Move cursor to right" })
 vim.keymap.set("i", "<m-b>", "<c-Left>", { desc = "Move cursor to left word" })
 vim.keymap.set("i", "<m-f>", "<c-Right>", { desc = "Move cursor to right word" })
+
+-- Folds
+-- Top level fold
+vim.api.nvim_create_user_command("FoldTopLevelClose", function()
+  vim.cmd "%foldclose"
+end, {})
+
+vim.api.nvim_create_user_command("FoldTopLevelOpen", function()
+  vim.cmd "%foldopen"
+end, {})
+
+vim.keymap.set("n", "Zz", "<cmd>FoldTopLevelClose<cr>", { desc = "Close all toplevel folds" })
+vim.keymap.set("n", "Zo", "<cmd>FoldTopLevelOpen<cr>", { desc = "Open all toplevel folds" })
