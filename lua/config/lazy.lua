@@ -14,23 +14,34 @@ require("lazy").setup {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
     },
-    -- { import = "lazyvim.plugins.extras.coding.copilot" },
+
+    -- Languages
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
-    -- { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.go" }, -- Configured in lua/plugins/coding/golang.lua
+
+    -- Linting
     { import = "lazyvim.plugins.extras.linting.eslint" },
+
+    -- Utils
     { import = "lazyvim.plugins.extras.util.dot" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-    { import = "lazyvim.plugins.extras.lsp.none-ls" },
-    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-    { import = "lazyvim.plugins.extras.lang.yaml" },
 
+    -- LSPs
+    { import = "lazyvim.plugins.extras.lsp.none-ls" },
+
+    -- Tests and Debugging
+    { import = "lazyvim.plugins.extras.dap.core" },
+    { import = "lazyvim.plugins.extras.test.core" },
+
+    -- Archives
+    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    -- { import = "lazyvim.plugins.extras.coding.copilot" },
 
     -- import/override with your plugins
     { import = "plugins" },
