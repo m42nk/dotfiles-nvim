@@ -7,6 +7,7 @@ return {
   require "plugins.editor.activity-watch",
   require "plugins.editor.markdown",
   require "plugins.editor.gitlinker",
+  require "plugins.editor.bookmarks",
   -- TODO: move to proper file
   {
     "akinsho/bufferline.nvim",

@@ -13,6 +13,7 @@ return {
         nls.builtins.code_actions.gomodifytags,
         nls.builtins.code_actions.impl,
         -- nls.builtins.diagnostics.revive,
+        nls.builtins.diagnostics.golangci_lint,
 
         -- require("go.null_ls").golangci_lint(),
         -- require("go.null_ls").gotest(),
