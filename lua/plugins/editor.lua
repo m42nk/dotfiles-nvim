@@ -10,5 +10,5 @@ return {
   require "plugins.editor.bookmarks",
   require "plugins.editor.bufferline",
   require "plugins.editor.gitsigns",
-  -- require "plugins.editor.neotest",
+  require "plugins.editor.neotest",
 }

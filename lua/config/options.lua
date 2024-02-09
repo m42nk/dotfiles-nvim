@@ -14,6 +14,9 @@ opt.swapfile = false -- Don't use swapfile
 opt.clipboard:remove "unnamedplus" -- don't use system clipboard
 opt.splitbelow = true -- Put new windows below current
 
+
+opt.updatetime = 1000 -- CursorHold
+
 --- cursor	Keep the same relative cursor position.
 --- screen	Keep the text on the same screen line.
 --- topline	Keep the topline the same.
@@ -30,4 +33,3 @@ opt.fillchars = {
   eob = " ",
 }
 -- opt.spelllang = "en,id"
-

@@ -2,6 +2,11 @@ return {
   {
     "akinsho/bufferline.nvim",
     keys = {
+      { "<leader>br", false},
+
+      { "<leader>bl", "<cmd>BufferLineCloseRight<cr>", desc = "Move buffer next" },
+      { "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", desc = "Move buffer next" },
+
       { "<leader>bn", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
       { "<leader>bp", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer previous" },
       { "<leader>bP", "<cmd>BufferLinePick<cr>", desc = "Pick buffer" },

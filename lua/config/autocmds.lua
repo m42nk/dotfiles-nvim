@@ -19,3 +19,18 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.formatoptions:remove "o"
   end,
 })
+
+-- Hover on cursorhold
+-- vim.api.nvim_create_autocmd("CursorHold", {
+--   pattern = { "*" },
+--   group = augroup "cursor_hold_hover",
+--   callback = function()
+--     if require("cmp").visible() then
+--       return
+--     end
+--
+--     -- vim.api.nvim_command "set eventignore=CursorHold"
+--     -- vim.api.nvim_command 'autocmd CursorMoved ++once set eventignore=" " '
+--     vim.lsp.buf.hover()
+--   end,
+-- })
