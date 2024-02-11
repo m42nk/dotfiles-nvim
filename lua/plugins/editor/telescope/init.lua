@@ -68,6 +68,9 @@ return {
               -- stylua: ignore
               require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob !*mock* --iglob !*test* " })(prompt_bufnr)
             end,
+
+            -- refine
+            ["<c-f>"] = actions.to_fuzzy_refine,
           },
         },
       },
