@@ -59,6 +59,15 @@ return {
 
             ["<c-n>"] = actions.toggle_selection + actions.move_selection_worse,
             ["<c-p>"] = actions.toggle_selection + actions.move_selection_better,
+
+            -- ignore shortcuts for lsp pickers
+            ["<c-h>"] = { "!mock !test ", type = "command" },
+
+            -- putting it on 'extensions' not working
+            ["<C-s-h>"] = function(prompt_bufnr)
+              -- stylua: ignore
+              require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob !*mock* --iglob !*test* " })(prompt_bufnr)
+            end,
           },
         },
       },

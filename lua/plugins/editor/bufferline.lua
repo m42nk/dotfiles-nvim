@@ -1,8 +1,13 @@
 return {
   {
     "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        always_show_bufferline = true,
+      },
+    },
     keys = {
-      { "<leader>br", false},
+      { "<leader>br", false },
 
       { "<leader>bl", "<cmd>BufferLineCloseRight<cr>", desc = "Move buffer next" },
       { "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", desc = "Move buffer next" },
