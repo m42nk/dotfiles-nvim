@@ -43,6 +43,8 @@ require("lazy").setup {
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- { import = "lazyvim.plugins.extras.coding.copilot" },
 
+    { "nvim-neotest/nvim-nio" },
+    { "nvim-lua/plenary.nvim" },
     -- import/override with your plugins
     { import = "plugins" },
   },

@@ -11,4 +11,6 @@ return {
   require "plugins.editor.bufferline",
   require "plugins.editor.gitsigns",
   require "plugins.editor.neotest",
+  require "plugins.editor.diff",
+  require "plugins.editor.scrollbar",
 }
