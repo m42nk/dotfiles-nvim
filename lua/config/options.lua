@@ -14,7 +14,6 @@ opt.swapfile = false -- Don't use swapfile
 opt.clipboard:remove "unnamedplus" -- don't use system clipboard
 opt.splitbelow = true -- Put new windows below current
 
-
 opt.updatetime = 1000 -- CursorHold
 
 --- cursor	Keep the same relative cursor position.

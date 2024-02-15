@@ -1,1 +1,1 @@
--- TODO: add custom commands here
+-- NOTE: add custom commands here

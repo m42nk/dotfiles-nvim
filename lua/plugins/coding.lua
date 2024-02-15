@@ -10,5 +10,6 @@ return {
   require "plugins.coding.copilot",
   require "plugins.coding.lspconfig",
   require "plugins.coding.lspsaga",
+  require "plugins.coding.flash",
   -- require "plugins.coding.neoscroll",
 }

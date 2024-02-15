@@ -5,7 +5,6 @@ local Util = require "lazyvim.util"
 return {
   {
     "hrsh7th/nvim-cmp",
-    -- TODO:NOICEvCMP
     -- init = function()
     --   Util.lsp.on_attach(function()
     --     -- local opts = { border = "rounded" }
@@ -20,7 +19,6 @@ return {
       },
       window = {
         completion = cmp.config.window.bordered(),
-        -- TODO:NOICEvCMP
         -- NOTE: this is the documentation while hovering over cmp item (in popup)
         -- this still get applied correctly.
         documentation = cmp.config.window.bordered(),

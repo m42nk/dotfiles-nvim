@@ -38,13 +38,11 @@ return {
         backend = "nui",
       },
       presets = {
-        -- TODO:NOICEvCMP
         lsp_doc_border = true,
         command_pallete = false,
         bottom_search = false,
       },
       lsp = {
-        -- TODO:NOICEvCMP
         -- hover = {
         --   enabled = false,
         --   -- silent = false, -- set to true to not show a message if hover is not available

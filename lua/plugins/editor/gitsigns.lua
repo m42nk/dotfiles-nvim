@@ -28,9 +28,5 @@ return {
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
     },
-    -- TODO: not working
-    -- config = function()
-    --   require("scrollbar.handlers.gitsigns").setup()
-    -- end,
   },
 }

@@ -6,7 +6,6 @@ return {
       local nls = require "null-ls"
       opts.sources = opts.sources or {}
 
-      -- TODO: reverse dependency, put this in golang.lua
       opts.sources = vim.tbl_extend("force", opts.sources, {
         nls.builtins.formatting.goimports,
         nls.builtins.formatting.gofumpt,
@@ -24,7 +23,6 @@ return {
         nls.builtins.code_actions.refactoring,
       })
 
-      -- TODO: reverse dependency, put this in gitsigns
       opts.sources = vim.tbl_extend("force", opts.sources, {
         nls.builtins.code_actions.gitsigns,
       })

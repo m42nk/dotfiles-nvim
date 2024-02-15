@@ -1,5 +1,4 @@
 local Util = require "lazyvim.util"
--- TODO: make this lazy load, util on load, etc
 local colors = require("tokyonight.colors").setup()
 
 return {
