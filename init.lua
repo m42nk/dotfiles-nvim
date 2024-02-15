@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("User", {
   callback = function()
     require "config.highlights"
     require "config.abbrevs"
+    require "config.commands"
   end,
 })
 

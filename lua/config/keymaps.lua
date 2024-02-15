@@ -19,6 +19,9 @@ vim.keymap.set({ "n", "v" }, "<leader>P", '"+P', { desc = "Paste from system cli
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete instead of cut" })
 vim.keymap.set({ "n", "v" }, "<leader>D", '"_D', { desc = "Delete instead of cut " })
 
+-- Delete marks
+vim.keymap.set("n", "dm", "<cmd>execute 'delmarks '.nr2char(getchar())<cr>", { desc = "Delete mark" })
+
 -- Toggle comment
 vim.keymap.set({ "n", "v" }, "<leader>/", require("util.comment").toggle, { desc = "Comment" })
 
