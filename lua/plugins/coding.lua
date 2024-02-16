@@ -11,5 +11,6 @@ return {
   require "plugins.coding.lspconfig",
   require "plugins.coding.lspsaga",
   require "plugins.coding.flash",
+  require "plugins.coding.matchup",
   -- require "plugins.coding.neoscroll",
 }

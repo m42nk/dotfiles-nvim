@@ -4,6 +4,9 @@ return {
     autotag = {
       enable = true,
     },
+    matchup = {
+      enable = true,
+    }
   },
   {
     "nvim-treesitter/playground",

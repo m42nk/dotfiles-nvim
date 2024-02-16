@@ -10,7 +10,7 @@ return {
       -- stylua: ignore
       keys[#keys + 1] = {
         "gi",
-        function() require("telescope.builtin").lsp_implementations { reuse_win = false } end,
+        function() require("telescope.builtin").lsp_implementations { reuse_win = false, show_line = false } end,
         desc = "G To Implementations",
       }
 
@@ -24,7 +24,7 @@ return {
       -- stylua: ignore
       keys[#keys + 1] = {
         "gd",
-        function() require("telescope.builtin").lsp_definitions({ reuse_win = false }) end,
+        function() require("telescope.builtin").lsp_definitions({ reuse_win = false, show_line = false }) end,
         desc = "Goto Definition",
         has = "definition",
       }
@@ -32,7 +32,7 @@ return {
       -- stylua: ignore
       keys[#keys + 1] = {
         "<leader>cgd",
-        function() require("telescope.builtin").lsp_definitions({ jump_type = "vsplit" }) end,
+        function() require("telescope.builtin").lsp_definitions({ jump_type = "vsplit", show_line = false }) end,
         desc = "Goto Definition (Split)",
         has = "definition",
       }
@@ -41,7 +41,7 @@ return {
       keys[#keys + 1] = { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = false }) end, desc = "Goto T[y]pe Definition" }
 
       -- stylua: ignore
-      keys[#keys + 1] = { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" }
+      keys[#keys + 1] = { "gr", function() require("telescope.builtin").lsp_references({ reuse_win = false, show_line = false }) end, desc = "References" }
 
       -- stylua: ignore
       keys[#keys + 1] = { "gx", vim.lsp.buf.declaration, desc = "Goto Declaration" }

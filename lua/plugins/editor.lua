@@ -13,4 +13,5 @@ return {
   require "plugins.editor.neotest",
   require "plugins.editor.diff",
   require "plugins.editor.scrollbar",
+  require "plugins.editor.undotree",
 }

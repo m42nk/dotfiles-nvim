@@ -28,17 +28,8 @@ return {
         },
       },
     },
-    filesystem = {
-      -- Need eager-load neotree to make this load
-      hijack_netrw_behavior = "open_current",
-      -- Auto Refresh
-      use_libuv_file_watcher = true,
-      filtered_items = { always_show = {
-        ".gitignore",
-        ".*",
-      } },
-      follow_current_file = { enabled = true },
-      bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
+    buffers = {
+      show_unloaded = true, -- When working with sessions, for example, restored but unfocused buffers
     },
   },
   keys = {

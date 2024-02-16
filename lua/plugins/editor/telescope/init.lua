@@ -1,7 +1,7 @@
 local actions = require "telescope.actions"
 local layout = require "telescope.actions.layout"
 local Util = require "lazyvim.util"
-local util = require "plugins.editor.telescope.utils"
+local tsUtil = require "plugins.editor.telescope.utils"
 
 return {
   {
@@ -10,13 +10,14 @@ return {
       { "<leader>/", false },
       { "<leader><space>", false },
       { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
+      { "<leader>sj", Util.telescope("jumplist", { show_line = false }), desc = "Telescope Jumps" },
       { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>bs", Util.telescope "buffers", desc = "Buffers" },
       { "<leader>fc", Util.telescope.config_files(), desc = "LazyVim files" },
-      { "<leader>fl", util.lazyvim_files(), desc = "LazyVim files" },
-      { "<leader>fL", util.lazynvim_files(), desc = "lazy.nvim files" },
-      { "<leader>fd", util.global_todo_files(), desc = "Find global TODO files" },
+      { "<leader>fl", tsUtil.lazyvim_files(), desc = "LazyVim files (Telescope)" },
+      { "<leader>fL", tsUtil.lazyvim_tree(), desc = "LazyVim files (Neo-tree)" },
+      { "<leader>fd", tsUtil.global_todo_files(), desc = "Find global TODO files" },
     },
     dependencies = {
       require "plugins.editor.telescope.telescope-undo",

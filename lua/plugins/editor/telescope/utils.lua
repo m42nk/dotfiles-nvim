@@ -1,16 +1,30 @@
-local Util = require "lazyvim.util.telescope"
+local Util = require "lazyvim.util"
 local M = {}
 
+-- NOTE: use `normalize` instead of `joinpath` since its not available in 0.9.4
+-- local lazy_path = vim.fs.normalize(tostring(vim.fn.stdpath "data") .. "/lazy" .. "/LazyVim")
+-- local lazy_path = vim.fs.joinpath(tostring(vim.fn.stdpath "data"), "lazy", "LazyVim")
+
+local data_path = tostring(vim.fn.stdpath "data") -- $HOME/.local/share/nvim
+
 function M.lazyvim_files()
-  -- TODO: use `normalize` instead of `joinpath` since its not available in 0.9.4
-  -- local lazy_path = vim.fs.joinpath(tostring(vim.fn.stdpath "data"), "lazy", "LazyVim")
-  local lazy_path = vim.fs.normalize(tostring(vim.fn.stdpath "data") .. "/lazy" .. "LazyVim")
+  local lazy_path = vim.fs.joinpath(data_path, "lazy", "LazyVim")
   return Util.telescope("find_files", { cwd = lazy_path })
 end
 
+function M.lazyvim_tree()
+  local path = vim.fs.joinpath(data_path, "lazy", "LazyVim")
+  return function()
+    require("neo-tree.command").execute {
+      action = "focus",
+      source = "filesystem",
+      dir = path,
+    }
+  end
+end
+
 function M.lazynvim_files()
-  -- local lazy_path = vim.fs.joinpath(tostring(vim.fn.stdpath "data"), "lazy", "lazy.nvim")
-  local lazy_path = vim.fs.normalize(tostring(vim.fn.stdpath "data") .. "/lazy" .. "/lazy.nvim")
+  local lazy_path = vim.fs.joinpath(data_path, "lazy", "lazy.nvim")
   return Util.telescope("find_files", { cwd = lazy_path })
 end
 
