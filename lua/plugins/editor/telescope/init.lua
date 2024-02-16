@@ -10,7 +10,7 @@ return {
       { "<leader>/", false },
       { "<leader><space>", false },
       { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
-      { "<leader>sj", Util.telescope("jumplist", { show_line = false }), desc = "Telescope Jumps" },
+      { "<leader>sj", Util.telescope("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
       { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>bs", Util.telescope "buffers", desc = "Buffers" },

@@ -6,7 +6,7 @@ return {
     },
     matchup = {
       enable = true,
-    }
+    },
   },
   {
     "nvim-treesitter/playground",

@@ -1,6 +1,10 @@
+-- NOTE: Use targets.vim instead
+
+---@type LazySpec
 return {
   {
     "echasnovski/mini.ai",
+    enabled = true,
     opts = function(_, opts)
       local ai = require "mini.ai"
 
