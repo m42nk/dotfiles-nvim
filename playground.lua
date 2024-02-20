@@ -1,4 +1,4 @@
-local nio = require("nio")
+local nio = require "nio"
 
 vim.print(nio)
 --
@@ -11,3 +11,11 @@ vim.print(nio)
 -- local matched2 = str2:gsub("::", "_")
 -- vim.print(matched2)
 --
+
+-- "Hello \"world\"!!"
+
+if true then
+  vim.print "true"
+else
+  vim.print "false"
+end

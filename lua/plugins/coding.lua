@@ -2,6 +2,9 @@ return {
   -- Treesitter
   require "plugins.coding.treesitter",
 
+  -- Jump to any character in the file
+  require "plugins.coding.flash",
+
   -- Completion
   require "plugins.coding.nvim-cmp",
 
@@ -40,13 +43,6 @@ return {
 
   -- Add text object (quotes, arguments, etc.)
   require "plugins.coding.targets",
-
-  -- TODO: disable this, use treesitter text-objects instead
-  -- "text with \" escaped quotes (testing)"
-  require "plugins.coding.mini-ai",
-
-  -- Jump to any character in the file
-  require "plugins.coding.flash",
 
   -- Animate scrolling
   -- require "plugins.coding.neoscroll",

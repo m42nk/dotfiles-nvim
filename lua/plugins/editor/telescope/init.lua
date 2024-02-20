@@ -7,17 +7,18 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
+      { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>/", false },
       { "<leader><space>", false },
-      { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
-      { "<leader>sj", Util.telescope("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
-      { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
-      { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>bs", Util.telescope "buffers", desc = "Buffers" },
-      { "<leader>fc", Util.telescope.config_files(), desc = "LazyVim files" },
-      { "<leader>fl", tsUtil.lazyvim_files(), desc = "LazyVim files (Telescope)" },
       { "<leader>fL", tsUtil.lazyvim_tree(), desc = "LazyVim files (Neo-tree)" },
+      { "<leader>fc", Util.telescope.config_files(), desc = "LazyVim files" },
       { "<leader>fd", tsUtil.global_todo_files(), desc = "Find global TODO files" },
+      { "<leader>fl", tsUtil.lazyvim_files(), desc = "LazyVim files (Telescope)" },
+      { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
+      { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
+      { "<leader>sj", Util.telescope("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
+      { "<leader>sv", Util.telescope "git_status", desc = "Git Status" },
     },
     dependencies = {
       require "plugins.editor.telescope.telescope-undo",
@@ -62,7 +63,7 @@ return {
             ["<c-p>"] = actions.toggle_selection + actions.move_selection_better,
 
             -- ignore shortcuts for lsp pickers
-            ["<c-h>"] = { "!mock !test ", type = "command" },
+            ["<c-h>"] = { " !mock !test ", type = "command" },
 
             -- putting it on 'extensions' not working
             ["<C-s-h>"] = function(prompt_bufnr)
