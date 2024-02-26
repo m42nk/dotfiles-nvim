@@ -41,6 +41,19 @@ return {
             C.diff,
             C.treesitter_status,
             C.copilot,
+            {
+              function()
+                return "ts/sw: " .. vim.o.tabstop .. "/" .. vim.o.shiftwidth
+              end,
+              on_click = function()
+                vim.notify(
+                  "Shiftwidth: " .. vim.o.shiftwidth .. "\n" .. "Tabstop: " .. vim.o.tabstop,
+                  "info",
+                  { title = "Indent" }
+                )
+              end,
+              color = Util.ui.fg "Comment",
+            },
           },
           lualine_y = {
             C.python_env,

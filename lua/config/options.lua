@@ -31,4 +31,13 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
+
+-- opt.listchars = opt.listchars + "tab:>>>"
+opt.listchars:append {
+  tab = "<->"
+}
+
 -- opt.spelllang = "en,id"
+
+opt.tabstop = 4
+opt.shiftwidth = 4

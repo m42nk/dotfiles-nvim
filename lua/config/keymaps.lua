@@ -26,26 +26,34 @@ vim.keymap.set("n", "dm", "<cmd>execute 'delmarks '.nr2char(getchar())<cr>", { d
 vim.keymap.set({ "n", "v" }, "<leader>/", require("util.comment").toggle, { desc = "Comment" })
 
 -- Format
--- stylua: ignore
--- local _format = function() Util.format { force = true } end
--- vim.keymap.set({ "n", "v" }, "<leader>lf", _format, { desc = "Format" })
--- set up Format and <leader>f commands which should behave equivalently
+-- set up Format and <leader>cf commands which should behave equivalently
 vim.api.nvim_create_user_command("Format", function(args)
   local range = nil
+  local conformArgs = { async = true, lsp_fallback = true, force = true }
   if args.count ~= -1 then
     local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
     range = {
       start = { args.line1, 0 },
       ["end"] = { args.line2, end_line:len() },
     }
+
+    conformArgs.range = range
   end
-  require("conform").format({ async = true, lsp_fallback = true, range = range, force = true })
+  require("conform").format(conformArgs)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
 end, { range = true })
+
 vim.keymap.set("", "<leader>lf", function()
   require("conform").format { async = true, lsp_fallback = true, force = true }
+  -- Util.format { force = true }
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
 end)
+
+-- TODO: Map operator, this one is wrong
+-- g=if should format function
+-- vim.keymap.set("o", "g=", function()
+--   Util.format { force = true }
+-- end, { desc = "Format" })
 
 -- Alternate last buffer
 -- stylua: ignore
