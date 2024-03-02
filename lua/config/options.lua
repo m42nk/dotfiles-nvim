@@ -35,7 +35,8 @@ opt.fillchars = {
 -- opt.listchars = opt.listchars + "tab:>>>"
 opt.listchars:append {
   -- tab = "<->"
-  tab = ">>"
+  -- tab = ">>"
+  tab = "  "
 }
 
 -- opt.spelllang = "en,id"

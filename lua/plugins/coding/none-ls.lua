@@ -14,6 +14,8 @@ return {
         -- nls.builtins.diagnostics.revive,
         nls.builtins.diagnostics.golangci_lint,
 
+        nls.builtins.diagnostics.codespell,
+
         -- require("go.null_ls").golangci_lint(),
         -- require("go.null_ls").gotest(),
         require("go.null_ls").gotest_action(),

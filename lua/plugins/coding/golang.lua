@@ -74,7 +74,8 @@ return {
               },
               usePlaceholders = true,
               completeUnimported = true,
-              staticcheck = true,
+              -- TODO: use golangci-lint instead of gopls for ease of configuration
+              staticcheck = false,
               directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
               semanticTokens = true,
             },
