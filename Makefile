@@ -1,3 +1,4 @@
+# TODO: use $HOME instead of /home/${USERNAME} for MacOS compatibility
 USERNAME ?= m42nk
 DOCKER_TAG ?=1.0.0
 

@@ -7,7 +7,14 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
+      -- { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
+      {
+        "<c-p>",
+        function()
+          require("telescope.builtin").find_files { no_ignore = true }
+        end,
+        desc = "Find Files (root dir)",
+      },
       { "<leader>/", false },
       { "<leader><space>", false },
       { "<leader>bs", Util.telescope "buffers", desc = "Buffers" },
