@@ -41,5 +41,6 @@ opt.listchars:append {
 
 -- opt.spelllang = "en,id"
 
-opt.tabstop = 4
-opt.shiftwidth = 4
+-- TODO: make this rules respect filetype or project configuration
+-- opt.tabstop = 4
+-- opt.shiftwidth = 4

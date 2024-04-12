@@ -15,7 +15,11 @@ end
 
 M.handle_tab = function(fallback)
   if cmp.visible() then
-    cmp.select_next_item()
+    -- HACK: this is a gopls workaround for when current text
+    -- match exactly as one of the completion item, pressing tab
+    -- will replace the text with the completion item + snippet gibberish
+    vim.api.nvim_input("<Down>")
+    -- cmp.select_next_item { behavior = cmp.SelectBehavior.Insert }
   else
     fallback()
   end
@@ -23,7 +27,8 @@ end
 
 M.handle_s_tab = function(fallback)
   if cmp.visible() then
-    cmp.select_prev_item()
+    vim.api.nvim_input("<Up>")
+    -- cmp.select_prev_item { behavior = cmp.SelectBehavior.Insert }
   else
     fallback()
   end

@@ -27,17 +27,19 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      Util.on_load("telescope", function()
+      Util.on_load("telescope.nvim", function()
         require("telescope").load_extension "goimpl"
       end)
     end,
-    keys = {
-      { "<leader>im", "<cmd>lua require'telescope'.extensions.goimpl.goimpl()<CR>", "Goimpl" },
-    },
   },
   {
     "neovim/nvim-lspconfig",
     opts = {
+      -- diagnostics = {
+      --   update_in_insert = false,
+      -- },
+      inlay_hints = { enabled = false },
+      codelens = { enabled = true },
       servers = {
         gopls = {
           settings = {
@@ -67,40 +69,27 @@ return {
               },
               analyses = {
                 fieldalignment = false, -- "struct with yyyy pointer bytes could be xxx"
-                unusedwrite = false, -- "could remove embedded field 'xxx' from selector"
                 nilness = true,
+
+                unusedwrite = false, -- "could remove embedded field 'xxx' from selector"
                 unusedparams = true,
+                unusedvariable = true,
+
                 useany = true,
+                shadow = true,
               },
-              usePlaceholders = true,
+
+              usePlaceholders = false, -- placeholders enables placeholders for function parameters or struct fields in completion responses.
               completeUnimported = true,
+
               -- TODO: use golangci-lint instead of gopls for ease of configuration
               staticcheck = false,
               directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-              semanticTokens = true,
+              -- semanticTokens = true,
             },
           },
         },
       },
     },
   },
-
-  -- {
-  --   "nvim-neotest/neotest",
-  --   optional = true,
-  --   dependencies = {
-  --     "nvim-neotest/neotest-go",
-  --   },
-  --   opts = {
-  --     adapters = {
-  --       ["neotest-go"] = {
-  --         -- Here we can set options for neotest-go, e.g.
-  --         -- args = { "-tags=integration" }
-  --         experimental = {
-  --           test_table = true,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
 }

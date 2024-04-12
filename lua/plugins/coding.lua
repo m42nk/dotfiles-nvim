@@ -8,6 +8,9 @@ return {
   -- Completion
   require "plugins.coding.nvim-cmp",
 
+  -- Snippet
+  require "plugins.coding.luasnip",
+
   -- Convert oneliner to multiline, vice versa
   require "plugins.coding.treesj",
 

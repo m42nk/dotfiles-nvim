@@ -11,14 +11,21 @@ return {
         markdown = true,
         help = true,
         go = function()
+          local DEFAULT_ENABLED = false
+
           local filepath = tostring(vim.fn.expand "%:p:h")
           local homedir = tostring(vim.fn.expand "$HOME/Work")
           if filepath:find(homedir, 1, true) == 1 then
             return false
           end
-          return true
+
+          return DEFAULT_ENABLED
         end,
       },
+    },
+    keys = {
+      { "<leader>ua", "<cmd>Copilot suggestion toggle_auto_trigger<cr>", "Toggle copilot (auto trigger)" },
+      { "<leader>uA", "<cmd>Copilot toggle<cr>", "Toggle copilot" },
     },
   },
   {

@@ -1,6 +1,5 @@
 local cmp = require "cmp"
 local utils = require "plugins.coding.nvim-cmp.utils"
-local Util = require "lazyvim.util"
 
 return {
   {
@@ -15,7 +14,7 @@ return {
     opts = {
       preselect = cmp.PreselectMode.None,
       completion = {
-        completeopt = "menu,menuone,noinsert,noselect",
+        completeopt = "menu,menuone,preview,noinsert,noselect",
       },
       window = {
         completion = cmp.config.window.bordered(),
@@ -25,8 +24,8 @@ return {
       },
       -- mapping = cmp.mapping.preset.insert {
       mapping = {
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert }, { "i" }),
+        ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert }, { "i" }),
 
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
@@ -37,7 +36,7 @@ return {
           c = cmp.mapping.close(),
         },
 
-        ["<CR>"] = utils.handle_cr,
+        ["<CR>"] = cmp.mapping(utils.handle_cr, { "i" }),
         ["<Tab>"] = cmp.mapping(utils.handle_tab, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(utils.handle_s_tab, { "i", "s" }),
       },
