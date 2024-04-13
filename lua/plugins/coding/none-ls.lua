@@ -19,7 +19,9 @@ return {
 
         -- Other
         nls.builtins.formatting.sql_formatter,
+
         nls.builtins.diagnostics.codespell,
+
         nls.builtins.code_actions.refactoring,
 
         -- require("go.null_ls").golangci_lint(),

@@ -1,3 +1,4 @@
+vim.keymap.set("n", "<leader>cca", "<cmd>GoCodeLenAct<cr>", { desc = "Golang Code Actions (codelens)", silent = false })
 vim.keymap.set("n", "<leader>cci", "<cmd>GoIfErr<cr>", { desc = "Golang If Err", silent = false })
 vim.keymap.set("n", "<leader>ccf", "<cmd>GoFillStruct<cr>", { desc = "Golang Fill Struct", silent = false })
 vim.keymap.set("n", "<leader>ccI", "<cmd>lua require'telescope'.extensions.goimpl.goimpl()<CR>", { desc = "Goimpl" })
