@@ -16,15 +16,22 @@ require("lazy").setup {
     },
 
     -- Languages
-    { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.docker" },
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.lang.go" }, -- Configured in lua/plugins/coding/golang.lua
 
+    -- Other
+    { import = "lazyvim.plugins.extras.coding.copilot" },
+
     -- Linting
     { import = "lazyvim.plugins.extras.linting.eslint" },
+
+    -- Formatting
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
 
     -- Utils
     { import = "lazyvim.plugins.extras.util.dot" },

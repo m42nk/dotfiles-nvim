@@ -1,11 +1,7 @@
 {
-  "extras": [
-    "lazyvim.plugins.extras.coding.copilot",
-    "lazyvim.plugins.extras.formatting.prettier",
-    "lazyvim.plugins.extras.lang.python"
-  ],
+  "extras": [],
   "news": {
-    "NEWS.md": "2123"
+    "NEWS.md": "3314"
   },
-  "version": 2
+  "version": 3
 }

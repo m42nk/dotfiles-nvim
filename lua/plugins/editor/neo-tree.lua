@@ -7,12 +7,38 @@ return {
       position = "float", -- left, right, top, bottom, float, current
       -- width = 40, -- applies to left and right positions
       -- height = 25, -- applies to top and bottom positions
+      height = "50%", -- applies to top and bottom positions
       mappings = {
         ["h"] = { "close_node" },
         ["l"] = { "toggle_node" },
         ["H"] = { "navigate_up" },
+
         ["<c-h>"] = { "toggle_hidden" },
-        ["P"] = { "toggle_preview", config = { use_float = true } },
+
+        ["L"] = "focus_preview",
+        ["P"] = {
+          function(state)
+            if state.current_position == "bottom" then
+              state.commands.toggle_preview(state)
+              return
+            end
+
+            require("neo-tree.command").execute { action = "close" }
+            require("neo-tree.command").execute { action = "focus", position = "bottom" }
+          end,
+          config = { use_float = true },
+        },
+
+        ["Y"] = {
+          function(state)
+            local node = state.tree:get_node()
+            local path = node:get_id()
+            vim.notify("Path copied to clipboard:\n" .. path, "info", { title = "NeoTree" })
+            vim.fn.setreg("+", path, "c")
+          end,
+          desc = "Copy Path to Clipboard",
+        },
+
         -- Set to 'none' to fallback to the default mappings
         ["<space>"] = "none",
         ["<esc>"] = { "close_window" },
