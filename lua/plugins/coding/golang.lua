@@ -35,22 +35,25 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      -- diagnostics = {
-      --   update_in_insert = false,
-      -- },
-      inlay_hints = { enabled = false },
-      codelens = { enabled = true },
+      -- NOTE: notice that this config is on top level,
+      -- for codelense and inlay_hints, lazyvim already handle this with proper
+      -- checking (enabling globally here will make other lsp that doesn't support fails)
+      --
+      -- diagnostics = { update_in_insert = false },
+      -- inlay_hints = { enabled = false },
+      -- codelens = { enabled = true },
+
       servers = {
         gopls = {
           settings = {
             gopls = {
               gofumpt = true,
               codelenses = {
-                gc_details = false,
                 generate = true,
-                regenerate_cgo = true,
-                run_govulncheck = true,
-                test = true,
+                gc_details = false,
+                regenerate_cgo = false,
+                run_govulncheck = false,
+                test = false,
                 tidy = true,
                 upgrade_dependency = true,
                 vendor = true,
@@ -85,7 +88,7 @@ return {
               -- TODO: use golangci-lint instead of gopls for ease of configuration
               staticcheck = false,
               directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-              semanticTokens = false,
+              semanticTokens = false, -- Enabling this makes sql syntax highlight (injection) not working
             },
           },
         },
