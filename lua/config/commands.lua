@@ -32,3 +32,14 @@ vim.api.nvim_create_user_command("Format", function(args)
   require("conform").format(conformArgs)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
 end, { range = true })
+
+vim.api.nvim_create_user_command("CloseWindowlessBuffers", function()
+  local bufinfos = vim.fn.getbufinfo { buflisted = true }
+  vim.tbl_map(function(bufinfo)
+    local is_windowless = not bufinfo.windows or #bufinfo.windows == 0
+    if bufinfo.changed == 0 and is_windowless then
+      print(("Deleting buffer %d : %s"):format(bufinfo.bufnr, bufinfo.name))
+      vim.api.nvim_buf_delete(bufinfo.bufnr, { force = false, unload = false })
+    end
+  end, bufinfos)
+end, { desc = "Close hidden buffer (not visible in window)" })
