@@ -29,6 +29,10 @@ vim.keymap.set("n", "<leader>cR", ":S/<c-r><c-w>//g<left><left>", { desc = "Rena
 -- Insert backtick (avoid triggering tmux prefix)
 vim.keymap.set("i", "<c-q>", "`", { desc = "Insert backtick" })
 
+-- Split pane (with new buffer)
+vim.keymap.set("n", "<c-w>V", "<cmd>vnew<cr>", { desc = "Split right (new empty buffer)" })
+vim.keymap.set("n", "<c-w>S", "<cmd>new<cr>", { desc = "Split down (new empty buffer)" })
+
 -- Format
 -- set up Format and <leader>cf commands which should behave equivalently
 vim.keymap.set("", "<leader>lf", function()
