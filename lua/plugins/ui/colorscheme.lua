@@ -72,7 +72,8 @@ return {
         transparent = true,
         -- brightness = 0.5,
         glow = false,
-        theme = "fluoromachine",
+        -- fluoromachine, retrowave, delta
+        theme = "retrowave",
         overrides = {
           ["@type"] = { italic = true, bold = false },
           ["@function"] = { italic = false, bold = false },
@@ -82,7 +83,9 @@ return {
           ["@variable"] = { italic = true },
           ["@field"] = { italic = true },
           ["@parameter"] = { italic = true },
-          ["@string"] = { italic = false, fg="lightgray" },
+          ["@string"] = { italic = false, fg="lightgreen" },
+          ["@keyword.return"] = { bold=true },
+          -- ["@property"] = { italic = false, fg="red" },
         },
       }
 
