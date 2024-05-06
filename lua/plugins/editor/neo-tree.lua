@@ -11,9 +11,6 @@ return {
       mappings = {
         ["h"] = { "close_node" },
         ["l"] = { "toggle_node" },
-        ["H"] = { "navigate_up" },
-
-        ["<c-h>"] = { "toggle_hidden" },
 
         ["L"] = "focus_preview",
         ["P"] = {
@@ -57,8 +54,18 @@ return {
     buffers = {
       show_unloaded = true, -- When working with sessions, for example, restored but unfocused buffers
     },
+    git_status = {
+      window = {
+        position = "right",
+      },
+    },
     filesystem = {
       bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
+      hijack_netrw_behavior = "open_current",
+      mappings = {
+        ["H"] = { "navigate_up" },
+        ["<c-h>"] = { "toggle_hidden" },
+      },
       filtered_items = {
         visible = true, -- when true, they will just be displayed differently than normal items
         force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
@@ -77,6 +84,7 @@ return {
         },
         always_show = { -- remains visible even if other settings would normally hide it
           ".gitignore",
+          ".env*",
           "application.yml",
         },
         never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show

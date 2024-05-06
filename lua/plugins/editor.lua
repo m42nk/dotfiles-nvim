@@ -43,4 +43,7 @@ return {
 
   -- Undo tree
   require "plugins.editor.undotree",
+
+  -- Twilight - Dim inactive block
+  require "plugins.editor.twilight",
 }
