@@ -62,9 +62,11 @@ return {
     filesystem = {
       bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
       hijack_netrw_behavior = "open_current",
-      mappings = {
-        ["H"] = { "navigate_up" },
-        ["<c-h>"] = { "toggle_hidden" },
+      window = {
+        mappings = {
+          ["H"] = { "navigate_up" },
+          ["<c-h>"] = { "toggle_hidden" },
+        },
       },
       filtered_items = {
         visible = true, -- when true, they will just be displayed differently than normal items

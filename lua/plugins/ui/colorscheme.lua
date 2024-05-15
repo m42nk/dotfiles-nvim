@@ -78,6 +78,8 @@ return {
           ["@type"] = { italic = true, bold = false },
           ["@function"] = { italic = false, bold = false },
           ["@comment"] = { italic = true },
+          -- ["@keyword"] = { italic = false, underdashed = true },
+          ["Comment"] = { fg="gray"},
           ["@keyword"] = { italic = false },
           ["@constant"] = { italic = false, bold = false },
           ["@variable"] = { italic = true },

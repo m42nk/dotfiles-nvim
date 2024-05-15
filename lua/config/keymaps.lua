@@ -33,7 +33,12 @@ vim.keymap.set("n", "dm", "<cmd>execute 'delmarks '.nr2char(getchar())<cr>", { d
 vim.keymap.set({ "n", "v" }, "<leader>/", require("util.comment").toggle, { desc = "Comment" })
 
 -- Smart case renaming for word under cursor
-vim.keymap.set("n", "<leader>cR", ":S/<c-r><c-w>//g<left><left>", { desc = "Rename word under cursor (smart case, abolish.vim)" })
+vim.keymap.set(
+  "n",
+  "<leader>cR",
+  ":S/<c-r><c-w>//g<left><left>",
+  { desc = "Rename word under cursor (smart case, abolish.vim)" }
+)
 
 -- Insert backtick (avoid triggering tmux prefix)
 vim.keymap.set("i", "<c-q>", "`", { desc = "Insert backtick" })
@@ -41,6 +46,18 @@ vim.keymap.set("i", "<c-q>", "`", { desc = "Insert backtick" })
 -- Split pane (with new buffer)
 vim.keymap.set("n", "<c-w>V", "<cmd>vnew<cr>", { desc = "Split right (new empty buffer)" })
 vim.keymap.set("n", "<c-w>S", "<cmd>new<cr>", { desc = "Split down (new empty buffer)" })
+
+-- Focus pane
+local _togglePaneSize = function()
+  if vim.g._pane_maximized == true then
+    vim.g._pane_maximized = false
+    vim.cmd "wincmd ="
+  else
+    vim.g._pane_maximized = true
+    vim.cmd "wincmd |"
+  end
+end
+vim.keymap.set("n", "<c-w><Enter>", _togglePaneSize, { desc = "Toggle maximize/equal panes" })
 
 -- Format
 -- set up Format and <leader>cf commands which should behave equivalently
@@ -90,6 +107,16 @@ vim.keymap.set("i", "<c-e>", "<End>", { desc = "Move cursor to end of line" })
 vim.keymap.set("i", "<c-f>", "<Right>", { desc = "Move cursor to right" })
 vim.keymap.set("i", "<m-b>", "<c-Left>", { desc = "Move cursor to left word" })
 vim.keymap.set("i", "<m-f>", "<c-Right>", { desc = "Move cursor to right word" })
+
+-- Jetbrains Toolbox Golang URL
+vim.keymap.set("n", "<leader>gty", function()
+  require("toolbox").copy_to_clipboard()
+end, {desc = "Copy current line location in GoLand URL"})
+
+vim.keymap.set("n", "<leader>gto", function()
+  require("toolbox").open_in_toolbox()
+end, {desc = "Open current line location in GoLand URL"})
+
 
 -- Folds
 -- Top level fold

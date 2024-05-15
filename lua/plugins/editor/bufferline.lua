@@ -21,4 +21,11 @@ return {
       { "<c-s-h>", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer previous" },
     },
   },
+  {
+    -- Scope buffers to tab
+    "tiagovla/scope.nvim",
+    config = function()
+      require("scope").setup {}
+    end,
+  },
 }
