@@ -43,3 +43,8 @@ vim.api.nvim_create_user_command("CloseWindowlessBuffers", function()
     end
   end, bufinfos)
 end, { desc = "Close hidden buffer (not visible in window)" })
+
+vim.api.nvim_create_user_command("Lazygit", function()
+  -- local lv = require("lazyvim")
+  LazyVim.lazygit { cwd = LazyVim.root.git() }
+end, { desc = "Open lazygit" })

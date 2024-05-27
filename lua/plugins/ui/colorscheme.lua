@@ -79,16 +79,23 @@ return {
           ["@function"] = { italic = false, bold = false },
           ["@comment"] = { italic = true },
           -- ["@keyword"] = { italic = false, underdashed = true },
-          ["Comment"] = { fg="gray"},
+          ["Comment"] = { fg = "gray" },
           ["@keyword"] = { italic = false },
           ["@constant"] = { italic = false, bold = false },
           ["@variable"] = { italic = true },
           ["@field"] = { italic = true },
           ["@parameter"] = { italic = true },
-          ["@string"] = { italic = false, fg="lightgreen" },
-          ["@keyword.return"] = { bold=true },
+          ["@string"] = { italic = false, fg = "lightgreen" },
+          ["@keyword.return"] = { bold = true },
+          ["@function.call"] = { underline = true, fg="orange" },
+          -- ["@function.method.call"] = { underline = true, fg="orange" },
           -- ["@property"] = { italic = false, fg="red" },
         },
+        colors = function(_, d)
+          return {
+            red = "#ed64c6",
+          }
+        end,
       }
 
       vim.cmd.colorscheme "fluoromachine"

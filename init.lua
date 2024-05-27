@@ -1,5 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require "config.lazy"
+require "config.neovide"
 
 -- Load additional config beside the one provided by LazyVim
 -- This will run on the "VeryLazy" event

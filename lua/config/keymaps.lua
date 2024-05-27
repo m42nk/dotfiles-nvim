@@ -117,6 +117,9 @@ vim.keymap.set("n", "<leader>gto", function()
   require("toolbox").open_in_toolbox()
 end, {desc = "Open current line location in GoLand URL"})
 
+vim.keymap.set("n", "<leader>g<Enter>", function()
+  require("toolbox").open_in_toolbox()
+end, {desc = "Open current line location in GoLand URL"})
 
 -- Folds
 -- Top level fold

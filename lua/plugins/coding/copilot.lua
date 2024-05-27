@@ -1,3 +1,5 @@
+vim.g._copilot_enabled = true
+
 return {
   -- copilot
   {
@@ -5,7 +7,7 @@ return {
     cmd = "Copilot",
     build = ":Copilot auth",
     opts = {
-      suggestion = { enabled = false },
+      suggestion = { enabled = false, auto_trigger = false },
       panel = { enabled = false },
       filetypes = {
         markdown = true,
@@ -90,11 +92,13 @@ return {
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      table.insert(opts.sources, 1, {
-        name = "copilot",
-        group_index = 1,
-        priority = 100,
-      })
+      if vim.g._copilot_enabled then
+        table.insert(opts.sources, 1, {
+          name = "copilot",
+          group_index = 1,
+          priority = 100,
+        })
+      end
     end,
   },
 }
