@@ -26,12 +26,23 @@ return {
         },
         sections = {
           lualine_a = { C.mode },
-          lualine_b = { "branch" },
+          lualine_b = {
+            {
+              "branch",
+              fmt = function(str)
+                local max_len = 10
+                if #str > max_len then
+                  str = str:sub(1, max_len) .. "..."
+                end
+                return str
+              end,
+            },
+          },
           lualine_c = {
             Util.lualine.root_dir(),
             C.diagnostics,
             C.filetype,
-            Util.lualine.pretty_path(),
+            Util.lualine.pretty_path({length = 5}),
           },
           lualine_x = {
             C.statusline_command,

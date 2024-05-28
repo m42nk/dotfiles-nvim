@@ -20,3 +20,31 @@ if vim.g.neovide then
     change_scale_factor(1 / 1.25)
   end)
 end
+
+-- -- Create an autocommand group for buffer management
+-- vim.api.nvim_create_augroup("BufferManagement", { clear = true })
+--
+-- -- Define the autocommand
+-- vim.api.nvim_create_autocmd('BufDelete', {
+--   group = 'BufferManagement',
+--   callback = function()
+--     vim.notify("Buffer deleted. bufadded = " .. tostring(vim.g._bufadded) .. " bufs=" .. #vim.fn.getbufinfo({ buflisted = 1 }))
+--     if not vim.g._bufadded then
+--       return
+--     end
+--     -- Check if there are any remaining listed buffers
+--     local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+--     if #buffers == 0 then
+--       -- No listed buffers, execute the desired command (e.g., open file tree)
+--       vim.cmd('Neotree')
+--     end
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("BufAdd", {
+--   group = "BufferManagement",
+--   callback = function()
+--     vim.g._bufadded = true
+--     vim.notify("Buffer added")
+--   end,
+-- })

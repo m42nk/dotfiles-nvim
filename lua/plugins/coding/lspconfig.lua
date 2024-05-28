@@ -1,9 +1,14 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- opts = {
-    --   inlay_hints = { enabled = true },
-    -- },
+    opts = {
+      -- options for vim.diagnostic.config()
+      ---@type vim.diagnostic.Opts
+      diagnostics = {
+        virtual_text = false,
+        severity_sort = true,
+      },
+    },
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
