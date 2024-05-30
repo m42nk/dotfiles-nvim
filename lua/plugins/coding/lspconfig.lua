@@ -46,7 +46,7 @@ return {
       keys[#keys + 1] = { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = false }) end, desc = "Goto T[y]pe Definition" }
 
       -- stylua: ignore
-      keys[#keys + 1] = { "gr", function() require("telescope.builtin").lsp_references({ reuse_win = false, show_line = false, include_current_line = false, }) end, desc = "References" }
+      keys[#keys + 1] = { "gr", function() require("telescope.builtin").lsp_references({ reuse_win = false, show_line = false, include_current_line = false }) end, desc = "References" }
 
       -- stylua: ignore
       keys[#keys + 1] = { "gx", vim.lsp.buf.declaration, desc = "Goto Declaration" }

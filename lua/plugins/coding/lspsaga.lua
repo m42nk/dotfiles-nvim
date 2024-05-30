@@ -30,6 +30,18 @@ return {
             close = "<C-c>k",
           },
         },
+        finder = {
+          keys = {
+            shuttle = '[w',
+            toggle_or_open = 'o',
+            vsplit = 's',
+            split = 'i',
+            tabe = 't',
+            tabnew = 'r',
+            quit = 'q',
+            close = '<C-c>k',
+          },
+        },
 
         -- ui = {
         --   border = 'rounded',

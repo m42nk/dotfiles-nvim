@@ -46,4 +46,7 @@ return {
 
   -- Twilight - Dim inactive block
   require "plugins.editor.twilight",
+
+  -- Highlight keywords on comments
+  require "plugins.editor.todo-comments",
 }

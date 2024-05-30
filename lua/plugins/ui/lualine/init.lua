@@ -25,7 +25,9 @@ return {
           },
         },
         sections = {
-          lualine_a = { C.mode },
+          lualine_a = {
+            C.mode,
+          },
           lualine_b = {
             {
               "branch",
@@ -42,7 +44,7 @@ return {
             Util.lualine.root_dir(),
             C.diagnostics,
             C.filetype,
-            Util.lualine.pretty_path({length = 5}),
+            Util.lualine.pretty_path { length = 5 },
           },
           lualine_x = {
             C.statusline_command,

@@ -12,7 +12,7 @@ local cond = {
 -- Current vim mode, will display empty string with background color
 M.mode = {
   -- stylua: ignore
-  function() return " " end,
+  function() return "" end,
   padding = { left = 0, right = 0 },
 }
 
