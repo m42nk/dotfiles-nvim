@@ -1,5 +1,16 @@
 local M = {}
-M.toggle = function()
+
+local m = {}
+
+m.via_keymap = function()
+  if vim.api.nvim_get_mode().mode == "n" then
+    vim.cmd [[normal gcc<cr>]]
+  else
+    vim.cmd [[normal gc<cr>]]
+  end
+end
+
+m.mini = function()
   local mode = vim.api.nvim_get_mode()
   local cursor_row, _ = unpack(vim.api.nvim_win_get_cursor(0))
   local _, select_start_row, _, _ = unpack(vim.fn.getpos "v" or {})
@@ -17,4 +28,7 @@ M.toggle = function()
   -- vim.cmd.norm "\\<esc\\>"
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
 end
+
+M.toggle = m.via_keymap
+
 return M

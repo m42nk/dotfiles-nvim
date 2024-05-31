@@ -15,41 +15,6 @@ require("lazy").setup {
       import = "lazyvim.plugins",
     },
 
-    -- Languages
-    { import = "lazyvim.plugins.extras.lang.docker" },
-    { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.python" },
-    { import = "lazyvim.plugins.extras.lang.tailwind" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.yaml" },
-    { import = "lazyvim.plugins.extras.lang.go" }, -- Configured in lua/plugins/coding/golang.lua
-
-    -- Other
-    { import = "lazyvim.plugins.extras.coding.copilot" },
-
-    -- Linting
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-
-    -- Formatting
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
-
-    -- Utils
-    { import = "lazyvim.plugins.extras.util.dot" },
-    { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-
-    -- LSPs
-    { import = "lazyvim.plugins.extras.lsp.none-ls" },
-
-    -- Tests and Debugging
-    { import = "lazyvim.plugins.extras.dap.core" },
-    { import = "lazyvim.plugins.extras.test.core" },
-
-    -- Archives
-    -- { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- { import = "lazyvim.plugins.extras.ui.edgy" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    -- { import = "lazyvim.plugins.extras.coding.copilot" },
-
     { "nvim-neotest/nvim-nio" },
     { "nvim-lua/plenary.nvim" },
     -- import/override with your plugins

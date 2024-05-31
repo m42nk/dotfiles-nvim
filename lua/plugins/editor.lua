@@ -1,5 +1,5 @@
 return {
-  -- File tre
+  -- File tree
   require "plugins.editor.neo-tree",
 
   -- Telescope
@@ -49,4 +49,7 @@ return {
 
   -- Highlight keywords on comments
   require "plugins.editor.todo-comments",
+
+  -- Gitlab
+  require "plugins.editor.gitlab"
 }

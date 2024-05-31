@@ -24,7 +24,8 @@ return {
 
       -- Other
       opts.sources = vim.tbl_extend("force", opts.sources, {
-        nls.builtins.code_actions.gitsigns,
+        -- nls.builtins.code_actions.gitsigns,
+
         nls.builtins.code_actions.refactoring,
 
         nls.builtins.diagnostics.codespell,

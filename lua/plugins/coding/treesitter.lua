@@ -2,24 +2,32 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      autotag = { enable = true },
-      matchup = { enable = true },
-      textobject = {
-        move = {
-          enable = true,
-          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
-          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
-          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
-          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+    ---@param opts TSConfig
+    config = function(_, opts)
+      opts = vim.tbl_extend("force", opts, {
+        autotag = { enable = true },
+        matchup = { enable = true },
+        textobjects = {
+          move = {
+            enable = true,
+            goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+            goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
+            goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+            goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+          },
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+            },
+          },
         },
-        select = {
-          enable = true,
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-        },
-      },
-    },
+      })
+
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
   { "nvim-treesitter/playground" },
 

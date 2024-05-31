@@ -1,14 +1,58 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      -- options for vim.diagnostic.config()
-      ---@type vim.diagnostic.Opts
-      diagnostics = {
-        virtual_text = false,
-        severity_sort = true,
-      },
-    },
+
+    ---@param opts PluginLspOpts
+    opts = function(_, opts)
+      ---@type PluginLspOpts
+      opts = vim.tbl_deep_extend("force", opts, {
+        diagnostics = {
+          -- virtual_text = false,
+          -- severity_sort = true,
+          -- underline = true,
+        },
+
+        inlay_hints = {
+          enabled = false,
+        },
+
+        ---@type lspconfig.options
+        ---@diagnostic disable-next-line: missing-fields
+        servers = {
+          ---@diagnostic disable-next-line: missing-fields
+          vtsls = {
+            handlers = {
+              ---@param err lsp.ResponseError
+              ---@param ctx lsp.HandlerContext
+              ---@param result lsp.PublishDiagnosticsParams
+              ---@param config vim.diagnostic.Opts
+              ["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+                if ctx ~= nil and ctx.params ~= nil and ctx.params.diagnostics ~= nil then
+                  local idx = 1
+                  while idx <= #ctx.params.diagnostics do
+                    if ctx.params.diagnostics[idx].code == 80001 then
+                      table.remove(ctx.params.diagnostics, idx)
+                    else
+                      idx = idx + 1
+                    end
+                  end
+                end
+
+                ---@type vim.diagnostic.Opts
+                local override_config = {}
+
+                override_config = vim.tbl_deep_extend("force", config or {}, override_config)
+
+                ---@diagnostic disable-next-line: redundant-return-value
+                return vim.lsp.with(vim.lsp.diagnostics.on_publish_diagnostics, override_config)
+              end,
+            },
+          },
+        },
+      })
+
+      return opts
+    end,
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
