@@ -13,6 +13,10 @@ require("lazy").setup {
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
+      opts = {
+        colorscheme = "fluoromachine"
+        -- colorscheme = "tokyonight"
+      }
     },
 
     { "nvim-neotest/nvim-nio" },

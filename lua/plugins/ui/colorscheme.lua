@@ -12,58 +12,6 @@ return {
     },
   },
   {
-    "maxmx03/dracula.nvim",
-    lazy = false,
-    enabled = false,
-    priority = 1000,
-    config = function()
-      ---@type dracula
-      local dracula = require "dracula"
-
-      dracula.setup {
-        transparent = false,
-        on_colors = function(colors, color)
-          ---@type dracula.palette
-          return {
-            -- override or create new colors
-            mycolor = "#ffffff",
-          }
-        end,
-        on_highlights = function(colors, color)
-          ---@type dracula.highlights
-          return {
-            ---@type vim.api.keyset.highlight
-            Normal = { fg = colors.mycolor },
-          }
-        end,
-        plugins = {
-          ["nvim-treesitter"] = true,
-          ["nvim-lspconfig"] = true,
-          ["nvim-navic"] = true,
-          ["nvim-cmp"] = true,
-          ["indent-blankline.nvim"] = true,
-          ["neo-tree.nvim"] = true,
-          ["nvim-tree.lua"] = true,
-          ["which-key.nvim"] = true,
-          ["dashboard-nvim"] = true,
-          ["gitsigns.nvim"] = true,
-          ["neogit"] = true,
-          ["todo-comments.nvim"] = true,
-          ["lazy.nvim"] = true,
-          ["telescope.nvim"] = true,
-          ["noice.nvim"] = true,
-          ["hop.nvim"] = true,
-          ["mini.statusline"] = true,
-          ["mini.tabline"] = true,
-          ["mini.starter"] = true,
-          ["mini.cursorword"] = true,
-        },
-      }
-      vim.cmd.colorscheme "dracula"
-      vim.cmd.colorscheme "dracula-soft"
-    end,
-  },
-  {
     "maxmx03/fluoromachine.nvim",
     config = function()
       local fm = require "fluoromachine"
@@ -71,26 +19,34 @@ return {
       fm.setup {
         transparent = true,
         -- brightness = 0.5,
-        glow = false,
+        -- glow = true,
         -- fluoromachine, retrowave, delta
         theme = "retrowave",
-        overrides = {
-          ["@type"] = { italic = true, bold = false },
-          ["@function"] = { italic = false, bold = false },
-          ["@comment"] = { italic = true },
-          -- ["@keyword"] = { italic = false, underdashed = true },
-          ["Comment"] = { fg = "gray" },
-          ["@keyword"] = { italic = false },
-          ["@constant"] = { italic = false, bold = false },
-          ["@variable"] = { italic = true },
-          ["@field"] = { italic = true },
-          ["@parameter"] = { italic = true },
-          ["@string"] = { italic = false, fg = "lightgreen" },
-          ["@keyword.return"] = { bold = true },
-          ["@function.call"] = { underline = true, fg="orange" },
-          -- ["@function.method.call"] = { underline = true, fg="orange" },
-          -- ["@property"] = { italic = false, fg="red" },
-        },
+        overrides = function(c)
+          return {
+            ["@type"] = { italic = true, bold = false },
+            ["@function"] = { italic = false, bold = false },
+            ["@comment"] = { italic = true },
+            -- ["@keyword"] = { italic = false, underdashed = true },
+            -- ["@function.method.call"] = { underline = true, fg="orange" },
+            -- ["@property"] = { italic = false, fg="red" },
+            ["Comment"] = { fg = "gray" },
+            ["@keyword"] = { italic = false },
+            ["@constant"] = { italic = false, bold = false },
+            ["@variable"] = { italic = true },
+            ["@field"] = { italic = true },
+            ["@parameter"] = { italic = true },
+            ["@string"] = { italic = false, fg = "lightgreen" },
+            ["@keyword.return"] = { bold = true },
+
+            ["@function.call"] = { underdashed = true, fg = "orange" },
+
+            DiagnosticUnderlineError = { undercurl = true, sp = c.error }, -- Used to underline "Error" diagnostics
+            DiagnosticUnderlineWarn = { undercurl = true, sp = c.warning }, -- Used to underline "Warning" diagnostics
+            DiagnosticUnderlineInfo = { undercurl = true, sp = c.info }, -- Used to underline "Information" diagnostics
+            DiagnosticUnderlineHint = { undercurl = true, sp = c.hint }, -- Used to underline "Hint" diagnostics
+          }
+        end,
         colors = function(_, d)
           return {
             red = "#ed64c6",
@@ -98,7 +54,7 @@ return {
         end,
       }
 
-      vim.cmd.colorscheme "fluoromachine"
+      -- vim.cmd.colorscheme "fluoromachine" -- set in lazyvim config
     end,
   },
 }

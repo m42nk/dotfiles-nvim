@@ -16,6 +16,8 @@ opt.splitbelow = true -- Put new windows below current
 
 opt.updatetime = 1000 -- CursorHold
 
+opt.relativenumber = false -- Let's try disabling relnu as it disorents people who see my screen
+
 --- cursor	Keep the same relative cursor position.
 --- screen	Keep the text on the same screen line.
 --- topline	Keep the topline the same.
