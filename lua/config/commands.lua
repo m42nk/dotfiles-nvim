@@ -1,13 +1,8 @@
 -- NOTE: add custom commands here
 
-local function get_git_root()
-  local dot_git_path = vim.fn.finddir(".git", ".;")
-  return vim.fn.fnamemodify(dot_git_path, ":h")
-end
-
 vim.api.nvim_create_user_command("CdGitRoot", function()
-  -- local git_root = vim.loop.cwd()
-  local git_root = get_git_root()
+  local dot_git_path = vim.fn.finddir(".git", ".;")
+  local git_root vim.fn.fnamemodify(dot_git_path, ":h")
 
   if git_root ~= nil or git_root ~= "" then
     vim.api.nvim_set_current_dir(git_root)

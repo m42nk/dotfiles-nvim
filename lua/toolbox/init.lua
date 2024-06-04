@@ -3,6 +3,7 @@ local M = {}
 -- Configuration table mapping root paths to app and project names
 local toolbox_config = {
   ["/Users/syakhisk.syari/Work/octopus"] = { app = "goland", project = "octopus" },
+  ["/Users/syakhisk.syari/Work/trams"] = { app = "goland", project = "trams" },
   ["/Users/syakhisk.syari/Work/ride-service"] = { app = "rubymine", project = "ride-service" },
 }
 

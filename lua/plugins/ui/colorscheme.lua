@@ -28,7 +28,6 @@ return {
             ["@function"] = { italic = false, bold = false },
             ["@comment"] = { italic = true },
             -- ["@keyword"] = { italic = false, underdashed = true },
-            -- ["@function.method.call"] = { underline = true, fg="orange" },
             -- ["@property"] = { italic = false, fg="red" },
             ["Comment"] = { fg = "gray" },
             ["@keyword"] = { italic = false },
@@ -39,12 +38,15 @@ return {
             ["@string"] = { italic = false, fg = "lightgreen" },
             ["@keyword.return"] = { bold = true },
 
-            ["@function.call"] = { underdashed = true, fg = "orange" },
+            -- ["@function.call"] = { underdouble = true, sp = "gray" },
+            -- ["@function.method.call"] = { underdouble = true, sp = "gray" },
 
             DiagnosticUnderlineError = { undercurl = true, sp = c.error }, -- Used to underline "Error" diagnostics
             DiagnosticUnderlineWarn = { undercurl = true, sp = c.warning }, -- Used to underline "Warning" diagnostics
             DiagnosticUnderlineInfo = { undercurl = true, sp = c.info }, -- Used to underline "Information" diagnostics
             DiagnosticUnderlineHint = { undercurl = true, sp = c.hint }, -- Used to underline "Hint" diagnostics
+
+            SpellBad = { undercurl = true, sp = c.error, fg = c.fg }, -- Word that is not recognized by the spellchecker
           }
         end,
         colors = function(_, d)

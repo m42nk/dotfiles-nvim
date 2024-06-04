@@ -2,17 +2,21 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local kUtil = require "config.keymaps.utils"
 --
 -- Remove lazyvim keymaps
 --
--- Terminal mode
-vim.keymap.del("t", "<c-l>")
+local keysToDelete = {
+  { "t", "<c-l>", "Make <c-l> clear terminal instead of focusing back" },
+  { "n", "<C-h>", "Move to the left window" },
+  { "n", "<C-j>", "Move to the window below" },
+  { "n", "<C-k>", "Move to the window above" },
+  { "n", "<C-l>", "Move to the right window" },
+}
 
--- Remove window navigation
-vim.keymap.del("n", "<C-h>")
-vim.keymap.del("n", "<C-j>")
-vim.keymap.del("n", "<C-k>")
-vim.keymap.del("n", "<C-l>")
+for _, key in ipairs(keysToDelete) do
+  vim.keymap.del(key[1], key[2], { desc = key[3] })
+end
 
 -- Yank
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to system clipboard" })
@@ -48,48 +52,27 @@ vim.keymap.set("n", "<c-w>V", "<cmd>vnew<cr>", { desc = "Split right (new empty 
 vim.keymap.set("n", "<c-w>S", "<cmd>new<cr>", { desc = "Split down (new empty buffer)" })
 
 -- Focus pane
-local _togglePaneSize = function()
-  if vim.g._pane_maximized == true then
-    vim.g._pane_maximized = false
-    vim.cmd "wincmd ="
-  else
-    vim.g._pane_maximized = true
-    vim.cmd "wincmd |"
-  end
-end
-vim.keymap.set("n", "<c-w><Enter>", _togglePaneSize, { desc = "Toggle maximize/equal panes" })
+vim.keymap.set("n", "<c-w><Enter>", kUtil.paneToggleSize, { desc = "Toggle maximize/equal panes" })
 
 -- Format
 -- set up Format and <leader>cf commands which should behave equivalently
-vim.keymap.set("", "<leader>lf", function()
-  require("conform").format { async = true, lsp_fallback = true, force = true }
-  -- Util.format { force = true }
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
-end)
+vim.keymap.set("", "<leader>lf", kUtil.bufferFormat, { desc = "Format" })
 
--- Git Root Directory
--- stylua: ignore
-vim.keymap.set("n", "<leader>gr", function() vim.cmd("CdGitRoot") end, { desc = "Change to git root directory" })
-
--- TODO: Map operator, this one is wrong
--- g=if should format function
--- vim.keymap.set("o", "g=", function()
---   Util.format { force = true }
--- end, { desc = "Format" })
+--
+-- Git
+--
+vim.keymap.set("n", "<leader>gr", kUtil.projectChangeToGitRoot, { desc = "Change to git root directory" })
+vim.keymap.set("n", "<leader>gM", kUtil.projectCompareWithMaster, { desc = "Compare with master (neotree & gitsigns)" })
 
 -- Alternate last buffer
--- stylua: ignore
-local _alternate = function() vim.cmd.b "#" end
-vim.keymap.set("n", "<c-a>", _alternate, { desc = "Alternate (last) buffer" })
+vim.keymap.set("n", "<c-a>", kUtil.bufferAlternate, { desc = "Alternate (last) buffer" })
 
 -- Toggle bufferline
--- stylua: ignore
-local _toggle_bufferline = function() vim.opt.showtabline = vim.opt.showtabline:get() ~= 0 and 0 or 2 end
-vim.keymap.set("n", "<leader>ub", _toggle_bufferline, { desc = "Toggle bufferline" })
+vim.keymap.set("n", "<leader>ub", kUtil.bufferlineToggle, { desc = "Toggle bufferline" })
 
 -- Close windowless buffers
--- stylua: ignore
-vim.keymap.set("n", "<leader>bD", "<cmd>CloseWindowlessBuffers<cr>", { desc = "Close hidden buffer (not visible in window)" })
+--stylua: ignore
+vim.keymap.set( "n", "<leader>bD", "<cmd>CloseWindowlessBuffers<cr>", { desc = "Close hidden buffer (not visible in window)" })
 
 -- Save
 vim.keymap.set("n", "<leader><space>", vim.cmd.w, { desc = "Save file" })
@@ -109,27 +92,35 @@ vim.keymap.set("i", "<m-b>", "<c-Left>", { desc = "Move cursor to left word" })
 vim.keymap.set("i", "<m-f>", "<c-Right>", { desc = "Move cursor to right word" })
 
 -- Jetbrains Toolbox Golang URL
-vim.keymap.set("n", "<leader>gty", function()
-  require("toolbox").copy_to_clipboard()
-end, {desc = "Copy current line location in GoLand URL"})
+--stylua: ignore
+vim.keymap.set( "n", "<leader>gty", require("toolbox").copy_to_clipboard, { desc = "Copy current line location in GoLand URL" })
 
-vim.keymap.set("n", "<leader>gto", function()
-  require("toolbox").open_in_toolbox()
-end, {desc = "Open current line location in GoLand URL"})
+--stylua: ignore
+vim.keymap.set( "n", "<leader>gto", require("toolbox").open_in_toolbox, { desc = "Open current line location in GoLand URL" })
 
-vim.keymap.set("n", "<leader>g<Enter>", function()
-  require("toolbox").open_in_toolbox()
-end, {desc = "Open current line location in GoLand URL"})
+--stylua: ignore
+vim.keymap.set( "n", "<leader>g<Enter>", require("toolbox").open_in_toolbox, { desc = "Open current line location in GoLand URL" })
 
 -- Folds
--- Top level fold
-vim.api.nvim_create_user_command("FoldTopLevelClose", function()
-  vim.cmd "%foldclose"
-end, {})
+vim.keymap.set("n", "Zz", kUtil.bufferFoldTopLevelClose, { desc = "Close all toplevel folds" })
+vim.keymap.set("n", "Zo", kUtil.bufferFoldTopLevelOpen, { desc = "Open all toplevel folds" })
 
-vim.api.nvim_create_user_command("FoldTopLevelOpen", function()
-  vim.cmd "%foldopen"
-end, {})
+-- Unmap lazyvim lazygit
+-- map("n", "<leader>gg", function() LazyVim.lazygit( { cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
+-- map("n", "<leader>gG", function() LazyVim.lazygit() end, { desc = "Lazygit (cwd)" })
+-- map("n", "<leader>gb", LazyVim.lazygit.blame_line, { desc = "Git Blame Line" })
+--
+-- map("n", "<leader>gf", function()
+--   local git_path = vim.api.nvim_buf_get_name(0)
+--   LazyVim.lazygit({args = { "-f", vim.trim(git_path) }})
+-- end, { desc = "Lazygit Current File History" })
+--
+-- map("n", "<leader>gl", function()
+--   LazyVim.lazygit({ args = { "log" } })
+-- end, { desc = "Lazygit Log" })
 
-vim.keymap.set("n", "Zz", "<cmd>FoldTopLevelClose<cr>", { desc = "Close all toplevel folds" })
-vim.keymap.set("n", "Zo", "<cmd>FoldTopLevelOpen<cr>", { desc = "Open all toplevel folds" })
+-- TODO: Map operator, this one is wrong
+-- g=if should format function
+-- vim.keymap.set("o", "g=", function()
+--   Util.format { force = true }
+-- end, { desc = "Format" })
