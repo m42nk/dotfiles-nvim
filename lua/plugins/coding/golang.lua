@@ -1,4 +1,5 @@
 local Util = require "lazyvim.util"
+---@type LazySpec
 return {
   {
     "ray-x/go.nvim",
@@ -32,6 +33,37 @@ return {
       end)
     end,
   },
+
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "fredrikaverpil/neotest-golang",
+    },
+    opts = function(_, opts)
+      opts.adapters["neotest-go"] = nil
+      local neotest_go = require "neotest-golang"
+      opts.adapters = vim.tbl_deep_extend("keep", opts.adapters, {
+        neotest_go {
+          go_test_args = {
+            "-v",
+            "-race",
+            "-count=1",
+            "-timeout=60s",
+            "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
+          },
+          dap_go_enabled = true,
+        },
+      })
+
+      return opts
+    end,
+  },
+
+  {
+    "nvim-neotest/neotest-go",
+    enabled = false,
+  },
+
   {
     "neovim/nvim-lspconfig",
     opts = {

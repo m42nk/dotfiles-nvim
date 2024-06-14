@@ -52,4 +52,7 @@ return {
 
   -- Gitlab
   require "plugins.editor.gitlab",
+
+  -- Go Playground
+  require "plugins.editor.goplay",
 }
