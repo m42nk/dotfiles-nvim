@@ -13,43 +13,32 @@ return {
       -- Disable inlay hints by default, show it using <Leader>uh
       inlay_hints = { enabled = false },
 
-      ---@type lspconfig.options
-      ---@diagnostic disable-next-line: missing-fields
-      servers = {
-        ---@diagnostic disable-next-line: missing-fields
-        vtsls = {
-          -- NOTE: we tinkered with this since diagnostic is duplicated from tsserver & eslint
-          -- we resolved it by hiding diagnostic virtual text and use undercurl instead
-          -- handlers = {
-          --   ---@param err lsp.ResponseError
-          --   ---@param ctx lsp.HandlerContext
-          --   ---@param result lsp.PublishDiagnosticsParams
-          --   ---@param config vim.diagnostic.Opts
-          --   ["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
-          --     if ctx ~= nil and ctx.params ~= nil and ctx.params.diagnostics ~= nil then
-          --       local idx = 1
-          --       while idx <= #ctx.params.diagnostics do
-          --         if ctx.params.diagnostics[idx].code == 80001 then
-          --           table.remove(ctx.params.diagnostics, idx)
-          --         else
-          --           idx = idx + 1
-          --         end
-          --       end
-          --     end
-          --
-          --     ---@type vim.diagnostic.Opts
-          --     local override_config = {}
-          --
-          --     override_config = vim.tbl_deep_extend("force", config or {}, override_config)
-          --
-          --     ---@diagnostic disable-next-line: redundant-return-value
-          --     return vim.lsp.with(vim.lsp.diagnostics.on_publish_diagnostics, override_config)
-          --   end,
-          -- },
-        },
-      },
+      -- Enable codelens by default, might broke some lsp server that doesn't support it (e.g. json)
+      -- HACK: we force enable this on init function
+      -- codelens = { enabled = true },
     },
     init = function()
+      -- HACK: fix noisy error: "method textDocument/codeLens is not supported by any of the servers registered for the current buffer"
+      if vim.lsp.codelens then
+        LazyVim.lsp.on_supports_method("textDocument/codeLens", function(client, buffer)
+          -- vim.lsp.codelens.refresh()
+          vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+            buffer = buffer,
+            callback = function()
+              -- add buffer number here (not in lazyvim)
+              vim.lsp.codelens.refresh { bufnr = buffer }
+            end,
+          })
+        end)
+      end
+      -- LazyVim.lsp.on_attach(function(client, buffer)
+      --   if not client.supports_method "textDocument/codeLens" then
+      --   end
+      -- end)
+
+      --
+      -- Add custom keymaps
+      --
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
       -- stylua: ignore
@@ -58,13 +47,6 @@ return {
         function() require("telescope.builtin").lsp_implementations { reuse_win = false, show_line = false } end,
         desc = "G To Implementations",
       }
-
-      -- stylua: ignore
-      -- keys[#keys + 1] = {
-      --   "gI",
-      --   function() require("telescope.builtin").lsp_implementations({ jump_type = "vsplit" }) end,
-      --   desc = "Goto Implementation",
-      -- }
 
       -- stylua: ignore
       keys[#keys + 1] = {
