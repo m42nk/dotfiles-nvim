@@ -20,6 +20,36 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType", "InsertEnter", "InsertLeave" }, {
+  group = augroup "trailing_whitespace",
+  pattern = { "*" },
+  callback = function(e)
+    local ignored_filetypes = {
+      "TelescopePrompt",
+      "Trouble",
+      "help",
+      "dashboard",
+      "neo-tree",
+      "lazy",
+      "mason",
+      "null-ls-info",
+    }
+
+    for _, ft in ipairs(ignored_filetypes) do
+      if vim.bo.filetype == ft then
+        return
+      end
+    end
+
+    if e.event == "InsertEnter" then
+      vim.cmd [[match none]]
+      return
+    end
+
+    vim.cmd [[match TrailingWhitespace /\s\+$/]]
+  end,
+})
+
 -- Hover on cursorhold
 -- vim.api.nvim_create_autocmd("CursorHold", {
 --   pattern = { "*" },

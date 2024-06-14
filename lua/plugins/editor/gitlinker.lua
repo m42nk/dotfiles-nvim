@@ -2,6 +2,13 @@ return {
   {
     "linrongbin16/gitlinker.nvim",
     config = function()
+      require("lazyvim.util").on_load("which-key.nvim", function()
+        require("which-key").register {
+          mode = { "n", "v" },
+          ["<leader>gl"] = { name = "Gitlinker" },
+        }
+      end)
+
       require("gitlinker").setup {
         router = {
           browse = {

@@ -2,7 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
 
-    ---@param opts PluginLspOpts
+    ---@type PluginLspOpts
     opts = {
       ---@type vim.diagnostic.Opts
       diagnostics = {

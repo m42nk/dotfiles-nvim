@@ -51,5 +51,5 @@ return {
   require "plugins.editor.todo-comments",
 
   -- Gitlab
-  require "plugins.editor.gitlab"
+  require "plugins.editor.gitlab",
 }

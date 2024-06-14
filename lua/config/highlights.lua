@@ -7,4 +7,3 @@ vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#373B41", default = false 
 vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#373B41", default = false })
 
 vim.api.nvim_set_hl(0, "TrailingWhitespace", { bg = "red", fg = "white", default = false })
-vim.cmd [[match TrailingWhitespace /\s\+$/]]

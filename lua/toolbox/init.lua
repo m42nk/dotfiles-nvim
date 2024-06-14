@@ -54,6 +54,15 @@ local function get_toolbox_url()
   return toolbox_url
 end
 
+M.setup = function()
+  require("lazyvim.util").on_load("which-key.nvim", function()
+    require("which-key").register {
+      mode = { "n", "v" },
+      ["<leader>gt"] = { name = "Jetbrains Toolbox" },
+    }
+  end)
+end
+
 -- Function to convert the current position into a JetBrains Toolbox URL
 M.copy_to_clipboard = function()
   local toolbox_url = get_toolbox_url()

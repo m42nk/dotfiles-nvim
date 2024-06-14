@@ -39,7 +39,7 @@ vim.keymap.set({ "n", "v" }, "<leader>/", require("util.comment").toggle, { desc
 -- Smart case renaming for word under cursor
 vim.keymap.set(
   "n",
-  "<leader>cR",
+  "<leader>Cr",
   ":S/<c-r><c-w>//g<left><left>",
   { desc = "Rename word under cursor (smart case, abolish.vim)" }
 )
@@ -72,7 +72,7 @@ vim.keymap.set("n", "<leader>ub", kUtil.bufferlineToggle, { desc = "Toggle buffe
 
 -- Close windowless buffers
 --stylua: ignore
-vim.keymap.set( "n", "<leader>bD", "<cmd>CloseWindowlessBuffers<cr>", { desc = "Close hidden buffer (not visible in window)" })
+vim.keymap.set( "n", "<leader>bD", "<cmd>CloseWindowlessBuffers<cr>", { desc = "Close hidden buffer (windowless)" })
 
 -- Save
 vim.keymap.set("n", "<leader><space>", vim.cmd.w, { desc = "Save file" })
@@ -92,14 +92,12 @@ vim.keymap.set("i", "<m-b>", "<c-Left>", { desc = "Move cursor to left word" })
 vim.keymap.set("i", "<m-f>", "<c-Right>", { desc = "Move cursor to right word" })
 
 -- Jetbrains Toolbox Golang URL
---stylua: ignore
+--stylua: ignore start
+require("toolbox").setup()
 vim.keymap.set( "n", "<leader>gty", require("toolbox").copy_to_clipboard, { desc = "Copy current line location in GoLand URL" })
-
---stylua: ignore
 vim.keymap.set( "n", "<leader>gto", require("toolbox").open_in_toolbox, { desc = "Open current line location in GoLand URL" })
-
---stylua: ignore
 vim.keymap.set( "n", "<leader>g<Enter>", require("toolbox").open_in_toolbox, { desc = "Open current line location in GoLand URL" })
+--stylua: ignore end
 
 -- Folds
 vim.keymap.set("n", "Zz", kUtil.bufferFoldTopLevelClose, { desc = "Close all toplevel folds" })

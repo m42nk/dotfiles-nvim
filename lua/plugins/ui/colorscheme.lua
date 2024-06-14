@@ -27,8 +27,6 @@ return {
             ["@type"] = { italic = true, bold = false },
             ["@function"] = { italic = false, bold = false },
             ["@comment"] = { italic = true },
-            -- ["@keyword"] = { italic = false, underdashed = true },
-            -- ["@property"] = { italic = false, fg="red" },
             ["Comment"] = { fg = "gray" },
             ["@keyword"] = { italic = false },
             ["@constant"] = { italic = false, bold = false },

@@ -39,6 +39,10 @@ return {
         -- Set to 'none' to fallback to the default mappings
         ["<space>"] = "none",
         ["<esc>"] = { "close_window" },
+
+        ["/"] = "none",
+        ["f"] = "none",
+        ["s"] = "none",
       },
       popup = {
         size = {

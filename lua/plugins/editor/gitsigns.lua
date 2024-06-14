@@ -28,5 +28,13 @@ return {
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
     },
+    init = function()
+      require("lazyvim.util").on_load("which-key.nvim", function()
+        require("which-key").register {
+          mode = { "n", "v" },
+          ["<leader>gh"] = { name = "Gitsigns" },
+        }
+      end)
+    end,
   },
 }
