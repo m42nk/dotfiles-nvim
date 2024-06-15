@@ -27,8 +27,8 @@ RUN apt-get update -y && \
 
 # Set system locale
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Add user
@@ -49,20 +49,20 @@ RUN mkdir -p /home/$USERNAME/.local/share/nvim /home/$USERNAME/.config/
 WORKDIR /home/$USERNAME
 
 # NOTE:
-# Since we need to `source` asdf.sh script, we need to use bash/zsh instead of sh. 
+# Since we need to `source` asdf.sh script, we need to use bash/zsh instead of sh.
 # But, in common ubuntu .bashrc, the source won't be executed
 # if the shell is not interactive. To fix it, we can:
 # 1. source the asdf script in every RUN directive inside this dockerfile
 # 2. run the asdf source command from .profile instead of .{bash,zsh}rc
 # 3. use `bash -lic` as dockerfile SHELL (to toggle interactive mode)
 
-# Install asdf version manager 
+# Install asdf version manager
 RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1 && \
   echo "source $HOME/.asdf/asdf.sh" >> $HOME/.bashrc && \
   echo "source $HOME/.asdf/asdf.sh" >> $HOME/.zshrc
 
 # Install node with asdf
-SHELL ["/bin/bash", "-lic"] 
+SHELL ["/bin/bash", "-lic"]
 RUN asdf plugin add nodejs && \
   asdf install nodejs 18.18.1 && \
   asdf global nodejs 18.18.1
