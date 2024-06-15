@@ -15,7 +15,7 @@ return {
 
       -- Enable codelens by default, might broke some lsp server that doesn't support it (e.g. json)
       -- HACK: we force enable this on init function
-      -- codelens = { enabled = true },
+      codelens = { enabled = true },
     },
     init = function()
       -- HACK: fix noisy error: "method textDocument/codeLens is not supported by any of the servers registered for the current buffer"

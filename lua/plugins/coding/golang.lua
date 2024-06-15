@@ -69,6 +69,19 @@ return {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       -- pick what's needed from below, empty for now since we want to follow defaults from lazyvim
+
+      opts.servers["gopls"] = vim.tbl_deep_extend("force", opts.servers["gopls"] or {}, {
+        settings = {
+          gopls = {
+            analyses = {
+              fieldalignment = false, -- "struct with yyyy pointer bytes could be xxx"
+            },
+
+            semanticTokens = false, -- Enabling this makes sql syntax highlight (injection) not working
+          },
+        },
+      })
+
       return opts
     end,
   },
