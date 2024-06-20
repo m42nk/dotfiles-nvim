@@ -9,7 +9,7 @@ vim.g.autoformat = false
 
 vim.g.root_spec = { ".git", "lsp", { "git", "lua" }, "cwd" }
 
-opt.colorcolumn =  "100" -- "80" -- add visual border for column 80
+opt.colorcolumn = "100" -- "80" -- add visual border for column 80
 opt.swapfile = false -- Don't use swapfile
 opt.clipboard:remove "unnamedplus" -- don't use system clipboard
 opt.splitbelow = true -- Put new windows below current
@@ -38,7 +38,7 @@ opt.fillchars = {
 opt.listchars:append {
   -- tab = "<->"
   -- tab = ">>"
-  tab = "  "
+  tab = "  ",
 }
 
 -- opt.spelllang = "en,id"

@@ -48,5 +48,5 @@ return {
   require "plugins.coding.targets",
 
   -- Animate scrolling
-  -- require "plugins.coding.neoscroll",
+  require "plugins.coding.neoscroll",
 }

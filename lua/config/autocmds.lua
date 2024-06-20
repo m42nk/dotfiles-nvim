@@ -24,16 +24,17 @@ vim.api.nvim_create_autocmd({ "FileType", "InsertEnter", "InsertLeave" }, {
   group = augroup "trailing_whitespace",
   pattern = { "*" },
   callback = function(e)
+    -- stylua: ignore
     local ignored_filetypes = {
-      "TelescopePrompt",
-      "Trouble",
-      "help",
-      "dashboard",
-      "neo-tree",
-      "lazy",
-      "mason",
+      "TelescopePrompt", "Trouble", "WhichKey",
+      "dashboard", "help", "lazy", "lspinfo",
+      "mason", "neo-tree", "noice", "notify",
       "null-ls-info",
     }
+
+    if vim.bo.readonly or vim.bo.filetype == "" then
+      return
+    end
 
     for _, ft in ipairs(ignored_filetypes) do
       if vim.bo.filetype == ft then

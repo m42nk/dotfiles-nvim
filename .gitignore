@@ -57,3 +57,6 @@ debug
 foo.*
 *.log
 data
+
+*/.cache/
+*/.local/
