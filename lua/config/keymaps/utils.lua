@@ -19,7 +19,6 @@ m.bufferFormat = function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, true, true), "n", true)
 end
 
-
 m.bufferFoldTopLevelClose = function()
   vim.cmd "%foldclose"
 end
@@ -39,6 +38,13 @@ end
 m.projectCompareWithMaster = function()
   vim.cmd "Gitsigns change_base master"
   vim.cmd "Neotree git_status git_base=master position=right"
+end
+
+m.superEscapeExpr = function()
+  -- TODO: add pcall to notify
+  require("notify").dismiss { silent = true, pending = true }
+  vim.cmd.nohlsearch()
+  return "<esc>"
 end
 
 return m

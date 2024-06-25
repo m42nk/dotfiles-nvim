@@ -13,18 +13,23 @@ return {
       -- Disable inlay hints by default, show it using <Leader>uh
       inlay_hints = { enabled = false },
 
-      -- Enable codelens by default, might broke some lsp server that doesn't support it (e.g. json)
-      -- HACK: we force enable this on init function
-      codelens = { enabled = true },
+      -- Disable codelens by default, it will be enabled on init function
+      codelens = { enabled = false },
     },
     init = function()
       -- HACK: fix noisy error: "method textDocument/codeLens is not supported by any of the servers registered for the current buffer"
       if vim.lsp.codelens then
         LazyVim.lsp.on_supports_method("textDocument/codeLens", function(client, buffer)
-          -- vim.lsp.codelens.refresh()
+          -- Disable codelense on lua
+          if client.name == "lua_ls" then
+            return
+          end
+
           vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
             buffer = buffer,
             callback = function()
+              local bufname = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buffer), ":p:.")
+              vim.notify_once(string.format("codelens:: client: %s, buffer: %d (%s)", client.name, buffer, bufname))
               -- add buffer number here (not in lazyvim)
               vim.lsp.codelens.refresh { bufnr = buffer }
             end,

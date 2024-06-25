@@ -55,4 +55,7 @@ return {
 
   -- Go Playground
   require "plugins.editor.goplay",
+
+  -- Harpoon
+  require "plugins.editor.harpoon",
 }

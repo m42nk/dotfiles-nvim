@@ -21,6 +21,7 @@ return {
       { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>sj", Util.telescope("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
       { "<leader>sv", Util.telescope "git_status", desc = "Git Status" },
+      { "<leader>z", Util.telescope "spell_suggest", desc = "Suggest Spelling" },
     },
     dependencies = {
       require "plugins.editor.telescope.telescope-undo",

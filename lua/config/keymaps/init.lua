@@ -103,6 +103,9 @@ vim.keymap.set( "n", "<leader>g<Enter>", require("toolbox").open_in_toolbox, { d
 vim.keymap.set("n", "Zz", kUtil.bufferFoldTopLevelClose, { desc = "Close all toplevel folds" })
 vim.keymap.set("n", "Zo", kUtil.bufferFoldTopLevelOpen, { desc = "Open all toplevel folds" })
 
+-- Super Escape
+vim.keymap.set({ "i", "n" }, "<esc>", kUtil.superEscapeExpr, { expr = true, desc = "Escape and Clear hlsearch" })
+
 -- Unmap lazyvim lazygit
 -- map("n", "<leader>gg", function() LazyVim.lazygit( { cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
 -- map("n", "<leader>gG", function() LazyVim.lazygit() end, { desc = "Lazygit (cwd)" })
