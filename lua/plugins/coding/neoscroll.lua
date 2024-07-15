@@ -18,8 +18,8 @@ return {
         t["<C-u>"] = { "scroll", { -15, "true", "100", [['quadratic']] } }
         t["<C-d>"] = { "scroll", { 15, "true", "100", [['quadratic']] } }
         -- Use the "circular" easing function
-        t["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "500", [['circular']] } }
-        t["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "500", [['circular']] } }
+        t["<C-b>"] = { "scroll", { "-vim.api.nvim_win_get_height(0)", "true", "100", [['quadratic']] } }
+        t["<C-f>"] = { "scroll", { "vim.api.nvim_win_get_height(0)", "true", "100", [['quadratic']] } }
         -- Pass "nil" to disable the easing animation (constant scrolling speed)
         t["<C-y>"] = { "scroll", { "-0.10", "false", "100", nil } }
         t["<C-e>"] = { "scroll", { "0.10", "false", "100", nil } }

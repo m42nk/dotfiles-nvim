@@ -43,6 +43,10 @@ opt.listchars:append {
 
 -- opt.spelllang = "en,id"
 
+-- vim.cmd[[:autocmd FileType go setlocal noexpandtab]]
+vim.cmd[[:autocmd FileType go setlocal shiftwidth=4]]
+vim.cmd[[:autocmd FileType go setlocal tabstop=4]]
+
 -- TODO: make this rules respect filetype or project configuration
 -- opt.tabstop = 4
 -- opt.shiftwidth = 4
