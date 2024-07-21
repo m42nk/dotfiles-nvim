@@ -29,7 +29,7 @@ return {
             buffer = buffer,
             callback = function()
               local bufname = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buffer), ":p:.")
-              vim.notify_once(string.format("codelens:: client: %s, buffer: %d (%s)", client.name, buffer, bufname))
+              -- vim.notify_once(string.format("codelens:: client: %s, buffer: %d (%s)", client.name, buffer, bufname))
               -- add buffer number here (not in lazyvim)
               vim.lsp.codelens.refresh { bufnr = buffer }
             end,
