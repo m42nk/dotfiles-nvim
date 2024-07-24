@@ -27,6 +27,13 @@ m.bufferFoldTopLevelOpen = function()
   vim.cmd "%foldopen"
 end
 
+-- m.bufferFoldToggleRecursive = function()
+--   buffer = vim.nvim_get_current_buf()
+--   if vim.bo[buffer].foldelvel then
+--   end
+-- end
+
+
 m.bufferlineToggle = function()
   vim.opt.showtabline = vim.opt.showtabline:get() ~= 0 and 0 or 2
 end

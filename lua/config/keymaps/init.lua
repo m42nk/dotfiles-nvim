@@ -102,6 +102,9 @@ vim.keymap.set( "n", "<leader>g<Enter>", require("toolbox").open_in_toolbox, { d
 -- Folds
 vim.keymap.set("n", "Zz", kUtil.bufferFoldTopLevelClose, { desc = "Close all toplevel folds" })
 vim.keymap.set("n", "Zo", kUtil.bufferFoldTopLevelOpen, { desc = "Open all toplevel folds" })
+vim.keymap.set("n", "ZZ", "<cmd>setlocal foldlevel=0<cr>", { desc = "Close all folds recursively" })
+vim.keymap.set("n", "ZO", "<cmd>setlocal foldlevel=99<cr>", { desc = "Open all folds recursively" })
+-- vim.keymap.set("n", "ZA", kUtil.BufferFoldToggleRecursive, { desc = "Toggle all folds recursively" })
 
 -- Super Escape
 vim.keymap.set({ "i", "n" }, "<esc>", kUtil.superEscapeExpr, { expr = true, desc = "Escape and Clear hlsearch" })
