@@ -9,7 +9,7 @@ return {
     keys = {
       -- { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
       -- stylua: ignore
-      { "<c-p>", function() require("telescope.builtin").find_files() end, desc = "Find Files (root dir)", },
+      { "<c-p>", tsUtil.find_files(), desc = "Find Files (root dir)", },
       { "<leader>/", false },
       { "<leader><space>", false },
       { "<leader>bs", Util.telescope "buffers", desc = "Buffers" },
@@ -17,6 +17,7 @@ return {
       { "<leader>fc", Util.telescope.config_files(), desc = "LazyVim files" },
       { "<leader>fd", tsUtil.global_todo_files(), desc = "Find global TODO files" },
       { "<leader>fl", tsUtil.lazyvim_files(), desc = "LazyVim files (Telescope)" },
+      { "<leader>sg", tsUtil.live_grep(), desc = "Grep (Root Dir)" },
       { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
       { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>sj", Util.telescope("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
@@ -80,6 +81,9 @@ return {
         },
       },
       pickers = {
+        colorscheme = {
+          enable_preview = true,
+        },
         git_files = {
           prompt_title = "Find Files (Git)",
         },

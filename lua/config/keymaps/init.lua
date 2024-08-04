@@ -83,6 +83,15 @@ vim.keymap.set("n", "<c-w>j", require("util.tmux").navigate "j")
 vim.keymap.set("n", "<c-w>k", require("util.tmux").navigate "k")
 vim.keymap.set("n", "<c-w>l", require("util.tmux").navigate "l")
 
+-- Buffer navigation
+vim.keymap.set("n", "gG", kUtil.goToLine(), { desc = "Go to line" })
+
+-- Line number
+vim.keymap.del("n", "<leader>ul")
+vim.keymap.del("n", "<leader>uL")
+vim.keymap.set("n", "<leader>ul", kUtil.ToggleRelativeLineNumber, { desc = "Toggle Relative Line Numbers" })
+vim.keymap.set("n", "<leader>uL", kUtil.ToggleLineNumber, { desc = "Toggle Line Numbers" })
+
 -- Emacs binding on insert mode (useful for insert mode like in nui.nvim input)
 vim.keymap.set("i", "<c-a>", "<Home>", { desc = "Move cursor to beginning of line" })
 vim.keymap.set("i", "<c-b>", "<Left>", { desc = "Move cursor to left" })
@@ -93,10 +102,10 @@ vim.keymap.set("i", "<m-f>", "<c-Right>", { desc = "Move cursor to right word" }
 
 -- Jetbrains Toolbox Golang URL
 --stylua: ignore start
-require("toolbox").setup()
-vim.keymap.set( "n", "<leader>gty", require("toolbox").copy_to_clipboard, { desc = "Copy current line location in GoLand URL" })
-vim.keymap.set( "n", "<leader>gto", require("toolbox").open_in_toolbox, { desc = "Open current line location in GoLand URL" })
-vim.keymap.set( "n", "<leader>g<Enter>", require("toolbox").open_in_toolbox, { desc = "Open current line location in GoLand URL" })
+require("m42nk/toolbox").setup()
+vim.keymap.set( "n", "<leader>gty", require("m42nk/toolbox").copy_to_clipboard, { desc = "Copy current line location in GoLand URL" })
+vim.keymap.set( "n", "<leader>gto", require("m42nk/toolbox").open_in_toolbox, { desc = "Open current line location in GoLand URL" })
+vim.keymap.set( "n", "<leader>g<Enter>", require("m42nk/toolbox").open_in_toolbox, { desc = "Open current line location in GoLand URL" })
 --stylua: ignore end
 
 -- Folds
@@ -108,6 +117,9 @@ vim.keymap.set("n", "ZO", "<cmd>setlocal foldlevel=99<cr>", { desc = "Open all f
 
 -- Super Escape
 vim.keymap.set({ "i", "n" }, "<esc>", kUtil.superEscapeExpr, { expr = true, desc = "Escape and Clear hlsearch" })
+
+-- Reopen closed buf
+vim.keymap.set("n", "<leader>bu", require("m42nk/lastbuf").reopenLastClosedBuffer, { desc = "Reopen closed buffer" })
 
 -- Unmap lazyvim lazygit
 -- map("n", "<leader>gg", function() LazyVim.lazygit( { cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })

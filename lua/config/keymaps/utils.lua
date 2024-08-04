@@ -33,7 +33,6 @@ end
 --   end
 -- end
 
-
 m.bufferlineToggle = function()
   vim.opt.showtabline = vim.opt.showtabline:get() ~= 0 and 0 or 2
 end
@@ -52,6 +51,25 @@ m.superEscapeExpr = function()
   require("notify").dismiss { silent = true, pending = true }
   vim.cmd.nohlsearch()
   return "<esc>"
+end
+
+m.goToLine = function()
+  return function()
+    local line_num = vim.fn.input "Go to line: "
+    if tonumber(line_num) then
+      vim.api.nvim_win_set_cursor(0, { tonumber(line_num), 0 })
+    else
+      print "Invalid line number"
+    end
+  end
+end
+
+m.ToggleRelativeLineNumber = function()
+  LazyVim.toggle "relativenumber"
+end
+
+m.ToggleLineNumber = function()
+  LazyVim.toggle.number()
 end
 
 return m
