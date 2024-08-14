@@ -37,7 +37,7 @@ return {
         desc = "Live Grep with rg Args",
       },
       {
-        "<leader>sG",
+        "<leader>sg",
         "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
         desc = "Live Grep with rg Args",
       },

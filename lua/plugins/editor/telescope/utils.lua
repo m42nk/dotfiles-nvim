@@ -18,7 +18,7 @@ function M.find_files()
       find_command = {
         "rg",
         "--follow", -- Follow symbolic links
-        "--no-ignore", -- Include files in .gitignore
+        "--no-ignore-vcs", -- Include files in .gitignore
         "--hidden", -- Search for hidden files
         "--no-heading", -- Don't group matches by each file
         "--files", -- search files instead of content
@@ -32,6 +32,7 @@ function M.find_files()
         "--glob=!**/.vscode/*",
         "--glob=!**/build/*",
         "--glob=!**/dist/*",
+        "--glob=!**/node_modules/*",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
       },
@@ -50,7 +51,7 @@ function M.live_grep()
       vimgrep_arguments = {
         "rg",
         "--color=never",
-        "--no-ignore",
+        "--no-ignore-vcs",
         "--hidden",
         "--no-heading",
         "--with-filename",
@@ -64,6 +65,7 @@ function M.live_grep()
         "--glob=!**/.vscode/*",
         "--glob=!**/build/*",
         "--glob=!**/dist/*",
+        "--glob=!**/node_modules/*",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
       },

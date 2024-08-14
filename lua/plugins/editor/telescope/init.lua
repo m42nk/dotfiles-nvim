@@ -17,7 +17,7 @@ return {
       { "<leader>fc", Util.telescope.config_files(), desc = "LazyVim files" },
       { "<leader>fd", tsUtil.global_todo_files(), desc = "Find global TODO files" },
       { "<leader>fl", tsUtil.lazyvim_files(), desc = "LazyVim files (Telescope)" },
-      { "<leader>sg", tsUtil.live_grep(), desc = "Grep (Root Dir)" },
+      { "<leader>sG", tsUtil.live_grep(), desc = "Grep (Root Dir)" },
       { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
       { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
       { "<leader>sj", Util.telescope("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
@@ -67,12 +67,12 @@ return {
             ["<c-p>"] = actions.toggle_selection + actions.move_selection_better,
 
             -- ignore shortcuts for lsp pickers
-            ["<c-h>"] = { " !mock !test ", type = "command" },
+            ["<c-h>"] = { " !mock !_test.go ", type = "command" },
 
             -- putting it on 'extensions' not working
             ["<C-s-h>"] = function(prompt_bufnr)
               -- stylua: ignore
-              require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob !*mock* --iglob !*test* " })(prompt_bufnr)
+              require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob !*mock* --iglob !*_test.go " })(prompt_bufnr)
             end,
 
             -- refine

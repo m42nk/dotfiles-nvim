@@ -58,4 +58,7 @@ return {
 
   -- Harpoon
   require "plugins.editor.harpoon",
+
+  -- Firenvim
+  require "plugins.editor.firenvim",
 }

@@ -121,6 +121,9 @@ vim.keymap.set({ "i", "n" }, "<esc>", kUtil.superEscapeExpr, { expr = true, desc
 -- Reopen closed buf
 vim.keymap.set("n", "<leader>bu", require("m42nk/lastbuf").reopenLastClosedBuffer, { desc = "Reopen closed buffer" })
 
+-- Save as root (doesn't work on mac)
+vim.keymap.set("ca", "w!!", "w !sudo -A tee '%'", { desc = "Save file as root" })
+
 -- Unmap lazyvim lazygit
 -- map("n", "<leader>gg", function() LazyVim.lazygit( { cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
 -- map("n", "<leader>gG", function() LazyVim.lazygit() end, { desc = "Lazygit (cwd)" })
