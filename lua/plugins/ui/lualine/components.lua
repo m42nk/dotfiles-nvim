@@ -1,4 +1,3 @@
-local Util = require "lazyvim.util"
 local icons = require("lazyvim.config").icons
 
 local M = {}
@@ -36,7 +35,7 @@ M.filetype = {
 M.plugin_updates = {
   require("lazy.status").updates,
   cond = require("lazy.status").has_updates,
-  color = Util.ui.fg "Special",
+  color = LazyVim.ui.fg "Special",
 }
 
 M.diff = {
@@ -61,21 +60,33 @@ M.diff = {
 M.statusline_command = {
   function() return require("noice").api.status.command.get() end,
   cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-  color = Util.ui.fg("Statement"),
+  color = LazyVim.ui.fg("Statement"),
 }
 
 -- stylua: ignore
 M.statusline_mode = {
   function() return require("noice").api.status.mode.get() end,
   cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-  color = Util.ui.fg("Constant"),
+  color = function()
+    local mode = require("noice").api.status.mode.get()
+
+    if mode ~= nil then
+      local match = string.match(mode, "^recording")
+      if match ~= nil and #match > 0 then
+        -- return {bg="red", fg=vim.api.nvim_get_hl(0, {name="Constant"})}
+        return { bg="red", fg="white"}
+      end
+    end
+
+    return LazyVim.ui.fg("Constant")
+  end,
 }
 
 -- stylua: ignore
 M.dap = {
   function() return "  " .. require("dap").status() end,
   cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-  color = Util.ui.fg("Debug"),
+  color = LazyVim.ui.fg("Debug"),
 }
 
 M.treesitter_status = {
@@ -88,7 +99,7 @@ M.treesitter_status = {
 
     return not ts or vim.tbl_isempty(ts)
   end,
-  color = Util.ui.fg "Error",
+  color = LazyVim.ui.fg "Error",
 }
 
 M.python_env = {
@@ -108,7 +119,7 @@ M.python_env = {
     end
     return ""
   end,
-  color = Util.ui.fg "Constant",
+  color = LazyVim.ui.fg "Constant",
 }
 
 M.location = {
@@ -128,18 +139,18 @@ M.copilot = {
     local is_suggestion_enabled = vim.b.copilot_suggestion_auto_trigger
 
     if not is_enabled then
-      return Util.ui.fg "Error"
+      return LazyVim.ui.fg "Error"
     end
 
     if not is_started then
-      return Util.ui.fg "Comment"
+      return LazyVim.ui.fg "Comment"
     end
 
     if not is_suggestion_enabled then
-      return Util.ui.fg "WarningMsg"
+      return LazyVim.ui.fg "WarningMsg"
     end
 
-    return Util.ui.fg "Normal"
+    return LazyVim.ui.fg "Normal"
   end,
 }
 
