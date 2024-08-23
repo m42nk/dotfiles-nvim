@@ -12,6 +12,8 @@ local keysToDelete = {
   { "n", "<C-j>", "Move to the window below" },
   { "n", "<C-k>", "Move to the window above" },
   { "n", "<C-l>", "Move to the right window" },
+
+  { "n", "<leader>l", "Lazy" },
 }
 
 for _, key in ipairs(keysToDelete) do
@@ -62,7 +64,12 @@ vim.keymap.set("", "<leader>lf", kUtil.bufferFormat, { desc = "Format" })
 -- Git
 --
 vim.keymap.set("n", "<leader>gr", kUtil.projectChangeToGitRoot, { desc = "Change to git root directory" })
-vim.keymap.set("n", "<leader>gM", kUtil.projectCompareWithMaster, { desc = "Compare with master (neotree & gitsigns)" })
+vim.keymap.set(
+  "n",
+  "<leader>gM",
+  kUtil.projectCompareWithMaster,
+  { desc = "Compare with master (neotree & gitsigns change base)" }
+)
 
 -- Alternate last buffer
 vim.keymap.set("n", "<c-a>", kUtil.bufferAlternate, { desc = "Alternate (last) buffer" })
@@ -74,6 +81,16 @@ vim.keymap.set("n", "<leader>ub", kUtil.bufferlineToggle, { desc = "Toggle buffe
 --stylua: ignore
 vim.keymap.set( "n", "<leader>bD", "<cmd>CloseWindowlessBuffers<cr>", { desc = "Close hidden buffer (windowless)" })
 
+-- Close window and buffer (buffer unload)
+--stylua: ignore
+vim.keymap.del("n", "<leader>bb")
+vim.keymap.set(
+  "n",
+  "<leader>bb",
+  kUtil.splitsCloseAndBufferUnload,
+  { desc = "Unload buffer (close buffer and window)" }
+)
+
 -- Save
 vim.keymap.set("n", "<leader><space>", vim.cmd.w, { desc = "Save file" })
 
@@ -83,8 +100,11 @@ vim.keymap.set("n", "<c-w>j", require("util.tmux").navigate "j")
 vim.keymap.set("n", "<c-w>k", require("util.tmux").navigate "k")
 vim.keymap.set("n", "<c-w>l", require("util.tmux").navigate "l")
 
--- Buffer navigation
-vim.keymap.set("n", "gG", kUtil.goToLine(), { desc = "Go to line" })
+-- Grep
+vim.keymap.set("n", "gG", kUtil.projectGrepWithContext, { desc = "Go to line" })
+
+-- -- Buffer navigation
+-- vim.keymap.set("n", "gG", kUtil.goToLine(), { desc = "Go to line" })
 
 -- Line number
 vim.keymap.del("n", "<leader>ul")

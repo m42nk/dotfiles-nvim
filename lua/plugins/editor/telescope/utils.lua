@@ -1,4 +1,3 @@
-local Util = require "lazyvim.util"
 local M = {}
 
 -- NOTE: use `normalize` instead of `joinpath` since its not available in 0.9.4
@@ -75,7 +74,7 @@ end
 
 function M.lazyvim_files()
   local lazy_path = vim.fs.joinpath(data_path, "lazy", "LazyVim")
-  return Util.telescope("find_files", { cwd = lazy_path })
+  return LazyVim.pick("find_files", { cwd = lazy_path })
 end
 
 function M.lazyvim_tree()
@@ -91,11 +90,11 @@ end
 
 function M.lazynvim_files()
   local lazy_path = vim.fs.joinpath(data_path, "lazy", "lazy.nvim")
-  return Util.telescope("find_files", { cwd = lazy_path })
+  return LazyVim.pick("find_files", { cwd = lazy_path })
 end
 
 function M.global_todo_files()
-  return Util.telescope("find_files", {
+  return LazyVim.pick("find_files", {
     -- cwd = vim.fs.joinpath(tostring(os.getenv "HOME"), "Todos"),
     cwd = vim.fs.normalize(tostring(os.getenv "HOME") .. "/Todos"),
   })

@@ -37,13 +37,32 @@ m.bufferlineToggle = function()
   vim.opt.showtabline = vim.opt.showtabline:get() ~= 0 and 0 or 2
 end
 
+m.splitsCloseAndBufferUnload = function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local windows = vim.fn.getbufinfo(bufnr)[1].windows
+
+  if #windows == 1 then
+    vim.cmd "bd"
+  else
+    vim.cmd "close"
+  end
+end
+
 m.projectChangeToGitRoot = function()
   vim.cmd "CdGitRoot"
 end
 
 m.projectCompareWithMaster = function()
-  vim.cmd "Gitsigns change_base master"
+  require("gitsigns").change_base("master", true)
   vim.cmd "Neotree git_status git_base=master position=right"
+end
+
+m.projectGrepWithContext = function()
+  local lineContext = 1
+  -- TODO: make language-agnostic
+  local defaultCommand = string.format("grep --iglob '!*_test.go' --iglob '!mock' --context=%d ''", lineContext)
+  local command = vim.fn.input("Search: ", defaultCommand)
+  vim.cmd(command)
 end
 
 m.superEscapeExpr = function()

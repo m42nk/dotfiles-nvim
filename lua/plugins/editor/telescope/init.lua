@@ -1,28 +1,27 @@
 local actions = require "telescope.actions"
 local layout = require "telescope.actions.layout"
-local Util = require "lazyvim.util"
 local tsUtil = require "plugins.editor.telescope.utils"
 
 return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
-      -- { "<c-p>", Util.telescope "files", desc = "Find Files (root dir)" },
+      -- { "<c-p>", LazyVim.pick "files", desc = "Find Files (root dir)" },
       -- stylua: ignore
       { "<c-p>", tsUtil.find_files(), desc = "Find Files (root dir)", },
       { "<leader>/", false },
       { "<leader><space>", false },
-      { "<leader>bs", Util.telescope "buffers", desc = "Buffers" },
+      { "<leader>bs", LazyVim.pick "buffers", desc = "Buffers" },
       { "<leader>fL", tsUtil.lazyvim_tree(), desc = "LazyVim files (Neo-tree)" },
-      { "<leader>fc", Util.telescope.config_files(), desc = "LazyVim files" },
+      { "<leader>fc", LazyVim.pick.config_files(), desc = "LazyVim files" },
       { "<leader>fd", tsUtil.global_todo_files(), desc = "Find global TODO files" },
       { "<leader>fl", tsUtil.lazyvim_files(), desc = "LazyVim files (Telescope)" },
       { "<leader>sG", tsUtil.live_grep(), desc = "Grep (Root Dir)" },
-      { "<leader>sB", Util.telescope "builtin", desc = "Telescope Builtins" },
-      { "<leader>sf", Util.telescope "files", desc = "Find Files (root dir)" },
-      { "<leader>sj", Util.telescope("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
-      { "<leader>sv", Util.telescope "git_status", desc = "Git Status" },
-      { "<leader>z", Util.telescope "spell_suggest", desc = "Suggest Spelling" },
+      { "<leader>sB", LazyVim.pick "builtin", desc = "Telescope Builtins" },
+      { "<leader>sf", LazyVim.pick "files", desc = "Find Files (root dir)" },
+      { "<leader>sj", LazyVim.pick("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
+      { "<leader>sv", LazyVim.pick "git_status", desc = "Git Status" },
+      { "<leader>z", LazyVim.pick "spell_suggest", desc = "Suggest Spelling" },
     },
     dependencies = {
       require "plugins.editor.telescope.telescope-undo",

@@ -56,9 +56,8 @@ end
 
 M.setup = function()
   require("lazyvim.util").on_load("which-key.nvim", function()
-    require("which-key").register {
-      mode = { "n", "v" },
-      ["<leader>gt"] = { name = "Jetbrains Toolbox" },
+    require("which-key").add {
+      { "<leader>gt", desc = "Jetbrains Toolbox", mode = { "n", "v" } },
     }
   end)
 end

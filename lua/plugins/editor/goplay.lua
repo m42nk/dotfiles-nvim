@@ -4,9 +4,8 @@ return {
     "jeniasaigak/goplay.nvim",
     init = function()
       LazyVim.on_load("which-key.nvim", function()
-        require("which-key").register {
-          mode = { "n" },
-          ["<leader>CCg"] = { name = "Go Playground" },
+        require("which-key").add {
+          { "<leader>CCg", desc = "Go Playground", mode = { "n" } },
         }
       end)
     end,

@@ -30,9 +30,8 @@ return {
     },
     init = function()
       require("lazyvim.util").on_load("which-key.nvim", function()
-        require("which-key").register {
-          mode = { "n", "v" },
-          ["<leader>gh"] = { name = "Gitsigns" },
+        require("which-key").add {
+          { "<leader>gh", group = "Gitsigns", mode = { "n", "v" } },
         }
       end)
     end,

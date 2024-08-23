@@ -61,4 +61,7 @@ return {
 
   -- Firenvim
   require "plugins.editor.firenvim",
+
+  -- Trouble
+  require "plugins.editor.trouble",
 }

@@ -1,7 +1,13 @@
 return {
   {
     "folke/which-key.nvim",
-    keys = {
+    ---@class wk.Opts
+    opts = {
+      ---@type wk.Win.opts
+      win = {
+        no_overlap = false
+      },
     },
+    keys = {},
   },
 }

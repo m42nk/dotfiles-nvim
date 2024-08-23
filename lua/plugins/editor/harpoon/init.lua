@@ -4,9 +4,8 @@ return {
     branch = "harpoon2",
     init = function()
       LazyVim.on_load("which-key.nvim", function()
-        require("which-key").register {
-          mode = { "n" },
-          ["<leader>h"] = { name = "harpoon" },
+        require("which-key").add {
+          { "<leader>h", desc = "harpoon", mode = { "n" } },
         }
       end)
     end,

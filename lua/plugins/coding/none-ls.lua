@@ -13,7 +13,7 @@ return {
 
         -- require("go.null_ls").gotest(),
         -- require("go.null_ls").golangci_lint(),
-        require("go.null_ls").gotest_action(),
+        -- require("go.null_ls").gotest_action(),
 
         nls.builtins.diagnostics.golangci_lint,
         -- nls.builtins.diagnostics.staticcheck,

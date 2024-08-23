@@ -19,9 +19,8 @@ return {
     local glab = require "gitlab"
 
     require("lazyvim.util").on_load("which-key.nvim", function()
-      require("which-key").register {
-        mode = { "n", "v" },
-        ["<leader>gL"] = { name = "Gitlab MR" },
+      require("which-key").add {
+        { "<leader>gL", desc = "Gitlab MR", mode = { "n", "v" } },
       }
     end)
 
