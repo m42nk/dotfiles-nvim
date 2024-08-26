@@ -1,3 +1,4 @@
+-- Patch to avoid "Buffer x is newer than edits"
 vim.lsp.util.apply_text_document_edit = function(text_document_edit, index, offset_encoding)
   local text_document = text_document_edit.textDocument
   local bufnr = vim.uri_to_bufnr(text_document.uri)

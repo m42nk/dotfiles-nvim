@@ -2,12 +2,6 @@ local icons = require("lazyvim.config").icons
 
 local M = {}
 
-local cond = {
-  is_win_wide = function()
-    return vim.fn.winwidth(0) > 90
-  end,
-}
-
 -- Current vim mode, will display empty string with background color
 M.mode = {
   -- stylua: ignore
@@ -129,11 +123,18 @@ M.location = {
 
 M.copilot = {
   function()
-    local is_enabled = not require("copilot.client").is_disabled()
+    if not pcall(require, "copilot.client") then
+      return ""
+    end
 
+    local is_enabled = not require("copilot.client").is_disabled()
     return is_enabled and "" or ""
   end,
   color = function()
+    if not pcall(require, "copilot.client") then
+      return
+    end
+
     local is_enabled = not require("copilot.client").is_disabled()
     local is_started = require("copilot.client").get()
     local is_suggestion_enabled = vim.b.copilot_suggestion_auto_trigger

@@ -43,6 +43,7 @@ opt.listchars:append {
 
 -- opt.spelllang = "en,id"
 
+-- Make openapi indenting looks good
 -- vim.cmd[[:autocmd FileType go setlocal noexpandtab]]
 vim.cmd[[:autocmd FileType go setlocal shiftwidth=4]]
 vim.cmd[[:autocmd FileType go setlocal tabstop=4]]

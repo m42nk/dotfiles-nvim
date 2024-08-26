@@ -1,6 +1,5 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require "config.lazy"
-require "config.neovide"
 
 -- Patch to avoid "Buffer x is newer than edits"
 require "config.lsp_textedit_patch"
@@ -18,4 +17,3 @@ vim.api.nvim_create_autocmd("User", {
     require "config.commands"
   end,
 })
-

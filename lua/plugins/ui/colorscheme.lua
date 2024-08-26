@@ -19,7 +19,7 @@ return {
       fm.setup {
         transparent = true,
         -- brightness = 0.5,
-        -- glow = true,
+        glow = false,
         -- fluoromachine, retrowave, delta
         theme = "retrowave",
         overrides = function(c)
