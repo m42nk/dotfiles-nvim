@@ -113,12 +113,12 @@ vim.keymap.set("n", "<leader>ul", kUtil.ToggleRelativeLineNumber, { desc = "Togg
 vim.keymap.set("n", "<leader>uL", kUtil.ToggleLineNumber, { desc = "Toggle Line Numbers" })
 
 -- Emacs binding on insert mode (useful for insert mode like in nui.nvim input)
-vim.keymap.set("i", "<c-a>", "<Home>", { desc = "Move cursor to beginning of line" })
-vim.keymap.set("i", "<c-b>", "<Left>", { desc = "Move cursor to left" })
-vim.keymap.set("i", "<c-e>", "<End>", { desc = "Move cursor to end of line" })
-vim.keymap.set("i", "<c-f>", "<Right>", { desc = "Move cursor to right" })
-vim.keymap.set("i", "<m-b>", "<c-Left>", { desc = "Move cursor to left word" })
-vim.keymap.set("i", "<m-f>", "<c-Right>", { desc = "Move cursor to right word" })
+vim.keymap.set({"i", "c"}, "<c-a>", "<Home>", { desc = "Move cursor to beginning of line" })
+vim.keymap.set({"i", "c"}, "<c-b>", "<Left>", { desc = "Move cursor to left" })
+vim.keymap.set({"i", "c"}, "<c-e>", "<End>", { desc = "Move cursor to end of line" })
+vim.keymap.set({"i", "c"}, "<c-f>", "<Right>", { desc = "Move cursor to right" })
+vim.keymap.set({"i", "c"}, "<m-b>", "<c-Left>", { desc = "Move cursor to left word" })
+vim.keymap.set({"i", "c"}, "<m-f>", "<c-Right>", { desc = "Move cursor to right word" })
 
 -- Jetbrains Toolbox Golang URL
 --stylua: ignore start

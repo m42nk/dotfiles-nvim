@@ -2,7 +2,8 @@
 
 vim.api.nvim_create_user_command("CdGitRoot", function()
   local dot_git_path = vim.fn.finddir(".git", ".;")
-  local git_root vim.fn.fnamemodify(dot_git_path, ":h")
+  local git_root
+  vim.fn.fnamemodify(dot_git_path, ":h")
 
   if git_root ~= nil or git_root ~= "" then
     vim.api.nvim_set_current_dir(git_root)
@@ -43,3 +44,19 @@ vim.api.nvim_create_user_command("Lazygit", function()
   -- local lv = require("lazyvim")
   LazyVim.lazygit { cwd = LazyVim.root.git() }
 end, { desc = "Open lazygit" })
+
+vim.api.nvim_create_user_command("E", function()
+  ok, neotree_command = pcall(require, "neo-tree.command")
+  if not ok then
+    vim.notify("Neotree not installed", vim.log.levels.WARN)
+    return
+  end
+
+  require("neo-tree.command").execute {
+    action = "focus",
+    toggle = true,
+    position = "current",
+    reveal = true,
+    dir = LazyVim.root.git(),
+  }
+end, { desc = "Toggle Neotree" })

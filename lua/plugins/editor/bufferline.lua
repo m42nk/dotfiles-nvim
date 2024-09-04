@@ -8,9 +8,10 @@ return {
     },
     keys = {
       { "<leader>br", false },
+      { "<leader>bl", false },
 
-      { "<leader>bL", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffer to the right" },
-      { "<leader>bH", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffer to the left" },
+      { "<leader>bl", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffer to the right" },
+      { "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffer to the left" },
 
       { "<leader>bp", "<cmd>BufferLinePick<cr>", desc = "Pick buffer" },
       { "<leader>b0", "<cmd>BufferLineTogglePin<cr>", desc = "Toggle pin" },

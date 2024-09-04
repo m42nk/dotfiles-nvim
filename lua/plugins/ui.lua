@@ -10,4 +10,7 @@ return {
 
   -- Rainbow delimiter, colorize brackets
   require "plugins.ui.rainbow-delimiter",
+
+  -- Dashboard
+  require "plugins.ui.dashboard",
 }
