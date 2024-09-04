@@ -60,7 +60,7 @@ end
 m.projectGrepWithContext = function()
   local lineContext = 1
   -- TODO: make language-agnostic
-  local defaultCommand = string.format("grep --iglob '!*_test.go' --iglob '!mock' --context=%d ''", lineContext)
+  local defaultCommand = string.format("grep -g '!*_test.go' -g '!mock' --context=%d ''", lineContext)
   local command = vim.fn.input("Search: ", defaultCommand)
   vim.cmd(command)
 end

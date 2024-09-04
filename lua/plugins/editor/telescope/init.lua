@@ -71,7 +71,7 @@ return {
             -- putting it on 'extensions' not working
             ["<C-s-h>"] = function(prompt_bufnr)
               -- stylua: ignore
-              require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob !*mock* --iglob !*_test.go " })(prompt_bufnr)
+              require("telescope-live-grep-args.actions").quote_prompt({ postfix = " -g !*mock* -g !*_test.go " })(prompt_bufnr)
             end,
 
             -- refine
