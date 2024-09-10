@@ -64,4 +64,7 @@ return {
 
   -- Trouble
   require "plugins.editor.trouble",
+
+  -- Fugitive
+  require "plugins.editor.fugitive",
 }

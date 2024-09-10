@@ -13,4 +13,7 @@ return {
 
   -- Dashboard
   require "plugins.ui.dashboard",
+
+  -- Rest Client
+  require "plugins.ui.rest-nvim",
 }

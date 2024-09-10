@@ -40,10 +40,19 @@ opt.listchars:append {
   -- tab = "<->"
   -- tab = ">>"
   tab = "  ",
+  -- tab = "..",
 }
 
--- opt.spelllang = "en,id"
+-- opt.sessionoptions = {
+--   "buffers",
+--   "curdir",
+--   "tabpages",
+--   "winsize",
+--   "help",
+--   "globals",
+--   "skiprtp",
+--   "folds",
+--   -- "options"
+-- }
 
--- TODO: make this rules respect filetype or project configuration
--- opt.tabstop = 4
--- opt.shiftwidth = 4
+-- opt.spelllang = "en,id"

@@ -15,7 +15,7 @@ vim.api.nvim_create_user_command("GoFoldTestToggle", [[g/^\st.Run/norm za]], {})
 
 vim.api.nvim_create_user_command("GoFoldZeeTestClose", [[g/^func.\{-}Test.\{-}()/norm zc]], {})
 
--- Make openapi indenting looks good
-vim.cmd [[:autocmd FileType go setlocal noexpandtab]]
-vim.cmd [[:autocmd FileType go setlocal shiftwidth=4]]
-vim.cmd [[:autocmd FileType go setlocal tabstop=4]]
+-- -- Make openapi indenting looks good
+-- vim.cmd [[:autocmd FileType go setlocal noexpandtab]]
+-- vim.cmd [[:autocmd FileType go setlocal shiftwidth=4]]
+-- vim.cmd [[:autocmd FileType go setlocal tabstop=4]]
