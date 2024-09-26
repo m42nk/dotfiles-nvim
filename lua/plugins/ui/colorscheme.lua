@@ -26,7 +26,7 @@ return {
           return {
             ["@type"] = { italic = true, bold = false },
             ["@function"] = { italic = false, bold = false },
-            ["@comment"] = { italic = true },
+            ["@comment"] = { italic = true, fg = "#c5c8c6" },
             ["Comment"] = { fg = "gray" },
             ["@keyword"] = { italic = false },
             ["@constant"] = { italic = false, bold = false },

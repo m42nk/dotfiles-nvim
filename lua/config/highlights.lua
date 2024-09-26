@@ -1,3 +1,7 @@
+vim.api.nvim_set_hl(0, "@markup.raw", { fg = "#c5c8c6", bg = "#1e1e1e", default = false })
+vim.api.nvim_set_hl(0, "@comment", { fg = "#c5c8c6", italic = true, default = false })
+-- vim.api.nvim_set_hl(0, '@text.code', {bg = '#000FFF'})
+
 vim.api.nvim_set_hl(0, "Search", { bg = "yellow", fg = "black", default = false, italic = true })
 vim.api.nvim_set_hl(0, "IncSearch", { link = "Search" })
 

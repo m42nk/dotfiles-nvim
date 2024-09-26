@@ -5,6 +5,7 @@ local toolbox_config = {
   ["/Users/syakhisk.syari/Work/octopus"] = { app = "goland", project = "octopus" },
   ["/Users/syakhisk.syari/Work/trams"] = { app = "goland", project = "trams" },
   ["/Users/syakhisk.syari/Work/ride-service"] = { app = "rubymine", project = "ride-service" },
+  ["/Users/syakhisk.syari/Work/_projects/toolbelt"] = { app = "goland", project = "toolbelt" },
 }
 
 -- Function to find the root path for the current file
