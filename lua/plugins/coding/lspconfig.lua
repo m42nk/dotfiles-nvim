@@ -22,6 +22,17 @@ return {
         --   -- end,
         --   -- ["*"] = function(server, opts) end,
         -- },
+        servers = {
+          gopls = {
+            settings = {
+              gopls = {
+                analyses = {
+                  fieldalignment = false, -- "struct with yyyy pointer bytes could be xxx"
+                },
+              },
+            },
+          },
+        },
       }
 
       --

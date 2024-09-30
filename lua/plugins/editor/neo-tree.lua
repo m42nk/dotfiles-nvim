@@ -13,6 +13,16 @@ return {
         ["l"] = { "toggle_node" },
 
         ["L"] = "focus_preview",
+        ["E"] = {
+          function(state)
+            if state.current_position ~= "float" then
+              return
+            end
+
+            require("neo-tree.command").execute { action = "close" }
+            require("neo-tree.command").execute { action = "focus", position = "current" }
+          end,
+        },
         ["P"] = {
           function(state)
             if state.current_position == "bottom" then

@@ -56,3 +56,29 @@ opt.listchars:append {
 -- }
 
 -- opt.spelllang = "en,id"
+
+------@param ev vim.api.create_autocmd.callback.args
+---local localopts = function(ev)
+---  local bufnr = ev.buf
+---  local isfile = vim.bo[bufnr].buftype == ""
+---
+---  if not isfile then
+---    return
+---  end
+---
+---  local opts = {
+---    scroll = 15,
+---  }
+---
+---  local winid = vim.api.nvim_get_current_win()
+---
+---  for k, v in pairs(opts) do
+---    vim.wo[winid][k] = v
+---  end
+---end
+---
+---vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+---  pattern = "*",
+---  callback = localopts,
+---  group = vim.api.nvim_create_augroup("local-options", { clear = true }),
+---})
