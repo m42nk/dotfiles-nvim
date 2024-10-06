@@ -8,12 +8,12 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup "golang",
   pattern = { "go" },
   callback = function()
-    -- HACK: delay setting options until session is restored
-    vim.defer_fn(function()
+    -- -- HACK: delay setting options until session is restored
+    -- vim.defer_fn(function()
       vim.opt.expandtab = false
       vim.opt.shiftwidth = 4
       vim.opt.tabstop = 4
-    end, 0)
+    -- end, 0)
   end,
 })
 

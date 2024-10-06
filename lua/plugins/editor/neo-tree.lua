@@ -20,12 +20,12 @@ return {
             end
 
             require("neo-tree.command").execute { action = "close" }
-            require("neo-tree.command").execute { action = "focus", position = "current" }
+            require("neo-tree.command").execute { action = "focus", position = "current", reveal = true }
           end,
         },
         ["P"] = {
           function(state)
-            if state.current_position == "bottom" then
+            if state.current_position ~= "float" then
               state.commands.toggle_preview(state)
               return
             end

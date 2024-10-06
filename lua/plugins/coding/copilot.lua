@@ -1,4 +1,27 @@
+---@type LazySpec
 return {}
+
+-- HACK: Rate limit / flag abuse resolution
+--  check this issue on copilot-cmp https://github.com/zbirenbaum/copilot-cmp/issues/117
+-- return {
+--   {
+--     "zbirenbaum/copilot.lua",
+--     cmd = "Copilot",
+--     build = ":Copilot auth",
+--     opts = {
+--       suggestion = { enabled = true },
+--       panel = { enabled = true },
+--       filetypes = {
+--         markdown = true,
+--         help = true,
+--       },
+--     },
+--   },
+--   {
+--     "zbirenbaum/copilot-cmp",
+--     enabled = false,
+--   },
+-- }
 
 -- vim.g._copilot_enabled = true
 --
