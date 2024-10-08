@@ -6,10 +6,8 @@ require "config.lsp_textedit_patch"
 
 -- Load additional config beside the one provided by LazyVim
 -- This will run on the "VeryLazy" event
-local augroup = require("util.augroup").augroup
-local custom = augroup "Custom"
 vim.api.nvim_create_autocmd("User", {
-  group = custom,
+  group = require("util.augroup").augroup "Custom",
   pattern = "VeryLazy",
   callback = function()
     require "config.highlights"

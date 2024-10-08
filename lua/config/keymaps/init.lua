@@ -13,6 +13,9 @@ local keysToDelete = {
   { "n", "<C-k>", "Move to the window above" },
   { "n", "<C-l>", "Move to the right window" },
 
+  { "n", "<leader>ft", "Terminal (root dir)" },
+  { "n", "<leader>fT", "Terminal (CWD)" },
+
   { "n", "<leader>l", "Lazy" },
 }
 
@@ -109,16 +112,16 @@ vim.keymap.set("n", "gG", kUtil.projectGrepWithContext, { desc = "Go to line" })
 -- Line number
 vim.keymap.del("n", "<leader>ul")
 vim.keymap.del("n", "<leader>uL")
-vim.keymap.set("n", "<leader>ul", kUtil.ToggleRelativeLineNumber, { desc = "Toggle Relative Line Numbers" })
-vim.keymap.set("n", "<leader>uL", kUtil.ToggleLineNumber, { desc = "Toggle Line Numbers" })
+LazyVim.toggle.map("<leader>ul", LazyVim.toggle("relativenumber", { name = "Relative Number" }))
+LazyVim.toggle.map("<leader>uL", LazyVim.toggle.number)
 
 -- Emacs binding on insert mode (useful for insert mode like in nui.nvim input)
-vim.keymap.set({"i", "c"}, "<c-a>", "<Home>", { desc = "Move cursor to beginning of line" })
-vim.keymap.set({"i", "c"}, "<c-b>", "<Left>", { desc = "Move cursor to left" })
-vim.keymap.set({"i", "c"}, "<c-e>", "<End>", { desc = "Move cursor to end of line" })
-vim.keymap.set({"i", "c"}, "<c-f>", "<Right>", { desc = "Move cursor to right" })
-vim.keymap.set({"i", "c"}, "<m-b>", "<c-Left>", { desc = "Move cursor to left word" })
-vim.keymap.set({"i", "c"}, "<m-f>", "<c-Right>", { desc = "Move cursor to right word" })
+vim.keymap.set({ "i", "c" }, "<c-a>", "<Home>", { desc = "Move cursor to beginning of line" })
+vim.keymap.set({ "i", "c" }, "<c-b>", "<Left>", { desc = "Move cursor to left" })
+vim.keymap.set({ "i", "c" }, "<c-e>", "<End>", { desc = "Move cursor to end of line" })
+vim.keymap.set({ "i", "c" }, "<c-f>", "<Right>", { desc = "Move cursor to right" })
+vim.keymap.set({ "i", "c" }, "<m-b>", "<c-Left>", { desc = "Move cursor to left word" })
+vim.keymap.set({ "i", "c" }, "<m-f>", "<c-Right>", { desc = "Move cursor to right word" })
 
 -- Jetbrains Toolbox Golang URL
 --stylua: ignore start
@@ -143,6 +146,9 @@ vim.keymap.set("n", "<leader>bu", require("m42nk/lastbuf").reopenLastClosedBuffe
 
 -- Save as root (doesn't work on mac)
 vim.keymap.set("ca", "w!!", "w !sudo -A tee '%'", { desc = "Save file as root" })
+
+-- Get filetype of current buffer
+vim.keymap.set("n", "<leader>bF", kUtil.bufferGetFiletype, { desc = "Get filetype of current buffer" })
 
 -- Unmap lazyvim lazygit
 -- map("n", "<leader>gg", function() LazyVim.lazygit( { cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })

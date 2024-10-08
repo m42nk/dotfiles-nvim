@@ -4,19 +4,19 @@
 
 local augroup = require("util.augroup").augroup
 
+-- Set Go file specific options
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup "golang",
   pattern = { "go" },
   callback = function()
-    -- -- HACK: delay setting options until session is restored
-    -- vim.defer_fn(function()
-      vim.opt.expandtab = false
-      vim.opt.shiftwidth = 4
-      vim.opt.tabstop = 4
-    -- end, 0)
+    vim.opt.expandtab = false
+    vim.opt.shiftwidth = 4
+    vim.opt.tabstop = 4
   end,
 })
 
+-- Adjust window layout for help and man pages
+-- Place these window on the right side
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup "man_positioning",
   pattern = { "help", "man" },
@@ -27,44 +27,21 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- don't continue comments on new lines using o and O
 vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.opt.formatoptions:remove "o"
   end,
 })
 
+-- Highlight trailing whitespace except in certain file types
 vim.api.nvim_create_autocmd({ "FileType", "InsertEnter", "InsertLeave" }, {
   group = augroup "trailing_whitespace",
   pattern = { "*" },
-  callback = function(e)
-    -- stylua: ignore
-    local ignored_filetypes = {
-      "TelescopePrompt", "Trouble", "WhichKey",
-      "dashboard", "help", "lazy", "lspinfo",
-      "mason", "neo-tree", "noice", "notify",
-      "null-ls-info",
-    }
-
-    if vim.bo.readonly or vim.bo.filetype == "" then
-      return
-    end
-
-    for _, ft in ipairs(ignored_filetypes) do
-      if vim.bo.filetype == ft then
-        return
-      end
-    end
-
-    if e.event == "InsertEnter" then
-      vim.cmd [[match none]]
-      return
-    end
-
-    vim.cmd [[match TrailingWhitespace /\s\+$/]]
-  end,
+  callback = require("config.autocmds.trailing_whitespace").callback,
 })
 
--- Hover on cursorhold
+-- Hover on cursorhold (commented out)
 -- vim.api.nvim_create_autocmd("CursorHold", {
 --   pattern = { "*" },
 --   group = augroup "cursor_hold_hover",
