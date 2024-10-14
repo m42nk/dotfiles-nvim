@@ -1,6 +1,5 @@
 {
-  "disabled": [
-  ],
+  "disabled": [],
   "extras": [
     "lazyvim.plugins.extras.coding.copilot",
     "lazyvim.plugins.extras.coding.copilot-chat",

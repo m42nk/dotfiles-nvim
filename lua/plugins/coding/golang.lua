@@ -1,5 +1,32 @@
 ---@type LazySpec
 return {
+  {
+    "ray-x/go.nvim",
+    enabled = true,
+    dependencies = {
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup {
+        disable_defaults = true,
+        go = "go",
+        preludes = {
+          default = function()
+            return {}
+          end,
+          GoRun = function()
+            return {}
+          end,
+        },
+      }
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()',
+  },
+
   -- {
   --   "ray-x/go.nvim",
   --   enabled = true,
