@@ -10,12 +10,13 @@ return {
       { "<leader>br", false },
       { "<leader>bl", false },
 
-      { "<leader>bl", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffer to the right" },
-      { "<leader>bh", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffer to the left" },
+      { "<leader>bL", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffer to the right" },
+      { "<leader>bH", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffer to the left" },
 
       { "<leader>bp", "<cmd>BufferLinePick<cr>", desc = "Pick buffer" },
       { "<leader>b0", "<cmd>BufferLineTogglePin<cr>", desc = "Toggle pin" },
       { "<leader>bS", "<cmd>BufferLineSortByDirectory<cr>", desc = "Sort buffer by directory" },
+
       { "<c-s-l>", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
       { "<c-s-h>", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer previous" },
     },

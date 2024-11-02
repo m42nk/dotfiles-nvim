@@ -2,6 +2,7 @@ return {
   "folke/todo-comments.nvim",
   opts = {
     keywords = {
+      DANGER = { icon = " ", color = "error" },
       SAKIS = { icon = "", color = "error" },
       NOTE = { icon = "⏲ ", color = "note" },
       -- ["SAKIS:TODO"] = { icon = "", color = "blue" },

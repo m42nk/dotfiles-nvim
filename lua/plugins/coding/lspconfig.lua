@@ -15,13 +15,12 @@ return {
 
         -- Disable codelens by default, it will be enabled on init function
         codelens = { enabled = false },
-        -- setup = {
-        --   -- golangci_lint_ls = function(_, opts)
-        --   --   vim.notify "hellog"
-        --   --   require("lspconfig").golangci_lint_ls.setup {}
-        --   -- end,
-        --   -- ["*"] = function(server, opts) end,
-        -- },
+        setup = {
+          golangci_lint_ls = function(_, opts)
+            require("lspconfig").golangci_lint_ls.setup {}
+          end,
+          -- ["*"] = function(server, opts) end,
+        },
         servers = {
           gopls = {
             settings = {

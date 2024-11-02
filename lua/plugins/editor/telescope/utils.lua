@@ -32,6 +32,7 @@ function M.find_files()
         "--glob=!**/build/*",
         "--glob=!**/dist/*",
         "--glob=!**/node_modules/*",
+        "--glob=!**/.next/*",
         "--glob=!**/yarn.lock",
         "--glob=!**/package-lock.json",
       },
