@@ -62,3 +62,17 @@ vim.api.nvim_create_user_command("E", function()
     dir = LazyVim.root.git(),
   }
 end, { desc = "Toggle Neotree" })
+
+-- Example custom completion
+vim.api.nvim_create_user_command("Greet", function(opts)
+  print("Hello, " .. opts.args)
+end, {
+  nargs = 1, -- Accept exactly one argument
+  complete = function(ArgLead, CmdLine, CursorPos)
+    -- Custom completion logic: return a list of suggestions
+    local suggestions = { "World", "Neovim", "User" }
+    return vim.tbl_filter(function(item)
+      return item:sub(1, #ArgLead) == ArgLead
+    end, suggestions)
+  end,
+})

@@ -24,6 +24,8 @@ return {
         nls.builtins.code_actions.refactoring,
         nls.builtins.diagnostics.codespell,
         nls.builtins.formatting.sql_formatter,
+
+        -- nls.builtins.formatting.prettier,
       })
     end,
     config = function(_, opts)

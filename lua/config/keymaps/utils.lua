@@ -65,6 +65,11 @@ m.projectCompareWithMaster = function()
   vim.cmd "Neotree git_status git_base=master position=right"
 end
 
+-- m.projectCompareWithBranch = function()
+--   require("gitsigns").change_base("master", true)
+--   vim.cmd "Neotree git_status git_base=master position=right"
+-- end
+
 m.projectGrepWithContext = function()
   local lineContext = 1
   -- TODO: make language-agnostic
