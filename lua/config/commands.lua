@@ -36,7 +36,7 @@ vim.api.nvim_create_user_command("CloseWindowlessBuffers", function()
   vim.tbl_map(function(bufinfo)
     local is_windowless = not bufinfo.windows or #bufinfo.windows == 0
     if bufinfo.changed == 0 and is_windowless then
-      print(("Deleting buffer %d : %s"):format(bufinfo.bufnr, bufinfo.name))
+      vim.notify(("Deleting buffer %d : %s"):format(bufinfo.bufnr, bufinfo.name))
       vim.api.nvim_buf_delete(bufinfo.bufnr, { force = false, unload = false })
     end
   end, bufinfos)

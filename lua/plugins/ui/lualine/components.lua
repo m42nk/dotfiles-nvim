@@ -29,7 +29,7 @@ M.filetype = {
 M.plugin_updates = {
   require("lazy.status").updates,
   cond = require("lazy.status").has_updates,
-  color = LazyVim.ui.fg "Special",
+  color = Snacks.util.color "Special",
 }
 
 M.diff = {
@@ -54,7 +54,7 @@ M.diff = {
 M.statusline_command = {
   function() return require("noice").api.status.command.get() end,
   cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-  color = LazyVim.ui.fg("Statement"),
+  color = Snacks.util.color("Statement"),
 }
 
 -- stylua: ignore
@@ -72,7 +72,7 @@ M.statusline_mode = {
       end
     end
 
-    return LazyVim.ui.fg("Constant")
+    return Snacks.util.color("Constant")
   end,
 }
 
@@ -80,7 +80,7 @@ M.statusline_mode = {
 M.dap = {
   function() return "  " .. require("dap").status() end,
   cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-  color = LazyVim.ui.fg("Debug"),
+  color = Snacks.util.color("Debug"),
 }
 
 M.treesitter_status = {
@@ -93,7 +93,7 @@ M.treesitter_status = {
 
     return not ts or vim.tbl_isempty(ts)
   end,
-  color = LazyVim.ui.fg "Error",
+  color = Snacks.util.color "Error",
 }
 
 M.python_env = {
@@ -113,7 +113,7 @@ M.python_env = {
     end
     return ""
   end,
-  color = LazyVim.ui.fg "Constant",
+  color = Snacks.util.color "Constant",
 }
 
 M.location = {
@@ -140,18 +140,18 @@ M.copilot = {
     local is_suggestion_enabled = vim.b.copilot_suggestion_auto_trigger
 
     if not is_enabled then
-      return LazyVim.ui.fg "Error"
+      return Snacks.util.color "Error"
     end
 
     if not is_started then
-      return LazyVim.ui.fg "Comment"
+      return Snacks.util.color "Comment"
     end
 
     if not is_suggestion_enabled then
-      return LazyVim.ui.fg "WarningMsg"
+      return Snacks.util.color "WarningMsg"
     end
 
-    return LazyVim.ui.fg "Normal"
+    return Snacks.util.color "Normal"
   end,
 }
 

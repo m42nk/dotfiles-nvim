@@ -20,7 +20,7 @@ local keysToDelete = {
 }
 
 for _, key in ipairs(keysToDelete) do
-  vim.keymap.del(key[1], key[2], { desc = key[3] })
+  pcall(vim.keymap.del, key[1], key[2], { desc = key[3] })
 end
 
 -- Yank
@@ -112,8 +112,10 @@ vim.keymap.set("n", "gG", kUtil.projectGrepWithContext, { desc = "Go to line" })
 -- Line number
 vim.keymap.del("n", "<leader>ul")
 vim.keymap.del("n", "<leader>uL")
-LazyVim.toggle.map("<leader>ul", LazyVim.toggle("relativenumber", { name = "Relative Number" }))
-LazyVim.toggle.map("<leader>uL", LazyVim.toggle.number)
+
+-- TODO:uncomment
+-- LazyVim.toggle.map("<leader>ul", LazyVim.toggle("relativenumber", { name = "Relative Number" }))
+-- LazyVim.toggle.map("<leader>uL", LazyVim.toggle.number)
 
 -- Emacs binding on insert mode (useful for insert mode like in nui.nvim input)
 vim.keymap.set({ "i", "c" }, "<c-a>", "<Home>", { desc = "Move cursor to beginning of line" })

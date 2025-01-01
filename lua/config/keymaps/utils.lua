@@ -82,8 +82,11 @@ end
 -- Misc
 ----------
 m.superEscapeExpr = function()
-  -- TODO: add pcall to notify
-  require("notify").dismiss { silent = true, pending = true }
+  local ok, snacks = pcall(require, "snacks")
+  if ok then
+    snacks.notifier.hide()
+  end
+
   vim.cmd.nohlsearch()
   return "<esc>"
 end
