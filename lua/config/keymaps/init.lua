@@ -150,7 +150,8 @@ vim.keymap.set("n", "<leader>bu", require("m42nk/lastbuf").reopenLastClosedBuffe
 vim.keymap.set("ca", "w!!", "w !sudo -A tee '%'", { desc = "Save file as root" })
 
 -- Get filetype of current buffer
-vim.keymap.set("n", "<leader>bF", kUtil.bufferGetFiletype, { desc = "Get filetype of current buffer" })
+vim.keymap.set("n", "<leader>bf", kUtil.bufferGetFiletype, { desc = "Get filetype of current buffer" })
+vim.keymap.set("n", "<leader>bF", kUtil.bufferSetFiletype, { desc = "Set filetype of current buffer" })
 
 -- Unmap lazyvim lazygit
 -- map("n", "<leader>gg", function() LazyVim.lazygit( { cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })

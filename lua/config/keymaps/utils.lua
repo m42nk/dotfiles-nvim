@@ -53,6 +53,11 @@ m.bufferGetFiletype = function()
   vim.notify("Filetype of the current buffer is \n" .. filetype)
 end
 
+m.bufferSetFiletype = function()
+  local filetype = vim.fn.input("Set filetype to: ", vim.bo.filetype, "filetype")
+  vim.bo.filetype = filetype
+end
+
 ----------
 -- Project
 ----------

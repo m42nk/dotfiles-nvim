@@ -16,6 +16,7 @@ M.callback = function(e)
       ["noice"] = true,
       ["notify"] = true,
       ["null-ls-info"] = true,
+      ["prompt"] = true,
     }
 
   if vim.bo.readonly or vim.bo.filetype == "" then

@@ -41,6 +41,12 @@ vim.api.nvim_create_autocmd({ "FileType", "InsertEnter", "InsertLeave" }, {
   callback = require("config.autocmds.trailing_whitespace").callback,
 })
 
+-- Set filetype for .yml.sample files
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.yml.sample",
+  command = "set filetype=yaml",
+})
+
 -- Hover on cursorhold (commented out)
 -- vim.api.nvim_create_autocmd("CursorHold", {
 --   pattern = { "*" },

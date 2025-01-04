@@ -2,6 +2,7 @@
 return {
   {
     "karb94/neoscroll.nvim",
+    enabled = false, -- DEPRECATED: use Snacks.scroll
     config = function()
       require("neoscroll").setup {
         easing = "cubic",
