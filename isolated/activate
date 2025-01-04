@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$(dirname $(readlink -f ${0}))
+alias nvim="$SCRIPT_DIR/local-nvim"
+alias vim="$SCRIPT_DIR/local-nvim"

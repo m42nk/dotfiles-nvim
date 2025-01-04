@@ -1,9 +1,11 @@
 #!/usr/bin/env sh
 
+SCRIPT_DIR=$(dirname $(readlink -f ${0}))
 NVIM_BIN="$(which nvim)"
-export HOME="$PWD"
+export HOME="$SCRIPT_DIR"
 export XDG_CONFIG_HOME="$HOME"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 exec "$NVIM_BIN" "$@"
