@@ -100,7 +100,6 @@ return {
         },
         always_show = { -- remains visible even if other settings would normally hide it
           ".gitignore",
-          ".env*",
           "application.yml",
         },
         always_show_by_pattern = {
@@ -112,6 +111,7 @@ return {
         },
         never_show_by_pattern = { -- uses glob style patterns
           --".null-ls_*",
+          ".env*",
         },
       },
     },
