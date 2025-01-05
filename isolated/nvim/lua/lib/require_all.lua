@@ -64,7 +64,7 @@ end
 -- Usually used in the `init.lua` file of a module
 -- to automatically load all modules in the same directory
 ---@param level? number
-M.requireall = function(level)
+M.require_all = function(level)
   local caller_paths = get_caller_paths()
   local modules = {}
 
