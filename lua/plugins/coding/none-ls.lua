@@ -16,8 +16,8 @@ return {
         -- require("go.null_ls").golangci_lint(),
         -- require("go.null_ls").gotest_action(),
 
-        -- nls.builtins.diagnostics.golangci_lint,
-        -- nls.builtins.diagnostics.staticcheck,
+        nls.builtins.diagnostics.golangci_lint,
+        nls.builtins.diagnostics.staticcheck,
 
         -- nls.builtins.formatting.goimports,
         -- nls.builtins.formatting.gofumpt,

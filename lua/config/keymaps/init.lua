@@ -153,6 +153,14 @@ vim.keymap.set("ca", "w!!", "w !sudo -A tee '%'", { desc = "Save file as root" }
 vim.keymap.set("n", "<leader>bf", kUtil.bufferGetFiletype, { desc = "Get filetype of current buffer" })
 vim.keymap.set("n", "<leader>bF", kUtil.bufferSetFiletype, { desc = "Set filetype of current buffer" })
 
+-- -- DELETEME: testing
+-- vim.keymap.set("n", "<leader>rr", function()
+--   kUtil.listReferencesByAccess "Read"
+-- end, { desc = "List Read references" })
+-- vim.keymap.set("n", "<leader>rw", function()
+--   kUtil.listReferencesByAccess "Write"
+-- end, { desc = "List Write references" })
+
 -- Unmap lazyvim lazygit
 -- map("n", "<leader>gg", function() LazyVim.lazygit( { cwd = LazyVim.root.git() }) end, { desc = "Lazygit (Root Dir)" })
 -- map("n", "<leader>gG", function() LazyVim.lazygit() end, { desc = "Lazygit (cwd)" })

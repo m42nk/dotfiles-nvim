@@ -96,4 +96,70 @@ m.superEscapeExpr = function()
   return "<esc>"
 end
 
+-- m.listReferencesByAccess = function(access_type)
+--   local Kinds = {
+--     ["Text"] = 1,
+--     ["Read"] = 2,
+--     ["Write"] = 3,
+--   }
+--   ---@diagnostic disable-next-line: missing-parameter
+--   local params = vim.lsp.util.make_position_params(0, "utf-8")
+--   -- vim.notify("Params: " .. vim.inspect(params))
+--
+--   -- Send a request to retrieve document highlights
+--   vim.lsp.buf_request(0, "textDocument/references", params, function(err, result, ctx)
+--     if err then
+--       vim.notify("Error: " .. err.message, vim.log.levels.ERROR)
+--       return
+--     end
+--
+--     if not result or vim.tbl_isempty(result) then
+--       vim.notify("No references found", vim.log.levels.INFO)
+--       return
+--     end
+--
+--     local client = vim.lsp.get_client_by_id(ctx.client_id)
+--     local entries = {}
+--
+--     vim.notify("References found: " .. #result, vim.log.levels.INFO)
+--
+--     for _, ref in ipairs(result) do
+--       local hlParam = { textDocument = { uri = ref.uri }, position = ref.range.start }
+--       -- vim.notify("Reference: " .. vim.inspect(ref), vim.log.levels.INFO)
+--
+--       -- Send a request to document highlights for each reference
+--       vim.lsp.buf_request(
+--         0,
+--         "textDocument/documentHighlight",
+--         hlParam,
+--         function(highlight_err, highlight_result, highlight_ctx)
+--           vim.notify("Highlight Result: " .. vim.inspect(highlight_result), vim.log.levels.INFO)
+--           -- vim.notify("Highlight Context: " .. vim.inspect(highlight_ctx), vim.log.levels.INFO)
+--
+--           if highlight_err then
+--             vim.notify("Highlight Error: " .. highlight_err.message, vim.log.levels.ERROR)
+--             return
+--           end
+--
+--           if not highlight_result or vim.tbl_isempty(highlight_result) then
+--             vim.notify("No document highlights found", vim.log.levels.INFO)
+--             return
+--           end
+--
+--           -- Check highlight kind and match with access_type
+--           for _, highlight in ipairs(highlight_result) do
+--             if highlight.kind == Kinds[access_type] then
+--               table.insert(entries, vim.lsp.util.locations_to_items({ ref }, client.offset_encoding)[1])
+--             end
+--           end
+--
+--           -- Set quickfix list with the filtered entries
+--           vim.fn.setqflist(entries)
+--           vim.notify("References with " .. access_type .. " access listed in quickfix")
+--         end
+--       )
+--     end
+--   end)
+-- end
+
 return m
