@@ -2,10 +2,10 @@
 
 SCRIPT_DIR=$(dirname $(readlink -f ${0}))
 NVIM_BIN="$(which nvim)"
-export HOME="$SCRIPT_DIR"
-export XDG_CONFIG_HOME="$HOME"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
+export _HOME="$SCRIPT_DIR"
+export XDG_CONFIG_HOME="$_HOME"
+export XDG_DATA_HOME="$_HOME/.local/share"
+export XDG_STATE_HOME="$_HOME/.local/state"
+export XDG_CACHE_HOME="$_HOME/.cache"
 
 exec "$NVIM_BIN" "$@"
