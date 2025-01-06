@@ -9,6 +9,7 @@ return {
     "MunifTanjim/nui.nvim",
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
+  init = util.init_fn,
   opts = {
     close_if_last_window = true,
     popup_border_style = "single", -- "double", "none", "rounded", "shadow", "single" or "solid"
@@ -46,6 +47,8 @@ return {
     filesystem = {
       bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
       hijack_netrw_behavior = "open_current",
+      follow_current_file = { enabled = true },
+      use_libuv_file_watcher = true,
       filtered_items = {
         visible = true, -- when true, they will just be displayed differently than normal items
         force_visible_in_empty_folder = false, -- when true, hidden files will be shown if the root folder is otherwise empty
@@ -69,7 +72,7 @@ return {
         },
         never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
           ".DS_Store",
-          "thumbs.db"
+          "thumbs.db",
         },
         never_show_by_pattern = { -- uses glob style patterns
           --".null-ls_*",
