@@ -76,3 +76,8 @@ end, {
     end, suggestions)
   end,
 })
+
+vim.api.nvim_create_user_command("HystrixReplaceMsg", function()
+  -- %s/\v\[(response)@!.{-}\] //g
+  vim.cmd [[:%s/\v\[(response)@!.{-}\] //gc]]
+end, { desc = "Search and replace hystrix error message" })
