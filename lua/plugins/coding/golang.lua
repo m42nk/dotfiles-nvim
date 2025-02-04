@@ -26,6 +26,20 @@ return {
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()',
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      opts.servers["gopls"] = vim.tbl_deep_extend("force", opts.servers["gopls"] or {}, {
+        settings = {
+          gopls = {
+            gofumpt = false,
+          },
+        },
+      })
+
+      return opts
+    end,
+  },
 
   -- {
   --   "ray-x/go.nvim",

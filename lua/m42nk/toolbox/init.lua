@@ -5,6 +5,7 @@ local toolbox_config = {
   ["/Users/syakhisk.syari/Work/octopus"] = { app = "goland", project = "octopus" },
   ["/Users/syakhisk.syari/Work/transport-user-config-service"] = { app = "goland", project = "transport-user-config-service" },
   ["/Users/syakhisk.syari/Work/trams"] = { app = "goland", project = "trams" },
+  ["/Users/syakhisk.syari/Work/traps"] = { app = "goland", project = "traps" },
   ["/Users/syakhisk.syari/Work/ride-service"] = { app = "rubymine", project = "ride-service" },
   ["/Users/syakhisk.syari/Work/_projects/toolbelt"] = { app = "goland", project = "toolbelt" },
 }
