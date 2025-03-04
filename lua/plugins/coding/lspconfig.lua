@@ -25,6 +25,7 @@ return {
           gopls = {
             settings = {
               gopls = {
+                gofumpt = false,
                 analyses = {
                   fieldalignment = false, -- "struct with yyyy pointer bytes could be xxx"
                 },
