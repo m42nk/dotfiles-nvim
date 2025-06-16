@@ -1,4 +1,16 @@
 return {
+  -- {
+  --   "ruifm/gitlinker.nvim",
+  --   config = function()
+  --     require("lazyvim.util").on_load("which-key.nvim", function()
+  --       require("which-key").add {
+  --         { "<leader>gl", desc = "Gitlinker", mode = { "n", "v" } },
+  --       }
+  --
+  --       require("gitlinker").setup {}
+  --     end)
+  --   end,
+  -- },
   {
     "linrongbin16/gitlinker.nvim",
     config = function()
@@ -65,6 +77,32 @@ return {
         silent = true,
         noremap = true,
         desc = "Copy git permalink (blob) to clipboard",
+      },
+      {
+        "<leader>gll",
+        function()
+          require("gitlinker").link {
+            router_type = "browse",
+            action = function(url)
+              local buf_path = vim.api.nvim_buf_get_name(0)
+              local buf_dir = vim.fn.fnamemodify(buf_path, ":p:h")
+              local gitroot = require("gitlinker.git").get_root(buf_dir)
+              local project = vim.fn.fnamemodify(gitroot, ":t")
+              local filepathfromroot = project .. "/" .. buf_path:sub(#gitroot + 2)
+
+              local markdown_link = string.format("[%s](%s)", filepathfromroot, url)
+
+              vim.schedule(function()
+                vim.api.nvim_command("let @+ = '" .. markdown_link .. "'")
+                vim.notify("Copied markdown permalink to clipboard: " .. markdown_link, vim.log.levels.INFO)
+              end)
+            end,
+          }
+        end,
+        mode = { "n", "v" },
+        silent = true,
+        noremap = true,
+        desc = "Copy markdown permalink to clipboard",
       },
     },
   },

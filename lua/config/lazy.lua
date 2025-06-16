@@ -19,10 +19,24 @@ require("lazy").setup {
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = {
-        colorscheme = "fluoromachine",
-        -- colorscheme = "tokyonight"
-      },
+      opts = function()
+        local colorscheme = "fluoromachine" -- default colorscheme
+
+        -- -- exec shell
+        -- local handle = io.popen "sh -c defaults read -g AppleInterfaceStyle 2>/dev/null"
+        -- vim.notify "geming"
+        -- if handle then
+        --   local is_dark_mode = handle:read("*a"):match "^%s*(.-)%s*$" == "Dark"
+        --   if not is_dark_mode then
+        --     colorscheme = "tokyonight-day"
+        --   end
+        --   handle:close()
+        -- end
+
+        return {
+          colorscheme = colorscheme,
+        }
+      end,
     },
 
     { "nvim-neotest/nvim-nio" },

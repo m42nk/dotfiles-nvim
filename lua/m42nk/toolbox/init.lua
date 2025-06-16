@@ -7,6 +7,7 @@ local toolbox_config = {
   ["/Users/syakhisk.syari/Work/trams"] = { app = "goland", project = "trams" },
   ["/Users/syakhisk.syari/Work/traps"] = { app = "goland", project = "traps" },
   ["/Users/syakhisk.syari/Work/ride-service"] = { app = "rubymine", project = "ride-service" },
+  ["/Users/syakhisk.syari/Work/eta-tractor"] = { app = "idea", project = "eta-tractor" },
   ["/Users/syakhisk.syari/Work/_projects/toolbelt"] = { app = "goland", project = "toolbelt" },
 }
 
