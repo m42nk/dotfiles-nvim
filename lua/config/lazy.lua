@@ -18,6 +18,7 @@ require("lazy").setup {
   spec = {
     {
       "LazyVim/LazyVim",
+      version = "^14.15.0",
       import = "lazyvim.plugins",
       opts = function()
         local colorscheme = "fluoromachine" -- default colorscheme
