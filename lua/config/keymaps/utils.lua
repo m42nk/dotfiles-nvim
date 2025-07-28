@@ -70,6 +70,17 @@ m.projectCompareWithMaster = function()
   vim.cmd "Neotree git_status git_base=master position=right"
 end
 
+m.projectCompareWith = function()
+  require("snacks").input({ prompt = "Select git branch or commit sha" }, function(input)
+    if input ~= "" then
+      vim.notify("Comparing with " .. input, vim.log.levels.INFO)
+
+      require("gitsigns").change_base(input, true)
+      vim.cmd(("Neotree git_status git_base=%s position=right"):format(input))
+    end
+  end)
+end
+
 -- m.projectCompareWithBranch = function()
 --   require("gitsigns").change_base("master", true)
 --   vim.cmd "Neotree git_status git_base=master position=right"

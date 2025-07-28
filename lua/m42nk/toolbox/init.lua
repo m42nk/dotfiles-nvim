@@ -3,6 +3,7 @@ local M = {}
 -- Configuration table mapping root paths to app and project names
 local toolbox_config = {
   ["/Users/syakhisk.syari/Work/octopus"] = { app = "goland", project = "octopus" },
+  ["/Users/syakhisk.syari/Work/order-workflow-orchestrator"] = { app = "goland", project = "order-workflow-orchestrator" },
   ["/Users/syakhisk.syari/Work/transport-user-config-service"] = { app = "goland", project = "transport-user-config-service" },
   ["/Users/syakhisk.syari/Work/trams"] = { app = "goland", project = "trams" },
   ["/Users/syakhisk.syari/Work/traps"] = { app = "goland", project = "traps" },

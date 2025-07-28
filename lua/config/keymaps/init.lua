@@ -73,6 +73,12 @@ vim.keymap.set(
   kUtil.projectCompareWithMaster,
   { desc = "Compare with master (neotree & gitsigns change base)" }
 )
+vim.keymap.set(
+  "n",
+  "<leader>gC",
+  kUtil.projectCompareWith,
+  { desc = "Compare with commit/branch (neotree & gitsigns change base)" }
+)
 
 -- Alternate last buffer
 vim.keymap.set("n", "<c-a>", kUtil.bufferAlternate, { desc = "Alternate (last) buffer" })

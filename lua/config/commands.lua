@@ -63,7 +63,9 @@ vim.api.nvim_create_user_command("E", function()
   }
 end, { desc = "Toggle Neotree" })
 
--- Example custom completion
+--
+-- NOTE: Example custom completion
+--
 vim.api.nvim_create_user_command("Greet", function(opts)
   print("Hello, " .. opts.args)
 end, {
@@ -81,3 +83,17 @@ vim.api.nvim_create_user_command("HystrixReplaceMsg", function()
   -- %s/\v\[(response)@!.{-}\] //g
   vim.cmd [[:%s/\v\[(response)@!.{-}\] //gc]]
 end, { desc = "Search and replace hystrix error message" })
+
+vim.api.nvim_create_user_command("QfToCliBuffer", function()
+  local qf = require "m42nk.qfparser.init"
+  local act = require "m42nk.qfparser.actions"
+
+  local lines = qf.map(act.to_cli_cmd)
+
+  -- Open a new empty buffer
+  vim.cmd "enew"
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+  vim.bo.buftype = "nofile"
+  vim.bo.bufhidden = "wipe"
+  vim.bo.swapfile = false
+end, {})
