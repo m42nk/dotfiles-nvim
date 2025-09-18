@@ -159,6 +159,44 @@ vim.keymap.set("ca", "w!!", "w !sudo -A tee '%'", { desc = "Save file as root" }
 vim.keymap.set("n", "<leader>bf", kUtil.bufferGetFiletype, { desc = "Get filetype of current buffer" })
 vim.keymap.set("n", "<leader>bF", kUtil.bufferSetFiletype, { desc = "Set filetype of current buffer" })
 
+-- -- Neotest Golang (TEMP: move to utils after finalized)
+-- vim.keymap.set("n", "<leader>tc", function()
+--   local file_path = vim.api.nvim_buf_get_name(0)
+--   local pos = require("neotest").run.get_tree_from_args()
+--   vim.print(pos)
+--
+--   -- local Client = require "neotest"
+--   -- -- Client:get_nearest({file_path}, {row}, {args})
+--   --
+--   -- local file_path = vim.api.nvim_buf_get_name(0)
+--   -- local row = vim.api.nvim_win_get_cursor(0)[1] - 1 -- 0-based index
+--   -- local pos, adapter_id = Client:get_nearest(file_path, row)
+--   -- vim.notify("Nearest test: " .. pos:data().id .. " (" .. adapter_id .. ")")
+--   --
+--   -- -- local pos = require("neotest").run.get_tree_from_pos(0)
+--   -- -- local args = require("neotest-golang").build_spec({ tree = pos })
+--   -- -- local cmd = table.concat(args.command, " ")
+--   -- -- vim.fn.setreg("+", cmd) -- copy to system clipboard
+--   -- -- print("Copied: " .. cmd)
+-- end)
+
+vim.keymap.set("n", "<leader>gf", function()
+  local git_path = vim.api.nvim_buf_get_name(0)
+  Snacks.lazygit.log_file {
+    args = { "-f", vim.trim(git_path) },
+  }
+end, { desc = "Lazygit Current File History *" })
+
+vim.keymap.set("n", "<leader>gl", function()
+  Snacks.lazygit.log {
+    args = { "log" },
+  }
+end, { desc = "Lazygit Log *" })
+
+-- map("n", "<leader>gl", function()
+--   LazyVim.lazygit({ args = { "log" } })
+-- end, { desc = "Lazygit Log" })
+
 -- -- DELETEME: testing
 -- vim.keymap.set("n", "<leader>rr", function()
 --   kUtil.listReferencesByAccess "Read"
@@ -177,10 +215,6 @@ vim.keymap.set("n", "<leader>bF", kUtil.bufferSetFiletype, { desc = "Set filetyp
 --   LazyVim.lazygit({args = { "-f", vim.trim(git_path) }})
 -- end, { desc = "Lazygit Current File History" })
 --
--- map("n", "<leader>gl", function()
---   LazyVim.lazygit({ args = { "log" } })
--- end, { desc = "Lazygit Log" })
-
 -- TODO: Map operator, this one is wrong
 -- g=if should format function
 -- vim.keymap.set("o", "g=", function()

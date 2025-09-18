@@ -7,9 +7,13 @@ local toolbox_config = {
   ["/Users/syakhisk.syari/Work/transport-user-config-service"] = { app = "goland", project = "transport-user-config-service" },
   ["/Users/syakhisk.syari/Work/trams"] = { app = "goland", project = "trams" },
   ["/Users/syakhisk.syari/Work/traps"] = { app = "goland", project = "traps" },
+  ["/Users/syakhisk.syari/Work/transport_oms"] = { app = "goland", project = "transport_oms" },
+  ["/Users/syakhisk.syari/Work/transport-cancellation-service"] = { app = "goland", project = "transport-cancellation-service" },
+  ["/Users/syakhisk.syari/Work/_projects/toolbelt"] = { app = "goland", project = "toolbelt" },
+
   ["/Users/syakhisk.syari/Work/ride-service"] = { app = "rubymine", project = "ride-service" },
   ["/Users/syakhisk.syari/Work/eta-tractor"] = { app = "idea", project = "eta-tractor" },
-  ["/Users/syakhisk.syari/Work/_projects/toolbelt"] = { app = "goland", project = "toolbelt" },
+  ["/Users/syakhisk.syari/Work/notifactor"] = { app = "idea", project = "notifactor" },
 }
 
 -- Function to find the root path for the current file
