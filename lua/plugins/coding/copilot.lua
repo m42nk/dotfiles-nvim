@@ -7,8 +7,16 @@ return {
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },
     build = "make tiktoken",
+    ---@type CopilotChat.config
     opts = {
-      model = "claude-3.7-sonnet",
+      model = "claude-sonnet-4",
+      temperature = 0.1,
+      sticky = {
+        "You are a senior software engineer.",
+        "Provide concise answers.",
+        "Provide follow-up questions to clarify user requests.",
+        "#buffers",
+      },
     },
   },
 }

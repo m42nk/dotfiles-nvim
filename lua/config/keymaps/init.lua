@@ -159,26 +159,26 @@ vim.keymap.set("ca", "w!!", "w !sudo -A tee '%'", { desc = "Save file as root" }
 vim.keymap.set("n", "<leader>bf", kUtil.bufferGetFiletype, { desc = "Get filetype of current buffer" })
 vim.keymap.set("n", "<leader>bF", kUtil.bufferSetFiletype, { desc = "Set filetype of current buffer" })
 
--- -- Neotest Golang (TEMP: move to utils after finalized)
--- vim.keymap.set("n", "<leader>tc", function()
---   local file_path = vim.api.nvim_buf_get_name(0)
---   local pos = require("neotest").run.get_tree_from_args()
---   vim.print(pos)
---
---   -- local Client = require "neotest"
---   -- -- Client:get_nearest({file_path}, {row}, {args})
---   --
---   -- local file_path = vim.api.nvim_buf_get_name(0)
---   -- local row = vim.api.nvim_win_get_cursor(0)[1] - 1 -- 0-based index
---   -- local pos, adapter_id = Client:get_nearest(file_path, row)
---   -- vim.notify("Nearest test: " .. pos:data().id .. " (" .. adapter_id .. ")")
---   --
---   -- -- local pos = require("neotest").run.get_tree_from_pos(0)
---   -- -- local args = require("neotest-golang").build_spec({ tree = pos })
---   -- -- local cmd = table.concat(args.command, " ")
---   -- -- vim.fn.setreg("+", cmd) -- copy to system clipboard
---   -- -- print("Copied: " .. cmd)
--- end)
+-- Neotest Golang (TEMP: move to utils after finalized)
+vim.keymap.set("n", "<leader>tc", function()
+  local neotest = require "neotest"
+  local tree = neotest.run.get_tree_from_args()
+  if not tree then
+    vim.notify "No tests found"
+    return
+  end
+
+  local ntg = require "neotest-golang"
+  local spec = ntg.build_spec { tree = tree }
+  if not spec then
+    vim.notify("No test spec found for " .. tree:data().name)
+    return
+  end
+
+  local cmd = table.concat(spec.command, " ")
+  vim.fn.setreg("+", cmd)
+  vim.notify("Copied to clipboard: " .. cmd)
+end)
 
 vim.keymap.set("n", "<leader>gf", function()
   local git_path = vim.api.nvim_buf_get_name(0)
