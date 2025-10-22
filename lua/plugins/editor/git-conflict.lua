@@ -2,6 +2,7 @@ return {
   "akinsho/git-conflict.nvim",
   version = "*",
   lazy = false,
+  enabled = false,
   init = function()
     vim.api.nvim_create_autocmd("User", {
       pattern = "GitConflictDetected",
@@ -35,6 +36,12 @@ return {
     { "gCt", "<Plug>(git-conflict-theirs)", desc = "Git Conflict: choose theirs", mode = "n" },
     { "gCb", "<Plug>(git-conflict-both)", desc = "Git Conflict: choose both", mode = "n" },
     { "gC0", "<Plug>(git-conflict-none)", desc = "Git Conflict: choose none", mode = "n" },
+
+    { "<localleader>c", "", desc = "Git Conflict", mode = "n" },
+    { "<localleader>co", "<Plug>(git-conflict-ours)", desc = "Git Conflict: choose ours", mode = "n" },
+    { "<localleader>ct", "<Plug>(git-conflict-theirs)", desc = "Git Conflict: choose theirs", mode = "n" },
+    { "<localleader>cb", "<Plug>(git-conflict-both)", desc = "Git Conflict: choose both", mode = "n" },
+    { "<localleader>c0", "<Plug>(git-conflict-none)", desc = "Git Conflict: choose none", mode = "n" },
     { "[x", "<Plug>(git-conflict-prev-conflict)", desc = "Git Conflict: move to previous conflict", mode = "n" },
     { "]x", "<Plug>(git-conflict-next-conflict)", desc = "Git Conflict: move to next conflict", mode = "n" },
   },
