@@ -35,22 +35,25 @@ return {
       },
     },
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = function(_, opts)
-  --     -- opts.servers["gopls"] = vim.tbl_deep_extend("force", opts.servers["gopls"] or {}, {
-  --     --   settings = {
-  --     --     gopls = {
-  --     --       gofumpt = false,
-  --     --     },
-  --     --   },
-  --     -- })
-  --
-  --     -- opts.servers["gopls"].settings.gopls.gofumpt = false
-  --
-  --     return opts
-  --   end,
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      opts.servers["gopls"] = vim.tbl_deep_extend("force", opts.servers["gopls"] or {}, {
+        settings = {
+          gopls = {
+            gofumpt = false,
+            analyses = {
+              ST1000 = false,
+            },
+          },
+        },
+      })
+
+      -- opts.servers["gopls"].settings.gopls.gofumpt = false
+
+      return opts
+    end,
+  },
 
   -- {
   --   "ray-x/go.nvim",

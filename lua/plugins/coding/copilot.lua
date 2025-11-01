@@ -9,10 +9,10 @@ return {
     build = "make tiktoken",
     ---@type CopilotChat.config
     opts = {
-      model = "claude-sonnet-4",
+      -- model = "claude-sonnet-4.5",
+      model = "copilot:gpt-5-mini",
       temperature = 0.1,
       sticky = {
-        "You are a senior software engineer.",
         "Provide concise answers.",
         "Provide follow-up questions to clarify user requests.",
         "#buffers",
