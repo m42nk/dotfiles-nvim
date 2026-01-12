@@ -3,12 +3,22 @@ local M = {}
 -- Configuration table mapping root paths to app and project names
 local toolbox_config = {
   ["/Users/syakhisk.syari/Work/octopus"] = { app = "goland", project = "octopus" },
-  ["/Users/syakhisk.syari/Work/order-workflow-orchestrator"] = { app = "goland", project = "order-workflow-orchestrator" },
-  ["/Users/syakhisk.syari/Work/transport-user-config-service"] = { app = "goland", project = "transport-user-config-service" },
+  ["/Users/syakhisk.syari/Work/order-workflow-orchestrator"] = {
+    app = "goland",
+    project = "order-workflow-orchestrator",
+  },
+  ["/Users/syakhisk.syari/Work/transport-user-config-service"] = {
+    app = "goland",
+    project = "transport-user-config-service",
+  },
   ["/Users/syakhisk.syari/Work/trams"] = { app = "goland", project = "trams" },
   ["/Users/syakhisk.syari/Work/traps"] = { app = "goland", project = "traps" },
   ["/Users/syakhisk.syari/Work/transport_oms"] = { app = "goland", project = "transport_oms" },
-  ["/Users/syakhisk.syari/Work/transport-cancellation-service"] = { app = "goland", project = "transport-cancellation-service" },
+  ["/Users/syakhisk.syari/Work/transport-cancellation-service"] = {
+    app = "goland",
+    project = "transport-cancellation-service",
+  },
+  ["/Users/syakhisk.syari/Work/tipping-service"] = { app = "goland", project = "tipping-service" },
   ["/Users/syakhisk.syari/Work/_projects/toolbelt"] = { app = "goland", project = "toolbelt" },
 
   ["/Users/syakhisk.syari/Work/ride-service"] = { app = "rubymine", project = "ride-service" },
@@ -27,6 +37,19 @@ local function find_project_root()
   return nil
 end
 
+local function guess_project_ide()
+  local file_path = vim.api.nvim_buf_get_name(0)
+  if file_path:find "%.go$" then
+    return "goland"
+  elseif file_path:find "%.rb$" then
+    return "rubymine"
+  elseif file_path:find "%.js$" or file_path:find "%.ts$" then
+    return "webstorm"
+  else
+    return "idea"
+  end
+end
+
 local function get_toolbox_url()
   -- Get the current buffer name (full path of the file)
   local file_path = vim.api.nvim_buf_get_name(0)
@@ -42,19 +65,25 @@ local function get_toolbox_url()
 
   -- Find the project root
   local project_root = find_project_root()
-  if not project_root then
-    vim.api.nvim_err_writeln "Project root not found in configuration"
-    return
+  local app, project = "", ""
+  if project_root then
+    -- Get the app and project configuration for the current root path
+    local config = toolbox_config[project_root]
+    app, project = config.app, config.project
+  else
+    vim.notify(
+      "Project root not found in configuration, guessing IDE and using current directory as project",
+      vim.log.levels.WARN
+    )
+    app = guess_project_ide()
+    project = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
   end
-
-  -- Get the app and project configuration for the current root path
-  local config = toolbox_config[project_root]
 
   -- Create the JetBrains Toolbox URL
   local toolbox_url = string.format(
     "jetbrains://%s/navigate/reference?project=%s&path=%s:%d:%d",
-    config.app,
-    config.project,
+    app,
+    project,
     file_path,
     line_num,
     col_num

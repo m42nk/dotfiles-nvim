@@ -10,12 +10,14 @@ return {
     ---@type CopilotChat.config
     opts = {
       -- model = "claude-sonnet-4.5",
-      model = "copilot:gpt-5-mini",
+      -- model = "copilot:gpt-5-mini",
+      model = "claude-haiku-4.5",
       temperature = 0.1,
       sticky = {
         "Provide concise answers.",
         "Provide follow-up questions to clarify user requests.",
         "#buffers",
+        "#buffer:listed"
       },
     },
   },
