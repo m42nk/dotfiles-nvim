@@ -4,6 +4,7 @@
 
 local augroup = require("util.augroup").augroup
 
+-- TODO: centralized language specific stuff (ftplugin, autocmd, plugins)
 -- Set Go file specific options
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup "golang",
@@ -41,6 +42,7 @@ vim.api.nvim_create_autocmd({ "FileType", "InsertEnter", "InsertLeave" }, {
   callback = require("config.autocmds.trailing_whitespace").callback,
 })
 
+-- TODO: ft specific
 -- Set filetype for .yml.sample files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.yml.sample",

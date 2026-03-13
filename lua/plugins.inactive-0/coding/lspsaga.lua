@@ -3,7 +3,7 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     -- version = "", -- no versioning
-    enabled = true,
+    enabled = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
       "nvim-tree/nvim-web-devicons", -- optional

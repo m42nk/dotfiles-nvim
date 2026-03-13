@@ -2,7 +2,6 @@
 return {
   {
     "neovim/nvim-lspconfig",
-
     opts = function(_, opts)
       local override = {
         ---@type vim.diagnostic.Opts

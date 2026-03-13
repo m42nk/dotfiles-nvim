@@ -5,8 +5,7 @@ local utils = require "plugins.coding.nvim-cmp.utils"
 return {
   {
     "hrsh7th/nvim-cmp",
-    enabled = false,
-    version = "~v0.0.2",
+    -- version = "~v0.0.2", -- too old
     -- init = function()
     --   Util.lsp.on_attach(function()
     --     -- local opts = { border = "rounded" }
