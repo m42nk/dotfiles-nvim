@@ -1,5 +1,7 @@
+---@type LazySpec
 return {
   "HiPhish/rainbow-delimiters.nvim",
+  -- version = "~v0.10.0",
   config = function()
     local rainbow_delimiters = require "rainbow-delimiters"
     require("rainbow-delimiters.setup").setup {

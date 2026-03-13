@@ -1,7 +1,9 @@
+---@type LazySpec
 return {
   {
     "folke/tokyonight.nvim",
     lazy = true,
+    -- version = "~v4.14.1",
     opts = {
       style = "night",
       transparent = true,

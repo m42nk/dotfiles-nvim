@@ -1,5 +1,7 @@
+---@type LazySpec
 return {
   "folke/todo-comments.nvim",
+  -- version = "~v1.5.0",
   opts = {
     keywords = {
       DANGER = { icon = " ", color = "error" },

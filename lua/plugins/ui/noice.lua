@@ -1,6 +1,8 @@
+---@type LazySpec
 return {
   {
     "folke/noice.nvim",
+    -- version = "~v4.10.0",
     ---@type NoiceConfig
     opts = {
       views = {

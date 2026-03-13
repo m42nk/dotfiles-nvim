@@ -1,7 +1,9 @@
+---@type LazySpec
 return {
   {
     "nvimdev/lspsaga.nvim",
-    enabled = true,
+    -- version = "", -- no versioning
+    enabled = false,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
       "nvim-tree/nvim-web-devicons", -- optional
@@ -33,14 +35,14 @@ return {
         },
         finder = {
           keys = {
-            shuttle = '[w',
-            toggle_or_open = 'o',
-            vsplit = 's',
-            split = 'i',
-            tabe = 't',
-            tabnew = 'r',
-            quit = 'q',
-            close = '<C-c>k',
+            shuttle = "[w",
+            toggle_or_open = "o",
+            vsplit = "s",
+            split = "i",
+            tabe = "t",
+            tabnew = "r",
+            quit = "q",
+            close = "<C-c>k",
           },
         },
 

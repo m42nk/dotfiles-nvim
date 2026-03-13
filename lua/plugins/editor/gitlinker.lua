@@ -1,18 +1,8 @@
+---@type LazySpec
 return {
-  -- {
-  --   "ruifm/gitlinker.nvim",
-  --   config = function()
-  --     require("lazyvim.util").on_load("which-key.nvim", function()
-  --       require("which-key").add {
-  --         { "<leader>gl", desc = "Gitlinker", mode = { "n", "v" } },
-  --       }
-  --
-  --       require("gitlinker").setup {}
-  --     end)
-  --   end,
-  -- },
   {
     "linrongbin16/gitlinker.nvim",
+    -- version = "~v5.4.0",
     config = function()
       require("lazyvim.util").on_load("which-key.nvim", function()
         require("which-key").add {

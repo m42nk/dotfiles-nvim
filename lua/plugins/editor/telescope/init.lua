@@ -5,6 +5,7 @@ local tsUtil = require "plugins.editor.telescope.utils"
 return {
   {
     "nvim-telescope/telescope.nvim",
+    -- version = "~v0.2.1",
     keys = {
       -- { "<c-p>", LazyVim.pick "files", desc = "Find Files (root dir)" },
       -- stylua: ignore

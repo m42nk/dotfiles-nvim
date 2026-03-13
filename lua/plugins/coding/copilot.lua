@@ -2,6 +2,7 @@
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    -- version = "~v4.7.4",
     dependencies = {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
@@ -11,13 +12,13 @@ return {
     opts = {
       -- model = "claude-sonnet-4.5",
       -- model = "copilot:gpt-5-mini",
-      model = "claude-haiku-4.5",
+      -- model = "claude-haiku-4.5",
       temperature = 0.1,
       sticky = {
         "Provide concise answers.",
         "Provide follow-up questions to clarify user requests.",
         "#buffers",
-        "#buffer:listed"
+        "#buffer:listed",
       },
     },
   },

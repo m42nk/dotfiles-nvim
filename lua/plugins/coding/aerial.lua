@@ -1,9 +1,11 @@
 local Config = require "lazyvim.config"
 local Util = require "lazyvim.util"
 
+---@type LazySpec
 return {
   {
     "stevearc/aerial.nvim",
+    -- version = "" -- invalid versioning
     event = "LazyFile",
     opts = function()
       local icons = vim.deepcopy(Config.icons.kinds)
@@ -50,6 +52,7 @@ return {
   -- Telescope integration
   {
     "nvim-telescope/telescope.nvim",
+    version = "~v0.2.1",
     optional = true,
     opts = function()
       Util.on_load("telescope.nvim", function()
@@ -68,6 +71,7 @@ return {
   -- lualine integration
   {
     "nvim-lualine/lualine.nvim",
+    -- version = "", -- invalid versioning
     optional = true,
     opts = function(_, opts)
       table.insert(opts.sections.lualine_c, {
