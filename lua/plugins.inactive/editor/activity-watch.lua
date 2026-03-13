@@ -4,6 +4,7 @@ return {
     "ActivityWatch/aw-watcher-vim",
     build = ":AWStart",
     lazy = false,
+    enabled= false,
   },
   -- {
   --   "lowitea/aw-watcher.nvim",

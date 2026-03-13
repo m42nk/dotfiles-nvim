@@ -1,9 +1,12 @@
 local cmp = require "cmp"
 local utils = require "plugins.coding.nvim-cmp.utils"
 
+---@type LazySpec
 return {
   {
     "hrsh7th/nvim-cmp",
+    enabled = false,
+    version = "~v0.0.2",
     -- init = function()
     --   Util.lsp.on_attach(function()
     --     -- local opts = { border = "rounded" }

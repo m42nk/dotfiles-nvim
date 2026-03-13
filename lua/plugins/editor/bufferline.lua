@@ -1,6 +1,8 @@
+---@type LazySpec
 return {
   {
     "akinsho/bufferline.nvim",
+    version = "~v4.9.1",
     opts = {
       options = {
         always_show_bufferline = true,
@@ -24,6 +26,7 @@ return {
   {
     -- Scope buffers to tab
     "tiagovla/scope.nvim",
+    -- version = "" -- invalid versioning
     config = function()
       require("scope").setup {}
     end,

@@ -1,6 +1,8 @@
+---@type LazySpec
 return {
   {
     "nvimdev/lspsaga.nvim",
+    -- version = "", -- no versioning
     enabled = true,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
@@ -33,14 +35,14 @@ return {
         },
         finder = {
           keys = {
-            shuttle = '[w',
-            toggle_or_open = 'o',
-            vsplit = 's',
-            split = 'i',
-            tabe = 't',
-            tabnew = 'r',
-            quit = 'q',
-            close = '<C-c>k',
+            shuttle = "[w",
+            toggle_or_open = "o",
+            vsplit = "s",
+            split = "i",
+            tabe = "t",
+            tabnew = "r",
+            quit = "q",
+            close = "<C-c>k",
           },
         },
 

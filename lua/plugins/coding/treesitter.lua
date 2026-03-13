@@ -2,34 +2,65 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    ---@param opts TSConfig
-    config = function(_, opts)
-      opts = vim.tbl_extend("force", opts, {
-        autotag = { enable = true },
-        matchup = { enable = true },
-        textobjects = {
-          move = {
-            enable = true,
-            goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
-            goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
-            goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
-            goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
-          },
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-            },
+    -- version = "~v0.10.0",
+    lazy = false,
+    build = ":TSUpdate",
+    branch = "main",
+    opts = {
+      autotag = { enable = true },
+      matchup = { enable = true },
+      textobjects = {
+        move = {
+          enable = true,
+          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
+          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+        },
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
           },
         },
-      })
-
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+      },
+    },
   },
-  { "nvim-treesitter/playground" },
+  config = function(_, opts)
+    local TS = require "nvim-treesitter"
+    TS.setup(opts)
+  end,
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   ---@param opts TSConfig
+  --   config = function(_, opts)
+  --     opts = vim.tbl_extend("force", opts, {
+  --       autotag = { enable = true },
+  --       matchup = { enable = true },
+  --       textobjects = {
+  --         move = {
+  --           enable = true,
+  --           goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer" },
+  --           goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer" },
+  --           goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer" },
+  --           goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
+  --         },
+  --         select = {
+  --           enable = true,
+  --           lookahead = true,
+  --           keymaps = {
+  --             ["af"] = "@function.outer",
+  --             ["if"] = "@function.inner",
+  --           },
+  --         },
+  --       },
+  --     })
+  --
+  --     require("nvim-treesitter.configs").setup(opts)
+  --   end,
+  -- },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     -- TODO: broken in LazyVim 12.38.2, see if we need to fix this or use default
@@ -81,7 +112,7 @@ return {
 
   -- Use treesitter text-objects instead
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     enabled = false,
     -- opts = function(_, opts)
     --   local ai = require "mini.ai"

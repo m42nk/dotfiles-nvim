@@ -1,9 +1,11 @@
 local Util = require "lazyvim.util"
 local colors = require("tokyonight.colors").setup()
 
+---@type LazySpec
 return {
   {
     "petertriho/nvim-scrollbar",
+    -- version = "" -- no versioning
     opts = {
       handle = {
         color = "#6b728f",
