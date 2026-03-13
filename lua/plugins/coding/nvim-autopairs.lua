@@ -2,7 +2,7 @@
 return {
   {
     "windwp/nvim-autopairs",
-    version = "0.11.0",
+    -- version = "0.11.0",
     event = "InsertEnter",
     opts = {},
     config = function(_, opts)

@@ -2,7 +2,7 @@
 return {
   {
     "nvim-neotest/neotest",
-    version = "~v5.13.4",
+    -- version = "~v5.13.4",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",

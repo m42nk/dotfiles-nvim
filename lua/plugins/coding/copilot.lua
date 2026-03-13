@@ -2,7 +2,7 @@
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    version = "~v4.7.4",
+    -- version = "~v4.7.4",
     dependencies = {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
@@ -18,7 +18,7 @@ return {
         "Provide concise answers.",
         "Provide follow-up questions to clarify user requests.",
         "#buffers",
-        "#buffer:listed"
+        "#buffer:listed",
       },
     },
   },

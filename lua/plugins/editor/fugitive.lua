@@ -2,6 +2,6 @@
 return {
   {
     "tpope/vim-fugitive",
-    version = "~v3.7",
+    -- version = "~v3.7",
   },
 }

@@ -2,7 +2,7 @@
 return {
   {
     "lewis6991/gitsigns.nvim",
-    version = "~v2.0.0",
+    -- version = "~v2.0.0",
     opts = {
       current_line_blame = true,
       on_attach = function(buffer)

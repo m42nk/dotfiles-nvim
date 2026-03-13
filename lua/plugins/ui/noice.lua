@@ -2,7 +2,7 @@
 return {
   {
     "folke/noice.nvim",
-    version = "~v4.10.0",
+    -- version = "~v4.10.0",
     ---@type NoiceConfig
     opts = {
       views = {
