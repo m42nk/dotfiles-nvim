@@ -17,51 +17,53 @@ return {
         -- Disable codelens by default, it will be enabled on init function
         codelens = { enabled = false },
         servers = {
-          keys = {
-            {
-              "gi",
-              function()
-                require("telescope.builtin").lsp_implementations { reuse_win = false, show_line = false }
-              end,
-              desc = "G To Implementations",
+          ["*"] = {
+            keys = {
+              {
+                "gi",
+                function()
+                  require("telescope.builtin").lsp_implementations { reuse_win = false, show_line = false }
+                end,
+                desc = "Goto Implementations",
+              },
+              {
+                "gd",
+                function()
+                  require("telescope.builtin").lsp_definitions { reuse_win = false, show_line = false }
+                end,
+                desc = "Goto Definition",
+                has = "definition",
+              },
+              {
+                "<leader>cgd",
+                function()
+                  require("telescope.builtin").lsp_definitions { jump_type = "vsplit", show_line = false }
+                end,
+                desc = "Goto Definition (Split)",
+                has = "definition",
+              },
+              {
+                "gy",
+                function()
+                  require("telescope.builtin").lsp_type_definitions { reuse_win = false }
+                end,
+                desc = "Goto T[y]pe Definition",
+              },
+              {
+                "gr",
+                function()
+                  require("telescope.builtin").lsp_references {
+                    reuse_win = false,
+                    show_line = false,
+                    include_current_line = false,
+                  }
+                end,
+                desc = "References",
+              },
+              -- { "gx", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+              -- { "gD", false },
+              -- { "gI", false },
             },
-            {
-              "gd",
-              function()
-                require("telescope.builtin").lsp_definitions { reuse_win = false, show_line = false }
-              end,
-              desc = "Goto Definition",
-              has = "definition",
-            },
-            {
-              "<leader>cgd",
-              function()
-                require("telescope.builtin").lsp_definitions { jump_type = "vsplit", show_line = false }
-              end,
-              desc = "Goto Definition (Split)",
-              has = "definition",
-            },
-            {
-              "gy",
-              function()
-                require("telescope.builtin").lsp_type_definitions { reuse_win = false }
-              end,
-              desc = "Goto T[y]pe Definition",
-            },
-            {
-              "gr",
-              function()
-                require("telescope.builtin").lsp_references {
-                  reuse_win = false,
-                  show_line = false,
-                  include_current_line = false,
-                }
-              end,
-              desc = "References",
-            },
-            -- { "gx", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-            -- { "gD", false },
-            -- { "gI", false },
           },
         },
       }

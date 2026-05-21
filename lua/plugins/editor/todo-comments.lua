@@ -7,6 +7,8 @@ return {
       DANGER = { icon = " ", color = "error" },
       SAKIS = { icon = "", color = "error" },
       NOTE = { icon = "⏲ ", color = "note" },
+      QUESTION = { icon = " ", color = "note" },
+      QQ = { icon = " ", color = "note" },
       -- ["SAKIS:TODO"] = { icon = "", color = "blue" },
       -- ["SAKIS:INFO"] = { icon = "", color = "blue" },
       -- ["SAKIS:NOTE"] = { icon = "", color = "yellow" },

@@ -12,6 +12,7 @@ return {
             col = "50%",
           },
           size = {
+            min_width = 80,
             width = "auto",
             height = "auto",
           },
@@ -24,6 +25,11 @@ return {
           position = {
             row = 4,
             col = "50%",
+          },
+          size = {
+            min_width = 80,
+            width = "auto",
+            height = "auto",
           },
         },
         popupmenu = {

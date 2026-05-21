@@ -30,14 +30,15 @@ return {
         icons = { "H1 ", "H2 ", "H3 ", "H4 ", "H5 ", "H6 " },
 
         -- TODO: colors
-        -- backgrounds = {
-        --     'RenderMarkdownH1Bg',
-        --     'RenderMarkdownH2Bg',
-        --     'RenderMarkdownH3Bg',
-        --     'RenderMarkdownH4Bg',
-        --     'RenderMarkdownH5Bg',
-        --     'RenderMarkdownH6Bg',
-        -- },
+        backgrounds = {
+          -- 'RenderMarkdownH1Bg',
+          "CursorLine",
+          "RenderMarkdownH2Bg",
+          "RenderMarkdownH3Bg",
+          "RenderMarkdownH4Bg",
+          "RenderMarkdownH5Bg",
+          "RenderMarkdownH6Bg",
+        },
         -- foregrounds = {
         --     'RenderMarkdownH1',
         --     'RenderMarkdownH2',
