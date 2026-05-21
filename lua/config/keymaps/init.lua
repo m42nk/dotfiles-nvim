@@ -17,6 +17,7 @@ local keysToDelete = {
   { "n", "<leader>fT", "Terminal (CWD)" },
 
   { "n", "<leader>l", "Lazy" },
+  { "n", "<leader>/", "Grep" },
 }
 
 for _, key in ipairs(keysToDelete) do
