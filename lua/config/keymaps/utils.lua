@@ -10,6 +10,7 @@ m.paneToggleSize = function()
   else
     vim.g._pane_maximized = true
     vim.cmd "wincmd |"
+    vim.cmd "wincmd _"
   end
 end
 

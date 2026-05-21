@@ -53,7 +53,6 @@ opt.fillchars = {
 --   space = " ",
 -- }
 opt.listchars = "eol:↲,tab:→ ,trail:•,nbsp:␣,extends:⟩,precedes:⟨,space: ,multispace:·"
--- laksjdaslkdjaskld jalksjd laskjdlk sajlkd jaslkj klasjkld jsakldj klasjdkl jkld jaskldj klasj klasj klasjlk ajklsd j
 
 -- opt.sessionoptions = {
 --   "buffers",
