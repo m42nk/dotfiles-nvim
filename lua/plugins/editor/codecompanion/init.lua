@@ -18,6 +18,53 @@ return {
         spinner = {},
       },
 
+      interactions = {
+        chat = {
+          opts = {
+            ---        ---@class CodeCompanion.SystemPrompt.Context
+            ---        ---@field language string
+            ---        ---@field adapter CodeCompanion.HTTPAdapter|CodeCompanion.ACPAdapter
+            ---        ---@field date string
+            ---        ---@field nvim_version string
+            ---        ---@field os string the operating system that the user is using
+            ---        ---@field default_system_prompt string
+            ---        ---@field cwd string current working directory
+            ---        ---The closest parent directory that contains one of the following VCS markers:
+            ---        --- - `.git`
+            ---        --- - `.svn`
+            ---        --- - `.hg`
+            ---        ---@field project_root? string the closest parent directory that contains a `.git` subdirectory.
+            ---        system_prompt = function(ctx)
+            ---          return ctx.default_system_prompt
+            ---            .. string.format(
+            ---              [[Additional context:
+            ---    Provide concise answers.
+            ---    Provide follow-up questions to clarify user requests.
+            ---]],
+            ---              ctx.language,
+            ---              ctx.date,
+            ---              ctx.nvim_version,
+            ---              ctx.os
+            ---            )
+            ---        end,
+          },
+          adapter = {
+            name = "copilot",
+            model = "claude-sonnet-4-5",
+          },
+          tools = {
+            opts = {
+              default_tools = {
+                "agent",
+                "read_file",
+                "grep_search",
+                "file_search",
+                "insert_edit_into_file",
+              },
+            },
+          },
+        },
+      },
     },
     init = function()
       -- require("plugins.editor.codecompanion.fidget-spinner"):init()

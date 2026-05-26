@@ -221,3 +221,6 @@ end, { desc = "Lazygit Log *" })
 -- vim.keymap.set("o", "g=", function()
 --   Util.format { force = true }
 -- end, { desc = "Format" })
+
+vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename word under cursor (lsp)" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
