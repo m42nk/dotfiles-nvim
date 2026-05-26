@@ -8,6 +8,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "j-hui/fidget.nvim",
       "franco-ruggeri/codecompanion-spinner.nvim",
+      "ravitemer/codecompanion-history.nvim",
     },
     opts = {
       -- -- NOTE: The log_level is in `opts.opts`
@@ -16,6 +17,9 @@ return {
       -- },
       extensions = {
         spinner = {},
+        history = {
+          enabled = true,
+        },
       },
 
       interactions = {
@@ -50,16 +54,13 @@ return {
           },
           adapter = {
             name = "copilot",
-            model = "claude-sonnet-4-5",
+            model = "claude-haiku-4.5",
           },
           tools = {
             opts = {
               default_tools = {
+                "files",
                 "agent",
-                "read_file",
-                "grep_search",
-                "file_search",
-                "insert_edit_into_file",
               },
             },
           },

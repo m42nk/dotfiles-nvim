@@ -37,6 +37,13 @@ return {
                 unusedparams = true,
                 unusedwrite = true,
                 useany = true,
+
+                -- at least one file in a package should have a package comment ST1000
+                ST1000 = false,
+                -- comment on exported function NewDatabaseConfig should be of the form "NewDatabaseConfig ..." ST1020
+                ST1020 = false,
+                -- comment on exported type Database should be of the form "Database ..." (with optional leading article) ST1021
+                ST1021 = false,
               },
               usePlaceholders = true,
               completeUnimported = true,
