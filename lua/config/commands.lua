@@ -97,3 +97,21 @@ vim.api.nvim_create_user_command("QfToCliBuffer", function()
   vim.bo.bufhidden = "wipe"
   vim.bo.swapfile = false
 end, {})
+
+-- Code
+-- Open current file in vscode or code-insiders (based on flag)
+vim.api.nvim_create_user_command("Code", function(args)
+  local file_path = vim.api.nvim_buf_get_name(0)
+  local cmd = args.args == "insiders" and "code-insiders" or "code"
+  if file_path == "" then
+    vim.notify("No file to open", vim.log.levels.WARN)
+    return
+  end
+  local escaped_path = vim.fn.shellescape(file_path)
+  local full_cmd = string.format("%s %s .", cmd, escaped_path)
+  -- Use system() to execute the command without blocking Neovim
+  local result = os.execute(full_cmd)
+  if result ~= 0 then
+    vim.notify("Failed to open file in VSCode", vim.log.levels.ERROR)
+  end
+end, {})

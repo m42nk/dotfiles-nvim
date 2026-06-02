@@ -25,6 +25,21 @@ return {
       interactions = {
         chat = {
           opts = {
+            ["read_file"] = {
+              opts = { require_approval_before = false },
+            },
+            ["grep_search"] = {
+              opts = { require_approval_before = false },
+            },
+            ["get_diagnostics"] = {
+              opts = { require_approval_before = false },
+            },
+            ["file_search"] = {
+              opts = { require_approval_before = false },
+            },
+            ["get_changed_files"] = {
+              opts = { require_approval_before = false },
+            },
             ---        ---@class CodeCompanion.SystemPrompt.Context
             ---        ---@field language string
             ---        ---@field adapter CodeCompanion.HTTPAdapter|CodeCompanion.ACPAdapter
@@ -61,6 +76,16 @@ return {
               default_tools = {
                 "files",
                 "agent",
+                -- "create_file",
+                -- "delete_file",
+                "fetch_webpage",
+                "file_search",
+                "get_changed_files",
+                "get_diagnostics",
+                "grep_search",
+                "read_file",
+                -- "run_command",
+                -- "web_search",
               },
             },
           },

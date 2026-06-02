@@ -44,6 +44,8 @@ return {
                 ST1020 = false,
                 -- comment on exported type Database should be of the form "Database ..." (with optional leading article) ST1021
                 ST1021 = false,
+                -- comment on exported var
+                ST1022 = false,
               },
               usePlaceholders = true,
               completeUnimported = true,
