@@ -3,6 +3,7 @@ return {
   {
     "olimorris/codecompanion.nvim",
     lazy = false,
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -67,9 +68,13 @@ return {
             ---            )
             ---        end,
           },
+          -- adapter = {
+          --   name = "copilot",
+          --   model = "claude-haiku-4.5",
+          -- },
           adapter = {
-            name = "copilot",
-            model = "claude-haiku-4.5",
+            name = "opencode",
+            model = "openai-gpt-5-5",
           },
           tools = {
             opts = {

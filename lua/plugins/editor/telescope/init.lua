@@ -19,6 +19,7 @@ return {
       { "<leader>fl", tsUtil.lazyvim_files(), desc = "LazyVim files (Telescope)" },
       { "<leader>sG", tsUtil.live_grep(), desc = "Grep (Root Dir)" },
       { "<leader>sB", LazyVim.pick "builtin", desc = "Telescope Builtins" },
+      { "<leader>sR", LazyVim.pick "resume", desc = "Telescope Resume" },
       { "<leader>sf", LazyVim.pick "files", desc = "Find Files (root dir)" },
       { "<leader>sj", LazyVim.pick("jumplist", { trim_text = true }), desc = "Telescope Jumps" },
       { "<leader>sv", LazyVim.pick "git_status", desc = "Git Status" },
@@ -27,6 +28,7 @@ return {
     dependencies = {
       require "plugins.editor.telescope.telescope-undo",
       require "plugins.editor.telescope.telescope-live-grep-args",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     opts = {
       defaults = {
