@@ -111,6 +111,11 @@ vim.keymap.set("n", "<c-w>j", require("util.tmux").navigate "j")
 vim.keymap.set("n", "<c-w>k", require("util.tmux").navigate "k")
 vim.keymap.set("n", "<c-w>l", require("util.tmux").navigate "l")
 
+vim.keymap.set("n", "<c-h>", require("util.tmux").navigate "h")
+vim.keymap.set("n", "<c-j>", require("util.tmux").navigate "j")
+vim.keymap.set("n", "<c-k>", require("util.tmux").navigate "k")
+vim.keymap.set("n", "<c-l>", require("util.tmux").navigate "l")
+
 -- Grep
 vim.keymap.set("n", "gG", kUtil.projectGrepWithContext, { desc = "Go to line" })
 

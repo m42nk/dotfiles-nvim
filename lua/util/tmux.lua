@@ -7,8 +7,19 @@ local TMUX_DIR_MAP = {
   ["l"] = "-R",
 }
 
+local ZELLIJ_DIR_MAP = {
+  ["h"] = "left",
+  ["j"] = "down",
+  ["k"] = "up",
+  ["l"] = "right",
+}
+
 local check_tmux = function()
   return vim.env["TMUX"] and true or false
+end
+
+local check_zellij = function()
+  return vim.env["ZELLIJ"] ~= nil and vim.env["ZELLIJ"] ~= ""
 end
 
 local check_edge = function(direction)
@@ -21,6 +32,7 @@ end
 M.navigate = function(direction)
   return function()
     local is_tmux = check_tmux()
+    local is_zellij = check_zellij()
     local ok, is_on_edge = pcall(check_edge, direction)
 
     if not ok then
@@ -28,7 +40,9 @@ M.navigate = function(direction)
       return function() end
     end
 
-    if is_on_edge and is_tmux then
+    if is_on_edge and is_zellij then
+      vim.fn.system("zellij action move-focus " .. ZELLIJ_DIR_MAP[direction])
+    elseif is_on_edge and is_tmux then
       vim.fn.system("tmux select-pane " .. TMUX_DIR_MAP[direction])
     else
       vim.cmd("wincmd " .. direction)
