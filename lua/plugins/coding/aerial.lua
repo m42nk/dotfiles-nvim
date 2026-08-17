@@ -5,6 +5,7 @@ local Util = require "lazyvim.util"
 return {
   {
     "stevearc/aerial.nvim",
+    enabled = false,
     -- version = "" -- invalid versioning
     event = "LazyFile",
     opts = function()
