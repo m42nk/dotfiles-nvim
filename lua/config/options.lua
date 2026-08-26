@@ -13,6 +13,24 @@ opt.expandtab = true -- Use spaces instead of tabs
 opt.colorcolumn = "100" -- "80" -- add visual border for column 80
 opt.swapfile = false -- Don't use swapfile
 opt.clipboard:remove "unnamedplus" -- don't use system clipboard
+
+-- handle wsl unnamedplus yank
+-- https://github.com/LazyVim/LazyVim/discussions/5954#discussioncomment-12878626
+if vim.fn.has "wsl" == 1 then
+  vim.g.clipboard = {
+    name = "Win32Yank",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+    cache_enabled = 0,
+  }
+end
+
 opt.splitbelow = true -- Put new windows below current
 
 opt.updatetime = 1000 -- CursorHold
