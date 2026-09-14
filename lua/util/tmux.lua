@@ -40,6 +40,8 @@ M.navigate = function(direction)
       return function() end
     end
 
+    -- vim.notify("Move: " .. direction)
+
     if is_on_edge and is_zellij then
       vim.fn.system("zellij action move-focus " .. ZELLIJ_DIR_MAP[direction])
     elseif is_on_edge and is_tmux then

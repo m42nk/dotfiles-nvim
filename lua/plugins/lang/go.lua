@@ -37,6 +37,8 @@ return {
                 unusedparams = true,
                 unusedwrite = true,
                 useany = true,
+                unusedfunc = true,
+                unusedvariable = true,
 
                 -- at least one file in a package should have a package comment ST1000
                 ST1000 = false,
