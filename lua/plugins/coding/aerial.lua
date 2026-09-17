@@ -5,6 +5,7 @@ local Util = require "lazyvim.util"
 return {
   {
     "stevearc/aerial.nvim",
+    enabled = false,
     -- version = "" -- invalid versioning
     event = "LazyFile",
     opts = function()
@@ -55,9 +56,9 @@ return {
     version = "~v0.2.1",
     optional = true,
     opts = function()
-      Util.on_load("telescope.nvim", function()
-        require("telescope").load_extension "aerial"
-      end)
+      -- Util.on_load("telescope.nvim", function()
+      --   require("telescope").load_extension "aerial"
+      -- end)
     end,
     keys = {
       {

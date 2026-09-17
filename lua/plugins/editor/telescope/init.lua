@@ -1,23 +1,42 @@
-local actions = require "telescope.actions"
-local layout = require "telescope.actions.layout"
-local tsUtil = require "plugins.editor.telescope.utils"
-
 return {
   {
     "nvim-telescope/telescope.nvim",
     -- version = "~v0.2.1",
     keys = {
-      -- { "<c-p>", LazyVim.pick "files", desc = "Find Files (root dir)" },
       -- stylua: ignore
-      { "<c-p>", tsUtil.find_files(), desc = "Find Files (root dir)", },
+      { "<c-p>", function() require("plugins.editor.telescope.utils").find_files() end, desc = "Find Files (root dir)" },
       { "<leader>/", false },
       { "<leader><space>", false },
       { "<leader>bs", LazyVim.pick "buffers", desc = "Buffers" },
-      { "<leader>fL", tsUtil.lazyvim_tree(), desc = "LazyVim files (Neo-tree)" },
+      {
+        "<leader>fL",
+        function()
+          require("plugins.editor.telescope.utils").lazyvim_tree()
+        end,
+        desc = "LazyVim files (Neo-tree)",
+      },
       { "<leader>fc", LazyVim.pick.config_files(), desc = "LazyVim files" },
-      { "<leader>fd", tsUtil.global_todo_files(), desc = "Find global TODO files" },
-      { "<leader>fl", tsUtil.lazyvim_files(), desc = "LazyVim files (Telescope)" },
-      { "<leader>sG", tsUtil.live_grep(), desc = "Grep (Root Dir)" },
+      {
+        "<leader>fd",
+        function()
+          require("plugins.editor.telescope.utils").global_todo_files()
+        end,
+        desc = "Find global TODO files",
+      },
+      {
+        "<leader>fl",
+        function()
+          require("plugins.editor.telescope.utils").lazyvim_files()
+        end,
+        desc = "LazyVim files (Telescope)",
+      },
+      {
+        "<leader>sG",
+        function()
+          require("plugins.editor.telescope.utils").live_grep()
+        end,
+        desc = "Grep (Root Dir)",
+      },
       { "<leader>sB", LazyVim.pick "builtin", desc = "Telescope Builtins" },
       { "<leader>sR", LazyVim.pick "resume", desc = "Telescope Resume" },
       { "<leader>sf", LazyVim.pick "files", desc = "Find Files (root dir)" },
@@ -51,55 +70,99 @@ return {
         },
         mappings = {
           n = {
-            ["<tab>"] = actions.move_selection_next,
-            ["<s-tab>"] = actions.move_selection_previous,
+            ["<tab>"] = function(...)
+              return require("telescope.actions").move_selection_next(...)
+            end,
 
-            ["<m-p>"] = layout.toggle_preview,
+            ["<s-tab>"] = function(...)
+              return require("telescope.actions").move_selection_previous(...)
+            end,
 
-            ["<c-n>"] = actions.toggle_selection + actions.move_selection_worse,
-            ["<c-p>"] = actions.toggle_selection + actions.move_selection_better,
+            ["<m-p>"] = function(...)
+              return require("telescope.actions.layout").toggle_preview(...)
+            end,
+
+            ["<c-n>"] = function(prompt_bufnr)
+              local actions = require "telescope.actions"
+              actions.toggle_selection(prompt_bufnr)
+              actions.move_selection_worse(prompt_bufnr)
+            end,
+
+            ["<c-p>"] = function(prompt_bufnr)
+              local actions = require "telescope.actions"
+              actions.toggle_selection(prompt_bufnr)
+              actions.move_selection_better(prompt_bufnr)
+            end,
           },
+
           i = {
-            ["<tab>"] = actions.move_selection_next,
-            ["<s-tab>"] = actions.move_selection_previous,
+            ["<tab>"] = function(...)
+              return require("telescope.actions").move_selection_next(...)
+            end,
 
-            ["<m-p>"] = layout.toggle_preview,
+            ["<s-tab>"] = function(...)
+              return require("telescope.actions").move_selection_previous(...)
+            end,
 
-            ["<c-n>"] = actions.toggle_selection + actions.move_selection_worse,
-            ["<c-p>"] = actions.toggle_selection + actions.move_selection_better,
+            ["<m-p>"] = function(...)
+              return require("telescope.actions.layout").toggle_preview(...)
+            end,
+
+            ["<c-n>"] = function(prompt_bufnr)
+              local actions = require "telescope.actions"
+              actions.toggle_selection(prompt_bufnr)
+              actions.move_selection_worse(prompt_bufnr)
+            end,
+
+            ["<c-p>"] = function(prompt_bufnr)
+              local actions = require "telescope.actions"
+              actions.toggle_selection(prompt_bufnr)
+              actions.move_selection_better(prompt_bufnr)
+            end,
 
             -- ignore shortcuts for lsp pickers
             ["<c-h>"] = { " !mock !_test.go ", type = "command" },
 
             -- putting it on 'extensions' not working
             ["<C-s-h>"] = function(prompt_bufnr)
-              -- stylua: ignore
-              require("telescope-live-grep-args.actions").quote_prompt({ postfix = " -g !*mock* -g !*_test.go -g !*vendor*" })(prompt_bufnr)
+              require("telescope-live-grep-args.actions").quote_prompt {
+                postfix = " -g !*mock* -g !*_test.go -g !*vendor*",
+              }(prompt_bufnr)
             end,
 
             -- refine
-            ["<c-f>"] = actions.to_fuzzy_refine,
+            ["<c-f>"] = function(...)
+              return require("telescope.actions").to_fuzzy_refine(...)
+            end,
           },
         },
       },
+
       pickers = {
         colorscheme = {
           enable_preview = true,
         },
+
         git_files = {
           prompt_title = "Find Files (Git)",
         },
+
         find_files = {
           prompt_title = "Find Files",
         },
+
         buffers = {
           prompt_title = "Buffers",
           mappings = {
             i = {
-              ["<c-l>"] = actions.delete_buffer,
+              ["<c-l>"] = function(...)
+                return require("telescope.actions").delete_buffer(...)
+              end,
             },
             n = {
-              ["<c-l>"] = actions.delete_buffer,
+              ["<c-l>"] = function(...)
+                return require("telescope.actions").delete_buffer(...)
+              end,
             },
           },
         },
