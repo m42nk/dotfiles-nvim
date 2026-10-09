@@ -47,7 +47,15 @@ return {
     dependencies = {
       require "plugins.editor.telescope.telescope-undo",
       require "plugins.editor.telescope.telescope-live-grep-args",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function()
+          LazyVim.on_load("telescope.nvim", function()
+            require("telescope").load_extension "fzf"
+          end)
+        end,
+      },
     },
     opts = {
       defaults = {
@@ -125,6 +133,11 @@ return {
 
             -- putting it on 'extensions' not working
             ["<C-s-h>"] = function(prompt_bufnr)
+              require("telescope-live-grep-args.actions").quote_prompt {
+                postfix = " -g !*mock* -g !*_test.go -g !*vendor*",
+              }(prompt_bufnr)
+            end,
+            ["<M-C-H>"] = function(prompt_bufnr)
               require("telescope-live-grep-args.actions").quote_prompt {
                 postfix = " -g !*mock* -g !*_test.go -g !*vendor*",
               }(prompt_bufnr)
